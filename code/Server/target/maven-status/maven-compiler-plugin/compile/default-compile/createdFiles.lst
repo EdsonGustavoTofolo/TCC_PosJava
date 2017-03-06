@@ -1,0 +1,3 @@
+br\edu\utfpr\pb\server\framework\WebConfig.class
+br\edu\utfpr\pb\server\controllers\HelloController.class
+br\edu\utfpr\pb\server\ServidorSpringApplication.class
