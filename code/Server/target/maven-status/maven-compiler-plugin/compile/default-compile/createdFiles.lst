@@ -1,3 +1,6 @@
 br\edu\utfpr\pb\server\framework\WebConfig.class
+br\edu\utfpr\pb\server\model\Pessoa.class
 br\edu\utfpr\pb\server\controllers\HelloController.class
 br\edu\utfpr\pb\server\ServidorSpringApplication.class
+br\edu\utfpr\pb\server\data\PessoaRepository.class
+br\edu\utfpr\pb\server\controllers\PessoaController.class

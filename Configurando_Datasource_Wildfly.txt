@@ -1,0 +1,40 @@
+IR EM %WILDFLY_HOME%\modules\system\layers\base\com E CRIAR OS DIRETORIOS:
+"\mysql\driver\main", entrar neste diretorio e colar o JDBC do mysql, 
+por exemplo o "mysql-connector-java-5.1.39.jar"
+E CRIAR O ARQUIVO "module.xml" e colar o seguinte codigo:
+<module xmlns="urn:jboss:module:1.3" name="com.mysql.driver">
+ <resources>
+  <resource-root path="mysql-connector-java-5.1.39.jar" />
+ </resources>
+ <dependencies>
+  <module name="javax.api"/>
+  <module name="javax.transaction.api"/>
+ </dependencies>
+</module>
+
+LOGO APOS IR EM %WILDFLY_HOME%\standalone\configuration\ e abrir o arquivo standalone.xml;
+LOCALIZAR A TAG "datasources" e dentro da mesma colar o codigo:
+<datasource jta="true" jndi-name="java:/MySqlDS" pool-name="MySqlDS" enabled="true" use-ccm="true">
+	<connection-url>jdbc:mysql://localhost:3306/dbservertest</connection-url>
+	<driver-class>com.mysql.jdbc.Driver</driver-class>
+	<driver>mysql</driver>
+	<security>
+		<user-name>root</user-name>
+		<password>root</password>
+	</security>
+	<validation>
+		<valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+		<background-validation>true</background-validation>
+		<exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+	</validation>
+</datasource>
+
+AINDA DENTRO DA TAG "datasources" colar:
+<drivers>
+	<driver name="h2" module="com.h2database.h2">
+		<xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+	</driver>
+	<driver name="mysql" module="com.mysql.driver">
+		<driver-class>com.mysql.jdbc.Driver</driver-class>
+	</driver>
+</drivers>
