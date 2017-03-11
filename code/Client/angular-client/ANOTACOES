@@ -1,0 +1,20 @@
+** INSTALANDO BOOTSTRAP **
+ -> http://v4-alpha.getbootstrap.com/getting-started/download/#package-managers
+ -> https://ng-bootstrap.github.io/#/getting-started
+$ npm install --save bootstrap@4.0.0-alpha.6 font-awesome
+  Depois do comando acima, ajustar o angular-cli.json inserindo o seguinte codigo:
+  "styles": [
+    "../node_modules/bootstrap/dist/css/bootstrap.css",
+    "../node_modules/font-awesome/css/font-awesome.css",
+    "styles.css"
+  ],
+  "scripts": [
+    "../node_modules/jquery/dist/jquery.js",
+    "../node_modules/tether/dist/js/tether.js",
+    "../node_modules/bootstrap/dist/js/bootstrap.js"
+  ]
+
+http://v4-alpha.getbootstrap.com/
+
+** UTILIZANDO NAVBAR BOOTSTRAP 4
+https://v4-alpha.getbootstrap.com/components/navbar/
