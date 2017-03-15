@@ -18,3 +18,9 @@ http://v4-alpha.getbootstrap.com/
 
 ** UTILIZANDO NAVBAR BOOTSTRAP 4
 https://v4-alpha.getbootstrap.com/components/navbar/
+https://v4-alpha.getbootstrap.com/examples/
+
+
+** SOBRE ANGULAR 2 **
+Make sure to add "FormsModule" to your "AppModule" for the Template-Driven approach and "ReactiveFormsModule" in your
+"AppModule" for the Data-Driven approach.

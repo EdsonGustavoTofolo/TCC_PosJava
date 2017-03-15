@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './views/common/nav/nav.component';
 import { FooterComponent } from './views/common/footer/footer.component';
+import { ConvalidacaoComponent } from './views/convalidacao/convalidacao.component';
+import {routing} from "./app.routing";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    ConvalidacaoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
