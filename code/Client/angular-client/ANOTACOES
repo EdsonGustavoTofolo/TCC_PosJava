@@ -18,11 +18,13 @@ http://v4-alpha.getbootstrap.com/
 
 ** UTILIZANDO NAVBAR BOOTSTRAP 4
 https://v4-alpha.getbootstrap.com/components/navbar/
+https://v4-alpha.getbootstrap.com/examples/grid/ -> aqui tem sobre as classes col-
 https://v4-alpha.getbootstrap.com/examples/
 
 ** UTILIZANDO MATERIAL DESIGN FOR ANGULAR 2 **
-> Instalando https://github.com/angular/material2/blob/master/guides/getting-started.md
-> Docs https://material.angular.io/components/component/input
+> Instalando <https://github.com/angular/material2/blob/master/guides/getting-started.md>
+> Docs <https://material.angular.io/components/component/input>
+> Icones <https://material.io/icons/> <http://google.github.io/material-design-icons/#icon-font-for-the-web>
 
 
 ** SOBRE ANGULAR 2 **

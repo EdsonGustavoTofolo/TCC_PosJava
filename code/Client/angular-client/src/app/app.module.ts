@@ -9,13 +9,15 @@ import { FooterComponent } from './views/common/footer/footer.component';
 import { ConvalidacaoComponent } from './views/convalidacao/convalidacao.component';
 import {routing} from "./app.routing";
 import 'hammerjs';
+import { ConvalidacaoItemsComponent } from './views/convalidacao/convalidacao-items/convalidacao-items.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     FooterComponent,
-    ConvalidacaoComponent
+    ConvalidacaoComponent,
+    ConvalidacaoItemsComponent
   ],
   imports: [
     BrowserModule,
