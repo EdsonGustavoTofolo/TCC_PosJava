@@ -20,6 +20,10 @@ http://v4-alpha.getbootstrap.com/
 https://v4-alpha.getbootstrap.com/components/navbar/
 https://v4-alpha.getbootstrap.com/examples/
 
+** UTILIZANDO MATERIAL DESIGN FOR ANGULAR 2 **
+> Instalando https://github.com/angular/material2/blob/master/guides/getting-started.md
+> Docs https://material.angular.io/components/component/input
+
 
 ** SOBRE ANGULAR 2 **
 Make sure to add "FormsModule" to your "AppModule" for the Template-Driven approach and "ReactiveFormsModule" in your
