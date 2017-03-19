@@ -1,23 +1,35 @@
 <h3>Requerimento de Convalidação <small>123</small></h3>
 <hr>
-<div class="row pt-3 container">
-  <div class="form-group col-lg-4 col-md-12">
-    <md-input-container>
-      <input mdInput/>
-      <md-placeholder>Código</md-placeholder>
-    </md-input-container>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="row pt-3 container">
+    <div class="form-group col-lg-4 col-md-12">
+      <md-input-container>
+        <input mdInput [(ngModel)]="convalidacao.codigo" id="codigo" name="codigo" required/>
+        <md-placeholder>Código</md-placeholder>
+      </md-input-container>
+    </div>
+    <div class="form-group col-lg-8 col-md-12">
+      <md-input-container>
+        <input mdInput [(ngModel)]="convalidacao.aluno" id="aluno" name="aluno" required/>
+        <md-placeholder>Aluno</md-placeholder>
+      </md-input-container>
+    </div>
+    <div class="form-group col-lg-12 col-md-12">
+      <md-input-container>
+        <input mdInput [(ngModel)]="convalidacao.coordenacao" id="coordenacao" name="coordenacao" required/>
+        <md-placeholder>Coordenação</md-placeholder>
+      </md-input-container>
+    </div>
   </div>
-  <div class="form-group col-lg-8 col-md-12">
-    <md-input-container>
-      <input mdInput/>
-      <md-placeholder>Aluno</md-placeholder>
-    </md-input-container>
+  <app-convalidacao-items [convalidacao]="convalidacao"></app-convalidacao-items>
+  <div *ngFor="let item of convalidacao.items">
+    <div class="row container">
+      {{item.codigo}} - {{item.disciplina}}:
+      <div *ngFor="let disciplina of item.disciplinas">
+        <div class="row">
+          {{disciplina}}
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="form-group col-lg-12 col-md-12">
-    <md-input-container>
-      <input mdInput/>
-      <md-placeholder>Coordenação</md-placeholder>
-    </md-input-container>
-  </div>
-</div>
-<app-convalidacao-items></app-convalidacao-items>
+</form>

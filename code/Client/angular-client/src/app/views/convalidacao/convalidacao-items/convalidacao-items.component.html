@@ -1,30 +1,31 @@
 <h6>requer convalidação das seguintes unidades curriculares:</h6>
 <hr width="50%">
 <div class="row pt-3 container">
-  <button md-fab><md-icon>add</md-icon></button>
-  <div class="form-group col-lg-3 col-md-4 col-sm-8 col-8">
+  <button md-fab (click)="addDisciplinaNoItem()"><md-icon>{{icon}}</md-icon></button>
+  <div class="form-group col-lg-3 col-md-4 col-sm-8 col-8" *ngIf="toAdd">
     <div>
       <md-input-container>
-        <input mdInput/>
+        <input mdInput [(ngModel)]="convalidacaoItem.codigo" id="codigo" name="codigo" required/>
         <md-placeholder>Código (ver grade)</md-placeholder>
       </md-input-container>
     </div>
   </div>
-  <div class="form-group col-lg-4 col-md-12 col-sm-12 col-12">
+  <div class="form-group col-lg-4 col-md-12 col-sm-12 col-12" *ngIf="toAdd">
     <md-input-container>
-      <input mdInput/>
+      <input mdInput [(ngModel)]="convalidacaoItem.disciplina" id="disciplina" name="disciplina" required/>
       <md-placeholder>Nome completo da disciplina</md-placeholder>
     </md-input-container>
   </div>
-  <div class="form-group col-lg-4 col-md-12 col-sm-12 col-12">
+  <div class="form-group col-lg-4 col-md-12 col-sm-12 col-12" *ngIf="toAdd">
     <div class="row">
       <div class="form-group col-lg-8 col-md-10 col-sm-10 col-9">
         <md-input-container>
-          <input mdInput/>
+          <input mdInput [(ngModel)]="disciplina" id="disciplinaAnalise" name="disciplinaAnalise"/>
           <md-placeholder>Disciplina(s) para análise</md-placeholder>
         </md-input-container>
       </div>
-      <button md-fab class="pull-right"><md-icon>add</md-icon></button>
+      <button md-fab class="pull-right" (click)="addDisciplina()"><md-icon>add</md-icon></button>
     </div>
   </div>
 </div>
+<hr/>
