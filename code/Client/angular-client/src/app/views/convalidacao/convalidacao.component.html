@@ -22,11 +22,12 @@
     </div>
   </div>
   <app-convalidacao-items [convalidacao]="convalidacao"></app-convalidacao-items>
-  <div *ngFor="let item of convalidacao.items">
-    <div class="row container">
-      {{item.codigo}} - {{item.disciplina}}:
-      <div *ngFor="let disciplina of item.disciplinas">
-        <div class="row">
+  <div class="row pt-3 container">
+    <div class="row" style="width: 100%" *ngFor="let item of convalidacao.items">
+      <div class="col-lg-4 col-md-12 align-text-vertical">{{item.codigo}}</div>
+      <div class="col-lg-4 col-md-12 align-text-vertical">{{item.disciplina}}</div>
+      <div class="col-lg-4 col-md-12">
+        <div *ngFor="let disciplina of item.disciplinas">
           {{disciplina}}
         </div>
       </div>
