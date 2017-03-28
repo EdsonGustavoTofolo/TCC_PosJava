@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {motivosRequerimentos} from "./motivos-requerimento";
 
 @Component({
   selector: 'app-requerimento',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./requerimento.component.css']
 })
 export class RequerimentoComponent implements OnInit {
+  motivos = motivosRequerimentos;
+  motivoSelected: {key: 0, value: ''};
 
   constructor() { }
 
