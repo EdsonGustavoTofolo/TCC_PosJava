@@ -10,6 +10,7 @@ import { ConvalidacaoComponent } from './views/convalidacao/convalidacao.compone
 import {routing} from "./app.routing";
 import 'hammerjs';
 import { ConvalidacaoItemsComponent } from './views/convalidacao/convalidacao-items/convalidacao-items.component';
+import { RequerimentoComponent } from './views/requerimento/requerimento.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ConvalidacaoItemsComponent } from './views/convalidacao/convalidacao-it
     NavComponent,
     FooterComponent,
     ConvalidacaoComponent,
-    ConvalidacaoItemsComponent
+    ConvalidacaoItemsComponent,
+    RequerimentoComponent
   ],
   imports: [
     BrowserModule,
