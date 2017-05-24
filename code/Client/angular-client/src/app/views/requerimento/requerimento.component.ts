@@ -8,7 +8,7 @@ import {motivosRequerimentos} from "./motivos-requerimento";
 })
 export class RequerimentoComponent implements OnInit {
   motivos = motivosRequerimentos;
-  motivoSelected: {key: 0, value: ''};
+  motivoSelected: 0;
 
   //Se for selecionada a opção 9 - 2ª chamada da prova
   segundaChamadaProva: {disciplina: '', professor: '', data: Date};
