@@ -1,0 +1,3 @@
+br\edu\utfpr\piloto\framework\WebSecurityConfig.class
+br\edu\utfpr\piloto\ServidorSpringApplication.class
+br\edu\utfpr\piloto\controller\HelloController.class
