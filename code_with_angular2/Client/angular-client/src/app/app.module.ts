@@ -11,8 +11,6 @@ import {routing} from "./app.routing";
 import 'hammerjs';
 import { ConvalidacaoItemsComponent } from './views/convalidacao/convalidacao-items/convalidacao-items.component';
 import { RequerimentoComponent } from './views/requerimento/requerimento.component';
-import { AutocompleteDirective } from './directives/autocomplete.directive';
-import { LattributeDirective } from './directives/lattribute.directive';
 
 @NgModule({
   declarations: [
@@ -21,9 +19,7 @@ import { LattributeDirective } from './directives/lattribute.directive';
     FooterComponent,
     ConvalidacaoComponent,
     ConvalidacaoItemsComponent,
-    RequerimentoComponent,
-    AutocompleteDirective,
-    LattributeDirective
+    RequerimentoComponent
   ],
   imports: [
     BrowserModule,

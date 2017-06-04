@@ -74,6 +74,19 @@
             <artifactId>bootstrap</artifactId>
             <version>3.3.7</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars/font-awesome -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>4.7.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars/Bootstrap-3-Typeahead
+            Utilizado para o autocomplete -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>Bootstrap-3-Typeahead</artifactId>
+            <version>3.1.1</version>
+        </dependency>
     </dependencies >
 
     <build>
