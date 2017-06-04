@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/> " />
     <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/> " />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/styles.css"/> " />
-
+    <jsp:invoke fragment="cssEspecificos"></jsp:invoke>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
 <script type="text/javascript" src="<c:url value="/webjars/jquery/1.11.1/jquery.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/webjars/Bootstrap-3-Typeahead/3.1.1/bootstrap3-typeahead.min.js"/> "></script>
-
+<jsp:invoke fragment="scriptsEspecificos"></jsp:invoke>
 
 </body>
 
