@@ -7,6 +7,7 @@
     <jsp:attribute name="scriptsEspecificos">
         <script type="text/javascript">
             $(document).ready(function () {
+                $("#telefone").mask("(99) 99999-9999");
                 var $input = $("#motivo");
                 $input.typeahead({
                     source: [
@@ -18,7 +19,7 @@
                         {id:  6, name: 'Declaração de Matrícula'},
                         {id:  7, name: 'Declaração de Provável Formando'},
                         {id:  8, name: 'Desistência do Curso'},
-                        {id:  9, name: '2ª chamada da prova'},
+                        {id:  9, name: '2ª chamada de prova'},
                         {id: 10, name: 'Diploma (2ª via)'},
                         {id: 11, name: 'Histórico Atualizado'},
                         {id: 12, name: 'Histórico de Conclusão do Ensino Superior'},
@@ -35,14 +36,16 @@
                     autoSelect: true
                 });
                 $input.change(function() {
-                    var current = $input.typeahead("getActive");
-                    if (current) {
-                        // Some item from your model is active!
-                        if (current.name == $input.val()) {
-                            // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
-                        } else {
-                            // This means it is only a partial match, you can either add a new item
-                            // or take the active if you don't want new items
+                    var motivo = $input.typeahead("getActive");
+                    if (motivo) { // Some item from your model is active!
+                        if ((motivo.id != 9) && !$('#motivo9').hasClass('hidden')) { //se nao for 2o. chamada e a div do motivo9 nao estiver invisivel
+                            $('#motivo9').addClass('hidden');
+                        }
+
+                        if (motivo.id == 21) { //Convalidação
+                            //TODO ver para habilitar os campos aqui ou abrir outra página
+                        } else if (motivo.id == 9) {//2o. chamada
+                            $('#motivo9').removeClass('hidden');
                         }
                     } else {
                         // Nothing is active so it is a new value (or maybe empty value)
@@ -56,50 +59,34 @@
             <h3>Requerimento <small>5000</small></h3>
             <hr>
             <div class="row pt-3 container">
-                <div class="form-group col-lg-4 col-md-12 col-6">
-                    <div class="form-group">
-                        <label for="codigo">Código</label>
-                        <input type="text" class="form-control" id="codigo"/>
+                <form action="<c:url value="/requerimento/" />" method="post">
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label for="motivo">Motivo do Requerimento:</label>
+                            <input id="motivo" type="text" data-provide="typeahead" class="form-control"
+                                   placeholder="Comece a digitar. Exemplo: convalidação, chamada, histórico..." required/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group col-lg-8 col-md-12 col-6">
-                    <div class="form-group">
-                        <label for="telefone">Telefone</label>
-                        <input type="text" class="form-control" id="telefone"/>
+                    <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
+                        <hr>
+                        <div class="form-group">
+                            <label for="disciplina">Disciplina:</label>
+                            <input id="disciplina" type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="professor">Professor:</label>
+                            <input id="professor" type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="data">Data:</label>
+                            <input id="data" type="text" class="form-control"/>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group col-lg-6 col-md-12 col-6">
-                    <div class="form-group">
-                        <label for="aluno">Aluno</label>
-                        <input type="text" class="form-control" id="aluno"/>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <label for="observacao">Observações:</label>
+                        <textarea id="observacao" class="form-control" rows="5"></textarea>
                     </div>
-                </div>
-                <div class="form-group col-lg-6 col-md-12 col-6">
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="text" class="form-control" id="email"/>
-                    </div>
-                </div>
-                <div class="form-group col-lg-12 col-md-12 col-12">
-                    <div class="form-group">
-                        <label for="curso">Curso</label>
-                        <input type="text" class="form-control" id="curso"/>
-                    </div>
-                </div>
-                <div class="form-group col-lg-12 col-md-12 col-12">
-                    <div class="form-group">
-                        <label for="motivo">Motivo do Requerimento:</label>
-                        <input id="motivo" type="text" data-provide="typeahead" class="form-control" />
-                            <%--<select id="tipo" name="tipo" class="form-control">--%>
-                            <%--<option value=""> - Selecione - </option>--%>
-                            <%--<c:forEach var="tipo" items="${tipos}">--%>
-                                <%--<option value="${categoria.id}"--%>
-                                    <%--${categoria.id==produto.categoria.id ? 'selected' : ''}>--%>
-                                        <%--${categoria.descricao}</option>--%>
-                            <%--</c:forEach>--%>
-                        <%--</select>--%>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </jsp:body>

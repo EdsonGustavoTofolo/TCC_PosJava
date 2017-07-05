@@ -1,2 +1,3 @@
-br\edu\utfpr\pb\projetojsp\MainSpringApplication.class
+br\edu\utfpr\pb\projetojsp\controller\RequerimentoController.class
 br\edu\utfpr\pb\projetojsp\framework\WebSecurityConfig.class
+br\edu\utfpr\pb\projetojsp\MainSpringApplication.class
