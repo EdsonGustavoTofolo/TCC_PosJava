@@ -1,3 +1,15 @@
-C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\MainSpringApplication.java
-C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\controller\RequerimentoController.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\PermissaoRepository.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\RequerimentoDisciplina.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\RequerimentoTurmaRepository.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\framework\WebSecurityConfig.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\Requerimento.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\UsuarioRepository.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\Permissao.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\enumeration\StatusRequerimentoEnum.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\MainSpringApplication.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\RequerimentoTurma.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\RequerimentoDisciplinaRepository.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\controller\RequerimentoController.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\Usuario.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\enumeration\EnumLabel.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\RequerimentoRepository.java

@@ -1,0 +1,1166 @@
+2017-03-05 21:45:56,641 INFO  [org.jboss.modules] (main) JBoss Modules version 1.5.2.Final
+2017-03-05 21:45:57,004 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.6.Final
+2017-03-05 21:45:57,088 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0049: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) starting
+2017-03-05 21:45:57,088 DEBUG [org.jboss.as.config] (MSC service thread 1-6) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+	java.home = C:\Program Files\Java\jdk1.8.0_121\jre
+	java.io.tmpdir = C:\Users\Edson\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk1.8.0_121\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\apache-maven-3.3.9\bin;C:\Users\Edson\AppData\Local\Microsoft\WindowsApps;C:\Users\Edson\AppData\Roaming\npm;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_121-b13
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_121
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.121-b13
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	jboss.host.name = desktop-2v7vpf4
+	jboss.modules.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-2v7vpf4
+	jboss.qualified.host.name = desktop-2v7vpf4
+	jboss.server.base.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone
+	jboss.server.config.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration
+	jboss.server.data.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data
+	jboss.server.deploy.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data\content
+	jboss.server.log.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log
+	jboss.server.name = desktop-2v7vpf4
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties
+	module.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	org.jboss.boot.log.file = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.class.path = C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes
+	sun.boot.library.path = C:\Program Files\Java\jdk1.8.0_121\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar -mp C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = BR
+	user.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin
+	user.home = C:\Users\Edson
+	user.language = pt
+	user.name = Edson
+	user.script = 
+	user.timezone = America/Sao_Paulo
+	user.variant = 
+2017-03-05 21:45:57,088 DEBUG [org.jboss.as.config] (MSC service thread 1-6) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Dorg.jboss.boot.log.file=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties 
+2017-03-05 21:45:59,002 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2017-03-05 21:45:59,014 INFO  [org.xnio] (MSC service thread 1-7) XNIO version 3.4.0.Final
+2017-03-05 21:45:59,022 INFO  [org.xnio.nio] (MSC service thread 1-7) XNIO NIO Implementation Version 3.4.0.Final
+2017-03-05 21:45:59,066 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 38) WFLYCLINF0001: Activating Infinispan subsystem.
+2017-03-05 21:45:59,081 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2017-03-05 21:45:59,106 INFO  [org.jboss.as.connector] (MSC service thread 1-4) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.3.4.Final)
+2017-03-05 21:45:59,150 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 54) WFLYTX0013: Node identifier property is set to the default value. Please make sure it is unique.
+2017-03-05 21:45:59,158 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 53) WFLYSEC0002: Activating Security Subsystem
+2017-03-05 21:45:59,170 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 46) WFLYNAM0001: Activating Naming Subsystem
+2017-03-05 21:45:59,174 INFO  [org.jboss.as.security] (MSC service thread 1-6) WFLYSEC0001: Current PicketBox version=4.9.6.Final
+2017-03-05 21:45:59,182 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 56) WFLYWS0002: Activating WebServices Extension
+2017-03-05 21:45:59,193 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 44) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2017-03-05 21:45:59,207 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+2017-03-05 21:45:59,251 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = h2
+2017-03-05 21:45:59,309 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-1) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2017-03-05 21:45:59,311 INFO  [org.jboss.as.naming] (MSC service thread 1-6) WFLYNAM0003: Starting Naming Service
+2017-03-05 21:45:59,377 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0003: Undertow 1.4.0.Final starting
+2017-03-05 21:45:59,438 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2017-03-05 21:45:59,443 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2017-03-05 21:45:59,444 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = mysql
+2017-03-05 21:45:59,445 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2017-03-05 21:45:59,687 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 55) WFLYUT0014: Creating file handler for path 'C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2017-03-05 21:46:00,083 INFO  [org.jboss.remoting] (MSC service thread 1-7) JBoss Remoting version 4.0.21.Final
+2017-03-05 21:46:00,117 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0012: Started server default-server.
+2017-03-05 21:46:00,119 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0018: Host default-host starting
+2017-03-05 21:46:00,282 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-6) WFLYDM0111: Keystore C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2017-03-05 21:46:00,314 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2017-03-05 21:46:00,317 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-6) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\deployments
+2017-03-05 21:46:00,641 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 21:46:00,646 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0001: Bound data source [java:/MySqlDS]
+2017-03-05 21:46:00,692 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-8) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.4.Final
+2017-03-05 21:46:00,793 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 66) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 21:46:00,793 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 61) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 21:46:00,794 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 61) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 21:46:00,797 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 66) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 21:46:00,800 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 60) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 21:46:00,801 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 60) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 21:46:00,971 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2017-03-05 21:46:01,197 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 5.1.5.Final (Apache CXF 3.1.6) 
+2017-03-05 21:46:01,628 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2017-03-05 21:46:01,629 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2017-03-05 21:46:01,629 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) started in 5424ms - Started 338 of 584 services (394 services are lazy, passive or on-demand)
+2017-03-05 21:46:02,051 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-03-05 21:46:05,864 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 21:46:05,866 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 21:46:05,867 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 21:46:05,871 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 21:46:05,966 WARN  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0013: Deployment deployment "Server.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-03-05 21:46:06,212 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 19) 2 Spring WebApplicationInitializers detected on classpath
+2017-03-05 21:46:06,803 INFO  [stdout] (ServerService Thread Pool -- 19) 
+2017-03-05 21:46:06,803 INFO  [stdout] (ServerService Thread Pool -- 19)   .   ____          _            __ _ _
+2017-03-05 21:46:06,805 INFO  [stdout] (ServerService Thread Pool -- 19)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2017-03-05 21:46:06,805 INFO  [stdout] (ServerService Thread Pool -- 19) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2017-03-05 21:46:06,805 INFO  [stdout] (ServerService Thread Pool -- 19)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2017-03-05 21:46:06,805 INFO  [stdout] (ServerService Thread Pool -- 19)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2017-03-05 21:46:06,805 INFO  [stdout] (ServerService Thread Pool -- 19)  =========|_|==============|___/=/_/_/_/
+2017-03-05 21:46:06,808 INFO  [stdout] (ServerService Thread Pool -- 19)  :: Spring Boot ::  (v2.0.0.BUILD-SNAPSHOT)
+2017-03-05 21:46:06,808 INFO  [stdout] (ServerService Thread Pool -- 19) 
+2017-03-05 21:46:06,892 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 19) Starting ServidorSpringApplication on DESKTOP-2V7VPF4 with PID 2968 (C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\Server\target\Server\WEB-INF\classes started by Edson in C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin)
+2017-03-05 21:46:06,892 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 19) No active profile set, falling back to default profiles: default
+2017-03-05 21:46:06,923 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 19) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5c0923a: startup date [Sun Mar 05 21:46:06 BRT 2017]; root of context hierarchy
+2017-03-05 21:46:07,867 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 19) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-03-05 21:46:08,005 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 19) Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$59711241] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 21:46:08,092 INFO  [org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping] (ServerService Thread Pool -- 19) Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2017-03-05 21:46:08,135 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 19) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b4d94d42] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 21:46:08,170 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 19) Initializing Spring embedded WebApplicationContext
+2017-03-05 21:46:08,171 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 19) Root WebApplicationContext: initialization completed in 1248 ms
+2017-03-05 21:46:08,503 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 19) Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-05 21:46:08,507 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 19) Mapping servlet: 'messageDispatcherServlet' to [/services/*]
+2017-03-05 21:46:08,510 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 19) Mapping filter: 'errorPageFilter' to: [/*]
+2017-03-05 21:46:08,511 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 19) Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-05 21:46:08,734 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 19) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@2d1f18f9
+2017-03-05 21:46:08,734 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 19) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@40cecf1
+2017-03-05 21:46:08,734 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 19) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@218aa0e6
+2017-03-05 21:46:08,970 ERROR [stderr] (ServerService Thread Pool -- 19) Sun Mar 05 21:46:08 BRT 2017 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+2017-03-05 21:46:09,181 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 19) Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-05 21:46:09,197 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 19) HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-05 21:46:09,277 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 19) HHH000412: Hibernate Core {5.2.8.Final}
+2017-03-05 21:46:09,280 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 19) HHH000206: hibernate.properties not found
+2017-03-05 21:46:09,313 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 19) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-05 21:46:09,413 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 19) HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-05 21:46:09,629 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 19) Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 21:46:09,783 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 19) Mapped "{[/hello/{name}]}" onto java.lang.String br.edu.utfpr.pb.server.controllers.HelloController.hello(java.lang.String)
+2017-03-05 21:46:09,783 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 19) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-05 21:46:09,783 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 19) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-05 21:46:09,957 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (ServerService Thread Pool -- 19) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5c0923a: startup date [Sun Mar 05 21:46:06 BRT 2017]; root of context hierarchy
+2017-03-05 21:46:10,664 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 19) Registering beans for JMX exposure on startup
+2017-03-05 21:46:10,679 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 19) Started ServidorSpringApplication in 4.378 seconds (JVM running for 14.563)
+2017-03-05 21:46:10,757 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 19) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para o contexto '/Server'
+2017-03-05 21:46:12,566 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 19) WFLYUT0021: Registered web context: /Server
+2017-03-05 21:46:12,609 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-03-05 21:46:13,035 INFO  [io.undertow.servlet] (default task-1) Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 21:46:13,035 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-05 21:46:13,051 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2017-03-05 21:46:13,051 WARN  [org.springframework.web.servlet.PageNotFound] (default task-1) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 21:46:13,691 WARN  [org.springframework.web.servlet.PageNotFound] (default task-3) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 21:46:57,906 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 69) WFLYUT0022: Unregistered web context: /Server
+2017-03-05 21:46:57,906 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 69) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 21:46:57,921 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 69) Closing Spring root WebApplicationContext
+2017-03-05 21:46:57,921 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 69) Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5c0923a: startup date [Sun Mar 05 21:46:06 BRT 2017]; root of context hierarchy
+2017-03-05 21:46:57,921 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 69) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 21:46:57,921 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 69) Unregistering JMX-exposed beans on shutdown
+2017-03-05 21:46:58,142 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 231ms
+2017-03-05 21:46:58,225 WARN  [org.jboss.as.controller] (management-handler-thread - 3) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-03-05 21:46:58,226 INFO  [org.jboss.as.server] (management-handler-thread - 3) WFLYSRV0009: Undeployed "Server" (runtime-name: "Server.war")
+2017-03-05 21:46:58,314 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0236: Suspending server with no timeout.
+2017-03-05 21:46:58,325 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2017-03-05 21:46:58,408 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0010: Unbound data source [java:/MySqlDS]
+2017-03-05 21:46:58,410 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 21:46:58,434 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0019: Host default-host stopping
+2017-03-05 21:46:58,438 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2017-03-05 21:46:58,444 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow HTTPS listener https suspending
+2017-03-05 21:46:58,445 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2017-03-05 21:46:58,447 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = mysql
+2017-03-05 21:46:58,451 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTP listener default suspending
+2017-03-05 21:46:58,452 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2017-03-05 21:46:58,454 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0004: Undertow 1.4.0.Final stopping
+2017-03-05 21:46:58,473 INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) stopped in 59ms
+2017-03-05 22:40:54,893 INFO  [org.jboss.modules] (main) JBoss Modules version 1.5.2.Final
+2017-03-05 22:40:55,895 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.6.Final
+2017-03-05 22:40:55,942 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0049: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) starting
+2017-03-05 22:40:55,957 DEBUG [org.jboss.as.config] (MSC service thread 1-6) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+	java.home = C:\Program Files\Java\jdk1.8.0_121\jre
+	java.io.tmpdir = C:\Users\Edson\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk1.8.0_121\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\apache-maven-3.3.9\bin;C:\Users\Edson\AppData\Local\Microsoft\WindowsApps;C:\Users\Edson\AppData\Roaming\npm;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_121-b13
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_121
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.121-b13
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	jboss.host.name = desktop-2v7vpf4
+	jboss.modules.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-2v7vpf4
+	jboss.qualified.host.name = desktop-2v7vpf4
+	jboss.server.base.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone
+	jboss.server.config.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration
+	jboss.server.data.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data
+	jboss.server.deploy.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data\content
+	jboss.server.log.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log
+	jboss.server.name = desktop-2v7vpf4
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties
+	module.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	org.jboss.boot.log.file = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.class.path = C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes
+	sun.boot.library.path = C:\Program Files\Java\jdk1.8.0_121\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar -mp C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = BR
+	user.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin
+	user.home = C:\Users\Edson
+	user.language = pt
+	user.name = Edson
+	user.script = 
+	user.timezone = America/Sao_Paulo
+	user.variant = 
+2017-03-05 22:40:55,957 DEBUG [org.jboss.as.config] (MSC service thread 1-6) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Dorg.jboss.boot.log.file=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties 
+2017-03-05 22:41:02,018 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2017-03-05 22:41:02,035 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.4.0.Final
+2017-03-05 22:41:02,040 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.4.0.Final
+2017-03-05 22:41:02,072 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 54) WFLYTX0013: Node identifier property is set to the default value. Please make sure it is unique.
+2017-03-05 22:41:02,087 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 46) WFLYNAM0001: Activating Naming Subsystem
+2017-03-05 22:41:02,087 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 53) WFLYSEC0002: Activating Security Subsystem
+2017-03-05 22:41:02,087 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 38) WFLYCLINF0001: Activating Infinispan subsystem.
+2017-03-05 22:41:02,103 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2017-03-05 22:41:02,139 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 56) WFLYWS0002: Activating WebServices Extension
+2017-03-05 22:41:02,141 INFO  [org.jboss.as.security] (MSC service thread 1-7) WFLYSEC0001: Current PicketBox version=4.9.6.Final
+2017-03-05 22:41:02,141 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 44) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2017-03-05 22:41:02,172 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.3.4.Final)
+2017-03-05 22:41:02,323 INFO  [org.jboss.as.naming] (MSC service thread 1-7) WFLYNAM0003: Starting Naming Service
+2017-03-05 22:41:02,363 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 1.4.0.Final starting
+2017-03-05 22:41:02,386 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2017-03-05 22:41:02,416 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+2017-03-05 22:41:02,425 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = h2
+2017-03-05 22:41:02,604 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2017-03-05 22:41:02,604 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2017-03-05 22:41:02,670 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2017-03-05 22:41:02,693 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = mysql
+2017-03-05 22:41:02,780 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 55) WFLYUT0014: Creating file handler for path 'C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2017-03-05 22:41:03,086 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0012: Started server default-server.
+2017-03-05 22:41:03,108 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0018: Host default-host starting
+2017-03-05 22:41:03,152 INFO  [org.jboss.remoting] (MSC service thread 1-1) JBoss Remoting version 4.0.21.Final
+2017-03-05 22:41:03,345 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2017-03-05 22:41:03,547 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 22:41:03,554 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Bound data source [java:/MySqlDS]
+2017-03-05 22:41:04,213 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-6) WFLYDM0111: Keystore C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2017-03-05 22:41:04,336 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\deployments
+2017-03-05 22:41:04,451 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-6) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.4.Final
+2017-03-05 22:41:04,544 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 58) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:41:04,549 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 58) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:41:04,555 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 65) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:41:04,556 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 65) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:41:04,561 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 60) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:41:04,562 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 60) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:41:04,976 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2017-03-05 22:41:05,492 INFO  [org.jboss.ws.common.management] (MSC service thread 1-8) JBWS022052: Starting JBossWS 5.1.5.Final (Apache CXF 3.1.6) 
+2017-03-05 22:41:05,824 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2017-03-05 22:41:05,824 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2017-03-05 22:41:05,824 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) started in 11386ms - Started 338 of 584 services (394 services are lazy, passive or on-demand)
+2017-03-05 22:41:06,340 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-03-05 22:41:10,393 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:41:10,393 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:41:10,393 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:41:10,393 WARN  [org.jboss.as.ee] (MSC service thread 1-8) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:41:10,759 WARN  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0013: Deployment deployment "Server.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-03-05 22:41:10,910 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 10) 2 Spring WebApplicationInitializers detected on classpath
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10) 
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10)   .   ____          _            __ _ _
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10)  =========|_|==============|___/=/_/_/_/
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10)  :: Spring Boot ::  (v2.0.0.BUILD-SNAPSHOT)
+2017-03-05 22:41:11,427 INFO  [stdout] (ServerService Thread Pool -- 10) 
+2017-03-05 22:41:11,527 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 10) Starting ServidorSpringApplication on DESKTOP-2V7VPF4 with PID 3172 (C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\Server\target\Server\WEB-INF\classes started by Edson in C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin)
+2017-03-05 22:41:11,527 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 10) No active profile set, falling back to default profiles: default
+2017-03-05 22:41:11,596 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 10) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@283d4e7: startup date [Sun Mar 05 22:41:11 BRT 2017]; root of context hierarchy
+2017-03-05 22:41:14,008 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 10) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-03-05 22:41:14,257 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 10) Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$9b3b2e56] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 22:41:14,324 INFO  [org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping] (ServerService Thread Pool -- 10) Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2017-03-05 22:41:14,372 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 10) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f6a36957] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 22:41:14,565 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 10) Initializing Spring embedded WebApplicationContext
+2017-03-05 22:41:14,566 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 10) Root WebApplicationContext: initialization completed in 2971 ms
+2017-03-05 22:41:14,967 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 10) Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-05 22:41:14,969 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 10) Mapping servlet: 'messageDispatcherServlet' to [/services/*]
+2017-03-05 22:41:14,971 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 10) Mapping filter: 'errorPageFilter' to: [/*]
+2017-03-05 22:41:14,972 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 10) Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-05 22:41:15,182 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 10) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@64f0356e
+2017-03-05 22:41:15,183 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 10) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@69d0a76d
+2017-03-05 22:41:15,183 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 10) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@6dd5e268
+2017-03-05 22:41:15,372 ERROR [stderr] (ServerService Thread Pool -- 10) Sun Mar 05 22:41:15 BRT 2017 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+2017-03-05 22:41:15,526 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 10) Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:41:15,558 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 10) HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-05 22:41:15,633 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 10) HHH000412: Hibernate Core {5.2.8.Final}
+2017-03-05 22:41:15,633 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 10) HHH000206: hibernate.properties not found
+2017-03-05 22:41:15,664 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 10) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-05 22:41:15,733 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 10) HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-05 22:41:15,950 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 10) Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:41:16,489 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 10) Mapped "{[/hello/{name}]}" onto java.lang.String br.edu.utfpr.pb.server.controllers.HelloController.hello(java.lang.String)
+2017-03-05 22:41:16,498 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 10) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-05 22:41:16,499 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 10) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-05 22:41:16,622 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (ServerService Thread Pool -- 10) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@283d4e7: startup date [Sun Mar 05 22:41:11 BRT 2017]; root of context hierarchy
+2017-03-05 22:41:17,393 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 10) Registering beans for JMX exposure on startup
+2017-03-05 22:41:17,421 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 10) Started ServidorSpringApplication in 6.437 seconds (JVM running for 23.071)
+2017-03-05 22:41:17,505 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 10) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para o contexto '/Server'
+2017-03-05 22:41:21,561 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 10) WFLYUT0021: Registered web context: /Server
+2017-03-05 22:41:21,625 INFO  [org.jboss.as.server] (management-handler-thread - 4) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-03-05 22:41:21,854 INFO  [io.undertow.servlet] (default task-1) Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 22:41:21,854 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-05 22:41:21,870 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2017-03-05 22:41:21,870 WARN  [org.springframework.web.servlet.PageNotFound] (default task-1) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 22:41:22,435 WARN  [org.springframework.web.servlet.PageNotFound] (default task-3) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 22:42:47,650 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 70) WFLYUT0022: Unregistered web context: /Server
+2017-03-05 22:42:47,650 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 70) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 22:42:47,650 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 70) Closing Spring root WebApplicationContext
+2017-03-05 22:42:47,650 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 70) Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@283d4e7: startup date [Sun Mar 05 22:41:11 BRT 2017]; root of context hierarchy
+2017-03-05 22:42:47,666 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 70) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:42:47,666 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 70) Unregistering JMX-exposed beans on shutdown
+2017-03-05 22:42:47,894 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 246ms
+2017-03-05 22:42:47,911 WARN  [org.jboss.as.controller] (management-handler-thread - 7) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-03-05 22:42:47,911 INFO  [org.jboss.as.server] (management-handler-thread - 7) WFLYSRV0009: Undeployed "Server" (runtime-name: "Server.war")
+2017-03-05 22:42:48,058 INFO  [org.jboss.as.server] (management-handler-thread - 6) WFLYSRV0236: Suspending server with no timeout.
+2017-03-05 22:42:48,095 INFO  [org.jboss.as.protocol] (management I/O-1) WFLYPRT0057:  cancelled task by interrupting thread Thread[management-handler-thread - 6,5,management-handler-thread]
+2017-03-05 22:42:48,098 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2017-03-05 22:42:48,117 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTPS listener https suspending
+2017-03-05 22:42:48,118 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0010: Unbound data source [java:/MySqlDS]
+2017-03-05 22:42:48,118 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 22:42:48,133 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2017-03-05 22:42:48,145 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2017-03-05 22:42:48,154 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0019: Host default-host stopping
+2017-03-05 22:42:48,156 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow HTTP listener default suspending
+2017-03-05 22:42:48,158 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0019: Stopped Driver service with driver-name = mysql
+2017-03-05 22:42:48,160 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2017-03-05 22:42:48,161 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0004: Undertow 1.4.0.Final stopping
+2017-03-05 22:42:48,192 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) stopped in 64ms
+2017-03-05 22:42:54,276 INFO  [org.jboss.modules] (main) JBoss Modules version 1.5.2.Final
+2017-03-05 22:42:54,460 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.6.Final
+2017-03-05 22:42:54,523 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) starting
+2017-03-05 22:42:54,523 DEBUG [org.jboss.as.config] (MSC service thread 1-7) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+	java.home = C:\Program Files\Java\jdk1.8.0_121\jre
+	java.io.tmpdir = C:\Users\Edson\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk1.8.0_121\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\apache-maven-3.3.9\bin;C:\Users\Edson\AppData\Local\Microsoft\WindowsApps;C:\Users\Edson\AppData\Roaming\npm;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_121-b13
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_121
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.121-b13
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	jboss.host.name = desktop-2v7vpf4
+	jboss.modules.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-2v7vpf4
+	jboss.qualified.host.name = desktop-2v7vpf4
+	jboss.server.base.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone
+	jboss.server.config.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration
+	jboss.server.data.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data
+	jboss.server.deploy.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data\content
+	jboss.server.log.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log
+	jboss.server.name = desktop-2v7vpf4
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties
+	module.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	org.jboss.boot.log.file = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.class.path = C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes
+	sun.boot.library.path = C:\Program Files\Java\jdk1.8.0_121\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar -mp C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = BR
+	user.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin
+	user.home = C:\Users\Edson
+	user.language = pt
+	user.name = Edson
+	user.script = 
+	user.timezone = America/Sao_Paulo
+	user.variant = 
+2017-03-05 22:42:54,523 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Dorg.jboss.boot.log.file=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties 
+2017-03-05 22:42:55,860 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2017-03-05 22:42:55,881 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.4.0.Final
+2017-03-05 22:42:55,890 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.4.0.Final
+2017-03-05 22:42:56,027 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+2017-03-05 22:42:56,035 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2017-03-05 22:42:56,147 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2017-03-05 22:42:56,214 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 38) WFLYCLINF0001: Activating Infinispan subsystem.
+2017-03-05 22:42:56,334 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2017-03-05 22:42:56,335 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2017-03-05 22:42:56,382 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.3.4.Final)
+2017-03-05 22:42:56,386 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = mysql
+2017-03-05 22:42:56,386 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = h2
+2017-03-05 22:42:56,417 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 54) WFLYTX0013: Node identifier property is set to the default value. Please make sure it is unique.
+2017-03-05 22:42:56,433 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 56) WFLYWS0002: Activating WebServices Extension
+2017-03-05 22:42:56,454 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 44) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2017-03-05 22:42:56,481 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 46) WFLYNAM0001: Activating Naming Subsystem
+2017-03-05 22:42:56,487 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 53) WFLYSEC0002: Activating Security Subsystem
+2017-03-05 22:42:56,626 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0003: Undertow 1.4.0.Final starting
+2017-03-05 22:42:56,700 INFO  [org.jboss.as.security] (MSC service thread 1-8) WFLYSEC0001: Current PicketBox version=4.9.6.Final
+2017-03-05 22:42:56,756 INFO  [org.jboss.remoting] (MSC service thread 1-1) JBoss Remoting version 4.0.21.Final
+2017-03-05 22:42:56,800 INFO  [org.jboss.as.naming] (MSC service thread 1-2) WFLYNAM0003: Starting Naming Service
+2017-03-05 22:42:56,801 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2017-03-05 22:42:56,816 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 55) WFLYUT0014: Creating file handler for path 'C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2017-03-05 22:42:56,821 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0012: Started server default-server.
+2017-03-05 22:42:56,822 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0018: Host default-host starting
+2017-03-05 22:42:57,087 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2017-03-05 22:42:57,396 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-1) WFLYDM0111: Keystore C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2017-03-05 22:42:57,440 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:/MySqlDS]
+2017-03-05 22:42:57,445 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 22:42:57,474 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\deployments
+2017-03-05 22:42:57,771 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-5) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.4.Final
+2017-03-05 22:42:57,850 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 62) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:42:57,851 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 62) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:42:57,856 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 63) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:42:57,857 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 63) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:42:57,861 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 65) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:42:57,863 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 65) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 22:42:58,157 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2017-03-05 22:42:58,300 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 5.1.5.Final (Apache CXF 3.1.6) 
+2017-03-05 22:42:58,789 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2017-03-05 22:42:58,790 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2017-03-05 22:42:58,790 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) started in 4829ms - Started 338 of 584 services (394 services are lazy, passive or on-demand)
+2017-03-05 22:42:59,687 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-03-05 22:43:03,293 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:43:03,293 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:43:03,293 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:43:03,293 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:43:03,353 WARN  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0013: Deployment deployment "Server.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-03-05 22:43:03,577 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 26) 2 Spring WebApplicationInitializers detected on classpath
+2017-03-05 22:43:04,159 INFO  [stdout] (ServerService Thread Pool -- 26) 
+2017-03-05 22:43:04,160 INFO  [stdout] (ServerService Thread Pool -- 26)   .   ____          _            __ _ _
+2017-03-05 22:43:04,160 INFO  [stdout] (ServerService Thread Pool -- 26)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2017-03-05 22:43:04,160 INFO  [stdout] (ServerService Thread Pool -- 26) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2017-03-05 22:43:04,160 INFO  [stdout] (ServerService Thread Pool -- 26)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2017-03-05 22:43:04,160 INFO  [stdout] (ServerService Thread Pool -- 26)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2017-03-05 22:43:04,161 INFO  [stdout] (ServerService Thread Pool -- 26)  =========|_|==============|___/=/_/_/_/
+2017-03-05 22:43:04,163 INFO  [stdout] (ServerService Thread Pool -- 26)  :: Spring Boot ::  (v2.0.0.BUILD-SNAPSHOT)
+2017-03-05 22:43:04,163 INFO  [stdout] (ServerService Thread Pool -- 26) 
+2017-03-05 22:43:04,249 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 26) Starting ServidorSpringApplication on DESKTOP-2V7VPF4 with PID 11152 (C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\Server\target\Server\WEB-INF\classes started by Edson in C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin)
+2017-03-05 22:43:04,249 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 26) No active profile set, falling back to default profiles: default
+2017-03-05 22:43:04,280 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 26) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@33d92aed: startup date [Sun Mar 05 22:43:04 BRT 2017]; root of context hierarchy
+2017-03-05 22:43:05,152 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 26) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-03-05 22:43:05,294 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 26) Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$754fca78] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 22:43:05,354 INFO  [org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping] (ServerService Thread Pool -- 26) Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2017-03-05 22:43:05,399 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 26) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d0b80579] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 22:43:05,442 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 26) Initializing Spring embedded WebApplicationContext
+2017-03-05 22:43:05,443 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 26) Root WebApplicationContext: initialization completed in 1162 ms
+2017-03-05 22:43:05,904 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 26) Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-05 22:43:05,905 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 26) Mapping servlet: 'messageDispatcherServlet' to [/services/*]
+2017-03-05 22:43:05,910 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 26) Mapping filter: 'errorPageFilter' to: [/*]
+2017-03-05 22:43:05,911 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 26) Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-05 22:43:06,122 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 26) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@345a04ae
+2017-03-05 22:43:06,122 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 26) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@60b784d6
+2017-03-05 22:43:06,123 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 26) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@2262693c
+2017-03-05 22:43:06,300 ERROR [stderr] (ServerService Thread Pool -- 26) Sun Mar 05 22:43:06 BRT 2017 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+2017-03-05 22:43:06,454 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 26) Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:43:06,485 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 26) HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-05 22:43:06,570 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 26) HHH000412: Hibernate Core {5.2.8.Final}
+2017-03-05 22:43:06,570 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 26) HHH000206: hibernate.properties not found
+2017-03-05 22:43:06,617 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 26) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-05 22:43:06,702 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 26) HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-05 22:43:07,156 INFO  [stdout] (ServerService Thread Pool -- 26) Hibernate: create table pessoa (id bigint not null auto_increment, fone varchar(255), nome varchar(255), primary key (id))
+2017-03-05 22:43:07,256 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 26) Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:43:07,386 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/hello/{name}]}" onto java.lang.String br.edu.utfpr.pb.server.controllers.HelloController.hello(java.lang.String)
+2017-03-05 22:43:07,411 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-05 22:43:07,411 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-05 22:43:07,500 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (ServerService Thread Pool -- 26) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@33d92aed: startup date [Sun Mar 05 22:43:04 BRT 2017]; root of context hierarchy
+2017-03-05 22:43:08,067 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 26) Registering beans for JMX exposure on startup
+2017-03-05 22:43:08,085 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 26) Started ServidorSpringApplication in 4.388 seconds (JVM running for 14.206)
+2017-03-05 22:43:08,156 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 26) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para o contexto '/Server'
+2017-03-05 22:43:09,808 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 26) WFLYUT0021: Registered web context: /Server
+2017-03-05 22:43:09,855 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-03-05 22:43:09,979 INFO  [io.undertow.servlet] (default task-1) Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 22:43:09,980 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-05 22:43:09,993 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2017-03-05 22:43:09,993 WARN  [org.springframework.web.servlet.PageNotFound] (default task-1) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 22:43:10,621 WARN  [org.springframework.web.servlet.PageNotFound] (default task-3) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 22:48:02,459 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 70) WFLYUT0022: Unregistered web context: /Server
+2017-03-05 22:48:02,459 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 70) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 22:48:02,459 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 70) Closing Spring root WebApplicationContext
+2017-03-05 22:48:02,459 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 70) Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@33d92aed: startup date [Sun Mar 05 22:43:04 BRT 2017]; root of context hierarchy
+2017-03-05 22:48:02,474 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 70) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:48:02,474 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 70) Unregistering JMX-exposed beans on shutdown
+2017-03-05 22:48:02,796 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 351ms
+2017-03-05 22:48:02,843 WARN  [org.jboss.as.controller] (management-handler-thread - 7) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-03-05 22:48:02,844 INFO  [org.jboss.as.server] (management-handler-thread - 7) WFLYSRV0009: Undeployed "Server" (runtime-name: "Server.war")
+2017-03-05 22:48:02,946 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-03-05 22:48:06,033 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:48:06,033 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:48:06,033 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:48:06,048 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 22:48:06,066 WARN  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0013: Deployment deployment "Server.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-03-05 22:48:06,086 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 83) 2 Spring WebApplicationInitializers detected on classpath
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83) 
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83)   .   ____          _            __ _ _
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83)  =========|_|==============|___/=/_/_/_/
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83)  :: Spring Boot ::  (v2.0.0.BUILD-SNAPSHOT)
+2017-03-05 22:48:06,587 INFO  [stdout] (ServerService Thread Pool -- 83) 
+2017-03-05 22:48:06,634 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 83) Starting ServidorSpringApplication on DESKTOP-2V7VPF4 with PID 11152 (C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\Server\target\Server\WEB-INF\classes started by Edson in C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin)
+2017-03-05 22:48:06,634 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 83) No active profile set, falling back to default profiles: default
+2017-03-05 22:48:06,650 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 83) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16089f95: startup date [Sun Mar 05 22:48:06 BRT 2017]; root of context hierarchy
+2017-03-05 22:48:07,470 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 83) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-03-05 22:48:07,549 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 83) Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b8e28d52] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 22:48:07,570 INFO  [org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping] (ServerService Thread Pool -- 83) Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2017-03-05 22:48:07,586 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 83) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$144ac853] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 22:48:07,617 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 83) Initializing Spring embedded WebApplicationContext
+2017-03-05 22:48:07,617 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 83) Root WebApplicationContext: initialization completed in 967 ms
+2017-03-05 22:48:07,944 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 83) Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-05 22:48:07,945 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 83) Mapping servlet: 'messageDispatcherServlet' to [/services/*]
+2017-03-05 22:48:07,945 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 83) Mapping filter: 'errorPageFilter' to: [/*]
+2017-03-05 22:48:07,945 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 83) Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-05 22:48:08,135 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 83) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@345a04ae
+2017-03-05 22:48:08,136 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 83) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@60b784d6
+2017-03-05 22:48:08,136 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 83) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@2262693c
+2017-03-05 22:48:08,186 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 83) Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:48:08,202 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 83) HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-05 22:48:08,264 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 83) HHH000412: Hibernate Core {5.2.8.Final}
+2017-03-05 22:48:08,264 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 83) HHH000206: hibernate.properties not found
+2017-03-05 22:48:08,302 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 83) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-05 22:48:08,349 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 83) HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-05 22:48:08,688 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 83) Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:48:09,010 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 83) Mapped "{[/hello/{name}]}" onto java.lang.String br.edu.utfpr.pb.server.controllers.HelloController.hello(java.lang.String)
+2017-03-05 22:48:09,015 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 83) Mapped "{[/pessoa/{id}],methods=[GET]}" onto public br.edu.utfpr.pb.server.model.Pessoa br.edu.utfpr.pb.server.controllers.PessoaController.findOne(java.lang.Long)
+2017-03-05 22:48:09,019 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 83) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-05 22:48:09,019 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 83) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-05 22:48:09,071 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (ServerService Thread Pool -- 83) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16089f95: startup date [Sun Mar 05 22:48:06 BRT 2017]; root of context hierarchy
+2017-03-05 22:48:09,465 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 83) Registering beans for JMX exposure on startup
+2017-03-05 22:48:09,477 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 83) Started ServidorSpringApplication in 3.343 seconds (JVM running for 315.598)
+2017-03-05 22:48:09,481 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 83) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para o contexto '/Server'
+2017-03-05 22:48:10,288 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 83) WFLYUT0021: Registered web context: /Server
+2017-03-05 22:48:10,320 INFO  [org.jboss.as.server] (management-handler-thread - 7) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-03-05 22:48:28,218 INFO  [io.undertow.servlet] (default task-4) Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 22:48:28,222 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-4) FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-05 22:48:28,250 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-4) FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+2017-03-05 22:48:28,282 INFO  [stdout] (default task-4) Hibernate: select pessoa0_.id as id1_0_0_, pessoa0_.fone as fone2_0_0_, pessoa0_.nome as nome3_0_0_ from pessoa pessoa0_ where pessoa0_.id=?
+2017-03-05 22:48:39,012 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 98) WFLYUT0022: Unregistered web context: /Server
+2017-03-05 22:48:39,012 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 98) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 22:48:39,012 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 98) Closing Spring root WebApplicationContext
+2017-03-05 22:48:39,012 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 98) Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16089f95: startup date [Sun Mar 05 22:48:06 BRT 2017]; root of context hierarchy
+2017-03-05 22:48:39,012 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 98) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 22:48:39,012 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 98) Unregistering JMX-exposed beans on shutdown
+2017-03-05 22:48:39,128 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 118ms
+2017-03-05 22:48:39,143 WARN  [org.jboss.as.controller] (management-handler-thread - 8) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-03-05 22:48:39,143 INFO  [org.jboss.as.server] (management-handler-thread - 8) WFLYSRV0009: Undeployed "Server" (runtime-name: "Server.war")
+2017-03-05 22:48:39,196 INFO  [org.jboss.as.server] (management-handler-thread - 7) WFLYSRV0236: Suspending server with no timeout.
+2017-03-05 22:48:39,212 INFO  [org.jboss.as.protocol] (management I/O-2) WFLYPRT0057:  cancelled task by interrupting thread Thread[management-handler-thread - 7,5,management-handler-thread]
+2017-03-05 22:48:39,212 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2017-03-05 22:48:39,228 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 22:48:39,243 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0010: Unbound data source [java:/MySqlDS]
+2017-03-05 22:48:39,243 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0019: Host default-host stopping
+2017-03-05 22:48:39,259 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTPS listener https suspending
+2017-03-05 22:48:39,259 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2017-03-05 22:48:39,275 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener default suspending
+2017-03-05 22:48:39,275 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2017-03-05 22:48:39,275 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0004: Undertow 1.4.0.Final stopping
+2017-03-05 22:48:39,294 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0019: Stopped Driver service with driver-name = mysql
+2017-03-05 22:48:39,297 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2017-03-05 22:48:39,338 INFO  [org.jboss.as] (MSC service thread 1-5) WFLYSRV0050: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) stopped in 97ms
+2017-03-05 23:07:40,334 INFO  [org.jboss.modules] (main) JBoss Modules version 1.5.2.Final
+2017-03-05 23:07:40,512 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.6.Final
+2017-03-05 23:07:40,579 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) starting
+2017-03-05 23:07:40,579 DEBUG [org.jboss.as.config] (MSC service thread 1-7) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+	java.home = C:\Program Files\Java\jdk1.8.0_121\jre
+	java.io.tmpdir = C:\Users\Edson\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk1.8.0_121\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\apache-maven-3.3.9\bin;C:\Users\Edson\AppData\Local\Microsoft\WindowsApps;C:\Users\Edson\AppData\Roaming\npm;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_121-b13
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_121
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.121-b13
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	jboss.host.name = desktop-2v7vpf4
+	jboss.modules.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-2v7vpf4
+	jboss.qualified.host.name = desktop-2v7vpf4
+	jboss.server.base.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone
+	jboss.server.config.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration
+	jboss.server.data.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data
+	jboss.server.deploy.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\data\content
+	jboss.server.log.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log
+	jboss.server.name = desktop-2v7vpf4
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties
+	module.path = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules
+	org.jboss.boot.log.file = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.class.path = C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes
+	sun.boot.library.path = C:\Program Files\Java\jdk1.8.0_121\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\jboss-modules.jar -mp C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = BR
+	user.dir = C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin
+	user.home = C:\Users\Edson
+	user.language = pt
+	user.name = Edson
+	user.script = 
+	user.timezone = America/Sao_Paulo
+	user.variant = 
+2017-03-05 23:07:40,579 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Dorg.jboss.boot.log.file=C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration/logging.properties 
+2017-03-05 23:07:41,798 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2017-03-05 23:07:41,817 INFO  [org.xnio] (MSC service thread 1-6) XNIO version 3.4.0.Final
+2017-03-05 23:07:41,826 INFO  [org.xnio.nio] (MSC service thread 1-6) XNIO NIO Implementation Version 3.4.0.Final
+2017-03-05 23:07:41,907 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+2017-03-05 23:07:41,915 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2017-03-05 23:07:41,929 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2017-03-05 23:07:41,946 INFO  [org.jboss.as.connector] (MSC service thread 1-4) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.3.4.Final)
+2017-03-05 23:07:41,948 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = mysql
+2017-03-05 23:07:41,949 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = h2
+2017-03-05 23:07:41,960 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 46) WFLYNAM0001: Activating Naming Subsystem
+2017-03-05 23:07:41,967 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 38) WFLYCLINF0001: Activating Infinispan subsystem.
+2017-03-05 23:07:41,977 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Starting Naming Service
+2017-03-05 23:07:41,977 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2017-03-05 23:07:41,988 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 44) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2017-03-05 23:07:42,054 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 54) WFLYTX0013: Node identifier property is set to the default value. Please make sure it is unique.
+2017-03-05 23:07:42,061 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 56) WFLYWS0002: Activating WebServices Extension
+2017-03-05 23:07:42,060 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 53) WFLYSEC0002: Activating Security Subsystem
+2017-03-05 23:07:42,110 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0003: Undertow 1.4.0.Final starting
+2017-03-05 23:07:42,127 INFO  [org.jboss.as.security] (MSC service thread 1-1) WFLYSEC0001: Current PicketBox version=4.9.6.Final
+2017-03-05 23:07:42,325 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 55) WFLYUT0014: Creating file handler for path 'C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2017-03-05 23:07:42,411 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2017-03-05 23:07:42,415 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2017-03-05 23:07:42,768 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0012: Started server default-server.
+2017-03-05 23:07:42,770 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0018: Host default-host starting
+2017-03-05 23:07:42,808 INFO  [org.jboss.remoting] (MSC service thread 1-6) JBoss Remoting version 4.0.21.Final
+2017-03-05 23:07:42,867 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2017-03-05 23:07:42,975 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-1) WFLYDM0111: Keystore C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2017-03-05 23:07:43,323 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-3) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\standalone\deployments
+2017-03-05 23:07:43,527 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-7) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.4.Final
+2017-03-05 23:07:43,568 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0001: Bound data source [java:/MySqlDS]
+2017-03-05 23:07:43,569 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 23:07:43,626 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 63) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 23:07:43,627 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 63) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 23:07:43,627 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 61) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 23:07:43,628 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 59) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 23:07:43,629 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 61) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 23:07:43,630 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 59) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-03-05 23:07:43,895 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2017-03-05 23:07:44,070 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBossWS 5.1.5.Final (Apache CXF 3.1.6) 
+2017-03-05 23:07:44,275 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2017-03-05 23:07:44,275 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2017-03-05 23:07:44,276 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) started in 4226ms - Started 338 of 584 services (394 services are lazy, passive or on-demand)
+2017-03-05 23:07:44,791 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-03-05 23:07:48,808 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:07:48,808 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:07:48,824 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:07:48,824 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:07:48,877 WARN  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0013: Deployment deployment "Server.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-03-05 23:07:49,123 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 26) 2 Spring WebApplicationInitializers detected on classpath
+2017-03-05 23:07:49,676 INFO  [stdout] (ServerService Thread Pool -- 26) 
+2017-03-05 23:07:49,676 INFO  [stdout] (ServerService Thread Pool -- 26)   .   ____          _            __ _ _
+2017-03-05 23:07:49,676 INFO  [stdout] (ServerService Thread Pool -- 26)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2017-03-05 23:07:49,676 INFO  [stdout] (ServerService Thread Pool -- 26) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2017-03-05 23:07:49,677 INFO  [stdout] (ServerService Thread Pool -- 26)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2017-03-05 23:07:49,677 INFO  [stdout] (ServerService Thread Pool -- 26)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2017-03-05 23:07:49,677 INFO  [stdout] (ServerService Thread Pool -- 26)  =========|_|==============|___/=/_/_/_/
+2017-03-05 23:07:49,678 INFO  [stdout] (ServerService Thread Pool -- 26)  :: Spring Boot ::  (v2.0.0.BUILD-SNAPSHOT)
+2017-03-05 23:07:49,679 INFO  [stdout] (ServerService Thread Pool -- 26) 
+2017-03-05 23:07:49,758 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 26) Starting ServidorSpringApplication on DESKTOP-2V7VPF4 with PID 5440 (C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\Server\target\Server\WEB-INF\classes started by Edson in C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin)
+2017-03-05 23:07:49,760 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 26) No active profile set, falling back to default profiles: default
+2017-03-05 23:07:49,795 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 26) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68340cec: startup date [Sun Mar 05 23:07:49 BRT 2017]; root of context hierarchy
+2017-03-05 23:07:50,796 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 26) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-03-05 23:07:50,918 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 26) Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a8fe1519] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 23:07:50,983 INFO  [org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping] (ServerService Thread Pool -- 26) Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2017-03-05 23:07:51,016 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 26) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$466501a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 23:07:51,064 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 26) Initializing Spring embedded WebApplicationContext
+2017-03-05 23:07:51,064 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 26) Root WebApplicationContext: initialization completed in 1269 ms
+2017-03-05 23:07:51,421 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 26) Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-05 23:07:51,423 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 26) Mapping servlet: 'messageDispatcherServlet' to [/services/*]
+2017-03-05 23:07:51,426 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 26) Mapping filter: 'errorPageFilter' to: [/*]
+2017-03-05 23:07:51,427 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 26) Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-05 23:07:51,612 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 26) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@62542e36
+2017-03-05 23:07:51,612 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 26) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@3f4484c3
+2017-03-05 23:07:51,612 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 26) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@22281f60
+2017-03-05 23:07:51,753 ERROR [stderr] (ServerService Thread Pool -- 26) Sun Mar 05 23:07:51 BRT 2017 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+2017-03-05 23:07:51,884 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 26) Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:07:51,900 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 26) HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-05 23:07:51,953 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 26) HHH000412: Hibernate Core {5.2.8.Final}
+2017-03-05 23:07:51,953 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 26) HHH000206: hibernate.properties not found
+2017-03-05 23:07:52,000 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 26) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-05 23:07:52,085 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 26) HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-05 23:07:52,486 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 26) Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:07:52,820 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/hello/{name}]}" onto java.lang.String br.edu.utfpr.pb.server.controllers.HelloController.hello(java.lang.String)
+2017-03-05 23:07:52,836 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/pessoa/],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Void> br.edu.utfpr.pb.server.controllers.PessoaController.createUser(br.edu.utfpr.pb.server.model.Pessoa,org.springframework.web.util.UriComponentsBuilder)
+2017-03-05 23:07:52,836 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/pessoa/{id}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.getPerson(java.lang.Long)
+2017-03-05 23:07:52,836 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/pessoa/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.deleteUser(java.lang.Long)
+2017-03-05 23:07:52,836 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/pessoa/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.updateUser(java.lang.Long,br.edu.utfpr.pb.server.model.Pessoa)
+2017-03-05 23:07:52,836 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-05 23:07:52,836 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 26) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-05 23:07:52,912 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (ServerService Thread Pool -- 26) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68340cec: startup date [Sun Mar 05 23:07:49 BRT 2017]; root of context hierarchy
+2017-03-05 23:07:53,459 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 26) Registering beans for JMX exposure on startup
+2017-03-05 23:07:53,477 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 26) Started ServidorSpringApplication in 4.261 seconds (JVM running for 13.521)
+2017-03-05 23:07:53,568 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 26) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para o contexto '/Server'
+2017-03-05 23:07:55,310 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 26) WFLYUT0021: Registered web context: /Server
+2017-03-05 23:07:55,346 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-03-05 23:07:55,883 INFO  [io.undertow.servlet] (default task-1) Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 23:07:55,883 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-05 23:07:55,899 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-1) FrameworkServlet 'dispatcherServlet': initialization completed in 12 ms
+2017-03-05 23:07:55,911 WARN  [org.springframework.web.servlet.PageNotFound] (default task-1) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 23:07:56,383 WARN  [org.springframework.web.servlet.PageNotFound] (default task-3) No mapping found for HTTP request with URI [/Server/] in DispatcherServlet with name 'dispatcherServlet'
+2017-03-05 23:08:03,481 INFO  [stdout] (default task-4) Hibernate: select pessoa0_.id as id1_0_0_, pessoa0_.fone as fone2_0_0_, pessoa0_.nome as nome3_0_0_ from pessoa pessoa0_ where pessoa0_.id=?
+2017-03-05 23:09:42,445 INFO  [stdout] (default task-5) Hibernate: select pessoa0_.id as id1_0_0_, pessoa0_.fone as fone2_0_0_, pessoa0_.nome as nome3_0_0_ from pessoa pessoa0_ where pessoa0_.id=?
+2017-03-05 23:10:06,529 INFO  [stdout] (default task-6) Hibernate: select pessoa0_.id as id1_0_0_, pessoa0_.fone as fone2_0_0_, pessoa0_.nome as nome3_0_0_ from pessoa pessoa0_ where pessoa0_.id=?
+2017-03-05 23:10:34,135 INFO  [stdout] (default task-7) Hibernate: select pessoa0_.id as id1_0_0_, pessoa0_.fone as fone2_0_0_, pessoa0_.nome as nome3_0_0_ from pessoa pessoa0_ where pessoa0_.id=?
+2017-03-05 23:12:49,722 ERROR [org.springframework.boot.web.support.ErrorPageFilter] (default task-9) Forwarding to error page from request [/pessoa/] due to exception [The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!]: org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:360)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:221)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:488)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:59)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:213)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:147)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:133)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy91.findOne(Unknown Source)
+	at br.edu.utfpr.pb.server.controllers.PessoaController.createUser(PessoaController.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:116)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:826)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:737)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:867)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:841)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:85)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at org.springframework.boot.web.support.ErrorPageFilter.doFilter(ErrorPageFilter.java:115)
+	at org.springframework.boot.web.support.ErrorPageFilter.access$000(ErrorPageFilter.java:59)
+	at org.springframework.boot.web.support.ErrorPageFilter$1.doFilterInternal(ErrorPageFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.boot.web.support.ErrorPageFilter.doFilter(ErrorPageFilter.java:108)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:131)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.NotificationReceiverHandler.handleRequest(NotificationReceiverHandler.java:50)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:292)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:138)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at io.undertow.servlet.api.LegacyThreadSetupActionWrapper$1.call(LegacyThreadSetupActionWrapper.java:44)
+	at io.undertow.servlet.api.LegacyThreadSetupActionWrapper$1.call(LegacyThreadSetupActionWrapper.java:44)
+	at io.undertow.servlet.api.LegacyThreadSetupActionWrapper$1.call(LegacyThreadSetupActionWrapper.java:44)
+	at io.undertow.servlet.api.LegacyThreadSetupActionWrapper$1.call(LegacyThreadSetupActionWrapper.java:44)
+	at io.undertow.servlet.api.LegacyThreadSetupActionWrapper$1.call(LegacyThreadSetupActionWrapper.java:44)
+	at io.undertow.servlet.api.LegacyThreadSetupActionWrapper$1.call(LegacyThreadSetupActionWrapper.java:44)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:272)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:81)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:104)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:202)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:805)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.IllegalArgumentException: The given id must not be null!
+	at org.springframework.util.Assert.notNull(Assert.java:191)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findOne(SimpleJpaRepository.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.executeMethodOn(RepositoryFactorySupport.java:554)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:539)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:480)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:461)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	... 78 more
+
+2017-03-05 23:13:33,797 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 70) WFLYUT0022: Unregistered web context: /Server
+2017-03-05 23:13:33,813 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 70) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 23:13:33,817 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 70) Closing Spring root WebApplicationContext
+2017-03-05 23:13:33,817 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 70) Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68340cec: startup date [Sun Mar 05 23:07:49 BRT 2017]; root of context hierarchy
+2017-03-05 23:13:33,825 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 70) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:13:33,829 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 70) Unregistering JMX-exposed beans on shutdown
+2017-03-05 23:13:34,188 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 393ms
+2017-03-05 23:13:34,226 WARN  [org.jboss.as.controller] (management-handler-thread - 7) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-03-05 23:13:34,227 INFO  [org.jboss.as.server] (management-handler-thread - 7) WFLYSRV0009: Undeployed "Server" (runtime-name: "Server.war")
+2017-03-05 23:13:34,310 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-03-05 23:13:37,402 WARN  [org.jboss.as.ee] (MSC service thread 1-3) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:13:37,402 WARN  [org.jboss.as.ee] (MSC service thread 1-3) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:13:37,402 WARN  [org.jboss.as.ee] (MSC service thread 1-3) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:13:37,418 WARN  [org.jboss.as.ee] (MSC service thread 1-3) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:13:37,433 WARN  [org.jboss.weld.deployer] (MSC service thread 1-3) WFLYWELD0013: Deployment deployment "Server.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-03-05 23:13:37,467 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 69) 2 Spring WebApplicationInitializers detected on classpath
+2017-03-05 23:13:37,857 INFO  [stdout] (ServerService Thread Pool -- 69) 
+2017-03-05 23:13:37,857 INFO  [stdout] (ServerService Thread Pool -- 69)   .   ____          _            __ _ _
+2017-03-05 23:13:37,857 INFO  [stdout] (ServerService Thread Pool -- 69)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2017-03-05 23:13:37,857 INFO  [stdout] (ServerService Thread Pool -- 69) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2017-03-05 23:13:37,857 INFO  [stdout] (ServerService Thread Pool -- 69)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2017-03-05 23:13:37,857 INFO  [stdout] (ServerService Thread Pool -- 69)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2017-03-05 23:13:37,857 INFO  [stdout] (ServerService Thread Pool -- 69)  =========|_|==============|___/=/_/_/_/
+2017-03-05 23:13:37,859 INFO  [stdout] (ServerService Thread Pool -- 69)  :: Spring Boot ::  (v2.0.0.BUILD-SNAPSHOT)
+2017-03-05 23:13:37,859 INFO  [stdout] (ServerService Thread Pool -- 69) 
+2017-03-05 23:13:37,911 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 69) Starting ServidorSpringApplication on DESKTOP-2V7VPF4 with PID 5440 (C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\Server\target\Server\WEB-INF\classes started by Edson in C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin)
+2017-03-05 23:13:37,911 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 69) No active profile set, falling back to default profiles: default
+2017-03-05 23:13:37,932 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 69) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40d4d5b8: startup date [Sun Mar 05 23:13:37 BRT 2017]; root of context hierarchy
+2017-03-05 23:13:38,746 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 69) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-03-05 23:13:38,829 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 69) Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$2dab1511] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 23:13:38,856 INFO  [org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping] (ServerService Thread Pool -- 69) Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2017-03-05 23:13:38,888 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 69) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$89135012] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 23:13:38,904 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 69) Initializing Spring embedded WebApplicationContext
+2017-03-05 23:13:38,904 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 69) Root WebApplicationContext: initialization completed in 972 ms
+2017-03-05 23:13:39,251 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 69) Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-05 23:13:39,252 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 69) Mapping servlet: 'messageDispatcherServlet' to [/services/*]
+2017-03-05 23:13:39,253 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 69) Mapping filter: 'errorPageFilter' to: [/*]
+2017-03-05 23:13:39,253 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 69) Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-05 23:13:39,427 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 69) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@62542e36
+2017-03-05 23:13:39,427 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 69) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@3f4484c3
+2017-03-05 23:13:39,427 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 69) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@22281f60
+2017-03-05 23:13:39,485 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 69) Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:13:39,506 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 69) HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-05 23:13:39,590 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 69) HHH000412: Hibernate Core {5.2.8.Final}
+2017-03-05 23:13:39,592 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 69) HHH000206: hibernate.properties not found
+2017-03-05 23:13:39,631 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 69) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-05 23:13:39,698 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 69) HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-05 23:13:39,983 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 69) Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:13:40,299 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 69) Mapped "{[/hello/{name}]}" onto java.lang.String br.edu.utfpr.pb.server.controllers.HelloController.hello(java.lang.String)
+2017-03-05 23:13:40,315 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 69) Mapped "{[/pessoa/],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Void> br.edu.utfpr.pb.server.controllers.PessoaController.createUser(br.edu.utfpr.pb.server.model.Pessoa,org.springframework.web.util.UriComponentsBuilder)
+2017-03-05 23:13:40,315 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 69) Mapped "{[/pessoa/{id}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.getPerson(java.lang.Long)
+2017-03-05 23:13:40,315 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 69) Mapped "{[/pessoa/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.deleteUser(java.lang.Long)
+2017-03-05 23:13:40,315 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 69) Mapped "{[/pessoa/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.updateUser(java.lang.Long,br.edu.utfpr.pb.server.model.Pessoa)
+2017-03-05 23:13:40,315 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 69) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-05 23:13:40,315 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 69) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-05 23:13:40,386 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (ServerService Thread Pool -- 69) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40d4d5b8: startup date [Sun Mar 05 23:13:37 BRT 2017]; root of context hierarchy
+2017-03-05 23:13:40,761 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 69) Registering beans for JMX exposure on startup
+2017-03-05 23:13:40,775 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 69) Started ServidorSpringApplication in 3.247 seconds (JVM running for 360.818)
+2017-03-05 23:13:40,779 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 69) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para o contexto '/Server'
+2017-03-05 23:13:41,918 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 69) WFLYUT0021: Registered web context: /Server
+2017-03-05 23:13:41,949 INFO  [org.jboss.as.server] (management-handler-thread - 7) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-03-05 23:13:47,661 INFO  [io.undertow.servlet] (default task-10) Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 23:13:47,661 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-10) FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-05 23:13:47,673 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-10) FrameworkServlet 'dispatcherServlet': initialization completed in 12 ms
+2017-03-05 23:13:47,717 INFO  [stdout] (default task-10) Hibernate: insert into pessoa (fone, nome) values (?, ?)
+2017-03-05 23:14:47,433 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 98) WFLYUT0022: Unregistered web context: /Server
+2017-03-05 23:14:47,433 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 98) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 23:14:47,449 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 98) Closing Spring root WebApplicationContext
+2017-03-05 23:14:47,449 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 98) Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@40d4d5b8: startup date [Sun Mar 05 23:13:37 BRT 2017]; root of context hierarchy
+2017-03-05 23:14:47,451 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 98) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:14:47,453 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 98) Unregistering JMX-exposed beans on shutdown
+2017-03-05 23:14:47,616 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 180ms
+2017-03-05 23:14:47,653 WARN  [org.jboss.as.controller] (management-handler-thread - 11) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-03-05 23:14:47,653 INFO  [org.jboss.as.server] (management-handler-thread - 11) WFLYSRV0009: Undeployed "Server" (runtime-name: "Server.war")
+2017-03-05 23:14:47,771 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-03-05 23:14:50,663 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:14:50,665 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:14:50,666 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:14:50,667 WARN  [org.jboss.as.ee] (MSC service thread 1-5) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-03-05 23:14:50,667 WARN  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0013: Deployment deployment "Server.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-03-05 23:14:50,699 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 114) 2 Spring WebApplicationInitializers detected on classpath
+2017-03-05 23:14:51,030 INFO  [stdout] (ServerService Thread Pool -- 114) 
+2017-03-05 23:14:51,030 INFO  [stdout] (ServerService Thread Pool -- 114)   .   ____          _            __ _ _
+2017-03-05 23:14:51,030 INFO  [stdout] (ServerService Thread Pool -- 114)  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2017-03-05 23:14:51,030 INFO  [stdout] (ServerService Thread Pool -- 114) ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2017-03-05 23:14:51,030 INFO  [stdout] (ServerService Thread Pool -- 114)  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2017-03-05 23:14:51,030 INFO  [stdout] (ServerService Thread Pool -- 114)   '  |____| .__|_| |_|_| |_\__, | / / / /
+2017-03-05 23:14:51,030 INFO  [stdout] (ServerService Thread Pool -- 114)  =========|_|==============|___/=/_/_/_/
+2017-03-05 23:14:51,046 INFO  [stdout] (ServerService Thread Pool -- 114)  :: Spring Boot ::  (v2.0.0.BUILD-SNAPSHOT)
+2017-03-05 23:14:51,046 INFO  [stdout] (ServerService Thread Pool -- 114) 
+2017-03-05 23:14:51,099 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 114) Starting ServidorSpringApplication on DESKTOP-2V7VPF4 with PID 5440 (C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\Server\target\Server\WEB-INF\classes started by Edson in C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin)
+2017-03-05 23:14:51,099 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 114) No active profile set, falling back to default profiles: default
+2017-03-05 23:14:51,115 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 114) Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@b5f779b: startup date [Sun Mar 05 23:14:51 BRT 2017]; root of context hierarchy
+2017-03-05 23:14:51,927 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 114) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-03-05 23:14:52,007 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 114) Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$91119635] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 23:14:52,038 INFO  [org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping] (ServerService Thread Pool -- 114) Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2017-03-05 23:14:52,060 INFO  [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] (ServerService Thread Pool -- 114) Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ec79d136] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-05 23:14:52,091 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 114) Initializing Spring embedded WebApplicationContext
+2017-03-05 23:14:52,091 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 114) Root WebApplicationContext: initialization completed in 976 ms
+2017-03-05 23:14:52,389 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 114) Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-05 23:14:52,389 INFO  [org.springframework.boot.web.servlet.ServletRegistrationBean] (ServerService Thread Pool -- 114) Mapping servlet: 'messageDispatcherServlet' to [/services/*]
+2017-03-05 23:14:52,405 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 114) Mapping filter: 'errorPageFilter' to: [/*]
+2017-03-05 23:14:52,405 INFO  [org.springframework.boot.web.servlet.FilterRegistrationBean] (ServerService Thread Pool -- 114) Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-05 23:14:52,597 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 114) Using JTA UserTransaction: org.jboss.tm.usertx.client.ServerVMClientUserTransaction@62542e36
+2017-03-05 23:14:52,597 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 114) Using JTA TransactionManager: com.arjuna.ats.jbossatx.jta.TransactionManagerDelegate@3f4484c3
+2017-03-05 23:14:52,598 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 114) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@22281f60
+2017-03-05 23:14:52,656 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 114) Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:14:52,676 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 114) HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-05 23:14:52,742 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 114) HHH000412: Hibernate Core {5.2.8.Final}
+2017-03-05 23:14:52,744 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 114) HHH000206: hibernate.properties not found
+2017-03-05 23:14:52,771 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 114) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-03-05 23:14:52,865 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 114) HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-05 23:14:53,241 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 114) Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:14:53,555 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/hello/{name}]}" onto java.lang.String br.edu.utfpr.pb.server.controllers.HelloController.hello(java.lang.String)
+2017-03-05 23:14:53,569 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/pessoa/],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<br.edu.utfpr.pb.server.model.Pessoa>> br.edu.utfpr.pb.server.controllers.PessoaController.listPeople()
+2017-03-05 23:14:53,569 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/pessoa/],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Void> br.edu.utfpr.pb.server.controllers.PessoaController.createUser(br.edu.utfpr.pb.server.model.Pessoa,org.springframework.web.util.UriComponentsBuilder)
+2017-03-05 23:14:53,570 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/pessoa/{id}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.getPerson(java.lang.Long)
+2017-03-05 23:14:53,570 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/pessoa/{id}],methods=[DELETE]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.deleteUser(java.lang.Long)
+2017-03-05 23:14:53,570 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/pessoa/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<br.edu.utfpr.pb.server.model.Pessoa> br.edu.utfpr.pb.server.controllers.PessoaController.updateUser(java.lang.Long,br.edu.utfpr.pb.server.model.Pessoa)
+2017-03-05 23:14:53,573 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-05 23:14:53,574 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] (ServerService Thread Pool -- 114) Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-05 23:14:53,626 INFO  [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] (ServerService Thread Pool -- 114) Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@b5f779b: startup date [Sun Mar 05 23:14:51 BRT 2017]; root of context hierarchy
+2017-03-05 23:14:54,094 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 114) Registering beans for JMX exposure on startup
+2017-03-05 23:14:54,111 INFO  [br.edu.utfpr.pb.server.ServidorSpringApplication] (ServerService Thread Pool -- 114) Started ServidorSpringApplication in 3.364 seconds (JVM running for 434.154)
+2017-03-05 23:14:54,115 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 114) Inicializando Mojarra 2.2.13.SP1 20160303-1204 para o contexto '/Server'
+2017-03-05 23:14:55,240 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 114) WFLYUT0021: Registered web context: /Server
+2017-03-05 23:14:55,256 INFO  [org.jboss.as.server] (management-handler-thread - 11) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-03-05 23:15:02,383 INFO  [io.undertow.servlet] (default task-11) Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 23:15:02,383 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-11) FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-05 23:15:02,387 INFO  [org.springframework.web.servlet.DispatcherServlet] (default task-11) FrameworkServlet 'dispatcherServlet': initialization completed in 4 ms
+2017-03-05 23:15:02,435 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (default task-11) HHH000397: Using ASTQueryTranslatorFactory
+2017-03-05 23:15:02,504 INFO  [stdout] (default task-11) Hibernate: select pessoa0_.id as id1_0_, pessoa0_.fone as fone2_0_, pessoa0_.nome as nome3_0_ from pessoa pessoa0_
+2017-03-05 23:15:31,355 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 127) WFLYUT0022: Unregistered web context: /Server
+2017-03-05 23:15:31,355 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 127) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-03-05 23:15:31,355 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 127) Closing Spring root WebApplicationContext
+2017-03-05 23:15:31,355 INFO  [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext] (ServerService Thread Pool -- 127) Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@b5f779b: startup date [Sun Mar 05 23:14:51 BRT 2017]; root of context hierarchy
+2017-03-05 23:15:31,355 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 127) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-03-05 23:15:31,355 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 127) Unregistering JMX-exposed beans on shutdown
+2017-03-05 23:15:31,507 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 146ms
+2017-03-05 23:15:31,530 WARN  [org.jboss.as.controller] (management-handler-thread - 12) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-03-05 23:15:31,530 INFO  [org.jboss.as.server] (management-handler-thread - 12) WFLYSRV0009: Undeployed "Server" (runtime-name: "Server.war")
+2017-03-05 23:15:31,601 INFO  [org.jboss.as.server] (management-handler-thread - 11) WFLYSRV0236: Suspending server with no timeout.
+2017-03-05 23:15:31,605 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2017-03-05 23:15:31,649 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2017-03-05 23:15:31,650 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Unbound data source [java:/MySqlDS]
+2017-03-05 23:15:31,653 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTPS listener https suspending
+2017-03-05 23:15:31,654 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2017-03-05 23:15:31,652 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0019: Host default-host stopping
+2017-03-05 23:15:31,683 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0008: Undertow HTTP listener default suspending
+2017-03-05 23:15:31,684 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2017-03-05 23:15:31,684 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0004: Undertow 1.4.0.Final stopping
+2017-03-05 23:15:31,723 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2017-03-05 23:15:31,726 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = mysql
+2017-03-05 23:15:31,740 INFO  [org.jboss.as] (MSC service thread 1-5) WFLYSRV0050: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) stopped in 106ms

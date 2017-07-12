@@ -1,0 +1,26 @@
+2017-06-12 22:08:00,722 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 381) WFLYUT0022: Unregistered web context: /ProjetoJSP
+2017-06-12 22:08:00,760 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 381) Destroying Spring FrameworkServlet 'dispatcherServlet'
+2017-06-12 22:08:00,768 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 381) Closing Spring root WebApplicationContext
+2017-06-12 22:08:00,771 INFO  [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] (ServerService Thread Pool -- 381) Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@63a100a4: startup date [Mon Jun 05 22:10:43 BRT 2017]; root of context hierarchy
+2017-06-12 22:08:00,819 INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] (ServerService Thread Pool -- 381) Closing JPA EntityManagerFactory for persistence unit 'default'
+2017-06-12 22:08:00,843 INFO  [org.springframework.jmx.export.annotation.AnnotationMBeanExporter] (ServerService Thread Pool -- 381) Unregistering JMX-exposed beans on shutdown
+2017-06-12 22:08:01,165 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment ProjetoJSP (runtime-name: ProjetoJSP.war) in 470ms
+2017-06-12 22:08:01,304 WARN  [org.jboss.as.controller] (management-handler-thread - 17) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-06-12 22:08:01,305 INFO  [org.jboss.as.server] (management-handler-thread - 17) WFLYSRV0009: Undeployed "ProjetoJSP" (runtime-name: "ProjetoJSP.war")
+2017-06-12 22:08:01,306 INFO  [org.jboss.as.controller] (management-handler-thread - 17) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit."Server.war".STRUCTURE: org.jboss.msc.service.StartException in service jboss.deployment.unit."Server.war".STRUCTURE: WFLYSRV0153: Failed to process phase STRUCTURE of deployment "Server.war"
+
+2017-06-12 22:08:01,377 INFO  [org.jboss.as.server] (management-handler-thread - 16) WFLYSRV0236: Suspending server with no timeout.
+2017-06-12 22:08:01,397 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2017-06-12 22:08:01,500 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0010: Unbound data source [java:/MySqlDS]
+2017-06-12 22:08:01,501 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2017-06-12 22:08:01,507 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 69ms
+2017-06-12 22:08:01,536 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0019: Host default-host stopping
+2017-06-12 22:08:01,537 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow HTTPS listener https suspending
+2017-06-12 22:08:01,549 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2017-06-12 22:08:01,551 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2017-06-12 22:08:01,554 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0019: Stopped Driver service with driver-name = mysql
+2017-06-12 22:08:01,560 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow HTTP listener default suspending
+2017-06-12 22:08:01,565 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2017-06-12 22:08:01,571 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0004: Undertow 1.4.0.Final stopping
+2017-06-12 22:08:01,610 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0050: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) stopped in 111ms

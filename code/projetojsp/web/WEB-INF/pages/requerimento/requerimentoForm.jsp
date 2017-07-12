@@ -86,6 +86,8 @@
                         <label for="observacao">Observações:</label>
                         <textarea id="observacao" class="form-control" rows="5"></textarea>
                     </div>
+                    <button type="reset" class="btn btn-default">Limpar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
             </div>
         </div>
