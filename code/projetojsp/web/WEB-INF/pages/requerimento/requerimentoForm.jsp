@@ -12,7 +12,7 @@
             <h3>Requerimento <small>5000</small></h3>
             <hr>
             <div class="row pt-3 container">
-                <form id="frm" action="<c:url value="/requerimento/" />" method="post">
+                <form id="frm" action="/" method="post" autocomplete="off">
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group">
                             <label for="motivo">Motivo do Requerimento:</label>

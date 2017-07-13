@@ -1,6 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.controller;
 
-import br.edu.utfpr.pb.projetojsp.model.Requerimento;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,9 +23,20 @@ public class RequerimentoController {
 
     @PostMapping(value = "/", produces = "application/json")
     @ResponseBody
-    public String salvar(Requerimento requerimento, Model model) {
+    public String salvar(Model model) {
+        JSONObject retorno = new JSONObject();
+        try{
+            //categoriaRepository.save(categoria);
+            retorno.put("situacao", "OK");
+            retorno.put("mensagem", "Registro salvo com sucesso!");
+            //retorno.put("id", categoria.getId());
+        }catch (Exception ex){
+            retorno.put("situacao", "ERRO");
+            retorno.put("mensagem", "Falha ao salvar registro! - <br /> " +
+                    ex.getMessage());
+        }
 
-        return "requerimento/requerimentoForm";
+        return retorno.toString();
     }
 
 

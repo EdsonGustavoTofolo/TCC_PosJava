@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework:spring-orm:5.0.0.BUILD-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.0.0.BUILD-SNAPSHOT/spring-orm-5.0.0.BUILD-20170711.190353-379.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.0.0.BUILD-SNAPSHOT/spring-orm-5.0.0.BUILD-20170712.171929-388.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.0.0.BUILD-SNAPSHOT/spring-orm-5.0.0.BUILD-20170711.190353-379-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.0.0.BUILD-SNAPSHOT/spring-orm-5.0.0.BUILD-20170712.171929-388-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.0.0.BUILD-SNAPSHOT/spring-orm-5.0.0.BUILD-20170711.190353-379-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/5.0.0.BUILD-SNAPSHOT/spring-orm-5.0.0.BUILD-20170712.171929-388-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

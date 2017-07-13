@@ -50,6 +50,7 @@ $(document).ready(function () {
 $("#frm").submit(function() {
     $.ajax({
         type : $("#frm").attr('method'),
+        contentType: "application/json",
         url : $("#frm").attr('action'),
         data : $('#frm').serialize(),
         success : function(data) {
@@ -62,11 +63,11 @@ $("#frm").submit(function() {
                 confirmButtonText : "Ok",
                 closeOnConfirm : false
             }, function() {
-                window.location = '<c:url value="/produto/"/>';
+                //window.location = '<c:url value="/produto/"/>';
             });
         },//Fim success
         error : function() {
-            swal("Falha!", "Falha ao salvar registro.", "error");
+            swal("Faio!", "Falha ao salvar registro.", "error");
         }
     });//Fim ajax
     return false;
