@@ -66,7 +66,7 @@ $("#frm").submit(function() {
             });
         },//Fim success
         error : function() {
-            swal("Faio!", "Falha ao salvar registro.", "error");
+            swal("Falhou!", "Falha ao salvar registro.", "error");
         }
     });//Fim ajax
     return false;

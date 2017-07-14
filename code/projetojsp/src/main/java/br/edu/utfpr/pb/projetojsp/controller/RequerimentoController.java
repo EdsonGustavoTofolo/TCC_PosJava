@@ -1,11 +1,13 @@
 package br.edu.utfpr.pb.projetojsp.controller;
 
+import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -15,15 +17,15 @@ import java.util.Map;
 @Controller
 @RequestMapping("/requerimento")
 public class RequerimentoController {
+
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
         model.put("message", "HELLO TO THE JSP WORLD!");
         return "requerimento/requerimentoForm";
     }
 
-    @PostMapping(value = "/", produces = "application/json")
-    @ResponseBody
-    public String salvar(Model model) {
+    @PostMapping(value = "/salvar")
+    public String salvar(@ModelAttribute("requerimentoForm") Requerimento requerimento, BindingResult result, Model model) {
         JSONObject retorno = new JSONObject();
         try{
             //categoriaRepository.save(categoria);

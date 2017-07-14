@@ -50,7 +50,6 @@ $(document).ready(function () {
 $("#frm").submit(function() {
     $.ajax({
         type : $("#frm").attr('method'),
-        contentType: "application/json",
         url : $("#frm").attr('action'),
         data : $('#frm').serialize(),
         success : function(data) {
@@ -67,7 +66,7 @@ $("#frm").submit(function() {
             });
         },//Fim success
         error : function() {
-            swal("Faio!", "Falha ao salvar registro.", "error");
+            swal("Falhou!", "Falha ao salvar registro.", "error");
         }
     });//Fim ajax
     return false;
