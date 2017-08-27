@@ -30,15 +30,13 @@
     <div>
         <div>
 
-            <h1 class="logo-name">IN+</h1>
+            <h1 class="logo-name">UT+</h1>
 
         </div>
-        <h3>Welcome to IN+</h3>
-        <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
-            <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
-        </p>
-        <p>Login in. To see it in action.</p>
-        <form class="m-t" role="form" action="login">
+        <h3>Bem Vindo(a) à UTFPRPB+</h3>
+        <p>Sistema para gerenciamento dos requerimentos efetuados na UTFPR no campus de Pato Braco / PR.</p>
+        <p>Faça o login para ver/criar/editar seus requerimentos.</p>
+        <form class="m-t" role="form" action="login" method="post">
             <div class="form-group">
                 <input type="email" class="form-control" placeholder="Username" required="">
             </div>

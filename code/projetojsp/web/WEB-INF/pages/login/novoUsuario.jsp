@@ -26,31 +26,29 @@
 
 <body>
 
-<div class="middle-box text-center loginscreen   animated fadeInDown">
+<div class="middle-box text-center loginscreen animated fadeInDown">
     <div>
         <div>
-
-            <h1 class="logo-name">IN+</h1>
-
+            <h1 class="logo-name">UT+</h1>
         </div>
-        <h3>Register to IN+</h3>
-        <p>Create account to see it in action.</p>
-        <form class="m-t" role="form" action="login.html">
+        <!-- h3>UTFPRPB/REQ+</h3 -->
+        <p>Crie uma conta para poder acessar seus requerimentos.</p>
+        <form class="m-t" role="form" action="login/criarNovoUsuario" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name" required="">
+                <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required="">
+                <input type="email" class="form-control" placeholder="E-mail" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required="">
+                <input type="password" class="form-control" placeholder="Senha" required>
             </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+            <button type="submit" class="btn btn-primary block full-width m-b">Criar</button>
 
-            <p class="text-muted text-center"><small>Already have an account?</small></p>
-            <a class="btn btn-sm btn-white btn-block" href="login.html">Login</a>
+            <p class="text-muted text-center"><small>Já tem uma conta?</small></p>
+            <a class="btn btn-sm btn-white btn-block" href="<c:url value="/login"/>">Login</a>
         </form>
-        <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
+        <!-- p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p -->
     </div>
 </div>
 
