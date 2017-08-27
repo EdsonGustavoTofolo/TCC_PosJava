@@ -2,7 +2,7 @@
  * Created by Edson on 11/07/2017.
  */
 $(document).ready(function () {
-    var $input = $("#motivo");
+    var $input = $("#motivoTxt");
     $input.typeahead({
         source: [
             {id:  1, name: 'Afastamento para estudos no exterior'},
@@ -31,6 +31,7 @@ $(document).ready(function () {
     });
     $input.change(function() {
         var motivo = $input.typeahead("getActive");
+        $('#motivo').val(motivo.id);
         if (motivo) { // Some item from your model is active!
             if ((motivo.id != 9) && !$('#motivo9').hasClass('hidden')) { //se nao for 2o. chamada e a div do motivo9 nao estiver invisivel
                 $('#motivo9').addClass('hidden');

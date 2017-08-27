@@ -17,10 +17,12 @@
                 <spring:url value="/requerimento/salvar" var="requerimentoActUrl" />
 
                 <frm:form id="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}" autocomplete="off">
+                    <input id="id" name="id" type="text" hidden/>
+                    <input id="motivo" name="motivo" type="text" hidden/>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group">
-                            <label for="motivo">Motivo do Requerimento:</label>
-                            <input id="motivo" name="motivo" type="text" data-provide="typeahead" class="form-control"
+                            <label for="motivoTxt">Motivo do Requerimento:</label>
+                            <input id="motivoTxt" type="text" data-provide="typeahead" class="form-control"
                                    placeholder="Comece a digitar. Exemplo: convalidação, chamada, histórico..." required/>
                         </div>
                     </div>
