@@ -32,9 +32,9 @@ public class Usuario implements Serializable, UserDetails {
     private String senha;
     @Column(name = "nome_usu", length = 60, nullable = false)
     private String nome;
-    @Column(name = "telefone_usu", length = 11, nullable = false)
+    @Column(name = "telefone_usu", length = 11)
     private String telefone;
-    @Column(name = "curso_usu", length = 60, nullable = false)
+    @Column(name = "curso_usu", length = 60)
     private String curso;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_cadastro_usu", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
@@ -148,12 +148,12 @@ public class Usuario implements Serializable, UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return this.senha;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.email;
     }
 
     @Override
@@ -163,17 +163,17 @@ public class Usuario implements Serializable, UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public void addPermissao(Permissao permissao){

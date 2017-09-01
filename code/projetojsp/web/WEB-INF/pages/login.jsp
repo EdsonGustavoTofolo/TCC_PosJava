@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +37,13 @@
         <h3>Bem Vindo(a) à UTFPRPB+</h3>
         <p>Sistema para gerenciamento dos requerimentos efetuados na UTFPR no campus de Pato Braco / PR.</p>
         <p>Faça o login para ver/criar/editar seus requerimentos.</p>
-        <form class="m-t" role="form" action="login" method="post">
+        <spring:url value="login" var="actUrl" />
+        <form class="m-t" role="form" action="${actUrl}" method="POST">
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Username" required="">
+                <input type="email" class="form-control" placeholder="Informe seu e-mail" required="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required="">
+                <input type="password" class="form-control" placeholder="Informe a sua senha" required="">
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 

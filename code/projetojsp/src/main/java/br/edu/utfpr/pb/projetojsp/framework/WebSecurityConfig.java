@@ -21,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -29,17 +30,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .exceptionHandling().accessDeniedPage("/erro403").and()
-                .formLogin().loginPage("/login")
-                .defaultSuccessUrl("/index/")
-                .failureUrl("/login?error=bad_credentials").permitAll()
-                .and().authorizeRequests()
+                .authorizeRequests()
+                .antMatchers("/usuario/**").permitAll()
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/index/**").hasRole("USER")
                 .antMatchers("/categoria/**").hasRole("USER")
                 .antMatchers("/produto/**").hasRole("ADMIN")
                 .antMatchers("/carros/**").hasAnyRole("USER,ADMIN,GERENTE")
-                .antMatchers("/**").hasRole("USER");
+                .antMatchers("/**").hasRole("USER")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/index/")
+                    .failureUrl("/login?error=bad_credentials")
+                    .permitAll()
+                .and()
+                .logout()
+                    .permitAll();
+        /*http.csrf().disable()
+                .exceptionHandling().accessDeniedPage("/erro403").and()
+                .formLogin().loginPage("/login")
+                .defaultSuccessUrl("/index/")
+                .failureUrl("/login?error=bad_credentials").permitAll()
+                .and().authorizeRequests()
+                .antMatchers("/usuario/**").permitAll()
+                .antMatchers("/login/**").permitAll()
+                .antMatchers("/index/**").hasRole("USER")
+                .antMatchers("/categoria/**").hasRole("USER")
+                .antMatchers("/produto/**").hasRole("ADMIN")
+                .antMatchers("/carros/**").hasAnyRole("USER,ADMIN,GERENTE")
+                .antMatchers("/**").hasRole("USER");*/
     }
 
     @Bean

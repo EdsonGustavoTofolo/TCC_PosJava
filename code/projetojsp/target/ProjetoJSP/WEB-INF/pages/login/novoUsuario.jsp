@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,22 +35,26 @@
         </div>
         <!-- h3>UTFPRPB/REQ+</h3 -->
         <p>Crie uma conta para poder acessar seus requerimentos.</p>
-        <form class="m-t" role="form" action="login">
+        <spring:url value="/usuario/criarNovoUsuario/" var="actUrl" />
+        <form class="m-t" role="form" action="${actUrl}" method="post" autocomplete="off">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name" required="">
+                <input id="codigo" name="codigo" type="text" class="form-control" placeholder="Informe o código do Registro" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required="">
+                <input id="nome" name="nome" type="text" class="form-control" placeholder="Informe seu Nome" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required="">
+                <input id="email" name="email" type="email" class="form-control" placeholder="Informe um E-mail" required>
             </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+            <div class="form-group">
+                <input id="senha" name="senha" type="password" class="form-control" placeholder="Informe uma Senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">Cadastrar</button>
 
             <p class="text-muted text-center"><small>Já tem uma conta?</small></p>
             <a class="btn btn-sm btn-white btn-block" href="<c:url value="/login"/>">Login</a>
         </form>
-        <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
+        <!-- p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p -->
     </div>
 </div>
 

@@ -1,0 +1,371 @@
+2017-08-31 18:41:01,599 INFO  [org.jboss.modules] (main) JBoss Modules version 1.5.2.Final
+2017-08-31 18:41:02,854 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.6.Final
+2017-08-31 18:41:02,974 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0049: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) starting
+2017-08-31 18:41:02,976 DEBUG [org.jboss.as.config] (MSC service thread 1-6) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\Windows\Sun\Java\lib\ext
+	java.home = C:\Program Files\Java\jdk1.8.0_121\jre
+	java.io.tmpdir = C:\Users\Edson\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk1.8.0_121\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\wildfly-10.1.0.Final\bin;C:\Users\Edson\OneDrive\Documents\Guto\Development\servers\apache-maven-3.3.9\bin;C:\Program Files (x86)\Skype\Phone\;C:\Users\Edson\AppData\Local\Microsoft\WindowsApps;C:\Users\Edson\AppData\Roaming\npm;.
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_121-b13
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_121
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.121-b13
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final
+	jboss.host.name = desktop-2v7vpf4
+	jboss.modules.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\modules
+	jboss.node.name = desktop-2v7vpf4
+	jboss.qualified.host.name = desktop-2v7vpf4
+	jboss.server.base.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone
+	jboss.server.config.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\configuration
+	jboss.server.data.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\data
+	jboss.server.deploy.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\data\content
+	jboss.server.log.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\log
+	jboss.server.name = desktop-2v7vpf4
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\configuration/logging.properties
+	module.path = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\modules
+	org.jboss.boot.log.file = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.class.path = C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes
+	sun.boot.library.path = C:\Program Files\Java\jdk1.8.0_121\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\jboss-modules.jar -mp C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = BR
+	user.dir = C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\bin
+	user.home = C:\Users\Edson
+	user.language = pt
+	user.name = Edson
+	user.script = 
+	user.timezone = America/Sao_Paulo
+	user.variant = 
+2017-08-31 18:41:02,977 DEBUG [org.jboss.as.config] (MSC service thread 1-6) VM Arguments: -Dprogram.name=standalone.bat -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:50727,suspend=y,server=n -Dorg.jboss.boot.log.file=C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\configuration/logging.properties 
+2017-08-31 18:41:10,391 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2017-08-31 18:41:10,423 INFO  [org.xnio] (MSC service thread 1-4) XNIO version 3.4.0.Final
+2017-08-31 18:41:10,432 INFO  [org.xnio.nio] (MSC service thread 1-4) XNIO NIO Implementation Version 3.4.0.Final
+2017-08-31 18:41:10,503 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 38) WFLYCLINF0001: Activating Infinispan subsystem.
+2017-08-31 18:41:10,506 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 53) WFLYSEC0002: Activating Security Subsystem
+2017-08-31 18:41:10,493 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 54) WFLYTX0013: Node identifier property is set to the default value. Please make sure it is unique.
+2017-08-31 18:41:10,528 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 56) WFLYWS0002: Activating WebServices Extension
+2017-08-31 18:41:10,541 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 46) WFLYNAM0001: Activating Naming Subsystem
+2017-08-31 18:41:10,542 INFO  [org.jboss.as.security] (MSC service thread 1-1) WFLYSEC0001: Current PicketBox version=4.9.6.Final
+2017-08-31 18:41:10,547 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 44) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2017-08-31 18:41:10,550 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2017-08-31 18:41:10,828 INFO  [org.jboss.as.connector] (MSC service thread 1-1) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.3.4.Final)
+2017-08-31 18:41:10,847 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0003: Undertow 1.4.0.Final starting
+2017-08-31 18:41:10,943 INFO  [org.jboss.as.naming] (MSC service thread 1-5) WFLYNAM0003: Starting Naming Service
+2017-08-31 18:41:10,944 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-5) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2017-08-31 18:41:10,952 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+2017-08-31 18:41:10,957 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = h2
+2017-08-31 18:41:11,271 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2017-08-31 18:41:11,276 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2017-08-31 18:41:11,277 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = mysql
+2017-08-31 18:41:11,278 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2017-08-31 18:41:11,512 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 55) WFLYUT0014: Creating file handler for path 'C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2017-08-31 18:41:11,707 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0012: Started server default-server.
+2017-08-31 18:41:11,709 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0018: Host default-host starting
+2017-08-31 18:41:11,788 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 4.0.21.Final
+2017-08-31 18:41:12,044 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2017-08-31 18:41:12,264 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Bound data source [java:/MySqlDS]
+2017-08-31 18:41:12,264 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2017-08-31 18:41:12,848 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-8) WFLYDM0111: Keystore C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2017-08-31 18:41:12,988 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "ProjetoJSP" (runtime-name: "ProjetoJSP.war")
+2017-08-31 18:41:12,990 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "Server" (runtime-name: "Server.war")
+2017-08-31 18:41:13,024 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\wildfly-10.1.0.Final\standalone\deployments
+2017-08-31 18:41:13,036 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-4) MSC000001: Failed to start service jboss.deployment.unit."Server.war".STRUCTURE: org.jboss.msc.service.StartException in service jboss.deployment.unit."Server.war".STRUCTURE: WFLYSRV0153: Failed to process phase STRUCTURE of deployment "Server.war"
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:154)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: WFLYSRV0160: Failed to mount deployment content
+	at org.jboss.as.server.deployment.module.DeploymentRootMountProcessor.deploy(DeploymentRootMountProcessor.java:95)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:147)
+	... 5 more
+Caused by: java.io.FileNotFoundException: C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code_jsp\projetotcc\target\Server (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at org.jboss.vfs.spi.RootFileSystem.openInputStream(RootFileSystem.java:51)
+	at org.jboss.vfs.VirtualFile.openStream(VirtualFile.java:318)
+	at org.jboss.vfs.VFS.mountZipExpanded(VFS.java:533)
+	at org.jboss.as.server.deployment.DeploymentMountProvider$Factory$ServerDeploymentRepositoryImpl.mountDeploymentContent(DeploymentMountProvider.java:108)
+	at org.jboss.as.server.deployment.module.DeploymentRootMountProcessor.deploy(DeploymentRootMountProcessor.java:91)
+	... 6 more
+
+2017-08-31 18:41:13,309 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-5) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.4.Final
+2017-08-31 18:41:13,421 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 62) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-08-31 18:41:13,427 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 58) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-08-31 18:41:13,433 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 60) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-08-31 18:41:13,434 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 60) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-08-31 18:41:13,435 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 58) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-08-31 18:41:13,437 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 62) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2017-08-31 18:41:13,969 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2017-08-31 18:41:15,251 INFO  [org.jboss.ws.common.management] (MSC service thread 1-8) JBWS022052: Starting JBossWS 5.1.5.Final (Apache CXF 3.1.6) 
+2017-08-31 18:41:21,526 WARN  [org.jboss.as.ee] (MSC service thread 1-2) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:21,535 WARN  [org.jboss.as.ee] (MSC service thread 1-2) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:21,536 WARN  [org.jboss.as.ee] (MSC service thread 1-2) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:21,550 WARN  [org.jboss.as.ee] (MSC service thread 1-2) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:21,552 WARN  [org.jboss.as.ee] (MSC service thread 1-2) WFLYEE0007: Not installing optional component br.edu.utfpr.aula5.filter.CORSFilter due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:22,187 WARN  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0013: Deployment deployment "ProjetoJSP.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-08-31 18:41:22,322 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-5) MSC000001: Failed to start service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module "deployment.ProjetoJSP.war:main" from Service Module Loader]
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:1079)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.start(UndertowDeploymentInfoService.java:284)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module "deployment.ProjetoJSP.war:main" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:363)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:351)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:93)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:801)
+	... 6 more
+
+2017-08-31 18:41:22,437 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([("deployment" => "Server")]) - failure description: {
+    "WFLYCTL0080: Failed services" => {"jboss.deployment.unit.\"Server.war\".STRUCTURE" => "org.jboss.msc.service.StartException in service jboss.deployment.unit.\"Server.war\".STRUCTURE: WFLYSRV0153: Failed to process phase STRUCTURE of deployment \"Server.war\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: WFLYSRV0160: Failed to mount deployment content
+    Caused by: java.io.FileNotFoundException: C:\\Users\\Edson\\Documents\\Development\\Gitlab\\TCC_POSJAVA\\code_jsp\\projetotcc\\target\\Server (O sistema não pode encontrar o caminho especificado)"},
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.deployment.unit.\"Server.war\".STRUCTURE"],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => undefined
+}
+2017-08-31 18:41:22,444 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([("deployment" => "ProjetoJSP")]) - failure description: {
+    "WFLYCTL0080: Failed services" => {"jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService" => "org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module \"deployment.ProjetoJSP.war:main\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module \"deployment.ProjetoJSP.war:main\" from Service Module Loader]"},
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService"],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => undefined
+}
+2017-08-31 18:41:22,723 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "ProjetoJSP" (runtime-name : "ProjetoJSP.war")
+2017-08-31 18:41:22,723 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "Server" (runtime-name : "Server.war")
+2017-08-31 18:41:22,725 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit."Server.war".STRUCTURE: org.jboss.msc.service.StartException in service jboss.deployment.unit."Server.war".STRUCTURE: WFLYSRV0153: Failed to process phase STRUCTURE of deployment "Server.war"
+      service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module "deployment.ProjetoJSP.war:main" from Service Module Loader]
+
+2017-08-31 18:41:22,907 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2017-08-31 18:41:22,907 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2017-08-31 18:41:22,908 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) started (with errors) in 21890ms - Started 822 of 1077 services (4 services failed or missing dependencies, 405 services are lazy, passive or on-demand)
+2017-08-31 18:41:23,424 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment ProjetoJSP (runtime-name: ProjetoJSP.war) in 241ms
+2017-08-31 18:41:23,493 WARN  [org.jboss.as.controller] (management-handler-thread - 2) WFLYCTL0357: Notification of type deployment-undeployed is not described for the resource at the address []
+2017-08-31 18:41:23,494 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0009: Undeployed "ProjetoJSP" (runtime-name: "ProjetoJSP.war")
+2017-08-31 18:41:23,497 INFO  [org.jboss.as.controller] (management-handler-thread - 2) WFLYCTL0183: Service status report
+WFLYCTL0184:    New missing/unsatisfied dependencies:
+      service jboss.deployment.unit."ProjetoJSP.war".component."com.sun.faces.config.ConfigureListener".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."javax.faces.webapp.FacetTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.core.CatchTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.core.ChooseTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.core.OtherwiseTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.core.RemoveTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.xml.ForEachTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.xml.IfTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.xml.SetTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.common.xml.WhenTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.ForTokensTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.IfTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.ImportTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.RedirectTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.SetTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.FormatDateTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.MessageTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.ParseDateTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.ParseNumberTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.SetLocaleTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.sql.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.sql.QueryTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.sql.SetDataSourceTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.sql.TransactionTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.xml.ExprTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.IfTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.SetTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.WhenTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.ParseDateTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.ParseNumberTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.RequestEncodingTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.SetBundleTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.SetLocaleTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.TimeZoneTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.sql.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.sql.TransactionTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.sql.UpdateTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.xml.ExprTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.xml.ParseTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tlv.JstlFmtTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tlv.JstlXmlTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.http.server.reactive.ServletHttpHandlerAdapter$1".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.BindErrorsTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.HtmlEscapeTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.ButtonTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.OptionsTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.PasswordInputTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.RadioButtonTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.undertow.deployment.default-server.default-host./ProjetoJSP (missing) dependents: [service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP] 
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit."Server.war".STRUCTURE: org.jboss.msc.service.StartException in service jboss.deployment.unit."Server.war".STRUCTURE: WFLYSRV0153: Failed to process phase STRUCTURE of deployment "Server.war"
+      service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService
+
+2017-08-31 18:41:23,601 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "ProjetoJSP" (runtime-name: "ProjetoJSP.war")
+2017-08-31 18:41:27,280 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpRequest$RequestAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:27,283 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:27,284 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:27,294 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component org.springframework.http.server.reactive.ServletServerHttpResponse$ResponseAsyncListener due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:27,296 WARN  [org.jboss.as.ee] (MSC service thread 1-6) WFLYEE0007: Not installing optional component br.edu.utfpr.aula5.filter.CORSFilter due to an exception (enable DEBUG log level to see the cause)
+2017-08-31 18:41:27,325 WARN  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0013: Deployment deployment "ProjetoJSP.war" contains CDI annotations but no bean archive was not found. (No beans.xml nor class with bean defining annotations)
+2017-08-31 18:41:27,376 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-6) MSC000001: Failed to start service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module "deployment.ProjetoJSP.war:main" from Service Module Loader]
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:1079)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.start(UndertowDeploymentInfoService.java:284)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1948)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1881)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module "deployment.ProjetoJSP.war:main" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:363)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:351)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:93)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService.createServletConfig(UndertowDeploymentInfoService.java:801)
+	... 6 more
+
+2017-08-31 18:41:27,379 ERROR [org.jboss.as.controller.management-operation] (management-handler-thread - 2) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "ProjetoJSP")]) - failure description: {
+    "WFLYCTL0080: Failed services" => {"jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService" => "org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module \"deployment.ProjetoJSP.war:main\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module \"deployment.ProjetoJSP.war:main\" from Service Module Loader]"},
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService"],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => undefined
+}
+2017-08-31 18:41:27,381 ERROR [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0021: Deploy of deployment "ProjetoJSP.war" was rolled back with the following failure message: 
+{
+    "WFLYCTL0080: Failed services" => {"jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService" => "org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module \"deployment.ProjetoJSP.war:main\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: br.edu.utfpr.aula5.filter.CORSFilter from [Module \"deployment.ProjetoJSP.war:main\" from Service Module Loader]"},
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService"],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => undefined
+}
+2017-08-31 18:41:27,582 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment ProjetoJSP (runtime-name: ProjetoJSP.war) in 201ms
+2017-08-31 18:41:27,585 INFO  [org.jboss.as.controller] (management-handler-thread - 2) WFLYCTL0183: Service status report
+WFLYCTL0184:    New missing/unsatisfied dependencies:
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.ForEachTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.OutTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.UrlTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.core.WhenTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.BundleTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.FormatNumberTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.RequestEncodingTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.SetBundleTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.SetTimeZoneTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.fmt.TimeZoneTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.sql.DateParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.sql.UpdateTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.xml.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.xml.ParseTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.el.xml.TransformTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.ForEachTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.ForTokensTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.ImportTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.OutTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.RedirectTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.core.UrlTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.BundleTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.MessageTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.fmt.SetTimeZoneTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.sql.DateParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.sql.QueryTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.sql.SetDataSourceTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.xml.ParamTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tag.rt.xml.TransformTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tlv.JstlCoreTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.apache.taglibs.standard.tlv.JstlSqlTLV".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.ArgumentTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.BindTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.EscapeBodyTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.EvalTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.MessageTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.NestedPathTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.ThemeTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.TransformTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.UrlTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.CheckboxTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.CheckboxesTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.ErrorsTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.FormTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.HiddenInputTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.InputTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.LabelTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.OptionTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.RadioButtonsTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.SelectTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+      service jboss.deployment.unit."ProjetoJSP.war".component."org.springframework.web.servlet.tags.form.TextareaTag".START (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ProjetoJSP, service jboss.deployment.unit."ProjetoJSP.war".deploymentCompleteService] 
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit."Server.war".STRUCTURE: org.jboss.msc.service.StartException in service jboss.deployment.unit."Server.war".STRUCTURE: WFLYSRV0153: Failed to process phase STRUCTURE of deployment "Server.war"
+      service jboss.undertow.deployment.default-server.default-host./ProjetoJSP.UndertowDeploymentInfoService
+
+2017-08-31 18:42:03,028 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0236: Suspending server with no timeout.
+2017-08-31 18:42:03,030 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2017-08-31 18:42:03,106 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2017-08-31 18:42:03,121 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Unbound data source [java:/MySqlDS]
+2017-08-31 18:42:03,124 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment Server (runtime-name: Server.war) in 81ms
+2017-08-31 18:42:03,125 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTPS listener https suspending
+2017-08-31 18:42:03,128 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2017-08-31 18:42:03,131 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2017-08-31 18:42:03,133 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0019: Host default-host stopping
+2017-08-31 18:42:03,135 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = mysql
+2017-08-31 18:42:03,138 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener default suspending
+2017-08-31 18:42:03,139 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2017-08-31 18:42:03,141 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0004: Undertow 1.4.0.Final stopping
+2017-08-31 18:42:03,154 INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0050: WildFly Full 10.1.0.Final (WildFly Core 2.2.0.Final) stopped in 44ms
