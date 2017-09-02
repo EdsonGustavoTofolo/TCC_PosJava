@@ -32,9 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/usuario/**").permitAll()
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/index/**").hasRole("USER")
-                .antMatchers("/categoria/**").hasRole("USER")
-                .antMatchers("/produto/**").hasRole("ADMIN")
-                .antMatchers("/carros/**").hasAnyRole("USER,ADMIN,GERENTE")
+                .antMatchers("/requerimento/**").hasRole("USER")
+                .antMatchers("/carros/**").hasAnyRole("USER,ADMIN")
                 .antMatchers("/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
@@ -47,19 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                     .permitAll();
-        /*http.csrf().disable()
-                .exceptionHandling().accessDeniedPage("/erro403").and()
-                .formLogin().loginPage("/login")
-                .defaultSuccessUrl("/index/")
-                .failureUrl("/login?error=bad_credentials").permitAll()
-                .and().authorizeRequests()
-                .antMatchers("/usuario/**").permitAll()
-                .antMatchers("/login/**").permitAll()
-                .antMatchers("/index/**").hasRole("USER")
-                .antMatchers("/categoria/**").hasRole("USER")
-                .antMatchers("/produto/**").hasRole("ADMIN")
-                .antMatchers("/carros/**").hasAnyRole("USER,ADMIN,GERENTE")
-                .antMatchers("/**").hasRole("USER");*/
     }
 
     @Bean

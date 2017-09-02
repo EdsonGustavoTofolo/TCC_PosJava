@@ -28,6 +28,12 @@
 <jsp:include page="/WEB-INF/templates/nav.jsp"/>
 
 <div class="container-fluid">
+    <c:if test="${info != null && !info.equals('')}">
+        <div class="alert alert-success alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                ${info}
+        </div>
+    </c:if>
     <jsp:doBody />
 </div>
 
