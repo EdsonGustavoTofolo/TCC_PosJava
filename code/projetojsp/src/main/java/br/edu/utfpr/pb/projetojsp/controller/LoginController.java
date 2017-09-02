@@ -19,7 +19,7 @@ public class LoginController {
         if (error != null) {
             model.addAttribute("error", "Usuário e/ou senha inválidos!");
         }
-        return "login";
+        return "/login";
     }
 
     @GetMapping("/login/novoUsuario")

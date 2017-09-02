@@ -1,10 +1,9 @@
 package br.edu.utfpr.pb.projetojsp.framework;
 
 import br.edu.utfpr.pb.projetojsp.repository.UsuarioRepository;
-import br.edu.utfpr.pb.projetojsp.service.UsuarioService;
+import br.edu.utfpr.pb.projetojsp.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,7 +18,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * Created by Edson on 28/05/2017.
  */
 
-@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -40,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
+                .exceptionHandling().accessDeniedPage("/erro403").and()
                 .formLogin()
                     .loginPage("/login")
                     .defaultSuccessUrl("/index/")
@@ -64,8 +63,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public UserDetailsService userDetailsServiceBean() throws Exception {
-        return new UsuarioService(usuarioRepository);
+    public UserDetailsService userDetailsService() {
+        return new UserDetailsServiceImpl(usuarioRepository);
     }
 
     @Bean

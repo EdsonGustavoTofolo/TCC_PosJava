@@ -37,19 +37,19 @@
         <h3>Bem Vindo(a) à UTFPRPB+</h3>
         <p>Sistema para gerenciamento dos requerimentos efetuados na UTFPR no campus de Pato Braco / PR.</p>
         <p>Faça o login para ver/criar/editar seus requerimentos.</p>
-        <spring:url value="login" var="actUrl" />
-        <form class="m-t" role="form" action="${actUrl}" method="POST">
+        <spring:url value="login/novoUsuario" var="actUrlNovoUsuario" />
+        <form class="m-t" role="form" action="login" method="POST" autocomplete="off">
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Informe seu e-mail" required="">
+                <input name="username" type="email" class="form-control" placeholder="Informe seu e-mail" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Informe a sua senha" required="">
+                <input name="password" type="password" class="form-control" placeholder="Informe a sua senha" required>
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
             <a data-toggle="modal" href="login.html#myModal"><small>Esqueceu a senha?</small></a>
             <p class="text-muted text-center"><small>Não possui conta ainda?</small></p>
-            <a class="btn btn-sm btn-white btn-block" href="<c:url value="login/novoUsuario" />">Criar uma conta</a>
+            <a class="btn btn-sm btn-white btn-block" href="${actUrlNovoUsuario}">Criar uma conta</a>
 
             <!-- Modal -->
             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">

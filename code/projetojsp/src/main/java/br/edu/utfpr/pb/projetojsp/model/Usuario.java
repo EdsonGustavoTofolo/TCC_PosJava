@@ -18,7 +18,7 @@ import java.util.*;
 @Table(name = "usuarios")
 public class Usuario implements Serializable, UserDetails {
 
-    private static final BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
+    private static final BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder(10);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
