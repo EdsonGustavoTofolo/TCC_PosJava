@@ -27,24 +27,32 @@
 
 <body>
 
+<spring:url value="login/novoUsuario" var="actUrlNovoUsuario" />
+
 <div class="middle-box text-center loginscreen animated fadeInDown">
     <div>
         <div>
-
             <h1 class="logo-name">UT+</h1>
-
         </div>
         <h3>Bem Vindo(a) à UTFPRPB+</h3>
         <p>Sistema para gerenciamento dos requerimentos efetuados na UTFPR no campus de Pato Braco / PR.</p>
         <p>Faça o login para ver/criar/editar seus requerimentos.</p>
-        <spring:url value="login/novoUsuario" var="actUrlNovoUsuario" />
+
+        <c:if test="${error != null && !error.equals('')}">
+            <div class="alert alert-danger alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                ${error}
+            </div>
+        </c:if>
         <form class="m-t" role="form" action="login" method="POST" autocomplete="off">
+
             <div class="form-group">
                 <input name="username" type="email" class="form-control" placeholder="Informe seu e-mail" required>
             </div>
             <div class="form-group">
                 <input name="password" type="password" class="form-control" placeholder="Informe a sua senha" required>
             </div>
+
             <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
             <a data-toggle="modal" href="login.html#myModal"><small>Esqueceu a senha?</small></a>
@@ -67,7 +75,6 @@
                             <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
                             <button class="btn btn-theme" type="button">Enviar</button>
                         </div>
-                        ${error}
                     </div>
                 </div>
             </div>
