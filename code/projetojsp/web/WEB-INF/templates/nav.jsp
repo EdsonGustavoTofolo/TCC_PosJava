@@ -1,4 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<spring:url value="/requerimento/" var="urlRequerimento" />
+<spring:url value="/logout" var="urlLogout" />
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -13,24 +19,28 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="<c:url value="/requerimento/"/>">Requerimentos <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><img alt="image" class="img-circle" src="<c:url value="/resources/images/user.jpg"/> " height="24"/></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">Usuario <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Configurações</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Sair</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
+        <sec:authorize access="isAuthenticated()">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="${urlRequerimento}">Requerimentos <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><img alt="image" class="img-circle" src="<c:url value="/resources/images/user.jpg"/> " height="24"/></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <sec:authentication property="principal.username" />
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Configurações</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="${urlLogout}">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </sec:authorize>
     </div><!-- /.container-fluid -->
 </nav>
