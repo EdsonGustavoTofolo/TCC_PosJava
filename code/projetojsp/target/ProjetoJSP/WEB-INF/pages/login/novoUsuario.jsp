@@ -69,7 +69,8 @@
     $("#frm").validate({
         rules: {
             codigo: {
-                required: true
+                required: true,
+                number: true
             },
             nome: {
                 required: true

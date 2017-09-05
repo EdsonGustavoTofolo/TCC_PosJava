@@ -47,33 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formConfirmaDados.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/usuario/formConfirmaDados.jsp">
+      <file leaf-file-name="pt_br_messages_jquery.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/resources/js/pt_br_messages_jquery.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="11" selection-end-column="111" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirmaDadosUsuario.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="715">
-              <caret line="57" column="7" lean-forward="true" selection-start-line="39" selection-start-column="3" selection-end-line="57" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#42#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="novoUsuario.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/login/novoUsuario.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
-              <caret line="79" column="17" lean-forward="false" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="17" />
+              <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -150,9 +128,9 @@
         <option value="$PROJECT_DIR$/web/resources/js/pt_br_messages_jquery.js" />
         <option value="$PROJECT_DIR$/web/WEB-INF/tags/layout/template.tag" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/usuario/formConfirmaDados.jsp" />
-        <option value="$PROJECT_DIR$/web/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/login/novoUsuario.jsp" />
+        <option value="$PROJECT_DIR$/web/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js" />
       </list>
     </option>
   </component>
@@ -1115,12 +1093,12 @@
       <workItem from="1499819354948" duration="2295000" />
       <workItem from="1499822059445" duration="37925000" />
       <workItem from="1504217826454" duration="10061000" />
-      <workItem from="1504384061194" duration="16046000" />
+      <workItem from="1504384061194" duration="16280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93067000" />
+    <option name="totallyTimeSpent" value="93301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1535,22 +1513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/js/pt_br_messages_jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="29" column="64" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1577,6 +1539,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/login/novoUsuario.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="72" column="28" lean-forward="false" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/usuario/formConfirmaDados.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1585,20 +1565,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="57" column="7" lean-forward="true" selection-start-line="39" selection-start-column="3" selection-end-line="57" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-462">
+          <caret line="29" column="64" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/login/novoUsuario.jsp">
+    <entry file="file://$PROJECT_DIR$/web/resources/js/pt_br_messages_jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="79" column="17" lean-forward="false" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="17" />
+        <state relative-caret-position="189">
+          <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
           <folding />
         </state>
       </provider>
