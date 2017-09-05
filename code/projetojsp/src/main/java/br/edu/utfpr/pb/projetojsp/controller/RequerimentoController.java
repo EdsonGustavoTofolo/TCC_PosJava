@@ -3,9 +3,13 @@ package br.edu.utfpr.pb.projetojsp.controller;
 import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
+import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
+import br.edu.utfpr.pb.projetojsp.repository.UsuarioRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,18 +28,22 @@ public class RequerimentoController {
 
     @Autowired
     private RequerimentoRepository requerimentoRepository;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
-        model.put("message", "HELLO TO THE JSP WORLD!");
         return "requerimento/requerimentoForm";
     }
 
     @PostMapping(value = "/salvar")
     public String salvar(@ModelAttribute("requerimentoForm") Requerimento requerimento, BindingResult result, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Usuario usuario = usuarioRepository.findByEmail(user.getUsername());
 
         requerimento.setStatus(StatusRequerimentoEnum.ENVIADO_COORDENACAO);
-//        requerimento.setUsuario();
+        requerimento.setUsuario(usuario);
 
         if (requerimento.getMotivo().equals(MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA)) {
             //TODO pegar os valores dos outros inputs

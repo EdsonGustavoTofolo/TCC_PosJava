@@ -31,7 +31,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
-                            <sec:authentication property="principal.username" />
+                            <sec:authentication property="principal.nome" />
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Configurações</a></li>

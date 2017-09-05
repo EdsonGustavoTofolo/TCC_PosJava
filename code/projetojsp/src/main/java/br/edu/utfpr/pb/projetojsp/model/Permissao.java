@@ -62,6 +62,6 @@ public class Permissao implements Serializable, GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return null;
+        return this.getPermissao();
     }
 }
