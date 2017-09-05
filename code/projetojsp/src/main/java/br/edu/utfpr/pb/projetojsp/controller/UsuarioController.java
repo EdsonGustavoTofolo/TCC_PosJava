@@ -54,7 +54,10 @@ public class UsuarioController {
 
     @PostMapping("gravar/")
     public String gravar(@Valid Usuario usuario, BindingResult erros, Model model) {
+        String telefoneNoFormat = usuario.getTelefone();
+        telefoneNoFormat = telefoneNoFormat.replaceAll("[^0-9]+", "");
         usuario.addPermissao(getPermissao());
+        usuario.setTelefone(telefoneNoFormat);
         usuarioRepository.save(usuario);
         return "redirect:/login";
     }

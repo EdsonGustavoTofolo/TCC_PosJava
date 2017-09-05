@@ -17,23 +17,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/LoginController.java">
+      <file leaf-file-name="template.tag" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/tags/layout/template.tag">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="600">
+              <caret line="50" column="108" lean-forward="false" selection-start-line="50" selection-start-column="108" selection-end-line="50" selection-end-column="108" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.tag" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/tags/layout/template.tag">
+      <file leaf-file-name="UsuarioController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="50" column="108" lean-forward="false" selection-start-line="50" selection-start-column="108" selection-end-line="50" selection-end-column="108" />
+            <state relative-caret-position="236">
+              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -59,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmaDadosUsuario.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="confirmaDadosUsuario.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
@@ -130,7 +128,6 @@
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/service/UsuarioServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/service/SecurityServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/Usuario.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/erro403.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/service/UserDetailsServiceImpl.java" />
@@ -145,6 +142,7 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/tags/layout/template.tag" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/usuario/formConfirmaDados.jsp" />
         <option value="$PROJECT_DIR$/web/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java" />
       </list>
     </option>
   </component>
@@ -1081,16 +1079,16 @@
       <workItem from="1499819354948" duration="2295000" />
       <workItem from="1499822059445" duration="37925000" />
       <workItem from="1504217826454" duration="10061000" />
-      <workItem from="1504384061194" duration="15203000" />
+      <workItem from="1504384061194" duration="15797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92224000" />
+    <option name="totallyTimeSpent" value="92818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1104,7 +1102,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22793296" sideWeight="0.49785408" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4301676" sideWeight="0.49785408" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1181,8 +1179,14 @@
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1394,16 +1398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1433,7 +1427,7 @@
         <state relative-caret-position="186">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1443,7 +1437,7 @@
         <state relative-caret-position="417">
           <caret line="37" column="70" lean-forward="false" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1451,16 +1445,6 @@
     <entry file="file://$PROJECT_DIR$/web/resources/images/login-bg.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/framework/WebSecurityConfig.java">
@@ -1545,14 +1529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/tags/layout/template.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="50" column="108" lean-forward="false" selection-start-line="50" selection-start-column="108" selection-end-line="50" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/usuario/formConfirmaDados.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1568,6 +1544,32 @@
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/tags/layout/template.tag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="50" column="108" lean-forward="false" selection-start-line="50" selection-start-column="108" selection-end-line="50" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
