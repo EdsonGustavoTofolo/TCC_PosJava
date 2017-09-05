@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.Objects;
 
 /**
  * Created by Edson on 05/08/2017.
@@ -34,17 +35,14 @@ public class UsuarioController {
     @PostMapping("criarNovoUsuario/")
     public String criarNovoUsuario(@Valid Usuario usuario, BindingResult errors, Model model) {
         usuario.setSenha(usuario.getEncodedPassword(usuario.getSenha()));
-
         usuarioRepository.save(usuario);
-
         model.addAttribute("usuario", usuario);
-
         return "usuario/formConfirmaDados"; //chama o form do usuario para completar o cadastro
     }
 
     private Permissao getPermissao() {
         Permissao permissao = permissaoRepository.findByPermissao("ROLE_USER");
-        if (permissao == null){
+        if (Objects.isNull(permissao)){
             permissao = new Permissao();
             permissao.setPermissao("ROLE_USER");
             permissaoRepository.save(permissao);

@@ -36,7 +36,7 @@
         <!-- h3>UTFPRPB/REQ+</h3 -->
         <p>Crie uma conta para poder acessar seus requerimentos.</p>
         <spring:url value="/usuario/criarNovoUsuario/" var="actUrl" />
-        <form class="m-t" role="form" action="${actUrl}" method="post" autocomplete="off">
+        <form id="frm" class="m-t" role="form" action="${actUrl}" method="post" autocomplete="off">
             <div class="form-group">
                 <input id="codigo" name="codigo" type="text" class="form-control" placeholder="Informe o código do Registro" required>
             </div>
@@ -62,6 +62,27 @@
 <!-- js placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="<c:url value="/webjars/jquery/1.11.1/jquery.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"/> "></script>
+<script type="text/javascript" src="<c:url value="/webjars/jquery-maskedinput/1.4.0/jquery.maskedinput.min.js"/> "></script>
+<script type="text/javascript" src="<c:url value="/webjars/jquery-validation/1.13.0/jquery.validate.min.js"/> "></script>
+<script type="text/javascript" src="<c:url value="/resources/js/pt_br_messages_jquery.js"/> "></script>
+<script>
+    $("#frm").validate({
+        rules: {
+            codigo: {
+                required: true
+            },
+            nome: {
+                required: true
+            },
+            email: {
+                required: true
+            },
+            senha: {
+                required: true
+            }
+        }
+    });
+</script>
 
 </body>
 </html>
