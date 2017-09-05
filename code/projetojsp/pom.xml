@@ -103,6 +103,12 @@
             <artifactId>jquery-maskedinput</artifactId>
             <version>1.4.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars/jquery-validation -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-validation</artifactId>
+            <version>1.13.0-1</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>

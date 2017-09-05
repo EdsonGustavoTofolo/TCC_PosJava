@@ -118,6 +118,7 @@
     <orderEntry type="library" name="Maven: org.webjars:Bootstrap-3-Typeahead:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:sweetalert:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:jquery-maskedinput:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:jquery-validation:1.13.0-1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.6" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20170516" level="project" />
   </component>

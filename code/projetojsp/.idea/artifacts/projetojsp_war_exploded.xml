@@ -7,19 +7,19 @@
           <element id="module-output" name="projetojsp" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-data-jpa/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-data-jpa-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-starter-data-jpa-2.0.0.BUILD-SNAPSHOT.jar" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-starter-2.0.0.BUILD-SNAPSHOT.jar" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.0.0.BUILD-SNAPSHOT/spring-boot-2.0.0.BUILD-20170901.132337-926.jar" output-file-name="spring-boot-2.0.0.BUILD-SNAPSHOT.jar" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.0.0.BUILD-SNAPSHOT/spring-boot-autoconfigure-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-autoconfigure-2.0.0.BUILD-SNAPSHOT.jar" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-logging-2.0.0.BUILD-20170901.132337-926.jar" output-file-name="spring-boot-starter-logging-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-data-jpa/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-data-jpa-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-starter-data-jpa-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-starter-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.0.0.BUILD-SNAPSHOT/spring-boot-2.0.0.BUILD-20170904.100238-927.jar" output-file-name="spring-boot-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.0.0.BUILD-SNAPSHOT/spring-boot-autoconfigure-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-autoconfigure-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-logging-2.0.0.BUILD-20170904.100238-927.jar" output-file-name="spring-boot-starter-logging-2.0.0.BUILD-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
           <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.18" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-aop/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-aop-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-starter-aop-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-aop/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-aop-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-starter-aop-2.0.0.BUILD-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-jdbc/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-jdbc-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-starter-jdbc-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-jdbc/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-jdbc-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-starter-jdbc-2.0.0.BUILD-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:2.6.3" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.0.RC3" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.10.Final" />
@@ -38,12 +38,12 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.0.RC3" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:5.0.0.RC3" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-starter-web-services-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-starter-web-services-2.0.0.BUILD-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:5.0.0.RC3" />
           <element id="library" level="project" name="Maven: org.springframework.ws:spring-ws-core:2.4.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.ws:spring-xml:2.4.0.RELEASE" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-starter-web-2.0.0.BUILD-SNAPSHOT.jar" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-json/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-json-2.0.0.BUILD-20170901.132337-250.jar" output-file-name="spring-boot-starter-json-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-starter-web-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-json/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-json-2.0.0.BUILD-20170904.100238-251.jar" output-file-name="spring-boot-starter-json-2.0.0.BUILD-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.0" />
@@ -55,7 +55,7 @@
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.0.RC3" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.0.RC3" />
-          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-security/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-security-2.0.0.BUILD-20170901.132337-927.jar" output-file-name="spring-boot-starter-security-2.0.0.BUILD-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-security/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-security-2.0.0.BUILD-20170904.100238-928.jar" output-file-name="spring-boot-starter-security-2.0.0.BUILD-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.0.RC3" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.0.0.M3" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.0.0.M3" />
@@ -75,6 +75,7 @@
           <element id="library" level="project" name="Maven: org.webjars:Bootstrap-3-Typeahead:3.1.1" />
           <element id="library" level="project" name="Maven: org.webjars:sweetalert:1.0.0" />
           <element id="library" level="project" name="Maven: org.webjars:jquery-maskedinput:1.4.0" />
+          <element id="library" level="project" name="Maven: org.webjars:jquery-validation:1.13.0-1" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.6" />
           <element id="library" level="project" name="Maven: org.json:json:20170516" />
         </element>

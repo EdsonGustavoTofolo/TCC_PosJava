@@ -19,3 +19,13 @@ h3, h6{
   position: relative;
   top: 50%;
 }
+
+.form-control.error {
+  border: 1px dotted #cc5965;
+}
+
+label.error {
+  color: #cc5965;
+  display: inline-block;
+  margin-left: 5px;
+}

@@ -6,7 +6,12 @@
 
 <layout:template>
     <jsp:attribute name="cssEspecificos"></jsp:attribute>
-    <jsp:attribute name="scriptsEspecificos"></jsp:attribute>
+    <jsp:attribute name="scriptsEspecificos">
+        <script type="text/javascript" src="<c:url value="/webjars/jquery-maskedinput/1.4.0/jquery.maskedinput.min.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/jquery-validation/1.13.0/jquery.validate.min.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/pt_br_messages_jquery.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/confirmDadosUsuario/confirmaDadosUsuario.js"/> "></script>
+    </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">
             <h3>Conclusão de Cadastro</h3>
@@ -14,7 +19,7 @@
             <div class="row pt-3 container">
                 <spring:url value="/usuario/gravar/" var="actUrl" />
 
-                <frm:form id="frm" method="post" modelAttribute="usuarioForm" action="${actUrl}" autocomplete="off">
+                <frm:form id="frm" role="form" method="post" modelAttribute="usuarioForm" action="${actUrl}" autocomplete="off">
                     <input id="id" name="id" hidden type="text" value="${usuario.id}" />
                     <input id="dataCadastro" name="dataCadastro" hidden type="date" value="${usuario.dataCadastro}" />
                     <input id="senha" name="senha" hidden type="text" value="${usuario.senha}"/>
