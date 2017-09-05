@@ -109,6 +109,12 @@
             <artifactId>jquery-validation</artifactId>
             <version>1.13.0-1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap-datepicker -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap-datepicker</artifactId>
+            <version>1.0.1</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>

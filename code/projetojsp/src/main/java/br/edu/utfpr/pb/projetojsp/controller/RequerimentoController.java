@@ -3,13 +3,13 @@ package br.edu.utfpr.pb.projetojsp.controller;
 import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
+import br.edu.utfpr.pb.projetojsp.model.RequerimentoDisciplina;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
+import br.edu.utfpr.pb.projetojsp.repository.RequerimentoDisciplinaRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
-import br.edu.utfpr.pb.projetojsp.repository.UsuarioRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -29,7 +33,7 @@ public class RequerimentoController {
     @Autowired
     private RequerimentoRepository requerimentoRepository;
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private RequerimentoDisciplinaRepository requerimentoDisciplinaRepository;
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
@@ -37,16 +41,31 @@ public class RequerimentoController {
     }
 
     @PostMapping(value = "/salvar")
-    public String salvar(@ModelAttribute("requerimentoForm") Requerimento requerimento, BindingResult result, Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        Usuario usuario = usuarioRepository.findByEmail(user.getUsername());
+    public String salvar(@ModelAttribute("requerimentoForm") Requerimento requerimento, BindingResult result, Model model, HttpServletRequest request) {
+        Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         requerimento.setStatus(StatusRequerimentoEnum.ENVIADO_COORDENACAO);
         requerimento.setUsuario(usuario);
 
         if (requerimento.getMotivo().equals(MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA)) {
-            //TODO pegar os valores dos outros inputs
+            String disciplina = request.getParameter("disciplina");
+            String professor = request.getParameter("professor");
+            String strData = request.getParameter("data");
+
+            Date data = null;
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                data = sdf.parse(strData);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            RequerimentoDisciplina requerimentoDisciplina = new RequerimentoDisciplina();
+            requerimentoDisciplina.setNome(disciplina);
+            requerimentoDisciplina.setProfessor(professor);
+            requerimentoDisciplina.setDataProva(data);
+            requerimentoDisciplinaRepository.save(requerimentoDisciplina);
         }
 
         JSONObject retorno = new JSONObject();

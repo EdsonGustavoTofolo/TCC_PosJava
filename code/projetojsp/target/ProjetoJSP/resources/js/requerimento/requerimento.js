@@ -46,6 +46,22 @@ $(document).ready(function () {
             // Nothing is active so it is a new value (or maybe empty value)
         }
     });
+    $("#frm").validate({
+        rules: {
+            motivoTxt: {
+                required: true
+            },
+            disciplina: {
+                required: $("#motivo").val() == 9
+            },
+            professor: {
+                required: $("#motivo").val() == 9
+            },
+            data: {
+                required: $("#motivo").val() == 9
+            }
+        }
+    });
 });
 
 $("#frm").submit(function() {
