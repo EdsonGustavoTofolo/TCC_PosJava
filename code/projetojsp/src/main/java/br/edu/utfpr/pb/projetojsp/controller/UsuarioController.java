@@ -5,6 +5,7 @@ import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.PermissaoRepository;
 import br.edu.utfpr.pb.projetojsp.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,11 +33,20 @@ public class UsuarioController {
         return "usuario/form";
     }
 
+    @RequestMapping(value = "/conta/")
+    public String conta(Model model) {
+        Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("usuario", usuario);
+        model.addAttribute("titulo", "Edição da Conta do Usuário");
+        return "usuario/formConfirmaDados";
+    }
+
     @PostMapping("criarNovoUsuario/")
     public String criarNovoUsuario(@Valid Usuario usuario, BindingResult errors, Model model) {
         usuario.setSenha(usuario.getEncodedPassword(usuario.getSenha()));
         usuarioRepository.save(usuario);
         model.addAttribute("usuario", usuario);
+        model.addAttribute("titulo", "Conclusão de Cadastro");
         return "usuario/formConfirmaDados"; //chama o form do usuario para completar o cadastro
     }
 

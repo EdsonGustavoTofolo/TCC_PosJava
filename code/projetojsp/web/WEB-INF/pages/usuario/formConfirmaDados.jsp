@@ -14,7 +14,7 @@
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">
-            <h3>Conclusão de Cadastro</h3>
+            <h3>${titulo}</h3>
             <hr>
             <div class="row pt-3 container">
                 <spring:url value="/usuario/gravar/" var="actUrl" />

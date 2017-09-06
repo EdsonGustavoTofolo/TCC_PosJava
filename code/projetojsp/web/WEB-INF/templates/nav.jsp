@@ -4,6 +4,7 @@
 
 <spring:url value="/requerimento/" var="urlRequerimento" />
 <spring:url value="/logout" var="urlLogout" />
+<spring:url value="/usuario/conta/" var="urlContaUsuario" />
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -34,7 +35,7 @@
                             <sec:authentication property="principal.nome" />
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Configurações</a></li>
+                            <li><a href="${urlContaUsuario}">Conta</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="${urlLogout}">Sair</a></li>
                         </ul>
