@@ -6,59 +6,37 @@
 
 <layout:template>
     <jsp:attribute name="cssEspecificos">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/select2/4.0.3/dist/css/select2.min.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.0.1/css/datepicker.css"/> " />
     </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
+        <script type="text/javascript" src="<c:url value="/webjars/select2/4.0.3/dist/js/select2.full.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/jquery-validation/1.13.0/jquery.validate.min.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/pt_br_messages_jquery.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/jquery-maskedinput/1.4.0/jquery.maskedinput.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimento.js"/> "></script>
-        <script>
-            $('#data').datepicker({
-                language: "pt-BR",
-                todayBtn: "linked",
-                keyboardNavigation: true,
-                forceParse: true,
-                calendarWeeks: true,
-                autoclose: true,
-                format: "dd/mm/yyyy",
-                todayHighlight: true
-            });
-            $('#data').mask("99/99/9999");
-            $("#frm").validate({
-                rules: {
-                    motivoTxt: {
-                        required: true
-                    },
-                    disciplina: {
-                        required: $("#motivo").val() == 9
-                    },
-                    professor: {
-                        required: $("#motivo").val() == 9
-                    },
-                    data: {
-                        required: $("#motivo").val() == 9
-                    }
-                }
-            });
-        </script>
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">
-            <h3>Requerimento <small>5000</small></h3>
+            <h3>Requerimento <small>${id}</small></h3>
             <hr>
             <div class="row pt-3 container">
                 <spring:url value="/requerimento/salvar" var="requerimentoActUrl" />
 
                 <frm:form id="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}" autocomplete="off">
                     <input id="id" name="id" type="text" hidden/>
-                    <input id="motivo" name="motivo" type="text" hidden/>
+                    <%--<input id="motivo" name="motivo" type="text" hidden/>--%>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group">
-                            <label for="motivoTxt">Motivo do Requerimento:</label>
-                            <input id="motivoTxt" type="text" data-provide="typeahead" class="form-control"
-                                   placeholder="Comece a digitar. Exemplo: convalidação, chamada, histórico..." required/>
+                            <label for="motivo">Motivo do Requerimento:</label>
+                            <%--<input id="motivoTxt" type="text" data-provide="typeahead" class="form-control" placeholder="Comece a digitar. Exemplo: convalidação, chamada, histórico..." required/>--%>
+                            <select name="motivo" id="motivo" class="form-control">
+                                <c:forEach items="${motivos}" var="motivo">
+                                    <option value="${motivo.id}">${motivo.descricao}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </div>
                     <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">

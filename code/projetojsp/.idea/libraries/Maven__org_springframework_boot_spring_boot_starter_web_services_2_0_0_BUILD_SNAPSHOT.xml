@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.boot:spring-boot-starter-web-services:2.0.0.BUILD-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170905.125038-931.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170906.095337-932.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170905.125038-931-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170906.095337-932-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170905.125038-931-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/2.0.0.BUILD-SNAPSHOT/spring-boot-starter-web-services-2.0.0.BUILD-20170906.095337-932-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

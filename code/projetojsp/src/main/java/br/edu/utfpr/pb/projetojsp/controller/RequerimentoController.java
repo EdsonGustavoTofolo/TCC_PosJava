@@ -37,6 +37,7 @@ public class RequerimentoController {
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
+        model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
         return "requerimento/requerimentoForm";
     }
 
@@ -47,30 +48,12 @@ public class RequerimentoController {
         requerimento.setStatus(StatusRequerimentoEnum.ENVIADO_COORDENACAO);
         requerimento.setUsuario(usuario);
 
-        if (requerimento.getMotivo().equals(MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA)) {
-            String disciplina = request.getParameter("disciplina");
-            String professor = request.getParameter("professor");
-            String strData = request.getParameter("data");
-
-            Date data = null;
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                data = sdf.parse(strData);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            RequerimentoDisciplina requerimentoDisciplina = new RequerimentoDisciplina();
-            requerimentoDisciplina.setNome(disciplina);
-            requerimentoDisciplina.setProfessor(professor);
-            requerimentoDisciplina.setDataProva(data);
-            requerimentoDisciplinaRepository.save(requerimentoDisciplina);
-        }
-
         JSONObject retorno = new JSONObject();
         try{
             requerimentoRepository.save(requerimento);
+            if (requerimento.getMotivo().equals(MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA)) {
+                salvarRequerimentoDisciplina(requerimento, request.getParameter("disciplina"), request.getParameter("professor"), request.getParameter("data"));
+            }
             retorno.put("situacao", "OK");
             retorno.put("mensagem", "Registro salvo com sucesso!");
             retorno.put("id", requerimento.getId());
@@ -80,6 +63,24 @@ public class RequerimentoController {
         }
 
         return retorno.toString();
+    }
+
+    private void salvarRequerimentoDisciplina(Requerimento requerimento, String disciplina, String professor, String data) {
+        Date d = null;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            d = sdf.parse(data);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        RequerimentoDisciplina requerimentoDisciplina = new RequerimentoDisciplina();
+        requerimentoDisciplina.setRequerimento(requerimento);
+        requerimentoDisciplina.setNome(disciplina);
+        requerimentoDisciplina.setProfessor(professor);
+        requerimentoDisciplina.setDataProva(d);
+        requerimentoDisciplinaRepository.save(requerimentoDisciplina);
     }
 
 
