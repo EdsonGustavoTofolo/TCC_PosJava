@@ -16,7 +16,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">UTFPR-PB</a>
+            <a class="navbar-brand" href="<c:url value="/"/> ">UTFPR-PB</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

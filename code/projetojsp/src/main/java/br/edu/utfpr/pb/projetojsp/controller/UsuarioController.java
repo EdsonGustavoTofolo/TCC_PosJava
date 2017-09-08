@@ -11,8 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -44,6 +48,7 @@ public class UsuarioController {
     @PostMapping("criarNovoUsuario/")
     public String criarNovoUsuario(@Valid Usuario usuario, BindingResult errors, Model model) {
         usuario.setSenha(usuario.getEncodedPassword(usuario.getSenha()));
+        usuario.addPermissao(getPermissao());
         usuarioRepository.save(usuario);
         model.addAttribute("usuario", usuario);
         model.addAttribute("titulo", "Conclusão de Cadastro");
@@ -62,12 +67,25 @@ public class UsuarioController {
 
     @PostMapping("gravar/")
     public String gravar(@Valid Usuario usuario, BindingResult erros, Model model) {
+        Usuario usuarioBd = usuarioRepository.findByEmail(usuario.getEmail());
+
+        usuario.setDataCadastro(usuarioBd.getDataCadastro());
+        usuario.setPermissoes(usuarioBd.getPermissoes());
+        usuario.setSenha(usuarioBd.getSenha());
+
         String telefoneNoFormat = usuario.getTelefone();
         telefoneNoFormat = telefoneNoFormat.replaceAll("[^0-9]+", "");
-        usuario.addPermissao(getPermissao());
         usuario.setTelefone(telefoneNoFormat);
         usuarioRepository.save(usuario);
         return "redirect:/login";
+    }
+
+    @PostMapping("validarCodigo/")
+    @ResponseBody
+    public boolean validarCodigo(HttpServletResponse response, HttpServletRequest request) throws IOException {
+        String codigo = request.getParameter("codigo");
+        Usuario usuario = usuarioRepository.findByCodigo(codigo);
+        return Objects.isNull(usuario);
     }
 
 }

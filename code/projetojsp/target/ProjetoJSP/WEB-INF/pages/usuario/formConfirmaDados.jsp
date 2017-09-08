@@ -21,8 +21,6 @@
 
                 <frm:form id="frm" role="form" method="post" modelAttribute="usuarioForm" action="${actUrl}" autocomplete="off">
                     <input id="id" name="id" hidden type="text" value="${usuario.id}" />
-                    <input id="dataCadastro" name="dataCadastro" hidden type="date" value="${usuario.dataCadastro}" />
-                    <input id="senha" name="senha" hidden type="text" value="${usuario.senha}"/>
                     <div class="form-group">
                         <label for="codigo">Código</label>
                         <input id="codigo" name="codigo" type="text" class="form-control" required

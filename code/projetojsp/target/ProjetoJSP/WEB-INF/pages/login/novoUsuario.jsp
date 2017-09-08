@@ -58,7 +58,7 @@
     </div>
 </div>
 
-
+<spring:url value="/usuario/validarCodigo/" var="urlValidarCodigo" />
 <!-- js placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="<c:url value="/webjars/jquery/1.11.1/jquery.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"/> "></script>
@@ -70,16 +70,26 @@
         rules: {
             codigo: {
                 required: true,
-                number: true
+                number: true,
+                remote: {
+                    url: '${urlValidarCodigo}',
+                    type: "post"
+                },
             },
             nome: {
                 required: true
             },
             email: {
-                required: true
+                required: true,
+                email: true
             },
             senha: {
                 required: true
+            }
+        },
+        messages: {
+            codigo: {
+                remote: "Código informado já existente!"
             }
         }
     });
