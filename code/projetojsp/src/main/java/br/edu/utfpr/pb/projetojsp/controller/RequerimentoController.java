@@ -5,6 +5,7 @@ import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoDisciplina;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
+import br.edu.utfpr.pb.projetojsp.repository.DisciplinaRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoDisciplinaRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import org.json.JSONObject;
@@ -34,10 +35,13 @@ public class RequerimentoController {
     private RequerimentoRepository requerimentoRepository;
     @Autowired
     private RequerimentoDisciplinaRepository requerimentoDisciplinaRepository;
+    @Autowired
+    private DisciplinaRepository disciplinaRepository;
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
         model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
+        model.put("disciplinas", disciplinaRepository.findAll());
         return "requerimento/requerimentoForm";
     }
 

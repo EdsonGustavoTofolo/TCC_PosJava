@@ -122,6 +122,13 @@
             <artifactId>select2</artifactId>
             <version>4.0.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars.bower/ladda
+            Utilizado nos botoes com o spin de carregamento -->
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>ladda</artifactId>
+            <version>0.9.8</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>

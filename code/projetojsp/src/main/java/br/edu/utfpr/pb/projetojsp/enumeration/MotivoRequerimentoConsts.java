@@ -40,7 +40,7 @@ public class MotivoRequerimentoConsts {
             motivoRequerimentoList.add(new MotivoRequerimento(2, "Atividades Domiciliares"));
             motivoRequerimentoList.add(new MotivoRequerimento(3, "Avaliação Antecipada"));
             motivoRequerimentoList.add(new MotivoRequerimento(4, "Avaliação Diferenciada"));
-            motivoRequerimentoList.add(new MotivoRequerimento(5, "Cancelamento de disciplinas"));
+            motivoRequerimentoList.add(new MotivoRequerimento(5, "Cancelamento das disciplinas"));
             motivoRequerimentoList.add(new MotivoRequerimento(6, "Declaração de Matrícula"));
             motivoRequerimentoList.add(new MotivoRequerimento(7, "Declaração de Provável Formando"));
             motivoRequerimentoList.add(new MotivoRequerimento(8, "Desistência do Curso"));
@@ -52,7 +52,7 @@ public class MotivoRequerimentoConsts {
             motivoRequerimentoList.add(new MotivoRequerimento(14, "Matrícula em Estágio Supervisionado"));
             motivoRequerimentoList.add(new MotivoRequerimento(15, "Matrícula nas disciplinas"));
             motivoRequerimentoList.add(new MotivoRequerimento(16, "Mudança para as turmas"));
-            motivoRequerimentoList.add(new MotivoRequerimento(17, "Planos de Ensino/Ementas"));
+            motivoRequerimentoList.add(new MotivoRequerimento(17, "Planos de Ensino/Ementas das disciplinas"));
             motivoRequerimentoList.add(new MotivoRequerimento(18, "Trancamento Total da Matrícula"));
             motivoRequerimentoList.add(new MotivoRequerimento(19, "2ª via do crachá"));
             motivoRequerimentoList.add(new MotivoRequerimento(20, "Outros"));

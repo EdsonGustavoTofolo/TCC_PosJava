@@ -8,6 +8,7 @@
     <jsp:attribute name="cssEspecificos">
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/select2/4.0.3/dist/css/select2.min.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.0.1/css/datepicker.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dualListbox/bootstrap-duallistbox.min.css"/> " />
     </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
         <script type="text/javascript" src="<c:url value="/webjars/select2/4.0.3/dist/js/select2.full.min.js"/> "></script>
@@ -17,6 +18,7 @@
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimento.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/dualListbox/jquery.bootstrap-duallistbox.js"/> "></script>
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">
@@ -27,14 +29,22 @@
 
                 <frm:form id="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}" autocomplete="off">
                     <input id="id" name="id" type="text" hidden/>
-                    <%--<input id="motivo" name="motivo" type="text" hidden/>--%>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group">
                             <label for="motivo">Motivo do Requerimento:</label>
-                            <%--<input id="motivoTxt" type="text" data-provide="typeahead" class="form-control" placeholder="Comece a digitar. Exemplo: convalidação, chamada, histórico..." required/>--%>
                             <select name="motivo" id="motivo" class="form-control">
                                 <c:forEach items="${motivos}" var="motivo">
                                     <option value="${motivo.id}">${motivo.descricao}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
+                        <hr>
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <select class="form-control dual_select" multiple>
+                                <c:forEach items="${disciplinas}" var="dis">
+                                    <option value="${dis.id}">${dis.codigo} - ${dis.nome}</option>
                                 </c:forEach>
                             </select>
                         </div>
