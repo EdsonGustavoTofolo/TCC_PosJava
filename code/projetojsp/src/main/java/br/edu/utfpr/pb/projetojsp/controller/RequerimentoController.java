@@ -55,15 +55,14 @@ public class RequerimentoController {
 
         requerimento.setStatus(StatusRequerimentoEnum.ENVIADO_COORDENACAO);
         requerimento.setUsuario(usuario);
+        requerimento.getDisciplinas().forEach(d->d.setRequerimento(requerimento));
 
         JSONObject retorno = new JSONObject();
         try{
             requerimentoRepository.save(requerimento);
             if (requerimento.getMotivo().equals(MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA)) {
                 salvarRequerimentoDisciplina(requerimento, request.getParameter("disciplina"), request.getParameter("professor"), request.getParameter("data"));
-            } else if (requerimento.getMotivo().equals(MotivoRequerimentoConsts.CANCELAMENTO_DISCIPLINAS)) {
-
-            }
+            } 
             retorno.put("situacao", "OK");
             retorno.put("mensagem", "Registro salvo com sucesso!");
             retorno.put("id", requerimento.getId());
@@ -85,9 +84,11 @@ public class RequerimentoController {
             e.printStackTrace();
         }
 
+        Long disciplinaId = Long.valueOf(disciplina);
+
         RequerimentoDisciplina requerimentoDisciplina = new RequerimentoDisciplina();
         requerimentoDisciplina.setRequerimento(requerimento);
-        requerimentoDisciplina.setNome(disciplina);
+        requerimentoDisciplina.setDisciplina(disciplinaRepository.findById(disciplinaId).get());
         requerimentoDisciplina.setProfessor(professor);
         requerimentoDisciplina.setDataProva(d);
         requerimentoDisciplinaRepository.save(requerimentoDisciplina);

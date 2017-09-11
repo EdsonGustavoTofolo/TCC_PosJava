@@ -20,7 +20,6 @@ $(document).ready(function () {
         },
         submitHandler: function (form) {
             var data = {};
-            var disciplinas = [];
 
             var formData = $(form).serialize();
             formData.split('&').forEach(function (value) {
@@ -29,12 +28,18 @@ $(document).ready(function () {
             });
 
             if (!$('#motivoDisciplinas').hasClass('hidden')) {
+                var disciplinas = [];
+                var disciplina = {};
+                var requerimentoDisciplina = {};
+
                 var options = $('select[name=selDisciplinas2] option');
                 var values = $.map(options,function(option) {
                     return option.value;
                 });
                 values.forEach(function (value) {
-                    disciplinas.push(parseInt(value));
+                    disciplina = {"id": parseInt(value), "codigo": '', "nome": ''};
+                    requerimentoDisciplina = {"id": "", "professor": "", "data": "null", "disciplina": disciplina};
+                    disciplinas.push(requerimentoDisciplina);
                 });
 
                 if (disciplinas.length > 0) {
@@ -48,16 +53,21 @@ $(document).ready(function () {
                 dataType: 'json',
                 data : JSON.stringify(data),
                 success : function(data) {
-                    swal({
-                        title : "Salvo!",
-                        text : "Registro salvo com sucesso.",
-                        type : "success",
-                        showCancelButton : false,
-                        confirmButtonText : "Ok",
-                        closeOnConfirm : false
-                    }, function() {
-                        window.location = '/index';
-                    });
+                    if (data["situacao"] = "OK") {
+                        swal({
+                            title : "Salvo!",
+                            text : data["mensagem"],
+                            type : "success",
+                            showCancelButton : false,
+                            confirmButtonText : "Ok",
+                            closeOnConfirm : false
+                        }, function() {
+                            window.location = '/ProjetoJSP/';
+                        });
+                    } else {
+                        swal("Falhou!", data["mensagem"], "error");
+                    }
+
                 },//Fim success
                 error : function() {
                     swal("Falhou!", "Falha ao salvar registro.", "error");

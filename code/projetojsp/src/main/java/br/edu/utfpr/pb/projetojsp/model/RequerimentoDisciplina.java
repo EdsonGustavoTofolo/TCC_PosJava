@@ -18,13 +18,14 @@ public class RequerimentoDisciplina implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_dis")
     private Long id;
-    @Column(name = "nome_dis", length = 60, nullable = false)
-    private String nome;
     @Column(name = "professor_dis", length = 60)
     private String professor;
     @Temporal(TemporalType.DATE)
     @Column(name = "data_prova_dis")
     private Date dataProva;
+    @ManyToOne()
+    @JoinColumn(name = "disciplina_id_dis", referencedColumnName = "id_dis")
+    private Disciplina disciplina;
     @ManyToOne()
     @JoinColumn(name = "requerimento_id_dis", referencedColumnName = "id_req")
     private Requerimento requerimento;
@@ -32,14 +33,10 @@ public class RequerimentoDisciplina implements Serializable {
     public RequerimentoDisciplina() {
     }
 
-    public RequerimentoDisciplina(Long id) {
-        this.id = id;
-    }
-
-    public RequerimentoDisciplina(String nome, String professor, Date dataProva, Requerimento requerimento) {
-        this.nome = nome;
+    public RequerimentoDisciplina(String professor, Date dataProva, Disciplina disciplina, Requerimento requerimento) {
         this.professor = professor;
         this.dataProva = dataProva;
+        this.disciplina = disciplina;
         this.requerimento = requerimento;
     }
 
@@ -49,14 +46,6 @@ public class RequerimentoDisciplina implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getProfessor() {
@@ -73,6 +62,14 @@ public class RequerimentoDisciplina implements Serializable {
 
     public void setDataProva(Date dataProva) {
         this.dataProva = dataProva;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
     public Requerimento getRequerimento() {
