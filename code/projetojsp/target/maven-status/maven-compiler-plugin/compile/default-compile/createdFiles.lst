@@ -2,6 +2,8 @@ br\edu\utfpr\pb\projetojsp\enumeration\MotivoRequerimento.class
 br\edu\utfpr\pb\projetojsp\service\UserDetailsServiceImpl.class
 br\edu\utfpr\pb\projetojsp\controller\LoginController.class
 br\edu\utfpr\pb\projetojsp\model\Requerimento.class
+br\edu\utfpr\pb\projetojsp\model\Disciplina.class
+br\edu\utfpr\pb\projetojsp\repository\DisciplinaRepository.class
 br\edu\utfpr\pb\projetojsp\controller\RequerimentoController.class
 br\edu\utfpr\pb\projetojsp\model\Usuario.class
 br\edu\utfpr\pb\projetojsp\framework\WebSecurityConfig.class

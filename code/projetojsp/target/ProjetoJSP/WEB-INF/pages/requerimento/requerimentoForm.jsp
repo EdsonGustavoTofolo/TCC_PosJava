@@ -27,7 +27,7 @@
             <div class="row pt-3 container">
                 <spring:url value="/requerimento/salvar" var="requerimentoActUrl" />
 
-                <frm:form id="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}" autocomplete="off">
+                <frm:form id="frm" name="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}" autocomplete="off">
                     <input id="id" name="id" type="text" hidden/>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group">
@@ -41,13 +41,11 @@
                     </div>
                     <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
                         <hr>
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                            <select class="form-control dual_select" multiple>
-                                <c:forEach items="${disciplinas}" var="dis">
-                                    <option value="${dis.id}">${dis.codigo} - ${dis.nome}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
+                        <select id="disciplinas" class="form-control dual_select" multiple>
+                            <c:forEach items="${disciplinas}" var="dis">
+                                <option value="${dis.id}">${dis.codigo} - ${dis.nome}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
                         <hr>

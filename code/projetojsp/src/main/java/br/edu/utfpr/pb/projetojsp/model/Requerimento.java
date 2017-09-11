@@ -7,6 +7,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Edson on 04/07/2017.
@@ -32,16 +33,20 @@ public class Requerimento implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "usuario_id_req", referencedColumnName = "id_usu")
     private Usuario usuario;
+    @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoDisciplina.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<RequerimentoDisciplina> disciplinas;
 
     public Requerimento() {
     }
 
-    public Requerimento(StatusRequerimentoEnum status, Integer motivo, String observacao, Date data, Usuario usuario) {
+    public Requerimento(StatusRequerimentoEnum status, Integer motivo, String observacao, Date data, Usuario usuario,
+                        List<RequerimentoDisciplina> requerimentoDisciplinaList) {
         this.status = status;
         this.motivo = motivo;
         this.observacao = observacao;
         this.data = data;
         this.usuario = usuario;
+        this.disciplinas = requerimentoDisciplinaList;
     }
 
     public Long getId() {
@@ -90,6 +95,14 @@ public class Requerimento implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public List<RequerimentoDisciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<RequerimentoDisciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 
     @Override

@@ -19,10 +19,34 @@ $(document).ready(function () {
             }
         },
         submitHandler: function (form) {
+            var data = {};
+            var disciplinas = [];
+
+            var formData = $(form).serialize();
+            formData.split('&').forEach(function (value) {
+                var map = value.split('=');
+                data[map[0]] = map[1];
+            });
+
+            if (!$('#motivoDisciplinas').hasClass('hidden')) {
+                var options = $('select[name=selDisciplinas2] option');
+                var values = $.map(options,function(option) {
+                    return option.value;
+                });
+                values.forEach(function (value) {
+                    disciplinas.push(parseInt(value));
+                });
+
+                if (disciplinas.length > 0) {
+                    data["disciplinas"] = disciplinas;
+                }
+            }
             $.ajax({
                 type : $(form).attr('method'),
                 url  : $(form).attr('action'),
-                data : $(form).serialize(),
+                contentType : 'application/json; charset=utf-8',
+                dataType: 'json',
+                data : JSON.stringify(data),
                 success : function(data) {
                     swal({
                         title : "Salvo!",
@@ -82,7 +106,20 @@ $(document).ready(function () {
     });
 
     //-------[ DUAL LIST BOX ] ------
-    $('.dual_select').bootstrapDualListbox({
+    $('#disciplinas').bootstrapDualListbox({
+        helperSelectNamePostfix: "selDisciplinas",
+        filterTextClear: "Exibir todas",
+        filterPlaceHolder: "Informe o código ou nome da disciplina",
+        removeSelectedLabel: "Remover seleção",
+        removeAllLabel: "Remover todas",
+        moveSelectedLabel: "Adicionar seleção",
+        moveAllLabel: "Adicionar todas",
+        moveOnSelect: false,
+        selectedListLabel: "Disciplinas selecionadas",
+        nonSelectedListLabel: "Disciplinas",
+        infoText: 'Exibindo {0} disciplinas',
+        infoTextFiltered: '<span class="label label-warning">Filtrado</span> {0} de {1}',
+        infoTextEmpty: "Lista vazia",
         selectorMinimalHeight: 160
     });
 });

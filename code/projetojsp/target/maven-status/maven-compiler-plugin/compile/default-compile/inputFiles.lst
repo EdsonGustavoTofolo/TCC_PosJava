@@ -6,6 +6,8 @@ C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\UsuarioRepository.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\service\UserDetailsServiceImpl.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\enumeration\MotivoRequerimento.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\Disciplina.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\DisciplinaRepository.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\Permissao.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\enumeration\StatusRequerimentoEnum.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\MainSpringApplication.java

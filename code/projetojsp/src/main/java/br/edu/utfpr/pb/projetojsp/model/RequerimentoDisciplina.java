@@ -32,6 +32,10 @@ public class RequerimentoDisciplina implements Serializable {
     public RequerimentoDisciplina() {
     }
 
+    public RequerimentoDisciplina(Long id) {
+        this.id = id;
+    }
+
     public RequerimentoDisciplina(String nome, String professor, Date dataProva, Requerimento requerimento) {
         this.nome = nome;
         this.professor = professor;
