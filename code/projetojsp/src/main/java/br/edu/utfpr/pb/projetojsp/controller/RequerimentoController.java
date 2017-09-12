@@ -3,7 +3,6 @@ package br.edu.utfpr.pb.projetojsp.controller;
 import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
-import br.edu.utfpr.pb.projetojsp.model.RequerimentoDisciplina;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.DisciplinaRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoDisciplinaRepository;
@@ -20,11 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by Edson on 29/05/2017.
@@ -42,7 +38,6 @@ public class RequerimentoController {
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
-        model.put("selDisciplinas2", new ArrayList<>());
         model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
         model.put("disciplinas", disciplinaRepository.findAll());
         return "requerimento/requerimentoForm";
@@ -55,14 +50,14 @@ public class RequerimentoController {
 
         requerimento.setStatus(StatusRequerimentoEnum.ENVIADO_COORDENACAO);
         requerimento.setUsuario(usuario);
-        requerimento.getDisciplinas().forEach(d->d.setRequerimento(requerimento));
+
+        if (!Objects.isNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
+            requerimento.getDisciplinas().forEach(d -> d.setRequerimento(requerimento));
+        }
 
         JSONObject retorno = new JSONObject();
         try{
             requerimentoRepository.save(requerimento);
-            if (requerimento.getMotivo().equals(MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA)) {
-                salvarRequerimentoDisciplina(requerimento, request.getParameter("disciplina"), request.getParameter("professor"), request.getParameter("data"));
-            } 
             retorno.put("situacao", "OK");
             retorno.put("mensagem", "Registro salvo com sucesso!");
             retorno.put("id", requerimento.getId());
@@ -73,26 +68,5 @@ public class RequerimentoController {
 
         return retorno.toString();
     }
-
-    private void salvarRequerimentoDisciplina(Requerimento requerimento, String disciplina, String professor, String data) {
-        Date d = null;
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            d = sdf.parse(data);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        Long disciplinaId = Long.valueOf(disciplina);
-
-        RequerimentoDisciplina requerimentoDisciplina = new RequerimentoDisciplina();
-        requerimentoDisciplina.setRequerimento(requerimento);
-        requerimentoDisciplina.setDisciplina(disciplinaRepository.findById(disciplinaId).get());
-        requerimentoDisciplina.setProfessor(professor);
-        requerimentoDisciplina.setDataProva(d);
-        requerimentoDisciplinaRepository.save(requerimentoDisciplina);
-    }
-
 
 }

@@ -51,7 +51,11 @@
                         <hr>
                         <div class="form-group">
                             <label for="disciplina">Disciplina:</label>
-                            <input id="disciplina" name="disciplina" type="text" class="form-control"/>
+                            <select id="disciplina" name="disciplina" class="form-control">
+                                <c:forEach items="${disciplinas}" var="dis">
+                                    <option value="${dis.id}">${dis.codigo} - ${dis.nome}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="professor">Professor:</label>

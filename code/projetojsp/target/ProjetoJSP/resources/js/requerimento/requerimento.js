@@ -19,12 +19,12 @@ $(document).ready(function () {
             }
         },
         submitHandler: function (form) {
-            var data = {};
+            var dataJSON = {};
 
             var formData = $(form).serialize();
             formData.split('&').forEach(function (value) {
                 var map = value.split('=');
-                data[map[0]] = map[1];
+                dataJSON[map[0]] = map[1];
             });
 
             if (!$('#motivoDisciplinas').hasClass('hidden')) {
@@ -38,20 +38,41 @@ $(document).ready(function () {
                 });
                 values.forEach(function (value) {
                     disciplina = {"id": parseInt(value), "codigo": '', "nome": ''};
-                    requerimentoDisciplina = {"id": "", "professor": "", "data": "null", "disciplina": disciplina};
+                    requerimentoDisciplina = {"id": "", "professor": "", "dataProva": "null", "disciplina": disciplina};
                     disciplinas.push(requerimentoDisciplina);
                 });
 
                 if (disciplinas.length > 0) {
-                    data["disciplinas"] = disciplinas;
+                    dataJSON["disciplinas"] = disciplinas;
                 }
+            } else if (!$('#motivo9').hasClass('hidden')) {
+                var disciplinas = [];
+                var disciplina = {};
+                var requerimentoDisciplina = {};
+
+                var professor = $("#professor").val();
+                var data = $("#data").val();
+                var disciplinaId = $("#disciplina").val();
+
+                var date = data.split("/");
+                date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+
+                dataJSON["data"] =  "null"; //se nao da erro
+
+                disciplina = {"id": parseInt(disciplinaId), "codigo": '', "nome": ''};
+                requerimentoDisciplina = {"id": "", "professor": professor, "dataProva": date, "disciplina": disciplina};
+                disciplinas.push(requerimentoDisciplina);
+
+                dataJSON["disciplinas"] = disciplinas;
             }
+
             $.ajax({
                 type : $(form).attr('method'),
                 url  : $(form).attr('action'),
                 contentType : 'application/json; charset=utf-8',
                 dataType: 'json',
-                data : JSON.stringify(data),
+                data : JSON.stringify(dataJSON),
+                cache: false,
                 success : function(data) {
                     if (data["situacao"] = "OK") {
                         swal({
@@ -107,6 +128,7 @@ $(document).ready(function () {
                 $('#motivoDisciplinas').removeClass('hidden');
             } else  if (motivoId == 9) {//2o. chamada
                 $('#motivo9').removeClass('hidden');
+                $('#disciplina').select2();
             } else if (motivoId == 21) { //Convalidação
                 //TODO ver para habilitar os campos aqui ou abrir outra página
             }

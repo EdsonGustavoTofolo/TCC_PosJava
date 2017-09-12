@@ -29,3 +29,8 @@ label.error {
   display: inline-block;
   margin-left: 5px;
 }
+
+nav .img-circle {
+  position: relative;
+  top: 13px;
+}
