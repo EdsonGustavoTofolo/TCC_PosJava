@@ -20,6 +20,9 @@ $(document).ready(function () {
         },
         submitHandler: function (form) {
             var dataJSON = {};
+            var disciplinas = [];
+            var disciplina = {};
+            var requerimentoDisciplina = {};
 
             var formData = $(form).serialize();
             formData.split('&').forEach(function (value) {
@@ -28,10 +31,6 @@ $(document).ready(function () {
             });
 
             if (!$('#motivoDisciplinas').hasClass('hidden')) {
-                var disciplinas = [];
-                var disciplina = {};
-                var requerimentoDisciplina = {};
-
                 var options = $('select[name=selDisciplinas2] option');
                 var values = $.map(options,function(option) {
                     return option.value;
@@ -46,16 +45,12 @@ $(document).ready(function () {
                     dataJSON["disciplinas"] = disciplinas;
                 }
             } else if (!$('#motivo9').hasClass('hidden')) {
-                var disciplinas = [];
-                var disciplina = {};
-                var requerimentoDisciplina = {};
-
                 var professor = $("#professor").val();
                 var data = $("#data").val();
                 var disciplinaId = $("#disciplina").val();
 
                 var date = data.split("/");
-                date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+                date = new Date(date[2], date[1] - 1, date[0]);
 
                 dataJSON["data"] =  "null"; //se nao da erro
 
@@ -113,7 +108,6 @@ $(document).ready(function () {
     //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------
     $('#motivo').select2();
     $("#motivo").on("select2:select", function (e) {
-        // console.log(e.params['data'].id);
         var motivoId = e.params['data'].id;
         if (motivoId > 0) {
             if ((motivoId != 9) && !$('#motivo9').hasClass('hidden')) {
@@ -125,6 +119,7 @@ $(document).ready(function () {
             }
 
             if (motivoId == 5) {//cancelamento das disciplinas
+                buscarDisciplinas();
                 $('#motivoDisciplinas').removeClass('hidden');
             } else  if (motivoId == 9) {//2o. chamada
                 $('#motivo9').removeClass('hidden');
@@ -155,3 +150,23 @@ $(document).ready(function () {
         selectorMinimalHeight: 160
     });
 });
+
+function buscarDisciplinas() {
+    $.ajax({
+        type : 'GET',
+        url  : '/ProjetoJSP/requerimento/getDisciplinas',
+        contentType : 'application/json; charset=utf-8',
+        dataType: 'json',
+        data : [],
+        cache: false,
+        success : function(data) {
+            alert('sucesso');
+            $.each(data, function (value) {
+                console.log('disciplina:' + value);
+            });
+        },//Fim success
+        error : function() {
+            swal("Falhou!", "Falha ao buscar disciplinas.", "error");
+        }
+    });//Fim ajax
+}

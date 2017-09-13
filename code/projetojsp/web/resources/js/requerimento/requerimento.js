@@ -119,6 +119,7 @@ $(document).ready(function () {
             }
 
             if (motivoId == 5) {//cancelamento das disciplinas
+                buscarDisciplinas();
                 $('#motivoDisciplinas').removeClass('hidden');
             } else  if (motivoId == 9) {//2o. chamada
                 $('#motivo9').removeClass('hidden');
@@ -149,3 +150,23 @@ $(document).ready(function () {
         selectorMinimalHeight: 160
     });
 });
+
+function buscarDisciplinas() {
+    $.ajax({
+        type : 'GET',
+        url  : '/ProjetoJSP/requerimento/getDisciplinas',
+        contentType : 'application/json; charset=utf-8',
+        dataType: 'json',
+        data : [],
+        cache: false,
+        success : function(data) {
+            alert('sucesso');
+            $.each(data, function (value) {
+                console.log('disciplina:' + value);
+            });
+        },//Fim success
+        error : function() {
+            swal("Falhou!", "Falha ao buscar disciplinas.", "error");
+        }
+    });//Fim ajax
+}

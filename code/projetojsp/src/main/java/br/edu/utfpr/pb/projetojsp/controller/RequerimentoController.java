@@ -2,6 +2,7 @@ package br.edu.utfpr.pb.projetojsp.controller;
 
 import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
+import br.edu.utfpr.pb.projetojsp.model.Disciplina;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.DisciplinaRepository;
@@ -13,12 +14,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -39,8 +38,14 @@ public class RequerimentoController {
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
         model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
-        model.put("disciplinas", disciplinaRepository.findAll());
+//        model.put("disciplinas", disciplinaRepository.findAll());
         return "requerimento/requerimentoForm";
+    }
+
+    @GetMapping(value = "/getDisciplinas")
+    @ResponseBody
+    public List<Disciplina> getDisciplinas(Model model) {
+        return disciplinaRepository.findAll();
     }
 
     @PostMapping(value = "/salvar")
