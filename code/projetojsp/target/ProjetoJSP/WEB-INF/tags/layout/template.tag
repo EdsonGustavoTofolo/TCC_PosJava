@@ -27,6 +27,21 @@
 
 <jsp:include page="/WEB-INF/templates/nav.jsp"/>
 
+<div aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="loadingModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="sk-spinner sk-spinner-wave">
+            <div class="sk-rect1"></div>
+            <div class="sk-rect2"></div>
+            <div class="sk-rect3"></div>
+            <div class="sk-rect4"></div>
+            <div class="sk-rect5"></div>
+        </div>
+        <div class="modal-content">
+            <h4>Aguarde...</h4>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
     <c:if test="${info != null && !info.equals('')}">
         <div class="alert alert-success alert-dismissable">

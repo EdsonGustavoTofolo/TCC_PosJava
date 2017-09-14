@@ -55,12 +55,12 @@
 
             <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
-            <a data-toggle="modal" href="login.html#myModal"><small>Esqueceu a senha?</small></a>
+            <a data-toggle="modal" href="login.html#forgotPass"><small>Esqueceu a senha?</small></a>
             <p class="text-muted text-center"><small>Não possui conta ainda?</small></p>
             <a class="btn btn-sm btn-white btn-block" href="${actUrlNovoUsuario}">Criar uma conta</a>
 
             <!-- Modal -->
-            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="forgotPass" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">

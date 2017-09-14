@@ -16,6 +16,9 @@ $(document).ready(function () {
             },
             data: {
                 required: true
+            },
+            selDisciplinas2: {
+                required: true
             }
         },
         submitHandler: function (form) {
@@ -68,6 +71,12 @@ $(document).ready(function () {
                 dataType: 'json',
                 data : JSON.stringify(dataJSON),
                 cache: false,
+                beforeSend: function () {
+                    $('#loadingModal').modal('show');
+                },
+                complete: function () {
+                    $('#loadingModal').modal('hide');
+                },
                 success : function(data) {
                     if (data["situacao"] = "OK") {
                         swal({
@@ -137,8 +146,9 @@ $(document).ready(function () {
             }
 
             if (motivoId == 5) {//cancelamento das disciplinas
+                $('#loadingModal').modal('show');
                 $('#motivoDisciplinas').removeClass('hidden');
-                $.getJSON('/ProjetoJSP/requerimento/getDisciplinas', [], function (data) {
+                $.getJSON('/ProjetoJSP/disciplina/getAll', [], function (data) {
                     disciplinasSelect.empty();
                     $.each(data, function (index) {
                         var disciplina = data[index];
@@ -146,9 +156,11 @@ $(document).ready(function () {
                     });
                     disciplinasSelect.bootstrapDualListbox('refresh');
                 });
+                $('#loadingModal').modal('hide');
             } else  if (motivoId == 9) {//2o. chamada
+                $('#loadingModal').modal('show');
                 $('#motivo9').removeClass('hidden');
-                $.getJSON('/ProjetoJSP/requerimento/getDisciplinas', [], function (data) {
+                $.getJSON('/ProjetoJSP/disciplina/getAll', [], function (data) {
                     selector = $('#disciplina');
                     selector.empty();
                     $.each(data, function (index) {
@@ -157,6 +169,7 @@ $(document).ready(function () {
                     });
                 });
                 $('#disciplina').select2();
+                $('#loadingModal').modal('hide');
             } else if (motivoId == 21) { //Convalidação
                 //TODO ver para habilitar os campos aqui ou abrir outra página
             }
