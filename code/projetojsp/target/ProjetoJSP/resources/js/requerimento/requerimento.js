@@ -2,6 +2,10 @@
  * Created by Edson on 11/07/2017.
  */
 $(document).ready(function () {
+    $.validator.addMethod("disciplinasSelecionadas",function (value,element){
+        return !$('#motivoDisciplinas').hasClass('hidden') && $('select[name=selDisciplinas2] option').length > 0;
+
+    }, 'Selecione uma ou mais disciplinas!');
     //-----[ VALIDA O FORM ANTES DO SUBMIT ]----
     var validador = $('#frm').validate({
         rules: {
@@ -18,7 +22,7 @@ $(document).ready(function () {
                 required: true
             },
             selDisciplinas2: {
-                required: true
+                disciplinasSelecionadas: true
             }
         },
         submitHandler: function (form) {
@@ -140,12 +144,12 @@ $(document).ready(function () {
             if ((motivoId != 9) && !$('#motivo9').hasClass('hidden')) {
                 $('#motivo9').addClass('hidden');
             }
-
-            if ((motivoId != 5) && !$('#motivoDisciplinas').hasClass('hidden')) {
+            //Motivo 5 = Cancelamento das disciplinas e 15 = Matrícula nas disciplinas
+            if (!exibirMultiselecaoDeDisciplinas(motivoId) && !$('#motivoDisciplinas').hasClass('hidden')) {
                 $('#motivoDisciplinas').addClass('hidden');
             }
 
-            if (motivoId == 5) {//cancelamento das disciplinas
+            if (exibirMultiselecaoDeDisciplinas(motivoId)) {//cancelamento das disciplinas ou matrícula nas disciplinas
                 $('#loadingModal').modal('show');
                 $('#motivoDisciplinas').removeClass('hidden');
                 $.getJSON('/ProjetoJSP/disciplina/getAll', [], function (data) {
@@ -178,3 +182,8 @@ $(document).ready(function () {
         }
     });
 });
+
+function exibirMultiselecaoDeDisciplinas(motivoId) {
+    //Cancelamento das disciplinas || Matrícula nas disciplinas || Planos de Ensino/Ementas das disciplinas
+    return (motivoId == 5 || motivoId == 15 || motivoId == 17);
+}
