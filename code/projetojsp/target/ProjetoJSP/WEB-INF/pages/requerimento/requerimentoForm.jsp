@@ -18,7 +18,7 @@
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimento.js"/> "></script>
-        <script type="text/javascript" src="<c:url value="/resources/js/dualListbox/jquery.bootstrap-duallistbox.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/dualListbox/jquery.bootstrap-duallistbox.min.js"/> "></script>
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">

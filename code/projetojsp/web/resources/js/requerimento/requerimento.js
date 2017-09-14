@@ -105,35 +105,8 @@ $(document).ready(function () {
     });
     $('#data').mask("99/99/9999");
 
-    //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------
-    $('#motivo').select2();
-    $("#motivo").on("select2:select", function (e) {
-        var motivoId = e.params['data'].id;
-        if (motivoId > 0) {
-            if ((motivoId != 9) && !$('#motivo9').hasClass('hidden')) {
-                $('#motivo9').addClass('hidden');
-            }
-
-            if ((motivoId != 5) && !$('#motivoDisciplinas').hasClass('hidden')) {
-                $('#motivoDisciplinas').addClass('hidden');
-            }
-
-            if (motivoId == 5) {//cancelamento das disciplinas
-                buscarDisciplinas();
-                $('#motivoDisciplinas').removeClass('hidden');
-            } else  if (motivoId == 9) {//2o. chamada
-                $('#motivo9').removeClass('hidden');
-                $('#disciplina').select2();
-            } else if (motivoId == 21) { //Convalidação
-                //TODO ver para habilitar os campos aqui ou abrir outra página
-            }
-
-            validador.resetForm();
-        }
-    });
-
     //-------[ DUAL LIST BOX ] ------
-    $('#disciplinas').bootstrapDualListbox({
+   var disciplinasSelect = $('#disciplinas').bootstrapDualListbox({
         helperSelectNamePostfix: "selDisciplinas",
         filterTextClear: "Exibir todas",
         filterPlaceHolder: "Informe o código ou nome da disciplina",
@@ -149,24 +122,37 @@ $(document).ready(function () {
         infoTextEmpty: "Lista vazia",
         selectorMinimalHeight: 160
     });
-});
 
-function buscarDisciplinas() {
-    $.ajax({
-        type : 'GET',
-        url  : '/ProjetoJSP/requerimento/getDisciplinas',
-        contentType : 'application/json; charset=utf-8',
-        dataType: 'json',
-        data : [],
-        cache: false,
-        success : function(data) {
-            alert('sucesso');
-            $.each(data, function (value) {
-                console.log('disciplina:' + value);
-            });
-        },//Fim success
-        error : function() {
-            swal("Falhou!", "Falha ao buscar disciplinas.", "error");
+    //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------
+    $('#motivo').select2();
+    $("#motivo").on("select2:select", function (e) {
+        var motivoId = e.params['data'].id;
+        if (motivoId > 0) {
+            if ((motivoId != 9) && !$('#motivo9').hasClass('hidden')) {
+                $('#motivo9').addClass('hidden');
+            }
+
+            if ((motivoId != 5) && !$('#motivoDisciplinas').hasClass('hidden')) {
+                $('#motivoDisciplinas').addClass('hidden');
+            }
+
+            if (motivoId == 5) {//cancelamento das disciplinas
+                $('#motivoDisciplinas').removeClass('hidden');
+                $.getJSON('/ProjetoJSP/requerimento/getDisciplinas', [], function (data) {
+                    $.each(data, function (index) {
+                        var disciplina = data[index];
+                        disciplinasSelect.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
+                    });
+                    disciplinasSelect.bootstrapDualListbox('refresh');
+                });
+            } else  if (motivoId == 9) {//2o. chamada
+                $('#motivo9').removeClass('hidden');
+                $('#disciplina').select2();
+            } else if (motivoId == 21) { //Convalidação
+                //TODO ver para habilitar os campos aqui ou abrir outra página
+            }
+
+            validador.resetForm();
         }
-    });//Fim ajax
-}
+    });
+});
