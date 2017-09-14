@@ -42,9 +42,6 @@
                     <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
                         <hr>
                         <select id="disciplinas" class="form-control dual_select" multiple>
-                            <c:forEach items="${disciplinas}" var="dis">
-                                <option value="${dis.id}">${dis.codigo} - ${dis.nome}</option>
-                            </c:forEach>
                         </select>
                     </div>
                     <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
@@ -52,9 +49,6 @@
                         <div class="form-group">
                             <label for="disciplina">Disciplina:</label>
                             <select id="disciplina" name="disciplina" class="form-control">
-                                <c:forEach items="${disciplinas}" var="dis">
-                                    <option value="${dis.id}">${dis.codigo} - ${dis.nome}</option>
-                                </c:forEach>
                             </select>
                         </div>
                         <div class="form-group">

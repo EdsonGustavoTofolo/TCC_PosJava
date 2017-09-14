@@ -139,32 +139,23 @@ $(document).ready(function () {
             if (motivoId == 5) {//cancelamento das disciplinas
                 $('#motivoDisciplinas').removeClass('hidden');
                 $.getJSON('/ProjetoJSP/requerimento/getDisciplinas', [], function (data) {
+                    disciplinasSelect.empty();
                     $.each(data, function (index) {
                         var disciplina = data[index];
                         disciplinasSelect.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
                     });
                     disciplinasSelect.bootstrapDualListbox('refresh');
                 });
-                /*$.ajax({
-                    type : 'GET',
-                    url  : '/ProjetoJSP/requerimento/getDisciplinas',
-                    contentType : 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    data : [],
-                    cache: false,
-                    success : function(data) {
-                        $.each(data, function (index) {
-                            var disciplina = data[index];
-                            disciplinasSelect.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
-                        });
-                        disciplinasSelect.bootstrapDualListbox('refresh');
-                    },//Fim success
-                    error : function() {
-                        swal("Falhou!", "Falha ao buscar disciplinas.", "error");
-                    }
-                });//Fim ajax*/
             } else  if (motivoId == 9) {//2o. chamada
                 $('#motivo9').removeClass('hidden');
+                $.getJSON('/ProjetoJSP/requerimento/getDisciplinas', [], function (data) {
+                    selector = $('#disciplina');
+                    selector.empty();
+                    $.each(data, function (index) {
+                        var disciplina = data[index];
+                        selector.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
+                    });
+                });
                 $('#disciplina').select2();
             } else if (motivoId == 21) { //Convalidação
                 //TODO ver para habilitar os campos aqui ou abrir outra página
