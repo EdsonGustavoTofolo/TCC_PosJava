@@ -47,7 +47,7 @@
         <form class="m-t" role="form" action="login" method="POST" autocomplete="off">
 
             <div class="form-group">
-                <input name="username" type="email" class="form-control" placeholder="Informe seu e-mail" required>
+                <input name="username" type="text" class="form-control" placeholder="Informe seu username" required>
             </div>
             <div class="form-group">
                 <input name="password" type="password" class="form-control" placeholder="Informe a sua senha" required>

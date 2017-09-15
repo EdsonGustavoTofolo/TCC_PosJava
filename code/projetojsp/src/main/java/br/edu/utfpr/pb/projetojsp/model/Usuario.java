@@ -24,8 +24,8 @@ public class Usuario implements Serializable, UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usu")
     private Long id;
-    @Column(name = "codigo_usu", length = 25, nullable = false, unique = true)
-    private String codigo; //RA
+    @Column(name = "username_usu", length = 60, nullable = false, unique = true)
+    private String username; //RA e para professores a primeira parte do email, antes do @
     @Column(name = "email_usu", length = 60, nullable = false)
     private String email;
     @Column(name = "senha_usu", length = 256, nullable = false)
@@ -34,8 +34,6 @@ public class Usuario implements Serializable, UserDetails {
     private String nome;
     @Column(name = "telefone_usu", length = 11)
     private String telefone;
-    @Column(name = "curso_usu", length = 60)
-    private String curso;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_cadastro_usu", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private Date dataCadastro;
@@ -45,14 +43,12 @@ public class Usuario implements Serializable, UserDetails {
     public Usuario() {
     }
 
-    public Usuario(String codigo, String email, String senha, String nome, String telefone, String curso,
-                   Date dataCadastro, Set<Permissao> permissoes) {
-        this.codigo = codigo;
+    public Usuario(String username, String email, String senha, String nome, String telefone, Date dataCadastro, Set<Permissao> permissoes) {
+        this.username = username;
         this.email = email;
         this.senha = senha;
         this.nome = nome;
         this.telefone = telefone;
-        this.curso = curso;
         this.dataCadastro = dataCadastro;
         this.permissoes = permissoes;
     }
@@ -63,14 +59,6 @@ public class Usuario implements Serializable, UserDetails {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
     }
 
     public String getEmail() {
@@ -105,14 +93,6 @@ public class Usuario implements Serializable, UserDetails {
         this.telefone = telefone;
     }
 
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
     public Date getDataCadastro() {
         return dataCadastro;
     }
@@ -127,6 +107,10 @@ public class Usuario implements Serializable, UserDetails {
 
     public void setPermissoes(Set<Permissao> permissoes) {
         this.permissoes = permissoes;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -153,7 +137,7 @@ public class Usuario implements Serializable, UserDetails {
 
     @Override
     public String getUsername() {
-        return this.email;
+        return this.username;
     }
 
     @Override

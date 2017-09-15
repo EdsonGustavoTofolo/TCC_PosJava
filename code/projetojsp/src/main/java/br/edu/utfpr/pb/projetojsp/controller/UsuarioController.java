@@ -56,10 +56,10 @@ public class UsuarioController {
     }
 
     private Permissao getPermissao() {
-        Permissao permissao = permissaoRepository.findByPermissao("ROLE_USER");
+        Permissao permissao = permissaoRepository.findByPermissao("ROLE_ALUNO");
         if (Objects.isNull(permissao)){
             permissao = new Permissao();
-            permissao.setPermissao("ROLE_USER");
+            permissao.setPermissao("ROLE_ALUNO");
             permissaoRepository.save(permissao);
         }
         return permissao;
@@ -67,7 +67,7 @@ public class UsuarioController {
 
     @PostMapping("gravar/")
     public String gravar(@Valid Usuario usuario, BindingResult erros, Model model) {
-        Usuario usuarioBd = usuarioRepository.findByEmail(usuario.getEmail());
+        Usuario usuarioBd = usuarioRepository.findByUsername(usuario.getUsername());
 
         usuario.setDataCadastro(usuarioBd.getDataCadastro());
         usuario.setPermissoes(usuarioBd.getPermissoes());
@@ -80,11 +80,11 @@ public class UsuarioController {
         return "redirect:/login";
     }
 
-    @PostMapping("validarCodigo/")
+    @PostMapping("validarUsername/")
     @ResponseBody
-    public boolean validarCodigo(HttpServletResponse response, HttpServletRequest request) throws IOException {
-        String codigo = request.getParameter("codigo");
-        Usuario usuario = usuarioRepository.findByCodigo(codigo);
+    public boolean validarUsername(HttpServletResponse response, HttpServletRequest request) throws IOException {
+        String username = request.getParameter("username");
+        Usuario usuario = usuarioRepository.findByUsername(username);
         return Objects.isNull(usuario);
     }
 
