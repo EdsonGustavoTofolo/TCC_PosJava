@@ -38,7 +38,7 @@
         <spring:url value="/usuario/criarNovoUsuario/" var="actUrl" />
         <form id="frm" class="m-t" role="form" action="${actUrl}" method="post" autocomplete="off">
             <div class="form-group">
-                <input id="codigo" name="codigo" type="text" class="form-control" placeholder="Informe o código do Registro" required>
+                <input id="username" name="username" type="text" class="form-control" placeholder="Informe o login" required>
             </div>
             <div class="form-group">
                 <input id="nome" name="nome" type="text" class="form-control" placeholder="Informe seu Nome" required>
@@ -58,7 +58,7 @@
     </div>
 </div>
 
-<spring:url value="/usuario/validarCodigo/" var="urlValidarCodigo" />
+<spring:url value="/usuario/validarUsername/" var="urlValidarUsername" />
 <!-- js placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="<c:url value="/webjars/jquery/1.11.1/jquery.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"/> "></script>
@@ -68,11 +68,11 @@
 <script>
     $("#frm").validate({
         rules: {
-            codigo: {
+            username: {
                 required: true,
                 number: true,
                 remote: {
-                    url: '${urlValidarCodigo}',
+                    url: '${urlValidarUsername}',
                     type: "post"
                 },
             },
@@ -88,8 +88,8 @@
             }
         },
         messages: {
-            codigo: {
-                remote: "Código informado já existente!"
+            username: {
+                remote: "Login informado em uso!"
             }
         }
     });

@@ -38,7 +38,7 @@
         <spring:url value="/usuario/criarNovoUsuario/" var="actUrl" />
         <form id="frm" class="m-t" role="form" action="${actUrl}" method="post" autocomplete="off">
             <div class="form-group">
-                <input id="username" name="username" type="text" class="form-control" placeholder="Informe o usuário" required>
+                <input id="username" name="username" type="text" class="form-control" placeholder="Informe o login" required>
             </div>
             <div class="form-group">
                 <input id="nome" name="nome" type="text" class="form-control" placeholder="Informe seu Nome" required>
@@ -68,7 +68,7 @@
 <script>
     $("#frm").validate({
         rules: {
-            codigo: {
+            username: {
                 required: true,
                 number: true,
                 remote: {
@@ -88,8 +88,8 @@
             }
         },
         messages: {
-            codigo: {
-                remote: "Username informado em uso!"
+            username: {
+                remote: "Login informado em uso!"
             }
         }
     });

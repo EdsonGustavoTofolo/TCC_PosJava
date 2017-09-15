@@ -5,8 +5,11 @@
 <%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form"%>
 
 <layout:template>
-    <jsp:attribute name="cssEspecificos"></jsp:attribute>
+    <jsp:attribute name="cssEspecificos">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/select2/4.0.3/dist/css/select2.min.css"/> " />
+    </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
+        <script type="text/javascript" src="<c:url value="/webjars/select2/4.0.3/dist/js/select2.full.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/jquery-maskedinput/1.4.0/jquery.maskedinput.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/jquery-validation/1.13.0/jquery.validate.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/pt_br_messages_jquery.js"/> "></script>
@@ -22,9 +25,9 @@
                 <frm:form id="frm" role="form" method="post" modelAttribute="usuarioForm" action="${actUrl}" autocomplete="off">
                     <input id="id" name="id" hidden type="text" value="${usuario.id}" />
                     <div class="form-group">
-                        <label for="codigo">Código</label>
-                        <input id="codigo" name="codigo" type="text" class="form-control" required
-                            value="${usuario.codigo}">
+                        <label for="username">Código</label>
+                        <input id="username" name="username" type="text" class="form-control" required
+                            value="${usuario.username}" disabled>
                     </div>
                     <div class="form-group">
                         <label for="nome">Nome</label>
@@ -43,8 +46,11 @@
                     </div>
                     <div class="form-group">
                         <label for="curso">Curso</label>
-                        <input id="curso" name="curso" type="text" class="form-control" required
-                               value="${usuario.curso}">
+                        <select name="curso" id="curso" class="form-control" required>
+                            <c:forEach items="${cursos}" var="curso">
+                                <option value="${curso.id}">${curso.usuario.nome}</option>
+                            </c:forEach>
+                        </select>
                     </div>
 
                     <button type="reset" class="btn btn-default">Limpar</button>

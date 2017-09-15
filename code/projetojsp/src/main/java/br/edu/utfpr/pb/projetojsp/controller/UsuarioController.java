@@ -2,6 +2,7 @@ package br.edu.utfpr.pb.projetojsp.controller;
 
 import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
+import br.edu.utfpr.pb.projetojsp.repository.CursoRepository;
 import br.edu.utfpr.pb.projetojsp.repository.PermissaoRepository;
 import br.edu.utfpr.pb.projetojsp.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,8 @@ public class UsuarioController {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private PermissaoRepository permissaoRepository;
+    @Autowired
+    private CursoRepository cursoRepository;
 
     @RequestMapping(value = "/")
     public String novo(){
@@ -41,6 +44,7 @@ public class UsuarioController {
     public String conta(Model model) {
         Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("usuario", usuario);
+        model.addAttribute("cursos", cursoRepository.findAll());
         model.addAttribute("titulo", "Edição da Conta do Usuário");
         return "usuario/formConfirmaDados";
     }
@@ -51,6 +55,7 @@ public class UsuarioController {
         usuario.addPermissao(getPermissao());
         usuarioRepository.save(usuario);
         model.addAttribute("usuario", usuario);
+        model.addAttribute("cursos", cursoRepository.findAll());
         model.addAttribute("titulo", "Conclusão de Cadastro");
         return "usuario/formConfirmaDados"; //chama o form do usuario para completar o cadastro
     }
@@ -67,8 +72,9 @@ public class UsuarioController {
 
     @PostMapping("gravar/")
     public String gravar(@Valid Usuario usuario, BindingResult erros, Model model) {
-        Usuario usuarioBd = usuarioRepository.findByUsername(usuario.getUsername());
+        Usuario usuarioBd = usuarioRepository.findById(usuario.getId()).get();
 
+        usuario.setUsername(usuarioBd.getUsername());
         usuario.setDataCadastro(usuarioBd.getDataCadastro());
         usuario.setPermissoes(usuarioBd.getPermissoes());
         usuario.setSenha(usuarioBd.getSenha());

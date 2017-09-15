@@ -2,6 +2,8 @@
  * Created by Edson on 04/09/2017.
  */
 $(document).ready(function(){
+    $('#curso').select2();
+
     jQuery.validator.addMethod('telefone', function (value, element) {
         value = value.replace("(","");
         value = value.replace(")", "");
@@ -39,9 +41,8 @@ $(document).ready(function(){
         });
     $("#frm").validate({
         rules: {
-            codigo: {
-                required: true,
-                number: true
+            username: {
+                required: true
             },
             nome: {
                 required: true

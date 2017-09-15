@@ -34,6 +34,9 @@ public class Usuario implements Serializable, UserDetails {
     private String nome;
     @Column(name = "telefone_usu", length = 11)
     private String telefone;
+    @ManyToOne()
+    @JoinColumn(name = "curso_id_usu", referencedColumnName = "id_cur")
+    private Curso curso; //curso referente ao que o usuário faz
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_cadastro_usu", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private Date dataCadastro;
@@ -43,12 +46,13 @@ public class Usuario implements Serializable, UserDetails {
     public Usuario() {
     }
 
-    public Usuario(String username, String email, String senha, String nome, String telefone, Date dataCadastro, Set<Permissao> permissoes) {
+    public Usuario(String username, String email, String senha, String nome, String telefone, Curso curso, Date dataCadastro, Set<Permissao> permissoes) {
         this.username = username;
         this.email = email;
         this.senha = senha;
         this.nome = nome;
         this.telefone = telefone;
+        this.curso = curso;
         this.dataCadastro = dataCadastro;
         this.permissoes = permissoes;
     }
@@ -91,6 +95,14 @@ public class Usuario implements Serializable, UserDetails {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
     public Date getDataCadastro() {

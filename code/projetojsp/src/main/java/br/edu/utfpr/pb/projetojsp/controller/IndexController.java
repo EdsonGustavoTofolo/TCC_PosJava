@@ -8,13 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Objects;
+
 @Controller
 public class IndexController {
 
 	@RequestMapping("/")
 	public String home(Model model){
 		Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (StringUtils.isEmpty(usuario.getTelefone()) || StringUtils.isEmpty(usuario.getCurso())) {
+		if (StringUtils.isEmpty(usuario.getTelefone()) || Objects.isNull(usuario.getCurso())) {
 			model.addAttribute("mensagem", "Identificamos que seu cadastro está incompleto! Por favor, complete-o!");
 		}
 		return "index";

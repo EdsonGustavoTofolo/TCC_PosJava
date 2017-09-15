@@ -20,13 +20,20 @@ public class Disciplina implements Serializable {
     private String codigo;
     @Column(name = "nome_dis", length = 80, nullable = false)
     private String nome;
-
-    public Disciplina(String codigo, String nome) {
-        this.codigo = codigo;
-        this.nome = nome;
-    }
+    @Column(name = "grade_curricular_dis", length = 20)
+    private String gradeCurricular;
+    @ManyToOne
+    @JoinColumn(name = "curso_id_dis", referencedColumnName = "id_cur")
+    private Curso curso;
 
     public Disciplina() {
+    }
+
+    public Disciplina(String codigo, String nome, String gradeCurricular, Curso curso) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.gradeCurricular = gradeCurricular;
+        this.curso = curso;
     }
 
     public Long getId() {
@@ -51,6 +58,22 @@ public class Disciplina implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getGradeCurricular() {
+        return gradeCurricular;
+    }
+
+    public void setGradeCurricular(String gradeCurricular) {
+        this.gradeCurricular = gradeCurricular;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
     @Override
