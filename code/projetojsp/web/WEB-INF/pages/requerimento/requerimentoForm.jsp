@@ -7,6 +7,7 @@
 <layout:template>
     <jsp:attribute name="cssEspecificos">
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/select2/4.0.3/dist/css/select2.min.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/select2-v3/select2-bootstrap.min.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.0.1/css/datepicker.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dualListbox/bootstrap-duallistbox.min.css"/> " />
     </jsp:attribute>
@@ -59,7 +60,7 @@
                         </div>
                         <div class="form-group">
                             <label for="professor">Professor:</label>
-                            <input id="professor" name="professor" type="text" class="form-control"/>
+                            <select id="professor" name="professor" class="form-control"></select>
                         </div>
                         <div class="form-group">
                             <label for="data">Data:</label>

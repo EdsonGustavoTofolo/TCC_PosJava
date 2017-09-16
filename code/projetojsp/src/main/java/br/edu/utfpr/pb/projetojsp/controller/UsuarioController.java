@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.controller;
 
+import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
 import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.CursoRepository;
@@ -53,21 +54,12 @@ public class UsuarioController {
     public String criarNovoUsuario(@Valid Usuario usuario, BindingResult errors, Model model) {
         usuario.setSenha(usuario.getEncodedPassword(usuario.getSenha()));
         usuario.addPermissao(getPermissao());
+        usuario.setTipo(TipoUsuarioEnum.ALUNO);
         usuarioRepository.save(usuario);
         model.addAttribute("usuario", usuario);
         model.addAttribute("cursos", cursoRepository.findAll());
         model.addAttribute("titulo", "Conclusão de Cadastro");
         return "usuario/formConfirmaDados"; //chama o form do usuario para completar o cadastro
-    }
-
-    private Permissao getPermissao() {
-        Permissao permissao = permissaoRepository.findByPermissao("ROLE_ALUNO");
-        if (Objects.isNull(permissao)){
-            permissao = new Permissao();
-            permissao.setPermissao("ROLE_ALUNO");
-            permissaoRepository.save(permissao);
-        }
-        return permissao;
     }
 
     @PostMapping("gravar/")
@@ -92,6 +84,16 @@ public class UsuarioController {
         String username = request.getParameter("username");
         Usuario usuario = usuarioRepository.findByUsername(username);
         return Objects.isNull(usuario);
+    }
+
+    private Permissao getPermissao() {
+        Permissao permissao = permissaoRepository.findByPermissao("ROLE_ALUNO");
+        if (Objects.isNull(permissao)){
+            permissao = new Permissao();
+            permissao.setPermissao("ROLE_ALUNO");
+            permissaoRepository.save(permissao);
+        }
+        return permissao;
     }
 
 }

@@ -2,6 +2,7 @@
  * Created by Edson on 11/07/2017.
  */
 $(document).ready(function () {
+    $.fn.select2.defaults.set( "theme", "bootstrap" );
     $.validator.addMethod("disciplinasSelecionadas",function (value,element){
         return !$('#motivoDisciplinas').hasClass('hidden') && $('select[name=selDisciplinas2] option').length > 0;
 
@@ -156,7 +157,8 @@ $(document).ready(function () {
             if ((motivoId != 9) && !$('#motivo9').hasClass('hidden')) {
                 $('#motivo9').addClass('hidden');
             }
-            //Motivo 5 = Cancelamento das disciplinas e 15 = Matrícula nas disciplinas
+
+            //Cancelamento das disciplinas || Matrícula nas disciplinas || Planos de Ensino/Ementas das disciplinas
             if (!exibirMultiselecaoDeDisciplinas(motivoId) && !$('#motivoDisciplinas').hasClass('hidden')) {
                 $('#motivoDisciplinas').addClass('hidden');
             }

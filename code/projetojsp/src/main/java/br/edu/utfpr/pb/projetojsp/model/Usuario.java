@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.model;
 
+import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.springframework.security.core.GrantedAuthority;
@@ -37,6 +38,9 @@ public class Usuario implements Serializable, UserDetails {
     @ManyToOne()
     @JoinColumn(name = "curso_id_usu", referencedColumnName = "id_cur")
     private Curso curso; //curso referente ao que o usuário faz
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "tipo_usu")
+    private TipoUsuarioEnum tipo;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_cadastro_usu", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private Date dataCadastro;
@@ -46,15 +50,27 @@ public class Usuario implements Serializable, UserDetails {
     public Usuario() {
     }
 
-    public Usuario(String username, String email, String senha, String nome, String telefone, Curso curso, Date dataCadastro, Set<Permissao> permissoes) {
+    public Usuario(String username, String email, String senha, String nome, String telefone, Curso curso, TipoUsuarioEnum tipo, Date dataCadastro, Set<Permissao> permissoes) {
         this.username = username;
         this.email = email;
         this.senha = senha;
         this.nome = nome;
         this.telefone = telefone;
         this.curso = curso;
+        this.tipo = tipo;
         this.dataCadastro = dataCadastro;
         this.permissoes = permissoes;
+    }
+
+    public Usuario(String username, String email, String senha, String nome, String telefone, Curso curso, TipoUsuarioEnum tipo, Date dataCadastro) {
+        this.username = username;
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.curso = curso;
+        this.tipo = tipo;
+        this.dataCadastro = dataCadastro;
     }
 
     public Long getId() {
@@ -103,6 +119,14 @@ public class Usuario implements Serializable, UserDetails {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public TipoUsuarioEnum getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoUsuarioEnum tipo) {
+        this.tipo = tipo;
     }
 
     public Date getDataCadastro() {
