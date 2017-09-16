@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -19,9 +20,11 @@ public class DisciplinaController {
     @Autowired
     private DisciplinaRepository disciplinaRepository;
 
-    @GetMapping(value = "/getAll")
+    @GetMapping(value = "/findByCurso")
     @ResponseBody
-    public List<Disciplina> getDisciplinas() {
-        return disciplinaRepository.findAll();
+    public List<Disciplina> findByCurso(HttpServletRequest request) {
+        String curso = request.getParameter("curso");
+        List<Disciplina> disciplinaList = disciplinaRepository.findByCursoId(Long.valueOf(curso));
+        return disciplinaList;
     }
 }

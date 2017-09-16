@@ -119,7 +119,7 @@ $(document).ready(function () {
     $('#data').mask("99/99/9999");
 
     //-------[ DUAL LIST BOX ] ------
-   var disciplinasSelect = $('#disciplinas').bootstrapDualListbox({
+    var disciplinasSelect = $('#disciplinas').bootstrapDualListbox({
         helperSelectNamePostfix: "selDisciplinas",
         filterTextClear: "Exibir todas",
         filterPlaceHolder: "Informe o código ou nome da disciplina",
@@ -136,10 +136,22 @@ $(document).ready(function () {
         selectorMinimalHeight: 160
     });
 
+    //------[ SELECAO DE CURSOS ] --------
+    $("#curso").select2();
+    $("#curso").on("select2:select", function (e) {
+        var cursoId = e.params['data'].id;
+        if (!$('#motivo9').hasClass('hidden')) {
+            buscarDisciplinas();
+        } else if (!$('#motivoDisciplinas').hasClass('hidden')) {
+            buscarMultiselecaoDisciplinas();
+        }
+    });
+
     //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------
     $('#motivo').select2();
     $("#motivo").on("select2:select", function (e) {
         var motivoId = e.params['data'].id;
+
         if (motivoId > 0) {
             if ((motivoId != 9) && !$('#motivo9').hasClass('hidden')) {
                 $('#motivo9').addClass('hidden');
@@ -150,30 +162,9 @@ $(document).ready(function () {
             }
 
             if (exibirMultiselecaoDeDisciplinas(motivoId)) {//cancelamento das disciplinas ou matrícula nas disciplinas
-                $('#loadingModal').modal('show');
-                $('#motivoDisciplinas').removeClass('hidden');
-                $.getJSON('/ProjetoJSP/disciplina/getAll', [], function (data) {
-                    disciplinasSelect.empty();
-                    $.each(data, function (index) {
-                        var disciplina = data[index];
-                        disciplinasSelect.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
-                    });
-                    disciplinasSelect.bootstrapDualListbox('refresh');
-                });
-                $('#loadingModal').modal('hide');
+                buscarMultiselecaoDisciplinas();
             } else  if (motivoId == 9) {//2o. chamada
-                $('#loadingModal').modal('show');
-                $('#motivo9').removeClass('hidden');
-                $.getJSON('/ProjetoJSP/disciplina/getAll', [], function (data) {
-                    selector = $('#disciplina');
-                    selector.empty();
-                    $.each(data, function (index) {
-                        var disciplina = data[index];
-                        selector.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
-                    });
-                });
-                $('#disciplina').select2();
-                $('#loadingModal').modal('hide');
+                buscarDisciplinas();
             } else if (motivoId == 21) { //Convalidação
                 //TODO ver para habilitar os campos aqui ou abrir outra página
             }
@@ -181,7 +172,40 @@ $(document).ready(function () {
             validador.resetForm();
         }
     });
+
+    function buscarMultiselecaoDisciplinas() {
+        $('#loadingModal').modal('show');
+        $('#motivoDisciplinas').removeClass('hidden');
+        $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
+            disciplinasSelect.empty();
+            $.each(data, function (index) {
+                var disciplina = data[index];
+                disciplinasSelect.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
+            });
+            disciplinasSelect.bootstrapDualListbox('refresh');
+        });
+        $('#loadingModal').modal('hide');
+    }
+
+    function buscarDisciplinas() {
+        $('#loadingModal').modal('show');
+        $('#motivo9').removeClass('hidden');
+        $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
+            selector = $('#disciplina');
+            selector.empty();
+            $.each(data, function (index) {
+                var disciplina = data[index];
+                selector.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
+            });
+        });
+        $('#disciplina').select2();
+        $('#loadingModal').modal('hide');
+    }
 });
+
+function getCursoId() {
+    return {"curso": $("#curso").val()};
+}
 
 function exibirMultiselecaoDeDisciplinas(motivoId) {
     //Cancelamento das disciplinas || Matrícula nas disciplinas || Planos de Ensino/Ementas das disciplinas

@@ -4,7 +4,7 @@ import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
-import br.edu.utfpr.pb.projetojsp.repository.RequerimentoDisciplinaRepository;
+import br.edu.utfpr.pb.projetojsp.repository.CursoRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +31,14 @@ public class RequerimentoController {
     @Autowired
     private RequerimentoRepository requerimentoRepository;
     @Autowired
-    private RequerimentoDisciplinaRepository requerimentoDisciplinaRepository;
+    private CursoRepository cursoRepository;
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
+        Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.put("usuarioCursoId", usuario.getCurso().getId());
         model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
-//        model.put("disciplinas", disciplinaRepository.findAll());
+        model.put("cursos", cursoRepository.findAll());
         return "requerimento/requerimentoForm";
     }
 

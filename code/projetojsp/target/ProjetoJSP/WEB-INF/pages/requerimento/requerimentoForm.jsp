@@ -30,26 +30,32 @@
                 <frm:form id="frm" name="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}" autocomplete="off">
                     <input id="id" name="id" type="text" hidden/>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label for="motivo">Motivo do Requerimento:</label>
-                            <select name="motivo" id="motivo" class="form-control">
-                                <c:forEach items="${motivos}" var="motivo">
-                                    <option value="${motivo.id}">${motivo.descricao}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
+                        <label for="motivo">Motivo do Requerimento:</label>
+                        <select name="motivo" id="motivo" class="form-control">
+                            <c:forEach items="${motivos}" var="motivo">
+                                <option value="${motivo.id}">${motivo.descricao}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <label for="curso">Curso:</label>
+                        <select id="curso" name="curso" class="form-control">
+                            <c:forEach items="${cursos}" var="curso">
+                                <option value="${curso.id}" ${curso.id == usuarioCursoId ? 'selected="selected"' : ''}>
+                                        ${curso.usuario.nome}
+                                </option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
                         <hr>
-                        <select id="disciplinas" class="form-control dual_select" multiple>
-                        </select>
+                        <select id="disciplinas" class="form-control dual_select" multiple></select>
                     </div>
                     <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
                         <hr>
                         <div class="form-group">
                             <label for="disciplina">Disciplina:</label>
-                            <select id="disciplina" name="disciplina" class="form-control">
-                            </select>
+                            <select id="disciplina" name="disciplina" class="form-control"></select>
                         </div>
                         <div class="form-group">
                             <label for="professor">Professor:</label>
