@@ -47,8 +47,11 @@
                     <div class="form-group">
                         <label for="curso">Curso</label>
                         <select name="curso" id="curso" class="form-control" required>
+                            <option>- Selecione -</option>
                             <c:forEach items="${cursos}" var="curso">
-                                <option value="${curso.id}">${curso.usuario.nome}</option>
+                                <option value="${curso.id}" ${curso.id == usuario.curso.id ? 'selected="selected"' : ''}>
+                                    ${curso.usuario.nome}
+                                </option>
                             </c:forEach>
                         </select>
                     </div>
