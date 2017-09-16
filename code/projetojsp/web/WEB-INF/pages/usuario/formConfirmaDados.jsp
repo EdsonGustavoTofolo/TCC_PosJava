@@ -7,6 +7,7 @@
 <layout:template>
     <jsp:attribute name="cssEspecificos">
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/select2/4.0.3/dist/css/select2.min.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/select2-v3/select2-bootstrap.min.css"/> " />
     </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
         <script type="text/javascript" src="<c:url value="/webjars/select2/4.0.3/dist/js/select2.full.min.js"/> "></script>

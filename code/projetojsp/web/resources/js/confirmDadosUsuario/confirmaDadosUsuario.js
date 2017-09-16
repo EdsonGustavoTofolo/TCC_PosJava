@@ -2,6 +2,7 @@
  * Created by Edson on 04/09/2017.
  */
 $(document).ready(function(){
+    $.fn.select2.defaults.set( "theme", "bootstrap" );
     $('#curso').select2();
 
     jQuery.validator.addMethod('telefone', function (value, element) {
