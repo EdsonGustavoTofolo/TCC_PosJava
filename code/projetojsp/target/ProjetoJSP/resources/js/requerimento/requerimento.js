@@ -137,20 +137,26 @@ $(document).ready(function () {
         selectorMinimalHeight: 160
     });
 
+    //------[ SELECAO DE PROFESSOR ]-----
+    $("#professor").select2();
+
     //------[ SELECAO DE CURSOS ] --------
     $("#curso").select2();
     $("#curso").on("select2:select", function (e) {
+        $('#loadingModal').modal('show');
         var cursoId = e.params['data'].id;
         if (!$('#motivo9').hasClass('hidden')) {
             buscarDisciplinas();
         } else if (!$('#motivoDisciplinas').hasClass('hidden')) {
             buscarMultiselecaoDisciplinas();
         }
+        $('#loadingModal').modal('hide');
     });
 
     //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------
     $('#motivo').select2();
     $("#motivo").on("select2:select", function (e) {
+        $('#loadingModal').modal('show');
         var motivoId = e.params['data'].id;
 
         if (motivoId > 0) {
@@ -164,20 +170,21 @@ $(document).ready(function () {
             }
 
             if (exibirMultiselecaoDeDisciplinas(motivoId)) {//cancelamento das disciplinas ou matrícula nas disciplinas
+                $('#motivoDisciplinas').removeClass('hidden');
                 buscarMultiselecaoDisciplinas();
             } else  if (motivoId == 9) {//2o. chamada
+                $('#motivo9').removeClass('hidden');
                 buscarDisciplinas();
+                buscarProfessores();
             } else if (motivoId == 21) { //Convalidação
                 //TODO ver para habilitar os campos aqui ou abrir outra página
             }
-
+            $('#loadingModal').modal('hide');
             validador.resetForm();
         }
     });
 
     function buscarMultiselecaoDisciplinas() {
-        $('#loadingModal').modal('show');
-        $('#motivoDisciplinas').removeClass('hidden');
         $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
             disciplinasSelect.empty();
             $.each(data, function (index) {
@@ -186,12 +193,9 @@ $(document).ready(function () {
             });
             disciplinasSelect.bootstrapDualListbox('refresh');
         });
-        $('#loadingModal').modal('hide');
     }
 
     function buscarDisciplinas() {
-        $('#loadingModal').modal('show');
-        $('#motivo9').removeClass('hidden');
         $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
             selector = $('#disciplina');
             selector.empty();
@@ -201,7 +205,18 @@ $(document).ready(function () {
             });
         });
         $('#disciplina').select2();
-        $('#loadingModal').modal('hide');
+    }
+
+    function buscarProfessores() {
+        $.getJSON('/ProjetoJSP/usuario/findByProfessores', {}, function (data) {
+            selector = $('#professor');
+            selector.empty();
+            $.each(data, function (index) {
+                var professor = data[index];
+                selector.append($('<option>').text(professor.nome).val(professor.id));
+            });
+        });
+        $('#professor').select2();
     }
 });
 
