@@ -16,24 +16,25 @@ public class RequerimentoDisciplina implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_dis")
+    @Column(name = "id_rdis")
     private Long id;
-    @Column(name = "professor_dis", length = 60)
-    private String professor;
+    @ManyToOne()
+    @JoinColumn(name = "professor_id_rdis", referencedColumnName = "id_usu")
+    private Usuario professor;
     @Temporal(TemporalType.DATE)
-    @Column(name = "data_prova_dis")
+    @Column(name = "data_prova_rdis")
     private Date dataProva;
     @ManyToOne()
-    @JoinColumn(name = "disciplina_id_dis", referencedColumnName = "id_dis")
+    @JoinColumn(name = "disciplina_id_rdis", referencedColumnName = "id_dis")
     private Disciplina disciplina;
     @ManyToOne()
-    @JoinColumn(name = "requerimento_id_dis", referencedColumnName = "id_req")
+    @JoinColumn(name = "requerimento_id_rdis", referencedColumnName = "id_req")
     private Requerimento requerimento;
 
     public RequerimentoDisciplina() {
     }
 
-    public RequerimentoDisciplina(String professor, Date dataProva, Disciplina disciplina, Requerimento requerimento) {
+    public RequerimentoDisciplina(Usuario professor, Date dataProva, Disciplina disciplina, Requerimento requerimento) {
         this.professor = professor;
         this.dataProva = dataProva;
         this.disciplina = disciplina;
@@ -48,11 +49,11 @@ public class RequerimentoDisciplina implements Serializable {
         this.id = id;
     }
 
-    public String getProfessor() {
+    public Usuario getProfessor() {
         return professor;
     }
 
-    public void setProfessor(String professor) {
+    public void setProfessor(Usuario professor) {
         this.professor = professor;
     }
 

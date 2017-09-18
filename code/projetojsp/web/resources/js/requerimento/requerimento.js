@@ -31,12 +31,10 @@ $(document).ready(function () {
             var disciplinas = [];
             var disciplina = {};
             var requerimentoDisciplina = {};
+            var professor = {};
 
-            var formData = $(form).serialize();
-            formData.split('&').forEach(function (value) {
-                var map = value.split('=');
-                dataJSON[map[0]] = map[1];
-            });
+            dataJSON["motivo"] = $('#motivo').val();
+            dataJSON["observacao"] = $('#observacao').val();
 
             if (!$('#motivoDisciplinas').hasClass('hidden')) {
                 var options = $('select[name=selDisciplinas2] option');
@@ -45,7 +43,7 @@ $(document).ready(function () {
                 });
                 values.forEach(function (value) {
                     disciplina = {"id": parseInt(value), "codigo": '', "nome": ''};
-                    requerimentoDisciplina = {"id": "", "professor": "", "dataProva": "null", "disciplina": disciplina};
+                    requerimentoDisciplina = {"id": "", "professor": null, "dataProva": null, "disciplina": disciplina};
                     disciplinas.push(requerimentoDisciplina);
                 });
 
@@ -53,14 +51,13 @@ $(document).ready(function () {
                     dataJSON["disciplinas"] = disciplinas;
                 }
             } else if (!$('#motivo9').hasClass('hidden')) {
-                var professor = $("#professor").val();
+                var professorId = $("#professor").val();
                 var data = $("#data").val();
                 var disciplinaId = $("#disciplina").val();
-
                 var date = data.split("/");
                 date = new Date(date[2], date[1] - 1, date[0]);
 
-                dataJSON["data"] =  "null"; //se nao da erro
+                professor = {"id": professorId};
 
                 disciplina = {"id": parseInt(disciplinaId), "codigo": '', "nome": ''};
                 requerimentoDisciplina = {"id": "", "professor": professor, "dataProva": date, "disciplina": disciplina};
@@ -83,10 +80,10 @@ $(document).ready(function () {
                     $('#loadingModal').modal('hide');
                 },
                 success : function(data) {
-                    if (data["situacao"] = "OK") {
+                    if (data.state == "OK") {
                         swal({
                             title : "Salvo!",
-                            text : data["mensagem"],
+                            text : data["message"],
                             type : "success",
                             showCancelButton : false,
                             confirmButtonText : "Ok",
@@ -95,12 +92,12 @@ $(document).ready(function () {
                             window.location = '/ProjetoJSP/';
                         });
                     } else {
-                        swal("Falhou!", data["mensagem"], "error");
+                        swal("Falhou!", data["message"], "error");
                     }
 
                 },//Fim success
                 error : function() {
-                    swal("Falhou!", "Falha ao salvar registro.", "error");
+                    swal("Oops...!", data["message"], "error");
                 }
             });//Fim ajax
             return false;

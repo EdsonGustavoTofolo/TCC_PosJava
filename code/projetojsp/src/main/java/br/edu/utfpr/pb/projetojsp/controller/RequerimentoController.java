@@ -47,7 +47,11 @@ public class RequerimentoController {
     public String salvar(@RequestBody Requerimento requerimento, BindingResult result, Model model, HttpServletRequest request) {
         Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        requerimento.setStatus(StatusRequerimentoEnum.ENVIADO_COORDENACAO);
+        if (requerimento.getMotivo() == MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA) {
+            requerimento.setStatus(StatusRequerimentoEnum.AGUARDANDO_COORDENACAO);
+        } else {
+            requerimento.setStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC);
+        }
         requerimento.setUsuario(usuario);
 
         if (!Objects.isNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
@@ -57,12 +61,12 @@ public class RequerimentoController {
         JSONObject retorno = new JSONObject();
         try{
             requerimentoRepository.save(requerimento);
-            retorno.put("situacao", "OK");
-            retorno.put("mensagem", "Registro salvo com sucesso!");
+            retorno.put("state", "OK");
+            retorno.put("message", "Requerimento gravado com sucesso!");
             retorno.put("id", requerimento.getId());
         }catch (Exception ex){
-            retorno.put("situacao", "ERRO");
-            retorno.put("mensagem", "Falha ao salvar registro! - <br /> " + ex.getMessage());
+            retorno.put("state", "ERROR");
+            retorno.put("message", "Falha ao gravar requerimento!\n" + ex.getCause().getCause().getMessage());
         }
 
         return retorno.toString();

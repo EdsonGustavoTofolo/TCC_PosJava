@@ -5,7 +5,8 @@ package br.edu.utfpr.pb.projetojsp.enumeration;
  */
 public enum StatusRequerimentoEnum implements EnumLabel {
     EM_ANDAMENTO("Em Andamento"),
-    ENVIADO_COORDENACAO("Enviado Coordenação"),
+    AGUARDANDO_COORDENACAO("Aguardando Coordenação"),
+    AGUARDANDO_DERAC("Aguardando Avaliação DERAC"),
     FALTA_DOC("Falta Documento"),
     CONCLUIDO("Concluído");
 
