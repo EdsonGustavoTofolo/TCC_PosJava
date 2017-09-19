@@ -147,14 +147,18 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.6</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20170516</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.webjars/dropzone -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>dropzone</artifactId>
+            <version>4.3.0-2</version>
+        </dependency>
     </dependencies >
 
     <build>

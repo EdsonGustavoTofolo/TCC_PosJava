@@ -10,6 +10,16 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/select2-v3/select2-bootstrap.min.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.0.1/css/datepicker.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dualListbox/bootstrap-duallistbox.min.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/dropzone/4.3.0/basic.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/dropzone/4.3.0/dropzone.css"/> " />
+        <style type="text/css">
+            .dropzone {
+                min-height: 140px;
+                border: 1px dashed #0087F7;
+                background: white;
+                padding: 20px 20px;
+            }
+        </style>
     </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
         <script type="text/javascript" src="<c:url value="/webjars/select2/4.0.3/dist/js/select2.full.min.js"/> "></script>
@@ -20,6 +30,7 @@
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimento.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/dualListbox/jquery.bootstrap-duallistbox.min.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/dropzone/4.3.0/dropzone.js"/> "></script>
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">
@@ -28,7 +39,8 @@
             <div class="row pt-3 container">
                 <spring:url value="/requerimento/salvar" var="requerimentoActUrl" />
 
-                <frm:form id="frm" name="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}" autocomplete="off">
+                <frm:form id="frm" name="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}"
+                            enctype="multipart/form-data" autocomplete="off">
                     <input id="id" name="id" type="text" hidden/>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="motivo">Motivo do Requerimento:</label>
@@ -73,6 +85,14 @@
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="observacao">Observações:</label>
                         <textarea id="observacao" name="observacao" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <label for="file">Documentos:</label>
+                        <div action="#" class="dropzone" id="dropzoneForm">
+                            <div class="fallback">
+                                <input id="file" name="file" type="file" multiple />
+                            </div>
+                        </div>
                     </div>
                     <button type="reset" class="btn btn-default">Limpar</button>
                     <button type="submit" class="btn btn-primary">Salvar</button>

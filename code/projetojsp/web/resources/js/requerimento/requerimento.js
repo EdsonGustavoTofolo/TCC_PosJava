@@ -2,11 +2,22 @@
  * Created by Edson on 11/07/2017.
  */
 $(document).ready(function () {
+    Dropzone.options.dropzoneForm = {
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 10, // MB
+        addRemoveLinks: true,
+        dictRemoveFile: "Excluir",
+        dictDefaultMessage: "<strong>Arraste e solte os arquivos aqui!</strong>" +
+        "</br>Anexar documentação comprabatória dos motivos alegados."
+    };
+
     $.fn.select2.defaults.set( "theme", "bootstrap" );
+
     $.validator.addMethod("disciplinasSelecionadas",function (value,element){
         return !$('#motivoDisciplinas').hasClass('hidden') && $('select[name=selDisciplinas2] option').length > 0;
 
     }, 'Selecione uma ou mais disciplinas!');
+
     //-----[ VALIDA O FORM ANTES DO SUBMIT ]----
     var validador = $('#frm').validate({
         rules: {
