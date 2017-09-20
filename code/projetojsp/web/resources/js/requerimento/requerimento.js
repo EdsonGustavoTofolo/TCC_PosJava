@@ -3,12 +3,100 @@
  */
 $(document).ready(function () {
     Dropzone.options.dropzoneForm = {
+        url: "/ProjetoJSP/requerimento/salvar",
+        uploadMultiple: true,
+        autoProcessQueue: false,
         paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 10, // MB
+        maxFilesize: 50, // MB
+        maxFiles: 10,
+        parallelUploads: 10,
         addRemoveLinks: true,
+        dictCancelUpload: "Cancelar envio",
         dictRemoveFile: "Excluir",
+        dictInvalidFileType: "Tipo de arquivo não permitido!",
+        dictFileTooBig: "Arquivo muito grande. ({{filesize}}MiB). Máximo: {{maxFilesize}}MiB.",
+        dictMaxFilesExceeded: "Número máximo de arquivos atingido! Máximo: {{maxFiles}}.",
         dictDefaultMessage: "<strong>Arraste e solte os arquivos aqui!</strong>" +
-        "</br>Anexar documentação comprabatória dos motivos alegados."
+        "</br>Anexar documentação comprabatória dos motivos alegados.",
+        init: function () {
+            var myDropzone = this;
+            $("#salvar").click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                myDropzone.processQueue();
+            });
+        },
+        // sending: function(file, xhr, formData) {},
+        // processing: function (file) {},
+        // success: function (file, data) {},
+        sendingmultiple: function (files, xhr, formData) {
+            var dataJSON = {};
+            var disciplinas = [];
+            var disciplina = {};
+            var requerimentoDisciplina = {};
+            var professor = {};
+
+            dataJSON["motivo"] = $('#motivo').val();
+            dataJSON["observacao"] = $('#observacao').val();
+
+            if (!$('#motivoDisciplinas').hasClass('hidden')) {
+                var options = $('select[name=selDisciplinas2] option');
+                var values = $.map(options,function(option) {
+                    return option.value;
+                });
+                values.forEach(function (value) {
+                    disciplina = {"id": parseInt(value), "codigo": '', "nome": ''};
+                    requerimentoDisciplina = {"id": "", "professor": null, "dataProva": null, "disciplina": disciplina};
+                    disciplinas.push(requerimentoDisciplina);
+                });
+
+                if (disciplinas.length > 0) {
+                    dataJSON["disciplinas"] = disciplinas;
+                }
+            } else if (!$('#motivo9').hasClass('hidden')) {
+                var professorId = $("#professor").val();
+                var data = $("#data").val();
+                var disciplinaId = $("#disciplina").val();
+                var date = data.split("/");
+                date = new Date(date[2], date[1] - 1, date[0]);
+
+                professor = {"id": professorId};
+
+                disciplina = {"id": parseInt(disciplinaId), "codigo": '', "nome": ''};
+                requerimentoDisciplina = {"id": "", "professor": professor, "dataProva": date, "disciplina": disciplina};
+                disciplinas.push(requerimentoDisciplina);
+
+                dataJSON["disciplinas"] = disciplinas;
+            }
+            formData.append('requerimento', new Blob([JSON.stringify(dataJSON)], {type: "application/json"}));
+        },
+        processingmultiple: function (files) {
+            $.blockUI({message: 'Gravando...'});
+        },
+        successmultiple: function (files, data) {
+            $.unblockUI();
+            if (data.state == "OK") {
+                swal({
+                    title : "Salvo!",
+                    text : data.message,
+                    type : "success",
+                    showCancelButton : false,
+                    confirmButtonText : "Ok",
+                    closeOnConfirm : false
+                }, function() {
+                    window.location = '/ProjetoJSP/';
+                });
+            } else {
+                swal("Falhou!", data.message, "error");
+            }
+        },
+        canceled: function (file) {
+            $.unblockUI();
+        },
+        error: function (file, errorMessage, xhr) {
+            $.unblockUI();
+            swal("Falhou!", errorMessage, "error");
+        }
     };
 
     $.fn.select2.defaults.set( "theme", "bootstrap" );
@@ -36,8 +124,10 @@ $(document).ready(function () {
             selDisciplinas2: {
                 disciplinasSelecionadas: true
             }
-        },
+        }/*,
         submitHandler: function (form) {
+            var formData = new FormData();
+
             var dataJSON = {};
             var disciplinas = [];
             var disciplina = {};
@@ -77,24 +167,30 @@ $(document).ready(function () {
                 dataJSON["disciplinas"] = disciplinas;
             }
 
+            formData.append('requerimento', new Blob([JSON.stringify(dataJSON)], {type: "application/json"}));
+
             $.ajax({
                 type : $(form).attr('method'),
                 url  : $(form).attr('action'),
-                contentType : 'application/json; charset=utf-8',
-                dataType: 'json',
-                data : JSON.stringify(dataJSON),
+                //contentType : 'application/json; charset=utf-8',
+                // dataType: 'json',
+                // data : JSON.stringify(dataJSON),
+                contentType: false,
+                processData: false,
                 cache: false,
+                data: formData,
                 beforeSend: function () {
-                    $('#loadingModal').modal('show');
+                    $.blockUI({message: 'CARREGANDO...'});
                 },
                 complete: function () {
-                    $('#loadingModal').modal('hide');
+                    $.unblockUI();
                 },
                 success : function(data) {
+                    data = JSON.parse(data);
                     if (data.state == "OK") {
                         swal({
                             title : "Salvo!",
-                            text : data["message"],
+                            text : data.message,
                             type : "success",
                             showCancelButton : false,
                             confirmButtonText : "Ok",
@@ -103,16 +199,16 @@ $(document).ready(function () {
                             window.location = '/ProjetoJSP/';
                         });
                     } else {
-                        swal("Falhou!", data["message"], "error");
+                        swal("Falhou!", data.message, "error");
                     }
 
                 },//Fim success
                 error : function() {
-                    swal("Oops...!", data["message"], "error");
+                    swal("Oops...!", "Falha", "error");
                 }
             });//Fim ajax
             return false;
-        }
+        }*/
     });
     //-----[ MASCARA O CAMPO E USA UM DATEPICKER ] -----
     $('#data').datepicker({
@@ -164,7 +260,7 @@ $(document).ready(function () {
     //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------
     $('#motivo').select2();
     $("#motivo").on("select2:select", function (e) {
-        $('#loadingModal').modal('show');
+        $.blockUI({message: $('#loadingModal')});
         var motivoId = e.params['data'].id;
 
         if (motivoId > 0) {
@@ -187,7 +283,7 @@ $(document).ready(function () {
             } else if (motivoId == 21) { //Convalidação
                 //TODO ver para habilitar os campos aqui ou abrir outra página
             }
-            $('#loadingModal').modal('hide');
+            $.unblockUI();
             validador.resetForm();
         }
     });

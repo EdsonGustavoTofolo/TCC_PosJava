@@ -10,8 +10,8 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/select2-v3/select2-bootstrap.min.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.0.1/css/datepicker.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dualListbox/bootstrap-duallistbox.min.css"/> " />
-        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/dropzone/4.3.0/basic.css"/> " />
-        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/dropzone/4.3.0/dropzone.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dropzone/basic.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dropzone/dropzone.css"/> " />
         <style type="text/css">
             .dropzone {
                 min-height: 140px;
@@ -30,7 +30,8 @@
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimento.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/dualListbox/jquery.bootstrap-duallistbox.min.js"/> "></script>
-        <script type="text/javascript" src="<c:url value="/webjars/dropzone/4.3.0/dropzone.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/dropzone/dropzone.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">
@@ -95,7 +96,7 @@
                         </div>
                     </div>
                     <button type="reset" class="btn btn-default">Limpar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button id="salvar" type="submit" class="btn btn-primary">Salvar</button>
                 </frm:form>
             </div>
         </div>
