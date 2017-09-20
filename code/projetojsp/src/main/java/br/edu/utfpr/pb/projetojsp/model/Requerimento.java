@@ -3,6 +3,8 @@ package br.edu.utfpr.pb.projetojsp.model;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -35,18 +37,22 @@ public class Requerimento implements Serializable {
     private Usuario usuario;
     @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoDisciplina.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<RequerimentoDisciplina> disciplinas;
+    @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoAnexo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT) //SE NAO DA ERRO, POIS NAO PODE TER DOIS ONETOMANY COM O FETCHTYPE EAGER
+    private List<RequerimentoAnexo> anexos;
 
     public Requerimento() {
     }
 
     public Requerimento(StatusRequerimentoEnum status, Integer motivo, String observacao, Date data, Usuario usuario,
-                        List<RequerimentoDisciplina> requerimentoDisciplinaList) {
+                        List<RequerimentoDisciplina> requerimentoDisciplinaList, List<RequerimentoAnexo> anexoList) {
         this.status = status;
         this.motivo = motivo;
         this.observacao = observacao;
         this.data = data;
         this.usuario = usuario;
         this.disciplinas = requerimentoDisciplinaList;
+        this.anexos = anexoList;
     }
 
     public Long getId() {
@@ -103,6 +109,14 @@ public class Requerimento implements Serializable {
 
     public void setDisciplinas(List<RequerimentoDisciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+
+    public List<RequerimentoAnexo> getAnexos() {
+        return anexos;
+    }
+
+    public void setAnexos(List<RequerimentoAnexo> anexos) {
+        this.anexos = anexos;
     }
 
     @Override

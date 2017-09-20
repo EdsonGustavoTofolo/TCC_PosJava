@@ -6,8 +6,10 @@ br\edu\utfpr\pb\projetojsp\repository\UsuarioRepository.class
 br\edu\utfpr\pb\projetojsp\model\RequerimentoDisciplina.class
 br\edu\utfpr\pb\projetojsp\enumeration\StatusRequerimentoEnum.class
 br\edu\utfpr\pb\projetojsp\repository\CursoRepository.class
+br\edu\utfpr\pb\projetojsp\model\RequerimentoAnexo.class
 br\edu\utfpr\pb\projetojsp\enumeration\MotivoRequerimentoConsts.class
 br\edu\utfpr\pb\projetojsp\enumeration\MotivoRequerimento.class
+br\edu\utfpr\pb\projetojsp\repository\RequerimentoAnexoRepository.class
 br\edu\utfpr\pb\projetojsp\service\UserDetailsServiceImpl.class
 br\edu\utfpr\pb\projetojsp\controller\LoginController.class
 br\edu\utfpr\pb\projetojsp\model\Disciplina.class
