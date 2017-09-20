@@ -10,14 +10,14 @@ import br.edu.utfpr.pb.projetojsp.repository.RequerimentoAnexoRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +102,21 @@ public class RequerimentoController {
         }
 
         return retorno.toString();
+    }
+
+    @RequestMapping("/download/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void download(@PathVariable("id") Long id, HttpServletResponse response) {
+        RequerimentoAnexo anexo = requerimentoAnexoRepository.findById(id).get();
+        response.setContentType(anexo.getContentType());
+        response.setContentLength(anexo.getArquivo().length);
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + anexo.getNome() + "\"");
+
+        try {
+            FileCopyUtils.copy(anexo.getArquivo(), response.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
