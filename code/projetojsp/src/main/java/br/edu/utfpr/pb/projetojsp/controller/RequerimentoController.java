@@ -10,9 +10,11 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.Map;
 import java.util.Objects;
@@ -38,24 +40,16 @@ public class RequerimentoController {
         return "requerimento/requerimentoForm";
     }
 
-    @PostMapping(value = "/addFile")
-    public void addFile(@RequestPart("file") MultipartFile[] files) {
-        if (files.length > 0) {
-
-        }
-    }
-
     /**
      *
      * @param requerimento
      * @param files - pra funcionar tive que alterar o método _getParamName no arquivo dropzone.js
-     * @param request
      * @return
      */
     @RequestMapping(value = "/salvar", method = RequestMethod.POST, consumes = {"multipart/form-data"})
     @ResponseBody
     public String salvar(@RequestPart("requerimento") Requerimento requerimento,
-                         @RequestPart("file") MultipartFile[] files, MultipartHttpServletRequest request) {
+                         @RequestPart("file") MultipartFile[] files) {
         Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (requerimento.getMotivo() == MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA) {

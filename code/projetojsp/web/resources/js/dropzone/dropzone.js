@@ -718,7 +718,7 @@
                 return this.options.paramName(n);
             } else {
                 // return "" + this.options.paramName + (this.options.uploadMultiple ? "[" + n + "]" : "");
-                return "" + this.options.paramName;
+                return "" + this.options.paramName; //EDSON GUSTAVO TOFOLO - alterado para funcionar com o spring-mvc ao enviar varios arquivos
             }
         };
 
@@ -1296,7 +1296,8 @@
             xhr.onload = (function(_this) {
                 return function(e) {
                     var _ref;
-                    if (files[0].status === Dropzone.CANCELED) {
+                    //EDSON GUSTAVO TOFOLO - add files[0] && <https://github.com/enyo/dropzone/issues/418>
+                    if (files[0] && files[0].status === Dropzone.CANCELED) {
                         return;
                     }
                     if (xhr.readyState !== 4) {
@@ -1378,7 +1379,11 @@
                 }
             }
             for (i = _m = 0, _ref5 = files.length - 1; 0 <= _ref5 ? _m <= _ref5 : _m >= _ref5; i = 0 <= _ref5 ? ++_m : --_m) {
-                formData.append(this._getParamName(i), files[i], this._renameFilename(files[i].name));
+                if(typeof files[i] != "undefined") { //EDSON GUSTAVO TOFOLO - https://github.com/enyo/dropzone/issues/418
+                    formData.append(this._getParamName(i), files[i], this._renameFilename(files[i].name));
+                } else {
+                    formData.append(this._getParamName(i), files[i], "");
+                }
             }
             return this.submitRequest(xhr, formData, files);
         };

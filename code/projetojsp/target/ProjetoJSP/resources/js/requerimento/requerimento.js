@@ -23,7 +23,11 @@ $(document).ready(function () {
             $("#salvar").click(function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                myDropzone.processQueue();
+                if (myDropzone.getQueuedFiles().length > 0) {
+                    myDropzone.processQueue();
+                } else {
+                    myDropzone.uploadFiles([]); //send empty
+                }
             });
         },
         // sending: function(file, xhr, formData) {},
