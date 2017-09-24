@@ -3,6 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <spring:url value="/requerimento/" var="urlRequerimento" />
+<spring:url value="/requerimento/list" var="urlRequerimentoList" />
 <spring:url value="/logout" var="urlLogout" />
 <spring:url value="/usuario/conta/" var="urlContaUsuario" />
 
@@ -25,6 +26,9 @@
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="${urlRequerimento}">Requerimentos <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li>
+                        <a href="${urlRequerimentoList}">Lista</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
