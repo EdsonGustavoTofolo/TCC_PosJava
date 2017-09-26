@@ -61,7 +61,7 @@ public class RequerimentoController {
     public String loadData(HttpServletRequest req, HttpServletResponse res) {
         String forward = "common/formData";
 
-        JQGrid<Requerimento> gridData = new JQGridHandler().loadSuperHeroes(req, requerimentoRepository);
+        JQGrid<Requerimento> gridData = new JQGridHandler<Requerimento>().loadData(req, requerimentoRepository);
         req.setAttribute("formData", JsonUtil.toJsonObj(gridData));
         return forward;
     }
