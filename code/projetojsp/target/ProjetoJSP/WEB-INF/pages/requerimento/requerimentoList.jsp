@@ -7,10 +7,14 @@
 <layout:template>
     <jsp:attribute name="cssEspecificos">
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jqgrid/ui.jqgrid-bootstrap.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.0.1/css/datepicker.css"/> " />
     </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
         <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/grid.locale-pt-br.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/jquery.jqGrid.min.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/jquery-maskedinput/1.4.0/jquery.maskedinput.min.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $.jgrid.defaults.width = 1000;
@@ -22,27 +26,46 @@
                     url : "/ProjetoJSP/requerimento/loadData",
                     datatype : "json",
                     mtype : 'POST',
-                    colNames : ['Id', 'Motivo', 'Observação', 'Data'],
                     colModel : [ {
+                        label : 'Id',
                         name : 'id',
                         index : 'id',
                         key: true,
-                        width : 150
+                        width : 75
                     }, {
+                        label : 'Motivo',
                         name : 'motivo',
                         index : 'motivo',
                         width : 150,
-                        editable : false
                     }, {
+                        label : 'Observação',
                         name : 'observacao',
                         index : 'observacao',
-                        width : 550,
-                        editable : false
+                        width : 650,
                     }, {
+                        label : 'Data',
                         name : 'data',
                         index : 'data',
-                        width : 500,
-                        editable: false
+                        width : 200,
+                        sorttype: 'date',
+                        formatter: 'date',
+//                        srcformat: 'Y-m-d',
+//                        newformat: 'n/j/Y',
+                        searchoptions: {
+                            dataInit: function (element) {
+                                $(element).datepicker({
+                                    language: "pt-BR",
+                                    todayBtn: "linked",
+                                    keyboardNavigation: true,
+                                    forceParse: true,
+                                    calendarWeeks: true,
+                                    autoclose: true,
+                                    format: "dd/mm/yyyy",
+                                    todayHighlight: true
+                                });
+                                $(element).mask("99/99/9999");
+                            }
+                        }
                     }],
                     pager : '#jqGridPager',
                     rowNum : 10,
@@ -59,6 +82,8 @@
                         repeatitems : false,
                     }
                 });
+                // activate the toolbar searching
+                $('#jqGrid').jqGrid('filterToolbar');
                 $("#jqGrid").jqGrid('navGrid', '#jqGridPager', {
                     edit : false,
                     add : false,

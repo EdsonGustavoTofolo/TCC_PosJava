@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.web.model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,6 +20,13 @@ public class JQGrid< T extends Serializable > {
     private String records;
 
     private List<T> rows;
+
+    public JQGrid() {
+    }
+
+    public JQGrid(HttpServletRequest request) {
+        
+    }
 
     public int getPage() {
         return page;
