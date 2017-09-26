@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.projetojsp.web.handler;
 
 import br.edu.utfpr.pb.projetojsp.web.model.JQGrid;
+import br.edu.utfpr.pb.projetojsp.web.util.JsonUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -17,13 +18,20 @@ import java.util.List;
  *
  */
 public class JQGridHandler<T extends Serializable> {
+
+	private JQGrid<T> jqGridData;
+
+	public JQGridHandler() {
+		this.jqGridData = new JQGrid<T>();
+	}
+
 	/**
 	 * This method will fetch the super hero list. Of course i have mixed and
 	 * matched DC and Marvel in order to keep peace on the universe.
 	 * 
 	 * @return
 	 */
-	public JQGrid<T> loadData(final HttpServletRequest req, JpaRepository repository) {
+	public JQGridHandler<T> loadData(final HttpServletRequest req, JpaRepository repository) {
 		int pageRequestParam = Integer.valueOf(req.getParameter("page")).intValue();
 		int pageSizeRequestParam = Integer.valueOf(req.getParameter("rows")).intValue();
 
@@ -37,11 +45,19 @@ public class JQGridHandler<T extends Serializable> {
 
 		long total = repository.count();
 
-		JQGrid<T> jqGridData = new JQGrid<T>();
-		jqGridData.setPage(pageRequestParam);
-		jqGridData.setTotal(String.valueOf(Math.ceil((double) total / pageSizeRequestParam)));
-		jqGridData.setRecords(String.valueOf(total));
-		jqGridData.setRows(list);
-		return jqGridData;
+		this.jqGridData.setPage(pageRequestParam);
+		this.jqGridData.setTotal(String.valueOf(Math.ceil((double) total / pageSizeRequestParam)));
+		this.jqGridData.setRecords(String.valueOf(total));
+		this.jqGridData.setRows(list);
+
+		return this;
+	}
+
+	public JQGrid<T> getData() {
+		return this.jqGridData;
+	}
+
+	public String getJson() {
+		return JsonUtil.toJsonObj(this.jqGridData);
 	}
 }
