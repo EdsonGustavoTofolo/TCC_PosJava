@@ -34,12 +34,17 @@ public class JQGridHandler<T extends Serializable> {
 	public JQGridHandler<T> loadData(final HttpServletRequest req, JpaRepository repository) {
 		int pageRequestParam = Integer.valueOf(req.getParameter("page")).intValue();
 		int pageSizeRequestParam = Integer.valueOf(req.getParameter("rows")).intValue();
+		String directionRequestParam = req.getParameter("sord");
+		String columnRequestParam = req.getParameter("sidx");
 
 //		int startIndex = page == 1 ? 0 : (pageSize * (page - 1));
 //		int endIndex = page == 1 ? pageSize : pageSize * page;
 		int startPage = pageRequestParam == 1 ? 0 : (pageRequestParam - 1);
+		String column = columnRequestParam.isEmpty() ? "id" : columnRequestParam;
 
-		PageRequest pageRequest = PageRequest.of(startPage, pageSizeRequestParam, Sort.Direction.ASC, "id");
+		PageRequest pageRequest = PageRequest.of(startPage, pageSizeRequestParam,
+				Sort.Direction.fromString(directionRequestParam.toUpperCase()), column);
+
 		Page<T> page = repository.findAll(pageRequest);
 		List<T> list = page.getContent();
 
