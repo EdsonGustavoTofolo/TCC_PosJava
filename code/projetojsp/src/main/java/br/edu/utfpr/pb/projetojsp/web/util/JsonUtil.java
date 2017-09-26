@@ -18,9 +18,9 @@ import java.util.List;
 public class JsonUtil {  
   
     /** 
-     * Null serialize is used because else Gson will ignore all null fields. 
-     */  
-    private static Gson gson = new GsonBuilder().serializeNulls().create();  
+     * Null serialize is used because else Gson will ignore all null fields.
+     */
+    private static Gson gson = new GsonBuilder().serializeNulls().create();
   
     /** 
      * Made private because all methods are static and hence do not need 

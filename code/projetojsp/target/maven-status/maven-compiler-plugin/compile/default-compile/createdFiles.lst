@@ -1,6 +1,7 @@
 br\edu\utfpr\pb\projetojsp\model\Requerimento.class
 br\edu\utfpr\pb\projetojsp\framework\WebSecurityConfig.class
 br\edu\utfpr\pb\projetojsp\repository\RequerimentoDisciplinaRepository.class
+br\edu\utfpr\pb\projetojsp\web\model\SuperHeroDTO.class
 br\edu\utfpr\pb\projetojsp\model\Permissao.class
 br\edu\utfpr\pb\projetojsp\web\controller\UsuarioController.class
 br\edu\utfpr\pb\projetojsp\repository\UsuarioRepository.class
@@ -19,6 +20,7 @@ br\edu\utfpr\pb\projetojsp\repository\DisciplinaRepository.class
 br\edu\utfpr\pb\projetojsp\model\Usuario.class
 br\edu\utfpr\pb\projetojsp\repository\PermissaoRepository.class
 br\edu\utfpr\pb\projetojsp\web\controller\IndexController.class
+br\edu\utfpr\pb\projetojsp\web\handler\JQGridHandler.class
 br\edu\utfpr\pb\projetojsp\web\controller\RequerimentoController.class
 br\edu\utfpr\pb\projetojsp\web\model\JQGrid.class
 br\edu\utfpr\pb\projetojsp\web\controller\DisciplinaController.class

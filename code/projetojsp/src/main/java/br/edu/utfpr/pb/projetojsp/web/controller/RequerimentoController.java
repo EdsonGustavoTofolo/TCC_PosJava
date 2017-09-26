@@ -10,7 +10,6 @@ import br.edu.utfpr.pb.projetojsp.repository.RequerimentoAnexoRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import br.edu.utfpr.pb.projetojsp.web.handler.JQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.model.JQGrid;
-import br.edu.utfpr.pb.projetojsp.web.model.SuperHeroDTO;
 import br.edu.utfpr.pb.projetojsp.web.util.JsonUtil;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +61,7 @@ public class RequerimentoController {
     public String loadData(HttpServletRequest req, HttpServletResponse res) {
         String forward = "common/formData";
 
-        JQGrid<SuperHeroDTO> gridData = new JQGridHandler().loadSuperHeroes(req);
+        JQGrid<Requerimento> gridData = new JQGridHandler().loadSuperHeroes(req, requerimentoRepository);
         req.setAttribute("formData", JsonUtil.toJsonObj(gridData));
         return forward;
     }

@@ -34,12 +34,12 @@ public class Requerimento implements Serializable {
     private Date data;
     @ManyToOne()
     @JoinColumn(name = "usuario_id_req", referencedColumnName = "id_usu")
-    private Usuario usuario;
+    private transient Usuario usuario;
     @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoDisciplina.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<RequerimentoDisciplina> disciplinas;
+    private transient List<RequerimentoDisciplina> disciplinas;
     @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoAnexo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(FetchMode.SUBSELECT) //SE NAO DA ERRO, POIS NAO PODE TER DOIS ONETOMANY COM O FETCHTYPE EAGER
-    private List<RequerimentoAnexo> anexos;
+    private transient List<RequerimentoAnexo> anexos;
 
     public Requerimento() {
     }

@@ -67,4 +67,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/webjars/**");
         web.ignoring().antMatchers("/resources/**");
     }
+
 }

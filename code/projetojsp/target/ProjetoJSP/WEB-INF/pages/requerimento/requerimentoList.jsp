@@ -22,38 +22,44 @@
                     url : "/ProjetoJSP/requerimento/loadData",
                     datatype : "json",
                     mtype : 'POST',
-                    colNames : [ 'Name','Alias','Super Power'],
+                    colNames : ['Id', 'Motivo', 'Observação', 'Data'],
                     colModel : [ {
-                        name : 'name',
-                        index : 'name',
+                        name : 'id',
+                        index : 'id',
+                        key: true,
                         width : 150
                     }, {
-                        name : 'alias',
-                        index : 'alias',
+                        name : 'motivo',
+                        index : 'motivo',
                         width : 150,
                         editable : false
                     }, {
-                        name : 'power',
-                        index : 'power',
+                        name : 'observacao',
+                        index : 'observacao',
                         width : 550,
                         editable : false
+                    }, {
+                        name : 'data',
+                        index : 'data',
+                        width : 500,
+                        editable: false
                     }],
-                    pager : '#pager',
+                    pager : '#jqGridPager',
                     rowNum : 10,
                     height: 'auto',
-                    rowList : [ 10 ],
-                    sortname : 'invid',
-                    sortorder : 'desc',
+                    rowList : [ 10, 20, 30 ],
+//                    sortname : 'invid',
+//                    sortorder : 'desc',
                     viewrecords : true,
-                    gridview : true,
-                    multiselect: true,
-                    multiboxonly: false,
-                    caption : 'Super Heroes',
+//                    gridview : true,
+//                    multiselect: true,
+//                    multiboxonly: false,
+                    caption : 'Requerimentos',
                     jsonReader : {
                         repeatitems : false,
                     }
                 });
-                jQuery("#jqGrid").jqGrid('navGrid', '#pager', {
+                $("#jqGrid").jqGrid('navGrid', '#jqGridPager', {
                     edit : false,
                     add : false,
                     del : false,
@@ -66,7 +72,7 @@
                     var selRowArr = jQuery("#jqGrid").getGridParam('selarrrow');
                     var selectedAppIds = [];
                     for(var i=0;i<selRowArr.length;i++){
-                        var celValue =  $('#jqGrid').jqGrid('getCell', selRowArr[i], 'alias');
+                        var celValue =  $('#jqGrid').jqGrid('getCell', selRowArr[i], 'id');
                         selectedAppIds.push(celValue);
                     }
                     alert(selectedAppIds);
@@ -83,7 +89,7 @@
             <h3>Lista de Requerimentos</h3>
             <hr>
             <div class="row pt-3 container">
-                <div style="margin-left:20px">
+                <div class="col-lg-12">
                     <table id="jqGrid"></table>
                     <div id="jqGridPager"></div>
                 </div>

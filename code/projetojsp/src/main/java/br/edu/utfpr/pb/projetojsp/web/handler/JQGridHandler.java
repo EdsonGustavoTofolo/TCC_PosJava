@@ -1,10 +1,13 @@
 package br.edu.utfpr.pb.projetojsp.web.handler;
 
+import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.web.model.JQGrid;
-import br.edu.utfpr.pb.projetojsp.web.model.SuperHeroDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,57 +17,32 @@ import java.util.List;
  *
  */
 public class JQGridHandler {
-
 	/**
 	 * This method will fetch the super hero list. Of course i have mixed and
 	 * matched DC and Marvel in order to keep peace on the universe.
 	 * 
 	 * @return
 	 */
-	public JQGrid<SuperHeroDTO> loadSuperHeroes(final HttpServletRequest req) {
-		/**
-		 * The page and rows are sent from the JQGrid component with the Ajax
-		 * query.
-		 * 
-		 */
+	public JQGrid<Requerimento> loadSuperHeroes(final HttpServletRequest req, JpaRepository repository) {
 		int page = Integer.valueOf(req.getParameter("page")).intValue();
 		int pageSize = Integer.valueOf(req.getParameter("rows")).intValue();
 
-		/**
-		 * I am not using the star index and end index in this case, but in an
-		 * ideal situation, you will be passing the start and end index to your
-		 * pagination SQL query.
-		 * 
-		 */
-		int startIndex = page == 1 ? 0 : (pageSize * (page - 1));
-		int endIndex = page == 1 ? pageSize : pageSize * page;
-		int total = -1;
+//		int startIndex = page == 1 ? 0 : (pageSize * (page - 1));
+//		int endIndex = page == 1 ? pageSize : pageSize * page;
+		int startIndex = page == 1 ? 0 : (page - 1);
+		int endIndex = pageSize;
 
-		JQGrid<SuperHeroDTO> jqGridData = new JQGrid<SuperHeroDTO>();
-		List<SuperHeroDTO> superHeroList = new LinkedList<SuperHeroDTO>();
-		SuperHeroDTO flash = new SuperHeroDTO("Barry Allen", "Flash", "Super speed, Taping into the speed force");
-		superHeroList.add(flash);
+		PageRequest pageRequest = PageRequest.of(startIndex, endIndex, Sort.Direction.ASC, "id");
+		Page<Requerimento> pg = repository.findAll(pageRequest);
+		List<Requerimento> requerimentoList = pg.getContent();
 
-		SuperHeroDTO superMan = new SuperHeroDTO("Clark Kent", "Superman", "Flying, super speed");
-		superHeroList.add(superMan);
+		long total = repository.count();
 
-		SuperHeroDTO batman = new SuperHeroDTO("Bruce Wayne", "Batman", "Cool toys, Intelligence");
-		superHeroList.add(batman);
-
-		SuperHeroDTO professorX = new SuperHeroDTO("Professor Xavier", "Professor X", "Mind control");
-		superHeroList.add(professorX);
-
-		/**
-		 * The total in the ideal situation would be the count of the records of
-		 * your SQL query from the table you want to fetch data from.
-		 * 
-		 */
-		total = superHeroList.size();
-
+		JQGrid<Requerimento> jqGridData = new JQGrid<Requerimento>();
 		jqGridData.setPage(page);
 		jqGridData.setTotal(String.valueOf(Math.ceil((double) total / pageSize)));
 		jqGridData.setRecords(String.valueOf(total));
-		jqGridData.setRows(superHeroList);
+		jqGridData.setRows(requerimentoList);
 		return jqGridData;
 	}
 }
