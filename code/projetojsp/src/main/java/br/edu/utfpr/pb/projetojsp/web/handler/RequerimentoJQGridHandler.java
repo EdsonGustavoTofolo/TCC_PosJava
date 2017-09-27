@@ -5,7 +5,7 @@ import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Edson on 26/09/2017.
  */
-@Service
+@Component
 public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
     @Autowired

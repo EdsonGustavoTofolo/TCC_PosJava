@@ -40,6 +40,8 @@ public class RequerimentoController {
     private CursoRepository cursoRepository;
     @Autowired
     private RequerimentoAnexoRepository requerimentoAnexoRepository;
+    @Autowired
+    private RequerimentoJQGridHandler requerimentoJQGridHandler;
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
@@ -59,7 +61,7 @@ public class RequerimentoController {
     public String loadData(HttpServletRequest req, HttpServletResponse res) {
         String forward = "common/formData";
 
-        req.setAttribute("formData", new RequerimentoJQGridHandler().loadData(req).getJson());
+        req.setAttribute("formData", requerimentoJQGridHandler.loadData(req).getJson());
 
         return forward;
     }
