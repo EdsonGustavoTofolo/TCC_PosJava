@@ -49,8 +49,7 @@
                         width : 200,
                         sorttype: 'date',
                         formatter: 'date',
-//                        srcformat: 'Y-m-d',
-//                        newformat: 'n/j/Y',
+                        formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y H:i" },
                         searchoptions: {
                             dataInit: function (element) {
                                 $(element).datepicker({

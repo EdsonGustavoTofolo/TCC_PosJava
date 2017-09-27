@@ -20,7 +20,7 @@ public class JsonUtil {
     /** 
      * Null serialize is used because else Gson will ignore all null fields.
      */
-    private static Gson gson = new GsonBuilder().serializeNulls().create();
+    private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssX").serializeNulls().create();
   
     /** 
      * Made private because all methods are static and hence do not need 

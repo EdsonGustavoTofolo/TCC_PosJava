@@ -61,7 +61,8 @@ public class RequerimentoController {
     public String loadData(HttpServletRequest req, HttpServletResponse res) {
         String forward = "common/formData";
 
-        req.setAttribute("formData", requerimentoJQGridHandler.loadData(req).getJson());
+        String json = requerimentoJQGridHandler.loadData(req).getJson();
+        req.setAttribute("formData", json);
 
         return forward;
     }
