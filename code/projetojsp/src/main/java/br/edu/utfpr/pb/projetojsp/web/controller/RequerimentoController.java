@@ -124,6 +124,21 @@ public class RequerimentoController {
         return retorno.toString();
     }
 
+    @DeleteMapping("/delete/{id}")
+    @ResponseBody
+    public String excluir(@PathVariable Long id) {
+        JSONObject retorno = new JSONObject();
+        try{
+            requerimentoRepository.deleteById(id);
+            retorno.put("state", "OK");
+            retorno.put("message", "Registro removido com sucesso!");
+        }catch (Exception ex){
+            retorno.put("state", "ERROR");
+            retorno.put("message", "Falha ao remover registro!\n" + ex.getCause().getCause().getMessage());
+        }
+        return retorno.toString();
+    }
+
     @RequestMapping("/download/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void download(@PathVariable("id") Long id, HttpServletResponse response) {

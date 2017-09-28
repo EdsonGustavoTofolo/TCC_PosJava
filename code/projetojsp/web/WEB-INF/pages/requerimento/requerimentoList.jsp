@@ -3,7 +3,6 @@
 <%@ taglib tagdir="/WEB-INF/tags/layout" prefix="layout" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form"%>
-
 <layout:template>
     <jsp:attribute name="cssEspecificos">
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jqgrid/ui.jqgrid-bootstrap.css"/> " />
@@ -105,34 +104,46 @@
                     buttonicon:"glyphicon glyphicon-trash",
                     onClickButton: function () {
                         swal({
-                            title: 'Excluir',
-                            text: "Excluir registro selecionado?",
-                            type: 'warning',
+                            title: 'Confirma a remoção do registro?!',
+                            text: "Esta ação não poderá ser desfeita!",
+                            type: 'question', //warning
                             showLoaderOnConfirm: true,
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
                             confirmButtonText: 'Sim, excluir!!',
+                            cancelButtonText: 'Não',
+                            allowOutsideClick: false,
                             preConfirm: function() {
                                 return new Promise(function (resolve, reject) {
-                                    setTimeout(function () {
+                                    rowKey = getSelectedRow();
+                                    if (rowKey) {
+                                        resolve();
+                                    } else {
+                                        reject("Nenhum requerimento selecionado!");
+                                    }
+                                    /*setTimeout(function () {
                                         rowKey = getSelectedRow();
-                                        if (rowKey) {
-                                            alert("Selected row primary key is: " + rowKey);
-                                            resolve();
-                                        } else {
-                                            alert("No rows are selected");
-                                            reject("Nenhum requerimento selecionado!");
-                                        }
-                                    }, 2000)
+                                        if (rowKey) { resolve(); } else { reject("Nenhum requerimento selecionado!"); }
+                                    }, 2000)*/
                                 })
                             }
                         }).then(function () {
-                            swal(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
+                            var url = '/ProjetoJSP/requerimento/delete/' + getSelectedRow();
+                            $.ajax({
+                                type : 'POST',
+                                url : url,
+                                success : function(data) {
+                                    if (data.state == "OK"){
+                                        swal("Removido!", "Registro removido com sucesso.", "success");
+                                    }else{
+                                        swal("Falhou!", data.message, "error");
+                                    }
+                                },//Fim success
+                                error : function() {
+                                    swal("Erro!", "Falha ao remover registro.", "error");
+                                }
+                            }); //Fim ajax
                         });
                     },
                     position: "last",
@@ -144,10 +155,6 @@
                     var grid = $("#jqGrid");
                     var rowKey = grid.jqGrid('getGridParam',"selrow");
                     return rowKey;
-//                    if (rowKey)
-//                        alert("Selected row primary key is: " + rowKey);
-//                    else
-//                        alert("No rows are selected");
                 }
             });
 
