@@ -3,6 +3,7 @@ package br.edu.utfpr.pb.projetojsp.web.handler;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,10 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.ResolverStyle;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -46,13 +44,11 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
             if (Objects.nonNull(request.getParameter("data")) && !"".equals(request.getParameter("data"))) {
                 String dataStr = request.getParameter("data");
-                DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                        .parseStrict()
-                        .appendPattern("dd/MM/uuuu")
-                        .toFormatter()
-                        .withResolverStyle(ResolverStyle.STRICT);
-                LocalDate localDate = LocalDate.parse(dataStr, formatter);
-                data = java.sql.Date.valueOf(localDate);
+                try {
+                    data = DateUtils.parseDate(dataStr, new String[] {"dd/MM/yyyy"});
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
 
             if (Objects.nonNull(request.getParameter("observacao")) && !"".equals(request.getParameter("observacao"))) {

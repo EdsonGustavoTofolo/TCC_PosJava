@@ -17,7 +17,7 @@
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $.jgrid.defaults.width = 1000;
+//                $.jgrid.defaults.width = 1000;
                 $.jgrid.defaults.styleUI = 'Bootstrap';
                 $.jgrid.defaults.responsive = true;
                 $.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
@@ -69,13 +69,9 @@
                     pager : '#jqGridPager',
                     rowNum : 10,
                     height: 'auto',
+                    with: 'auto',
                     rowList : [ 10, 20, 30 ],
-//                    sortname : 'invid',
-//                    sortorder : 'desc',
                     viewrecords : true,
-//                    gridview : true,
-//                    multiselect: true,
-//                    multiboxonly: false,
                     caption : 'Requerimentos',
                     jsonReader : {
                         repeatitems : false,
@@ -83,27 +79,62 @@
                 });
                 // activate the toolbar searching
                 $('#jqGrid').jqGrid('filterToolbar');
-                $("#jqGrid").jqGrid('navGrid', '#jqGridPager', {
-                    edit : false,
-                    add : false,
-                    del : false,
-                    search : false
+                $("#jqGrid").navGrid('#jqGridPager',
+                    { edit: false, add: false, del: false, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+                    {}, {}
+                ).navButtonAdd("#jqGridPager", {
+                    caption:"",
+                    buttonicon:"glyphicon glyphicon-plus",
+                    onClickButton: function () {
+                        window.location.href = "/ProjetoJSP/requerimento/";
+                    }, 
+                    position: "last", 
+                    title:"Novo requerimento",
+                    cursor: "pointer"  
+                }).navButtonAdd("#jqGridPager", {
+                    caption:"",
+                    buttonicon:"glyphicon glyphicon-edit",
+                    onClickButton: function () {
+                        window.location.href = "/ProjetoJSP/requerimento/";
+                    },
+                    position: "last",
+                    title:"Editar requerimento",
+                    cursor: "pointer"
+                }).navButtonAdd("#jqGridPager", {
+                    caption:"",
+                    buttonicon:"glyphicon glyphicon-trash",
+                    onClickButton: function () {
+                        swal({
+                            title: 'Excluir',
+                            text: "Excluir registro selecionado?",
+                            type: 'warning',
+                            showLoaderOnConfirm: true,
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Sim, excluir!!'
+                        }).then(function () {
+                            swal(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        });
+                    },
+                    position: "last",
+                    title:"Excluir requerimento",
+                    cursor: "pointer"
                 });
 
+                function getSelectedRow() {
+                    var grid = $("#jqGrid");
+                    var rowKey = grid.jqGrid('getGridParam',"selrow");
 
-                $('#showSelected').on('click',function(){
-
-                    var selRowArr = jQuery("#jqGrid").getGridParam('selarrrow');
-                    var selectedAppIds = [];
-                    for(var i=0;i<selRowArr.length;i++){
-                        var celValue =  $('#jqGrid').jqGrid('getCell', selRowArr[i], 'id');
-                        selectedAppIds.push(celValue);
-                    }
-                    alert(selectedAppIds);
-                    $('#jqGrid').trigger( 'reloadGrid' );
-
-
-                });
+                    if (rowKey)
+                        alert("Selected row primary key is: " + rowKey);
+                    else
+                        alert("No rows are selected");
+                }
             });
 
         </script>
