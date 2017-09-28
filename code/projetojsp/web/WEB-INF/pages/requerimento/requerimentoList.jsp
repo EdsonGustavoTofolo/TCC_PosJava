@@ -112,7 +112,21 @@
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Sim, excluir!!'
+                            confirmButtonText: 'Sim, excluir!!',
+                            preConfirm: function() {
+                                return new Promise(function (resolve, reject) {
+                                    setTimeout(function () {
+                                        rowKey = getSelectedRow();
+                                        if (rowKey) {
+                                            alert("Selected row primary key is: " + rowKey);
+                                            resolve();
+                                        } else {
+                                            alert("No rows are selected");
+                                            reject("Nenhum requerimento selecionado!");
+                                        }
+                                    }, 2000)
+                                })
+                            }
                         }).then(function () {
                             swal(
                                 'Deleted!',
@@ -129,11 +143,11 @@
                 function getSelectedRow() {
                     var grid = $("#jqGrid");
                     var rowKey = grid.jqGrid('getGridParam',"selrow");
-
-                    if (rowKey)
-                        alert("Selected row primary key is: " + rowKey);
-                    else
-                        alert("No rows are selected");
+                    return rowKey;
+//                    if (rowKey)
+//                        alert("Selected row primary key is: " + rowKey);
+//                    else
+//                        alert("No rows are selected");
                 }
             });
 
