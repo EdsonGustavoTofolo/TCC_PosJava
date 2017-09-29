@@ -134,9 +134,9 @@
                                 type : 'DELETE',
                                 url : url,
                                 success : function(data) {
-                                    alert(data);
+                                    data = JSON.parse(data);
                                     if (data.state == "OK"){
-                                        swal("Removido!", "Registro removido com sucesso.", "success");
+                                        swal("Removido!", data.message, "success");
                                     } else {
                                         swal("Falhou!", data.message, "error");
                                     }

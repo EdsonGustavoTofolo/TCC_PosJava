@@ -97,7 +97,6 @@ $(document).ready(function () {
          type : "success",
          showCancelButton : false,
          confirmButtonText : "Ok",
-         closeOnConfirm : false
          }, function() {
          window.location = '/ProjetoJSP/';
          });
@@ -200,11 +199,17 @@ $(document).ready(function () {
                     title : "Salvo!",
                     text : data.message,
                     type : "success",
-                    showCancelButton : false,
                     confirmButtonText : "Ok",
-                    closeOnConfirm : false
-                }, function() {
-                    window.location = '/ProjetoJSP/';
+                    timer: 2000,
+                    showCancelButton : false,
+                    allowEscapeKey: false,
+                    allowOutsideClick: false,
+                }).then(function () {
+                    window.location = '/ProjetoJSP/requerimento/list';
+                }, function (dismiss) {
+                    if (dismiss === 'timer') {
+                        window.location = '/ProjetoJSP/requerimento/list';
+                    }
                 });
             } else {
                 swal("Falhou!", data.message, "error");
