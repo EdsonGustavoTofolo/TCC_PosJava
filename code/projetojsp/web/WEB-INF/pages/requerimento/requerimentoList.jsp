@@ -6,14 +6,14 @@
 <layout:template>
     <jsp:attribute name="cssEspecificos">
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jqgrid/ui.jqgrid-bootstrap.css"/> " />
-        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.0.1/css/datepicker.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css"/> " />
     </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
         <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/grid.locale-pt-br.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/jquery.jqGrid.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/jquery-maskedinput/1.4.0/jquery.maskedinput.min.js"/> "></script>
-        <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"/> "></script>
-        <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.0.1/js/locales/bootstrap-datepicker.pt-BR.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.pt-BR.min.js"/> "></script>
         <script type="text/javascript">
             $(document).ready(function () {
 //                $.jgrid.defaults.width = 1000;
@@ -45,7 +45,7 @@
                         label : 'Data',
                         name : 'data',
                         index : 'data',
-                        width : 200,
+                        width : 130,
                         sorttype: 'date',
                         formatter: 'date',
                         formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y H:i" },
@@ -137,6 +137,7 @@
                                     data = JSON.parse(data);
                                     if (data.state == "OK"){
                                         swal("Removido!", data.message, "success");
+                                        $('#jqGrid').trigger( 'reloadGrid' );
                                     } else {
                                         swal("Falhou!", data.message, "error");
                                     }

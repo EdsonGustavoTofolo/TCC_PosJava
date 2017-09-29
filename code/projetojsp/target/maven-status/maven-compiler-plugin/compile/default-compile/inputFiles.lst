@@ -1,6 +1,7 @@
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\framework\RepositoryRestMvcConfiguration.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\RequerimentoAnexo.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\PermissaoRepository.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\specification\RequerimentoSpecification.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\RequerimentoDisciplina.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\Curso.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\web\controller\LoginController.java
@@ -27,6 +28,6 @@ C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\model\Permissao.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\MainSpringApplication.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\repository\RequerimentoAnexoRepository.java
-C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\web\model\SuperHeroDTO.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\web\util\JsonUtil.java
 C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\enumeration\EnumLabel.java
+C:\Users\Edson\Documents\Development\Gitlab\TCC_POSJAVA\code\projetojsp\src\main\java\br\edu\utfpr\pb\projetojsp\web\handler\RequerimentoJQGridHandler.java

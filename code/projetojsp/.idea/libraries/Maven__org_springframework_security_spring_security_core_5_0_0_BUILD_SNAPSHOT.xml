@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.security:spring-security-core:5.0.0.BUILD-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.0.BUILD-SNAPSHOT/spring-security-core-5.0.0.BUILD-20170928.184955-343.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.0.BUILD-SNAPSHOT/spring-security-core-5.0.0.BUILD-20170929.211923-346.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.0.BUILD-SNAPSHOT/spring-security-core-5.0.0.BUILD-20170928.184955-343-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.0.BUILD-SNAPSHOT/spring-security-core-5.0.0.BUILD-20170929.211923-346-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.0.BUILD-SNAPSHOT/spring-security-core-5.0.0.BUILD-20170928.184955-343-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.0.BUILD-SNAPSHOT/spring-security-core-5.0.0.BUILD-20170929.211923-346-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -200,7 +200,7 @@ $(document).ready(function () {
                     text : data.message,
                     type : "success",
                     confirmButtonText : "Ok",
-                    timer: 2000,
+                    timer: 3000,
                     showCancelButton : false,
                     allowEscapeKey: false,
                     allowOutsideClick: false,
@@ -228,7 +228,7 @@ $(document).ready(function () {
     $('#data').datepicker({
         language: "pt-BR",
         todayBtn: "linked",
-        keyboardNavigation: true,
+        keyboardNavigation: false,
         forceParse: true,
         calendarWeeks: true,
         autoclose: true,

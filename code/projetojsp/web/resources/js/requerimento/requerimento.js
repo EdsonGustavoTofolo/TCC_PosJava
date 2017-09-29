@@ -200,7 +200,7 @@ $(document).ready(function () {
                     text : data.message,
                     type : "success",
                     confirmButtonText : "Ok",
-                    timer: 2000,
+                    timer: 3000,
                     showCancelButton : false,
                     allowEscapeKey: false,
                     allowOutsideClick: false,

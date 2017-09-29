@@ -1,7 +1,6 @@
 br\edu\utfpr\pb\projetojsp\model\Requerimento.class
 br\edu\utfpr\pb\projetojsp\framework\WebSecurityConfig.class
 br\edu\utfpr\pb\projetojsp\repository\RequerimentoDisciplinaRepository.class
-br\edu\utfpr\pb\projetojsp\web\model\SuperHeroDTO.class
 br\edu\utfpr\pb\projetojsp\model\Permissao.class
 br\edu\utfpr\pb\projetojsp\web\controller\UsuarioController.class
 br\edu\utfpr\pb\projetojsp\repository\UsuarioRepository.class
@@ -11,6 +10,7 @@ br\edu\utfpr\pb\projetojsp\enumeration\StatusRequerimentoEnum.class
 br\edu\utfpr\pb\projetojsp\repository\CursoRepository.class
 br\edu\utfpr\pb\projetojsp\model\RequerimentoAnexo.class
 br\edu\utfpr\pb\projetojsp\web\controller\LoginController.class
+br\edu\utfpr\pb\projetojsp\specification\RequerimentoSpecification.class
 br\edu\utfpr\pb\projetojsp\enumeration\MotivoRequerimentoConsts.class
 br\edu\utfpr\pb\projetojsp\enumeration\MotivoRequerimento.class
 br\edu\utfpr\pb\projetojsp\repository\RequerimentoAnexoRepository.class
@@ -19,6 +19,7 @@ br\edu\utfpr\pb\projetojsp\model\Disciplina.class
 br\edu\utfpr\pb\projetojsp\repository\DisciplinaRepository.class
 br\edu\utfpr\pb\projetojsp\model\Usuario.class
 br\edu\utfpr\pb\projetojsp\repository\PermissaoRepository.class
+br\edu\utfpr\pb\projetojsp\web\handler\RequerimentoJQGridHandler.class
 br\edu\utfpr\pb\projetojsp\web\controller\IndexController.class
 br\edu\utfpr\pb\projetojsp\web\handler\JQGridHandler.class
 br\edu\utfpr\pb\projetojsp\web\controller\RequerimentoController.class

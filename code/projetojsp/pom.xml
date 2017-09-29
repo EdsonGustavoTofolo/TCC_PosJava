@@ -123,7 +123,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap-datepicker</artifactId>
-            <version>1.0.1</version>
+            <version>1.7.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.webjars/select2
             https://select2.github.io/-->
