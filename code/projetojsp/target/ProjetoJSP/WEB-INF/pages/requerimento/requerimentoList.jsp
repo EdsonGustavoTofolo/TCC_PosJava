@@ -79,7 +79,7 @@
                 // activate the toolbar searching
                 $('#jqGrid').jqGrid('filterToolbar');
                 $("#jqGrid").navGrid('#jqGridPager',
-                    { edit: false, add: false, del: false, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+                    { edit: false, add: false, del: false, search: false, refresh: true, view: false, position: "left", cloneToTop: false },
                     {}, {}
                 ).navButtonAdd("#jqGridPager", {
                     caption:"",
@@ -129,15 +129,15 @@
                                 })
                             }
                         }).then(function () {
-                            alert('confirmou');
-                            var url = '/ProjetoJSP/requerimento/delete/' + id;
+                            var url = '/ProjetoJSP/requerimento/delete/' + getSelectedRow();
                             $.ajax({
-                                type : 'POST',
+                                type : 'DELETE',
                                 url : url,
                                 success : function(data) {
+                                    alert(data);
                                     if (data.state == "OK"){
                                         swal("Removido!", "Registro removido com sucesso.", "success");
-                                    }else{
+                                    } else {
                                         swal("Falhou!", data.message, "error");
                                     }
                                 },//Fim success
