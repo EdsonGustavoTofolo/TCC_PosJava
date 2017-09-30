@@ -66,13 +66,26 @@
                     <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12
                             ${requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17 ? '' : 'hidden'}">
                         <hr>
-                        <select id="disciplinas" class="form-control dual_select" multiple></select>
+                        <select id="disciplinas" class="form-control dual_select" multiple>
+                            <c:forEach items="${disciplinas}" var="disciplina">
+                                <option value="${disciplina.id}">
+                                        ${disciplina.nome}
+                                </option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12  ${requerimento.motivo == 9 ? '' : 'hidden'}">
                         <hr>
                         <div class="form-group">
                             <label for="disciplina">Disciplina:</label>
-                            <select id="disciplina" name="disciplina" class="form-control"></select>
+                            <select id="disciplina" name="disciplina" class="form-control">
+                                <c:forEach items="${disciplinas}" var="disciplina">
+                                    <option value="${disciplina.id}"
+                                                ${disciplina.id == requerimento.disciplinas.get(0).disciplina.id ? 'selected="selected"' : ''}>
+                                            ${disciplina.nome}
+                                    </option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="professor">Professor:</label>

@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson;
 
+import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoDisciplina;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
@@ -13,8 +14,10 @@ import java.util.List;
 public class RequerimentoExclusionStrategy implements ExclusionStrategy {
     @Override
     public boolean shouldSkipField(FieldAttributes fieldAttributes) {
-        return List.class.equals(fieldAttributes.getDeclaredClass()) &&
-                RequerimentoDisciplina.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0]);
+        return List.class.equals(fieldAttributes.getDeclaredClass()) && (
+                RequerimentoDisciplina.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0]) ||
+                RequerimentoAnexo.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0])
+        );
     }
 
     @Override

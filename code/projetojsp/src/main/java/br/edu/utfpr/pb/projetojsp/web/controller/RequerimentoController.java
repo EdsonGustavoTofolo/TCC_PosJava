@@ -6,6 +6,7 @@ import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.CursoRepository;
+import br.edu.utfpr.pb.projetojsp.repository.DisciplinaRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoAnexoRepository;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoJQGridHandler;
@@ -41,6 +42,8 @@ public class RequerimentoController {
     @Autowired
     private RequerimentoAnexoRepository requerimentoAnexoRepository;
     @Autowired
+    private DisciplinaRepository disciplinaRepository;
+    @Autowired
     private RequerimentoJQGridHandler requerimentoJQGridHandler;
 
     @RequestMapping("/")
@@ -62,7 +65,9 @@ public class RequerimentoController {
             model.addAttribute("requerimento", requerimento);
             if (Objects.nonNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
                 //posiciona no primeiro, pq se entrar nesse if, ao menos uma disciplina existirá, e se houver mais de uma, todas pertencerão ao mesmo curso
-                model.addAttribute("cursoId", requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId());
+                Long cursoId = requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId();
+                model.addAttribute("cursoId", cursoId);
+                model.addAttribute("disciplinas", disciplinaRepository.findByCursoId(cursoId));
             } else {
                 Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 model.addAttribute("cursoId", usuario.getCurso().getId());
