@@ -81,7 +81,7 @@
                 $("#jqGrid").navGrid('#jqGridPager',
                     { edit: false, add: false, del: false, search: false, refresh: true, view: false, position: "left", cloneToTop: false },
                     {}, {}
-                ).navButtonAdd("#jqGridPager", {
+                ).navButtonAdd("#jqGridPager", { //NOVO REQUERIMENTO
                     caption:"",
                     buttonicon:"glyphicon glyphicon-plus",
                     onClickButton: function () {
@@ -90,16 +90,16 @@
                     position: "last", 
                     title:"Novo requerimento",
                     cursor: "pointer"  
-                }).navButtonAdd("#jqGridPager", {
+                }).navButtonAdd("#jqGridPager", { //EDITAR REQUERIMENTO
                     caption:"",
                     buttonicon:"glyphicon glyphicon-edit",
                     onClickButton: function () {
-                        window.location.href = "/ProjetoJSP/requerimento/";
+                        window.location.href = "/ProjetoJSP/requerimento/edit/" + getSelectedRow();
                     },
                     position: "last",
                     title:"Editar requerimento",
                     cursor: "pointer"
-                }).navButtonAdd("#jqGridPager", {
+                }).navButtonAdd("#jqGridPager", { //EXCLUIR REQUERIMENTO
                     caption:"",
                     buttonicon:"glyphicon glyphicon-trash",
                     onClickButton: function () {

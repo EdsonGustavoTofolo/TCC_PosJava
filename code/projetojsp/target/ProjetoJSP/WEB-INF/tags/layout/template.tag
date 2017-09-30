@@ -49,6 +49,12 @@
                 ${info}
         </div>
     </c:if>
+    <c:if test="${error != null && !error.equals('')}">
+        <div class="alert alert-danger alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                ${error}
+        </div>
+    </c:if>
     <jsp:doBody />
 </div>
 

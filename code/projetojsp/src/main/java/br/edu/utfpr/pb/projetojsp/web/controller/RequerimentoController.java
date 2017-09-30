@@ -46,9 +46,30 @@ public class RequerimentoController {
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
         Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.put("usuarioCursoId", usuario.getCurso().getId());
+        model.put("cursoId", usuario.getCurso().getId());
         model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
         model.put("cursos", cursoRepository.findAll());
+        model.put("requerimento", new Requerimento()); //apenas para nào dar erros
+        return "requerimento/requerimentoForm";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editar(@PathVariable Long id, Model model) {
+        Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
+        if (Objects.nonNull(requerimento)) {
+            model.addAttribute("cursos", cursoRepository.findAll());
+            model.addAttribute("motivos", MotivoRequerimentoConsts.getMotivosList());
+            model.addAttribute("requerimento", requerimento);
+            if (Objects.nonNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
+                //posiciona no primeiro, pq se entrar nesse if, ao menos uma disciplina existirá, e se houver mais de uma, todas pertencerão ao mesmo curso
+                model.addAttribute("cursoId", requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId());
+            } else {
+                Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                model.addAttribute("cursoId", usuario.getCurso().getId());
+            }
+        } else {
+            model.addAttribute("error", "Requerimento inexistente!");
+        }
         return "requerimento/requerimentoForm";
     }
 
@@ -129,9 +150,14 @@ public class RequerimentoController {
     public String excluir(@PathVariable Long id) {
         JSONObject retorno = new JSONObject();
         try{
-            requerimentoRepository.deleteById(id);
-            retorno.put("state", "OK");
-            retorno.put("message", "Registro removido com sucesso!");
+            if (Objects.nonNull(requerimentoRepository.findById(id).orElse(null))) {
+                requerimentoRepository.deleteById(id);
+                retorno.put("state", "OK");
+                retorno.put("message", "Registro removido com sucesso!");
+            } else {
+                retorno.put("state", "ERROR");
+                retorno.put("message", "Falha ao remover registro!\nRequerimento inexistente!");
+            }
         }catch (Exception ex){
             retorno.put("state", "ERROR");
             retorno.put("message", "Falha ao remover registro!\n" + ex.getCause().getCause().getMessage());

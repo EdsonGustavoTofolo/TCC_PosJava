@@ -3,6 +3,10 @@ package br.edu.utfpr.pb.projetojsp.web.handler;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
+import br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson.RequerimentoExclusionStrategy;
+import br.edu.utfpr.pb.projetojsp.web.util.JsonUtil;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -63,6 +67,16 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
         }
 		List<Requerimento> list = page.getContent();
         return list;
+    }
+
+    @Override
+    public String getJson() {
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssX")
+                .serializeNulls()
+                .setExclusionStrategies(new RequerimentoExclusionStrategy())
+                .create();
+        return JsonUtil.toJsonObj(gson, this.getData());
     }
 
     @Override

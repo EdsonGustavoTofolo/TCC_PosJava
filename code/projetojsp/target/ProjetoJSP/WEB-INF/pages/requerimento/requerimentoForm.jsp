@@ -47,7 +47,9 @@
                         <label for="motivo">Motivo do Requerimento:</label>
                         <select name="motivo" id="motivo" class="form-control">
                             <c:forEach items="${motivos}" var="motivo">
-                                <option value="${motivo.id}">${motivo.descricao}</option>
+                                <option value="${motivo.id}" ${motivo.id == requerimento.motivo ? 'selected="selected"' : ''}>
+                                    ${motivo.descricao}
+                                </option>
                             </c:forEach>
                         </select>
                     </div>
@@ -55,17 +57,18 @@
                         <label for="curso">Curso:</label>
                         <select id="curso" name="curso" class="form-control">
                             <c:forEach items="${cursos}" var="curso">
-                                <option value="${curso.id}" ${curso.id == usuarioCursoId ? 'selected="selected"' : ''}>
+                                <option value="${curso.id}" ${curso.id == cursoId ? 'selected="selected"' : ''}>
                                         ${curso.usuario.nome}
                                 </option>
                             </c:forEach>
                         </select>
                     </div>
-                    <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
+                    <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12
+                            ${requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17 ? '' : 'hidden'}">
                         <hr>
                         <select id="disciplinas" class="form-control dual_select" multiple></select>
                     </div>
-                    <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12 hidden">
+                    <div id="motivo9" class="form-group col-lg-12 col-md-12 col-sm-12  ${requerimento.motivo == 9 ? '' : 'hidden'}">
                         <hr>
                         <div class="form-group">
                             <label for="disciplina">Disciplina:</label>

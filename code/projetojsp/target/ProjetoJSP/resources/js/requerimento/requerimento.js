@@ -228,7 +228,7 @@ $(document).ready(function () {
     $('#data').datepicker({
         language: "pt-BR",
         todayBtn: "linked",
-        keyboardNavigation: false,
+        keyboardNavigation: true,
         forceParse: true,
         calendarWeeks: true,
         autoclose: true,
