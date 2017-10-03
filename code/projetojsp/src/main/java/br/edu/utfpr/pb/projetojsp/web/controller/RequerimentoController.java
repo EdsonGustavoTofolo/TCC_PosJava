@@ -40,6 +40,8 @@ public class RequerimentoController {
     @Autowired
     private RequerimentoAnexoRepository requerimentoAnexoRepository;
     @Autowired
+    private RequerimentoDisciplinaRepository requerimentoDisciplinaRepository;
+    @Autowired
     private DisciplinaRepository disciplinaRepository;
     @Autowired
     private RequerimentoJQGridHandler requerimentoJQGridHandler;
@@ -120,6 +122,9 @@ public class RequerimentoController {
         requerimento.setUsuario(usuario);
 
         if (!Objects.isNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
+            if (Objects.nonNull(requerimento.getId()) && requerimento.getId() > 0) {
+                requerimentoDisciplinaRepository.deleteByRequerimentoId(requerimento.getId());
+            }
             requerimento.getDisciplinas().forEach(d -> d.setRequerimento(requerimento));
         }
 
