@@ -307,7 +307,17 @@ $(document).ready(function () {
     if ($("#motivo").val() == 9) {
         $('#disciplina').select2();
     } else if (exibirMultiselecaoDeDisciplinas($("#motivo").val())) {
-        disciplinasSelect.bootstrapDualListbox('refresh');
+        buscarDisciplinasDoRequerimento();
+    }
+
+    function buscarDisciplinasDoRequerimento() {
+        $.getJSON('/ProjetoJSP/disciplina/findByDisciplinasFromRequerimento', getRequerimentoId(), function (data) {
+            $.each(data, function (index) {
+                var disciplina = data[index];
+                disciplinasSelect.append($('<option selected>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
+            });
+            disciplinasSelect.bootstrapDualListbox('refresh', true);
+        });
     }
 
     function buscarMultiselecaoDisciplinas() {
@@ -345,6 +355,10 @@ $(document).ready(function () {
         $('#professor').select2();
     }
 });
+
+function getRequerimentoId() {
+    return {"requerimentoId": $("#id").val()};
+}
 
 function getCursoId() {
     return {"curso": $("#curso").val()};

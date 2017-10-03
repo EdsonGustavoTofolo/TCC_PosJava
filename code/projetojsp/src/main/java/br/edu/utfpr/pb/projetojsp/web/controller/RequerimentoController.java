@@ -64,10 +64,16 @@ public class RequerimentoController {
             model.addAttribute("motivos", MotivoRequerimentoConsts.getMotivosList());
             model.addAttribute("requerimento", requerimento);
             if (Objects.nonNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
+                //Pega as disciplinas do requerimento e as ignora no select, pois no requerimento.js é feita uma nova consulta
+                //para pegar as mesmas, caso contrário ficará duplicado os registros no duallistbox
+                List<Long> disciplinas = new ArrayList<>();
+                requerimento.getDisciplinas().forEach(d -> disciplinas.add(d.getDisciplina().getId()));
+
                 //posiciona no primeiro, pq se entrar nesse if, ao menos uma disciplina existirá, e se houver mais de uma, todas pertencerão ao mesmo curso
                 Long cursoId = requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId();
+
                 model.addAttribute("cursoId", cursoId);
-                model.addAttribute("disciplinas", disciplinaRepository.findByCursoId(cursoId));
+                model.addAttribute("disciplinas", disciplinaRepository.findByCursoIdAndIdNotIn(cursoId, disciplinas));
                 model.addAttribute("professores", usuarioRepository.findByTipo(TipoUsuarioEnum.PROFESSOR));
             } else {
                 Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

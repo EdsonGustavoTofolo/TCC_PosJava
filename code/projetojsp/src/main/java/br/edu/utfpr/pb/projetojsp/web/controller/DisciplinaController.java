@@ -27,4 +27,12 @@ public class DisciplinaController {
         List<Disciplina> disciplinaList = disciplinaRepository.findByCursoId(Long.valueOf(curso));
         return disciplinaList;
     }
+
+    @GetMapping(value = "/findByDisciplinasFromRequerimento")
+    @ResponseBody
+    public List<Disciplina> findByDisciplinasFromRequerimento(HttpServletRequest request) {
+        String requerimentoId = request.getParameter("requerimentoId");
+        List<Disciplina> disciplinaList = disciplinaRepository.findByRequerimentoId(Long.valueOf(requerimentoId));
+        return disciplinaList;
+    }
 }

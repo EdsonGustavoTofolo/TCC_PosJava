@@ -33,14 +33,6 @@
         <script type="text/javascript" src="<c:url value="/resources/js/dualListbox/jquery.bootstrap-duallistbox.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/dropzone/dropzone.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
-        <script>
-            $(document).ready(function () {
-                alert('${requerimento.motivo}');
-            });
-            (function () {
-                alert('${requerimento.motivo}');
-            });
-        </script>
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid">
@@ -78,7 +70,7 @@
                         <select id="disciplinas" class="form-control dual_select" multiple>
                             <c:forEach items="${disciplinas}" var="disciplina">
                                 <option value="${disciplina.id}">
-                                        ${disciplina.nome}
+                                        ${disciplina.codigo} - ${disciplina.nome}
                                 </option>
                             </c:forEach>
                         </select>

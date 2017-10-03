@@ -70,7 +70,7 @@
                         <select id="disciplinas" class="form-control dual_select" multiple>
                             <c:forEach items="${disciplinas}" var="disciplina">
                                 <option value="${disciplina.id}">
-                                        ${disciplina.nome}
+                                        ${disciplina.codigo} - ${disciplina.nome}
                                 </option>
                             </c:forEach>
                         </select>
@@ -111,9 +111,7 @@
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="observacao">Observações:</label>
-                        <textarea id="observacao" name="observacao" class="form-control" rows="5">
-                            ${requerimento.observacao}
-                        </textarea>
+                        <textarea id="observacao" name="observacao" class="form-control" rows="5">${requerimento.observacao}</textarea>
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="file">Documentos:</label>
