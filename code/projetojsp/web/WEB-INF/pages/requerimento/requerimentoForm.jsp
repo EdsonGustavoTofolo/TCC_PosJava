@@ -3,6 +3,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/layout" prefix="layout" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <layout:template>
     <jsp:attribute name="cssEspecificos">
@@ -42,7 +43,7 @@
 
                 <frm:form id="frm" name="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}"
                             enctype="multipart/form-data" autocomplete="off">
-                    <input id="id" name="id" type="text" hidden/>
+                    <input id="id" name="id" type="text" value="${id}" hidden/>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="motivo">Motivo do Requerimento:</label>
                         <select name="motivo" id="motivo" class="form-control">
@@ -81,7 +82,7 @@
                             <select id="disciplina" name="disciplina" class="form-control">
                                 <c:forEach items="${disciplinas}" var="disciplina">
                                     <option value="${disciplina.id}"
-                                                ${disciplina.id == requerimento.disciplinas.get(0).disciplina.id ? 'selected="selected"' : ''}>
+                                                ${requerimento.motivo == 9 && disciplina.id == requerimento.disciplinas.get(0).disciplina.id ? 'selected="selected"' : ''}>
                                             ${disciplina.nome}
                                     </option>
                                 </c:forEach>
@@ -89,19 +90,30 @@
                         </div>
                         <div class="form-group">
                             <label for="professor">Professor:</label>
-                            <select id="professor" name="professor" class="form-control"></select>
+                            <select id="professor" name="professor" class="form-control">
+                                <c:forEach items="${professores}" var="professor">
+                                    <option value="${professor.id}"
+                                        ${requerimento.motivo == 9 && professor.id == requerimento.disciplinas.get(0).professor.id ? 'selected="selected"' : ''}>
+                                            ${professor.nome}
+                                    </option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="data">Data:</label>
                             <div class="input-group date">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input id="data" name="data" type="text" class="form-control"/>
+                                <input id="data" name="data" type="text" class="form-control"
+                                       value='<fmt:formatDate value="${requerimento.motivo == 9 ? requerimento.disciplinas.get(0).dataProva : ''}"
+                                       pattern="dd/MM/yyyy" />'/>
                             </div>
                         </div>
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="observacao">Observações:</label>
-                        <textarea id="observacao" name="observacao" class="form-control" rows="5"></textarea>
+                        <textarea id="observacao" name="observacao" class="form-control" rows="5">
+                            ${requerimento.observacao}
+                        </textarea>
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="file">Documentos:</label>

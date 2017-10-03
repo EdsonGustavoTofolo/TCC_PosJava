@@ -2,13 +2,11 @@ package br.edu.utfpr.pb.projetojsp.web.controller;
 
 import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
+import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
-import br.edu.utfpr.pb.projetojsp.repository.CursoRepository;
-import br.edu.utfpr.pb.projetojsp.repository.DisciplinaRepository;
-import br.edu.utfpr.pb.projetojsp.repository.RequerimentoAnexoRepository;
-import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
+import br.edu.utfpr.pb.projetojsp.repository.*;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoJQGridHandler;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +43,8 @@ public class RequerimentoController {
     private DisciplinaRepository disciplinaRepository;
     @Autowired
     private RequerimentoJQGridHandler requerimentoJQGridHandler;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
@@ -68,6 +68,7 @@ public class RequerimentoController {
                 Long cursoId = requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId();
                 model.addAttribute("cursoId", cursoId);
                 model.addAttribute("disciplinas", disciplinaRepository.findByCursoId(cursoId));
+                model.addAttribute("professores", usuarioRepository.findByTipo(TipoUsuarioEnum.PROFESSOR));
             } else {
                 Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 model.addAttribute("cursoId", usuario.getCurso().getId());

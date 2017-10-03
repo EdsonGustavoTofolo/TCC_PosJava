@@ -94,7 +94,12 @@
                     caption:"",
                     buttonicon:"glyphicon glyphicon-edit",
                     onClickButton: function () {
-                        window.location.href = "/ProjetoJSP/requerimento/edit/" + getSelectedRow();
+                        rowKey = getSelectedRow();
+                        if (rowKey) {
+                            window.location.href = "/ProjetoJSP/requerimento/edit/" + getSelectedRow();
+                        } else {
+                            swal("Selecione um requerimento!", "Nenhum requerimento selecionado!", "warning");
+                        }
                     },
                     position: "last",
                     title:"Editar requerimento",

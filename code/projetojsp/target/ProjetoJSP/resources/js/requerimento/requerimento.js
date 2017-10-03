@@ -155,6 +155,7 @@ $(document).ready(function () {
             var requerimentoDisciplina = {};
             var professor = {};
 
+            dataJSON["id"] = $('#id').val();
             dataJSON["motivo"] = $('#motivo').val();
             dataJSON["observacao"] = $('#observacao').val();
 
@@ -301,6 +302,13 @@ $(document).ready(function () {
             validador.resetForm();
         }
     });
+
+    //-----[ QUANDO ESTÁ EDITANDO ]---
+    if ($("#motivo").val() == 9) {
+        $('#disciplina').select2();
+    } else if (exibirMultiselecaoDeDisciplinas($("#motivo").val())) {
+        disciplinasSelect.bootstrapDualListbox('refresh');
+    }
 
     function buscarMultiselecaoDisciplinas() {
         $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
