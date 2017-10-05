@@ -374,7 +374,7 @@ function deleteAnexo(id) {
         title: 'Confirma a exclusão do anexo?!',
         text: "Esta ação não poderá ser desfeita!",
         type: 'question', //warning
-        showLoaderOnConfirm: true,
+        showLoaderOnConfirm: false,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -389,7 +389,14 @@ function deleteAnexo(id) {
             success : function(data) {
                 data = JSON.parse(data);
                 if (data.state == "OK"){
-                    swal("Removido!", data.message, "success");
+                    swal("Removido!",
+                        data.message,
+                        "success").then(function () {
+                        $('#anexo' + id).remove();
+                        if ($("#requerimentoAnexos > .attached .dz-preview").length == 0) {
+                            $('#requerimentoAnexos').remove();
+                        }
+                    });
                 } else {
                     swal("Falhou!", data.message, "error");
                 }
