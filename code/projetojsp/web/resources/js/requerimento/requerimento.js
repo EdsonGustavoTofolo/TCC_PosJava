@@ -370,21 +370,34 @@ function exibirMultiselecaoDeDisciplinas(motivoId) {
 }
 
 function deleteAnexo(id) {
-    var url = '/ProjetoJSP/requerimento/anexo/delete/' + id;
-    $.ajax({
-        type : 'DELETE',
-        url : url,
-        success : function(data) {
-            data = JSON.parse(data);
-            if (data.state == "OK"){
-                swal("Removido!", data.message, "success");
-                $('#jqGrid').trigger( 'reloadGrid' );
-            } else {
-                swal("Falhou!", data.message, "error");
+    swal({
+        title: 'Confirma a exclusão do anexo?!',
+        text: "Esta ação não poderá ser desfeita!",
+        type: 'question', //warning
+        showLoaderOnConfirm: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, excluir!!',
+        cancelButtonText: 'Não',
+        allowOutsideClick: false,
+    }).then(function () {
+        var url = '/ProjetoJSP/requerimento/anexo/delete/' + id;
+        $.ajax({
+            type : 'DELETE',
+            url : url,
+            success : function(data) {
+                data = JSON.parse(data);
+                if (data.state == "OK"){
+                    swal("Removido!", data.message, "success");
+                } else {
+                    swal("Falhou!", data.message, "error");
+                }
+            },//Fim success
+            error : function() {
+                swal("Erro!", "Falha ao remover registro.", "error");
             }
-        },//Fim success
-        error : function() {
-            swal("Erro!", "Falha ao remover registro.", "error");
-        }
-    }); //Fim ajax
+        }); //Fim ajax
+    });
+
 }

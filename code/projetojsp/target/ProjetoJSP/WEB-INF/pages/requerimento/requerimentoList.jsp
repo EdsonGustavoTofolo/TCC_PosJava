@@ -109,7 +109,7 @@
                     buttonicon:"glyphicon glyphicon-trash",
                     onClickButton: function () {
                         swal({
-                            title: 'Confirma a remoção do registro?!',
+                            title: 'Confirma a exclusão do registro?!',
                             text: "Esta ação não poderá ser desfeita!",
                             type: 'question', //warning
                             showLoaderOnConfirm: true,
