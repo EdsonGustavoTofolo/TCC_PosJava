@@ -129,9 +129,9 @@
                                             </div>
                                         </div>
                                         <div class="dz-download">
-                                            <a href="<c:url value="/requerimento/download/${anexo.id}"/>">Download</a>
+                                            <a href="<c:url value="/requerimento/anexos/download/${anexo.id}"/>">Download</a>
                                         </div>
-                                        <a href="#" class="dz-remove">Excluir</a>
+                                        <a href="#" onclick="deleteAnexo(${anexo.id})" class="dz-remove">Excluir</a>
                                     </div>
                                 </c:forEach>
                             </div>

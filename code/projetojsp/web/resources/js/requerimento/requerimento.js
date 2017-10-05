@@ -368,3 +368,23 @@ function exibirMultiselecaoDeDisciplinas(motivoId) {
     //Cancelamento das disciplinas || Matrícula nas disciplinas || Planos de Ensino/Ementas das disciplinas
     return (motivoId == 5 || motivoId == 15 || motivoId == 17);
 }
+
+function deleteAnexo(id) {
+    var url = '/ProjetoJSP/requerimento/anexo/delete/' + id;
+    $.ajax({
+        type : 'DELETE',
+        url : url,
+        success : function(data) {
+            data = JSON.parse(data);
+            if (data.state == "OK"){
+                swal("Removido!", data.message, "success");
+                $('#jqGrid').trigger( 'reloadGrid' );
+            } else {
+                swal("Falhou!", data.message, "error");
+            }
+        },//Fim success
+        error : function() {
+            swal("Erro!", "Falha ao remover registro.", "error");
+        }
+    }); //Fim ajax
+}

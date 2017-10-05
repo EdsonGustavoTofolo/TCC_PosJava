@@ -183,7 +183,7 @@ public class RequerimentoController {
         return retorno.toString();
     }
 
-    @RequestMapping("/download/{id}")
+    @RequestMapping("/anexos/download/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void download(@PathVariable("id") Long id, HttpServletResponse response) {
         RequerimentoAnexo anexo = requerimentoAnexoRepository.findById(id).get();
@@ -196,6 +196,26 @@ public class RequerimentoController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @DeleteMapping("/anexo/delete/{id}")
+    @ResponseBody
+    public String excluirAnexo(@PathVariable Long id) {
+        JSONObject retorno = new JSONObject();
+        try{
+            if (Objects.nonNull(requerimentoAnexoRepository.findById(id).orElse(null))) {
+                requerimentoAnexoRepository.deleteById(id);
+                retorno.put("state", "OK");
+                retorno.put("message", "Anexo removido com sucesso!");
+            } else {
+                retorno.put("state", "ERROR");
+                retorno.put("message", "Falha ao remover Anexo!\nAnexo inexistente!");
+            }
+        }catch (Exception ex){
+            retorno.put("state", "ERROR");
+            retorno.put("message", "Falha ao remover Anexo!\n" + ex.getCause().getCause().getMessage());
+        }
+        return retorno.toString();
     }
 
 }
