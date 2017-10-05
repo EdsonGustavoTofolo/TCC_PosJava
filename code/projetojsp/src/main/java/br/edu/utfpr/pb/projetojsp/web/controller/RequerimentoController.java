@@ -138,6 +138,7 @@ public class RequerimentoController {
                     requerimentoAnexo.setTipo(anexo.getName());
                     requerimentoAnexo.setArquivo(anexo.getBytes());
                     requerimentoAnexo.setContentType(anexo.getContentType());
+                    requerimentoAnexo.setTamanho(new Long(anexo.getSize()));
 
                     requerimentoAnexos.add(requerimentoAnexo);
                 }

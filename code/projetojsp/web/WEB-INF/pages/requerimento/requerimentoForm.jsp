@@ -113,8 +113,32 @@
                         <label for="observacao">Observações:</label>
                         <textarea id="observacao" name="observacao" class="form-control" rows="5">${requerimento.observacao}</textarea>
                     </div>
+                    <c:if test="${requerimento.anexos.size() > 0}">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label>Documentos Anexados:</label><br/>
+                            <div class="attached">
+                                <c:forEach items="${requerimento.anexos}" var="anexo">
+                                    <div class="dz-preview dz-file-preview">
+                                        <div class="dz-image"><img data-dz-thumbnail=""></div>
+                                        <div class="dz-details">
+                                            <div class="dz-size">
+                                                <span><strong>${anexo.size}</strong> ${anexo.unitSize}</span>
+                                            </div>
+                                            <div class="dz-filename">
+                                                <span>${anexo.nome}</span>
+                                            </div>
+                                        </div>
+                                        <div class="dz-download">
+                                            <a href="<c:url value="/requerimento/download/${anexo.id}"/>">Download</a>
+                                        </div>
+                                        <a href="#" class="dz-remove">Excluir</a>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </c:if>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                        <label for="file">Documentos:</label>
+                        <label for="file">Anexar Documentos:</label>
                         <div action="#" class="dropzone" id="dropzoneForm">
                             <div class="fallback">
                                 <input id="file" name="file" type="file" multiple />

@@ -119,9 +119,9 @@ $(document).ready(function () {
         uploadMultiple: true,
         autoProcessQueue: false,
         paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 50, // MB
-        maxFiles: 10,
-        parallelUploads: 10,
+        maxFilesize: 2, // MB
+        maxFiles: 5,
+        parallelUploads: 5,
         addRemoveLinks: true,
         dictCancelUpload: "Cancelar envio",
         dictRemoveFile: "Excluir",
