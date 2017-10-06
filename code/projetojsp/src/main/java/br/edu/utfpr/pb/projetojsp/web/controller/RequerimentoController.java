@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.web.controller;
 
+import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimento;
 import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
@@ -7,6 +8,7 @@ import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.*;
+import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoDisciplinaJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoJQGridHandler;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,8 @@ public class RequerimentoController {
     private DisciplinaRepository disciplinaRepository;
     @Autowired
     private RequerimentoJQGridHandler requerimentoJQGridHandler;
+    @Autowired
+    private RequerimentoDisciplinaJQGridHandler requerimentoDisciplinaJQGridHandler;
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -101,6 +105,17 @@ public class RequerimentoController {
 
         return forward;
     }
+
+    @RequestMapping(method = { RequestMethod.POST, RequestMethod.GET }, path = "/findDisciplinas")
+    public String findDisciplinas(HttpServletRequest request) {
+        String forward = "common/formData";
+
+        String json = requerimentoDisciplinaJQGridHandler.loadData(request).getJson();
+        request.setAttribute("formData", json);
+
+        return forward;
+    }
+
 
     /**
      *
@@ -216,6 +231,12 @@ public class RequerimentoController {
             retorno.put("message", "Falha ao remover Anexo!\n" + ex.getCause().getCause().getMessage());
         }
         return retorno.toString();
+    }
+
+    @GetMapping(value = "/motivos/findAll")
+    @ResponseBody
+    public List<MotivoRequerimento> findByCurso(HttpServletRequest request) {
+        return MotivoRequerimentoConsts.getMotivosList();
     }
 
 }
