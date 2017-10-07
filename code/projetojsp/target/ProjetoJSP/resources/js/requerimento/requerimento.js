@@ -211,9 +211,9 @@ $(document).ready(function () {
                     if (dismiss === 'timer') {
                         window.location = '/ProjetoJSP/requerimento/list';
                     }
-                });
+                }).catch(swal.noop); // esse catch evita erro no console do browser;
             } else {
-                swal("Falhou!", data.message, "error");
+                swal("Falhou!", data.message, "error").catch(swal.noop); // esse catch evita erro no console do browser;
             }
         },
         canceled: function (file) {
@@ -221,7 +221,7 @@ $(document).ready(function () {
         },
         error: function (file, errorMessage, xhr) {
             $.unblockUI();
-            swal("Falhou!", errorMessage, "error");
+            swal("Falhou!", errorMessage, "error").catch(swal.noop); // esse catch evita erro no console do browser;
         }
     };
 
@@ -396,15 +396,15 @@ function deleteAnexo(id) {
                         if ($("#requerimentoAnexos > .attached .dz-preview").length == 0) {
                             $('#requerimentoAnexos').remove();
                         }
-                    });
+                    }).catch(swal.noop); // esse catch evita erro no console do browser;
                 } else {
-                    swal("Falhou!", data.message, "error");
+                    swal("Falhou!", data.message, "error").catch(swal.noop); // esse catch evita erro no console do browser;
                 }
             },//Fim success
             error : function() {
-                swal("Erro!", "Falha ao remover registro.", "error");
+                swal("Erro!", "Falha ao remover registro.", "error").catch(swal.noop); // esse catch evita erro no console do browser;
             }
         }); //Fim ajax
-    });
+    }).catch(swal.noop); // esse catch evita erro no console do browser;
 
 }

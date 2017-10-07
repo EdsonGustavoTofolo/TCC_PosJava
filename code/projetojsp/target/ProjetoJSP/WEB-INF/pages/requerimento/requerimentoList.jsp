@@ -105,6 +105,24 @@
                             }
                         }
                     }],
+                    afterInsertRow: function(rowid, rowdata, rowelement) {
+                        console.log(rowid);
+                        console.log(rowdata);
+                        console.log(rowelement);
+                        /*var motivoId;
+                         for(var i = 0, len = motivoList.length; i < len; i++) {
+                         if (motivoList[i].descricao == aMasterRow.descricao) {
+                         motivoId = motivoList[i].id;
+                         break;
+                         }
+                         }
+                         motivoId = parseInt(motivoId);
+                         if (motivoId !== 9 && motivoId !== 15) {
+                         // remove the plus from subgrid
+                         $("td.sgcollapsed","#"+rowid).empty().unbind('click');
+                         $(value).unbind('click').html('');
+                         }*/
+                    },
                     pager : '#jqGridPager',
                     rowNum : 10,
                     height: 'auto',
@@ -112,11 +130,12 @@
                     rowList : [ 10, 20, 30 ],
                     viewrecords : true,
                     caption : 'Requerimentos',
-                    jsonReader : {
-                        repeatitems : false,
-                    },
+                    jsonReader : {repeatitems : false},
                     subGrid: true,
-                    subGridRowExpanded: showChildGrid
+                    subGridRowExpanded: showChildGrid,
+                    subGridOptions : {
+                        selectOnExpand : true
+                    }
                 });
                 // activate the toolbar searching
                 $('#jqGrid').jqGrid('filterToolbar');
@@ -140,7 +159,7 @@
                         if (rowKey) {
                             window.location.href = "/ProjetoJSP/requerimento/edit/" + getSelectedRow();
                         } else {
-                            swal("Selecione um requerimento!", "Nenhum requerimento selecionado!", "warning").catch(swal.noop);
+                            swal("Selecione um requerimento!", "Nenhum requerimento selecionado!", "warning").catch(swal.noop); // esse catch evita erro no console do browser
                         }
                     },
                     position: "last",
@@ -193,7 +212,7 @@
                                     swal("Erro!", "Falha ao remover registro.", "error");
                                 }
                             }); //Fim ajax
-                        }).catch(swal.noop);
+                        }).catch(swal.noop); // esse catch evita erro no console do browser
                     },
                     position: "last",
                     title:"Excluir requerimento",
@@ -235,12 +254,12 @@
                                     formatter: 'date',
                                     formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y" }
                                 },
-                                { label: 'Disciplina', name: 'disciplina', index: 'disciplina', jsonmap: 'disciplina.nome', width: 300 },
+                                { label: 'Disciplina', name: 'disciplina', index: 'disciplina', jsonmap: 'disciplina.nome', width: 300 }
                             ];
                         } else {
                             colModelReq = [
                                 { label: 'Id', name: 'id', index: 'id', key: true, width: 75 },
-                                { label: 'Disciplina', name: 'disciplina', index: 'disciplina', jsonmap: 'disciplina.nome', width: 300 },
+                                { label: 'Disciplina', name: 'disciplina', index: 'disciplina', jsonmap: 'disciplina.nome', width: 300 }
                             ];
                         }
                     }
@@ -250,9 +269,10 @@
                         datatype : "json",
                         mtype : 'GET',
                         page: 1,
+                        rownum: 15,
                         colModel: colModelReq,
-                        width: 500,
                         height: '100%',
+                        with: '100%',
                         pager: "#" + childGridPagerID
                     });
 
