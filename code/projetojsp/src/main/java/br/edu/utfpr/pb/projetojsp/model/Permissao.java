@@ -19,6 +19,10 @@ import java.io.Serializable;
 @Entity
 @Table(name = "permissoes")
 public class Permissao implements Serializable, GrantedAuthority {
+    public static final String ROLE_ALUNO = "ROLE_ALUNO";
+    public static final String ROLE_PROFESSOR = "ROLE_PROFESSOR";
+    public static final String ROLE_DERAC = "ROLE_DERAC";
+    public static final String ROLE_COORDENACAO = "ROLE_COORDENACAo";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

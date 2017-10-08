@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/> " />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/styles.css"/> " />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/animate.css"/> " />
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css"/> " />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/loginStyle.css"/> " />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="modal-footer">
                             <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
-                            <button class="btn btn-theme" type="button">Enviar</button>
+                            <button class="btn btn-primary" type="button">Enviar</button>
                         </div>
                     </div>
                 </div>

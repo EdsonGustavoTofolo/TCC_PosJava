@@ -3,6 +3,8 @@
 <%@ taglib tagdir="/WEB-INF/tags/layout" prefix="layout" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <layout:template>
     <jsp:attribute name="cssEspecificos">
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jqgrid/ui.jqgrid-bootstrap.css"/> " />
@@ -53,11 +55,21 @@
                         index : 'id',
                         key: true,
                         width : 75
-                    }, {
+                    }
+                    <sec:authorize access="hasAnyRole('PROFESSOR', 'COORDENACAO', 'DERAC')">
+                        ,{
+                            label: 'Aluno',
+                            name: 'aluno',
+                            index: 'aluno',
+                            width: 200,
+                            jsonmap: 'usuario.nome'
+                        }
+                    </sec:authorize>
+                    , {
                         label : 'Motivo',
                         name : 'motivo',
                         index : 'motivo',
-                        width : 400,
+                        width : 350,
                         formatter: function myformatter ( cellvalue, options, rowObject ) {
                             return motivoList[cellvalue - 1].descricao;
                         },
@@ -80,7 +92,7 @@
                         label : 'Observação',
                         name : 'observacao',
                         index : 'observacao',
-                        width : 650,
+                        width : 500,
                     }, {
                         label : 'Data',
                         name : 'data',
@@ -291,10 +303,8 @@
             <h3>Lista de Requerimentos</h3>
             <hr>
             <div class="row pt-3 container">
-                <div class="col-lg-12">
-                    <table id="jqGrid"></table>
-                    <div id="jqGridPager"></div>
-                </div>
+                <table id="jqGrid"></table>
+                <div id="jqGridPager"></div>
             </div>
         </div>
     </jsp:body>

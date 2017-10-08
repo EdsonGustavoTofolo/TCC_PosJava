@@ -24,11 +24,22 @@
         <sec:authorize access="isAuthenticated()">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="${urlRequerimento}">Requerimentos <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li>
-                        <a href="${urlRequerimentoList}">Lista</a>
+                    <sec:authorize access="hasRole('ALUNO')">
+                        <li  class="${classActiveRequerimento}">
+                            <a href="${urlRequerimento}">Requerimento</a>
+                        </li>
+                    </sec:authorize>
+                    <li class="${classActiveListaRequerimento}">
+                        <sec:authorize access="hasRole('ALUNO')">
+                            <a href="${urlRequerimentoList}">
+                                Meus requerimentos
+                            </a>
+                        </sec:authorize>
+                        <sec:authorize access="hasAnyRole('PROFESSOR', 'COORDENACAO', 'DERAC')">
+                            <a href="${urlRequerimentoList}">
+                                Requerimentos
+                            </a>
+                        </sec:authorize>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

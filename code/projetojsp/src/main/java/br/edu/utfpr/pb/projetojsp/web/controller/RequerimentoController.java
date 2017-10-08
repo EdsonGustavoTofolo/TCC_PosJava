@@ -59,6 +59,8 @@ public class RequerimentoController {
         model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
         model.put("cursos", cursoRepository.findAll());
         model.put("requerimento", new Requerimento()); //apenas para nào dar erros
+        model.put("classActiveRequerimento", "active");
+
         return "requerimento/requerimentoForm";
     }
 
@@ -69,6 +71,7 @@ public class RequerimentoController {
             model.addAttribute("cursos", cursoRepository.findAll());
             model.addAttribute("motivos", MotivoRequerimentoConsts.getMotivosList());
             model.addAttribute("requerimento", requerimento);
+            model.addAttribute("classActiveRequerimento", "active");
             if (Objects.nonNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
                 //Pega as disciplinas do requerimento e as ignora no select, pois no requerimento.js é feita uma nova consulta
                 //para pegar as mesmas, caso contrário ficará duplicado os registros no duallistbox
@@ -93,6 +96,7 @@ public class RequerimentoController {
 
     @RequestMapping("/list")
     public String listaRequerimentos(Model model) {
+        model.addAttribute("classActiveListaRequerimento", "active");
         return "requerimento/requerimentoList";
     }
 

@@ -1,7 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.specification;
 
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
-import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Date;
@@ -34,6 +33,14 @@ public class RequerimentoSpecification {
         }
     }
 
+    public static Specification<Requerimento> withAlunoNome(String alunoNome) {
+        if (alunoNome == null) {
+            return null;
+        } else {
+            return (root, query, cb) -> cb.like(root.join("usuario").get("nome"), "%" + alunoNome + "%");
+        }
+    }
+
     public static Specification<Requerimento> withMotivo(Integer motivo) {
         if (motivo == null) {
             return null;
@@ -42,11 +49,20 @@ public class RequerimentoSpecification {
         }
     }
 
-    public static Specification<Requerimento> withUsuario(Usuario usuario) {
-        if (usuario == null) {
+    public static Specification<Requerimento> withUsuarioId(Long usuarioId) {
+        if (usuarioId == null) {
             return null;
         } else {
-            return (root, query, cb) -> cb.equal(root.join("usuario").get("id"), usuario.getId());
+            return (root, query, cb) -> cb.equal(root.join("usuario").get("id"), usuarioId);
+        }
+    }
+
+    public static Specification<Requerimento> withProfessorId(Long professorId) {
+        if (professorId == null) {
+            return null;
+        } else {
+            return (root, query, cb) -> cb.equal(root.join("disciplinas")
+                                                    .join("professor").get("id"), professorId);
         }
     }
 }

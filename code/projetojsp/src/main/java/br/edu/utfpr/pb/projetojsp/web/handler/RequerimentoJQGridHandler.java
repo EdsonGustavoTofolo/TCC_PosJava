@@ -1,6 +1,8 @@
 package br.edu.utfpr.pb.projetojsp.web.handler;
 
+import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
+import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
 import br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson.RequerimentoExclusionStrategy;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,15 +34,34 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
     @Override
     public List<Requerimento> findData(HttpServletRequest request, boolean isSearching, PageRequest pageRequest) {
+        Long alunoId = null;
+        Long professorId = null;
+
+        Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        for (Permissao permissao : usuario.getPermissoes()) {
+            if (permissao.getPermissao().equals(Permissao.ROLE_ALUNO)) {//se for do tipo aluno, retorna somente os requerimentos dele
+                alunoId = usuario.getId();
+                break;
+            } else if (permissao.getPermissao().equals(Permissao.ROLE_PROFESSOR)) {
+                professorId = usuario.getId();
+                break;
+            }
+        }
+
         Page<Requerimento> page = null;
         if (isSearching) {
             Long id = null;
             Date data = null;
             String observacao = null;
             Integer motivo = null;
+            String aluno = null;
 
             if (Objects.nonNull(request.getParameter("id")) && !"".equals(request.getParameter("id"))) {
                 id = Long.valueOf(request.getParameter("id"));
+            }
+
+            if (Objects.nonNull(request.getParameter("aluno")) && !"".equals(request.getParameter("aluno"))) {
+                aluno = request.getParameter("aluno");
             }
 
             if (Objects.nonNull(request.getParameter("motivo")) && !"".equals(request.getParameter("motivo"))) {
@@ -58,12 +80,16 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             if (Objects.nonNull(request.getParameter("observacao")) && !"".equals(request.getParameter("observacao"))) {
                 observacao = request.getParameter("observacao");
             }
-            page = repository.findAll(Specification.where(RequerimentoSpecification.withId(id))
+            page = repository.findAll(Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
+                            .and(RequerimentoSpecification.withProfessorId(professorId))
+                            .and(RequerimentoSpecification.withAlunoNome(aluno))
+                            .and(RequerimentoSpecification.withId(id))
                             .and(RequerimentoSpecification.withData(data))
                             .and(RequerimentoSpecification.withObservacao(observacao))
                             .and(RequerimentoSpecification.withMotivo(motivo)), pageRequest);
         } else {
-            page = repository.findAll(pageRequest);
+            page = repository.findAll(Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
+                            .and(RequerimentoSpecification.withProfessorId(professorId)), pageRequest);
         }
 		List<Requerimento> list = page.getContent();
         return list;
