@@ -6,6 +6,7 @@ import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
 import br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson.RequerimentoExclusionStrategy;
+import br.edu.utfpr.pb.projetojsp.web.util.ControllersUtil;
 import br.edu.utfpr.pb.projetojsp.web.util.JsonUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -14,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +37,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
         Long alunoId = null;
         Long professorId = null;
 
-        Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Usuario usuario = ControllersUtil.getLoggedUser();
         for (Permissao permissao : usuario.getPermissoes()) {
             if (permissao.getPermissao().equals(Permissao.ROLE_ALUNO)) {//se for do tipo aluno, retorna somente os requerimentos dele
                 alunoId = usuario.getId();

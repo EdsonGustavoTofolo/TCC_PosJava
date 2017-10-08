@@ -2,7 +2,7 @@ package br.edu.utfpr.pb.projetojsp.web.controller;
 
 
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
-import org.springframework.security.core.context.SecurityContextHolder;
+import br.edu.utfpr.pb.projetojsp.web.util.ControllersUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -15,7 +15,7 @@ public class IndexController {
 
 	@RequestMapping("/")
 	public String home(Model model){
-		Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Usuario usuario = ControllersUtil.getLoggedUser();
 		if (StringUtils.isEmpty(usuario.getTelefone()) || Objects.isNull(usuario.getCurso())) {
 			model.addAttribute("mensagem", "Identificamos que seu cadastro está incompleto! Por favor, complete-o!");
 		}

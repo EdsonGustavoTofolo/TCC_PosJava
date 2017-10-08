@@ -10,9 +10,11 @@ import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.*;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoDisciplinaJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoJQGridHandler;
+import br.edu.utfpr.pb.projetojsp.web.util.ControllersUtil;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,9 +54,10 @@ public class RequerimentoController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Secured("ROLE_ALUNO")
     @RequestMapping("/")
     public String initRequerimento(Map<String, Object> model) {
-        Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Usuario usuario = ControllersUtil.getLoggedUser();
         model.put("cursoId", usuario.getCurso().getId());
         model.put("motivos", MotivoRequerimentoConsts.getMotivosList());
         model.put("cursos", cursoRepository.findAll());
@@ -64,29 +67,37 @@ public class RequerimentoController {
         return "requerimento/requerimentoForm";
     }
 
+    @Secured("ROLE_ALUNO")
     @GetMapping("/edit/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
         if (Objects.nonNull(requerimento)) {
-            model.addAttribute("cursos", cursoRepository.findAll());
-            model.addAttribute("motivos", MotivoRequerimentoConsts.getMotivosList());
-            model.addAttribute("requerimento", requerimento);
-            model.addAttribute("classActiveRequerimento", "active");
-            if (Objects.nonNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
-                //Pega as disciplinas do requerimento e as ignora no select, pois no requerimento.js é feita uma nova consulta
-                //para pegar as mesmas, caso contrário ficará duplicado os registros no duallistbox
-                List<Long> disciplinas = new ArrayList<>();
-                requerimento.getDisciplinas().forEach(d -> disciplinas.add(d.getDisciplina().getId()));
+            //Só pode alterar requerimento do usuário que criou, essa validação é válida pois algum usuário pode
+            //editar a URL e informar um id aleatório
+            if (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser())) {
+                model.addAttribute("cursos", cursoRepository.findAll());
+                model.addAttribute("motivos", MotivoRequerimentoConsts.getMotivosList());
+                model.addAttribute("requerimento", requerimento);
+                model.addAttribute("classActiveRequerimento", "active");
+                if (Objects.nonNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
+                    //Pega as disciplinas do requerimento e as ignora no select, pois no requerimento.js é feita uma nova consulta
+                    //para pegar as mesmas, caso contrário ficará duplicado os registros no duallistbox
+                    List<Long> disciplinas = new ArrayList<>();
+                    requerimento.getDisciplinas().forEach(d -> disciplinas.add(d.getDisciplina().getId()));
 
-                //posiciona no primeiro, pq se entrar nesse if, ao menos uma disciplina existirá, e se houver mais de uma, todas pertencerão ao mesmo curso
-                Long cursoId = requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId();
+                    //posiciona no primeiro, pq se entrar nesse if, ao menos uma disciplina existirá, e se houver mais de uma, todas pertencerão ao mesmo curso
+                    Long cursoId = requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId();
 
-                model.addAttribute("cursoId", cursoId);
-                model.addAttribute("disciplinas", disciplinaRepository.findByCursoIdAndIdNotIn(cursoId, disciplinas));
-                model.addAttribute("professores", usuarioRepository.findByTipo(TipoUsuarioEnum.PROFESSOR));
+                    model.addAttribute("cursoId", cursoId);
+                    model.addAttribute("disciplinas", disciplinaRepository.findByCursoIdAndIdNotIn(cursoId, disciplinas));
+                    model.addAttribute("professores", usuarioRepository.findByTipo(TipoUsuarioEnum.PROFESSOR));
+                } else {
+                    Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                    model.addAttribute("cursoId", usuario.getCurso().getId());
+                }
             } else {
-                Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-                model.addAttribute("cursoId", usuario.getCurso().getId());
+                model.addAttribute("error", "Requerimento solicitado pertence à outro usuário!");
+                return "forward:/";
             }
         } else {
             model.addAttribute("error", "Requerimento inexistente!");

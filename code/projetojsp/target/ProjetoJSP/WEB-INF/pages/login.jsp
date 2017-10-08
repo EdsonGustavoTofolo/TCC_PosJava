@@ -69,7 +69,7 @@
                         </div>
                         <div class="modal-body">
                             <p>Informe seu e-mail abaixo para criar uma nova senha.</p>
-                            <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                            <input type="email" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
                         </div>
                         <div class="modal-footer">
                             <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
