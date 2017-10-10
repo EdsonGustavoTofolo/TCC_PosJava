@@ -144,11 +144,7 @@ public class RequerimentoController {
                          @RequestPart("file") MultipartFile[] anexos) {
         Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (requerimento.getMotivo() == MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA) {
-            requerimento.setStatus(StatusRequerimentoEnum.AGUARDANDO_COORDENACAO);
-        } else {
-            requerimento.setStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC);
-        }
+        requerimento.setStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC);
         requerimento.setUsuario(usuario);
 
         if (!Objects.isNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {

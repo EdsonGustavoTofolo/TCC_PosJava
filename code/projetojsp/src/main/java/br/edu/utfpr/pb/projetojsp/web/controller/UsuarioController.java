@@ -68,6 +68,7 @@ public class UsuarioController {
     public String gravar(@Valid Usuario usuario, BindingResult erros, Model model) {
         Usuario usuarioBd = usuarioRepository.findById(usuario.getId()).get();
 
+        usuario.setTipo(TipoUsuarioEnum.ALUNO);
         usuario.setUsername(usuarioBd.getUsername());
         usuario.setDataCadastro(usuarioBd.getDataCadastro());
         usuario.setPermissoes(usuarioBd.getPermissoes());
