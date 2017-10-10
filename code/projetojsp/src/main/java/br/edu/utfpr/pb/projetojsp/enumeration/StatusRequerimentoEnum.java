@@ -4,11 +4,13 @@ package br.edu.utfpr.pb.projetojsp.enumeration;
  * Created by Edson on 04/07/2017.
  */
 public enum StatusRequerimentoEnum implements EnumLabel {
-    EM_ANDAMENTO("Em Andamento"),
-    AGUARDANDO_COORDENACAO("Aguardando Coordenação"),
     AGUARDANDO_DERAC("Aguardando Avaliação DERAC"),
-    FALTA_DOC("Falta Documento"),
-    CONCLUIDO("Concluído");
+    APROVADO_DERAC("Aprovado"),
+    FALTA_DOCUMENTOS("Falta de Documentos"),
+    RECUSADO("Recusado"),
+    AGUARDANDO_COORDENACAO("Aguardando Coordenação"),
+    APROVADO_COORDENACAO("Aprovado"),
+    FINALIZADO("Finalizado");
 
     private String label;
 

@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.specification;
 
+import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -22,6 +23,14 @@ public class RequerimentoSpecification {
             return null;
         } else {
             return (root, query, cb) -> cb.equal(root.get("id"), id);
+        }
+    }
+
+    public static Specification<Requerimento> withStatus(StatusRequerimentoEnum status) {
+        if (status == null) {
+            return null;
+        } else {
+            return (root, query, cb) -> cb.equal(root.get("status"), status);
         }
     }
 

@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.web.handler;
 
+import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
@@ -55,9 +56,14 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             String observacao = null;
             Integer motivo = null;
             String aluno = null;
+            StatusRequerimentoEnum status = null;
 
             if (Objects.nonNull(request.getParameter("id")) && !"".equals(request.getParameter("id"))) {
                 id = Long.valueOf(request.getParameter("id"));
+            }
+
+            if (Objects.nonNull(request.getParameter("status")) && !"".equals(request.getParameter("status"))) {
+                status = StatusRequerimentoEnum.values()[Integer.valueOf(request.getParameter("status")) - 1];
             }
 
             if (Objects.nonNull(request.getParameter("aluno")) && !"".equals(request.getParameter("aluno"))) {
@@ -86,7 +92,8 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
                             .and(RequerimentoSpecification.withId(id))
                             .and(RequerimentoSpecification.withData(data))
                             .and(RequerimentoSpecification.withObservacao(observacao))
-                            .and(RequerimentoSpecification.withMotivo(motivo)), pageRequest);
+                            .and(RequerimentoSpecification.withMotivo(motivo))
+                            .and(RequerimentoSpecification.withStatus(status)), pageRequest);
         } else {
             page = repository.findAll(Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
                             .and(RequerimentoSpecification.withProfessorId(professorId)), pageRequest);

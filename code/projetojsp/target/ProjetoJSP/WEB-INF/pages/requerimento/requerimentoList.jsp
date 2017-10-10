@@ -54,7 +54,16 @@
                         name : 'id',
                         index : 'id',
                         key: true,
-                        width : 75
+                        width : 70
+                    }, {
+                        label: 'Status',
+                        name: 'status',
+                        index: 'status',
+                        width: 150,
+                        align: 'center',
+                        stype: "select",
+                        searchoptions: { value: ":[Todos];1:Enviado DERAC;2:Aprovado DERAC;3:Falta Documentos;4:Recusado;5:Enviado Coordenação;6:Aprovado Coordenação;7:Finalizado" },
+                        formatter: statusFormatter
                     }
                     <sec:authorize access="hasAnyRole('PROFESSOR', 'COORDENACAO', 'DERAC')">
                         ,{
@@ -69,7 +78,7 @@
                         label : 'Motivo',
                         name : 'motivo',
                         index : 'motivo',
-                        width : 350,
+                        width : 300,
                         formatter: function myformatter ( cellvalue, options, rowObject ) {
                             return motivoList[cellvalue - 1].descricao;
                         },
@@ -117,24 +126,6 @@
                             }
                         }
                     }],
-                    afterInsertRow: function(rowid, rowdata, rowelement) {
-                        console.log(rowid);
-                        console.log(rowdata);
-                        console.log(rowelement);
-                        /*var motivoId;
-                         for(var i = 0, len = motivoList.length; i < len; i++) {
-                         if (motivoList[i].descricao == aMasterRow.descricao) {
-                         motivoId = motivoList[i].id;
-                         break;
-                         }
-                         }
-                         motivoId = parseInt(motivoId);
-                         if (motivoId !== 9 && motivoId !== 15) {
-                         // remove the plus from subgrid
-                         $("td.sgcollapsed","#"+rowid).empty().unbind('click');
-                         $(value).unbind('click').html('');
-                         }*/
-                    },
                     pager : '#jqGridPager',
                     rowNum : 10,
                     height: 'auto',
@@ -148,7 +139,27 @@
                     subGridOptions : {
                         selectOnExpand : true
                     }
+                
                 });
+                
+                function statusFormatter(cellvalue, options, rowobject) {
+                    if (cellvalue == "AGUARDANDO_DERAC") {
+                        return '<span class="label label-warning">Enviado DERAC</span>'
+                    } else if (cellvalue == "APROVADO_DERAC") {
+                        return '<span class="label label-success">Aprovado DERAC</span>'
+                    } else if (cellvalue == "FALTA_DOCUMENTOS") {
+                        return '<span class="label label-danger">Falta de Documentos</span>'
+                    } else if (cellvalue == "RECUSADO") {
+                        return '<span class="label label-danger">Recusado</span>'
+                    } else if (cellvalue == "AGUARDANDO_COORDENACAO") {
+                        return '<span class="label label-warning">Enviado Coordenação</span>'
+                    } else if (cellvalue == "APROVADO_COORDENACAO") {
+                        return '<span class="label label-success">Aprovado Coordenação</span>'
+                    } else {
+                        return '<span class="label label-primary">Finalizado</span>'
+                    }
+                }
+
                 // activate the toolbar searching
                 $('#jqGrid').jqGrid('filterToolbar');
                 $("#jqGrid").navGrid('#jqGridPager',
