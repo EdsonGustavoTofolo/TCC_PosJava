@@ -62,7 +62,12 @@
                         width: 150,
                         align: 'center',
                         stype: "select",
-                        searchoptions: { value: ":[Todos];1:Enviado DERAC;2:Aprovado DERAC;3:Falta Documentos;4:Recusado;5:Enviado Coordenação;6:Aprovado Coordenação;7:Finalizado" },
+                        searchoptions: {
+                            dataInit: function (e) {
+                              $(e).addClass('form-control').removeAttr('size');
+                            },
+                            value: ":[Todos];1:Enviado DERAC;2:Aprovado DERAC;3:Falta Documentos;4:Recusado;5:Enviado Coordenação;6:Aprovado Coordenação;7:Finalizado"
+                        },
                         formatter: statusFormatter
                     }
                     <sec:authorize access="hasAnyRole('PROFESSOR', 'COORDENACAO', 'DERAC')">
@@ -88,7 +93,7 @@
                             buildSelect: function (data) {
                                 var response, s = '<select>', i;
                                 response = jQuery.parseJSON(data);
-                                s += '<option value="">--Selecione--</option>';
+                                s += '<option value="">[Todos]</option>';
                                 if (response && response.length) {
                                     $.each(response, function (i) {
                                         s += '<option value="' + this.id+ '">' + this.descricao+ '</option>';
