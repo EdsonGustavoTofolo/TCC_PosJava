@@ -4,6 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <layout:template>
     <jsp:attribute name="cssEspecificos">
@@ -44,6 +45,20 @@
                 <frm:form id="frm" name="frm" method="post" modelAttribute="requerimentoForm" action="${requerimentoActUrl}"
                             enctype="multipart/form-data" autocomplete="off">
                     <input id="id" name="id" type="text" value="${id}" hidden/>
+                    <c:if test="${id > 0}">
+                        <sec:authorize access="hasAnyRole('COORDENACAO', 'DERAC')">
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <label for="status">Status:</label>
+                                <select name="status" id="status" class="form-control">
+                                    <c:forEach items="${statuses}" var="status">
+                                        <option value="${status.id}" ${status.id == requerimento.status.ordinal() ? 'selected="selected"' : ''}>
+                                                ${status.descricao}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </sec:authorize>
+                    </c:if>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="motivo">Motivo do Requerimento:</label>
                         <select name="motivo" id="motivo" class="form-control">

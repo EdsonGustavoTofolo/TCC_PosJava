@@ -11,6 +11,7 @@ import br.edu.utfpr.pb.projetojsp.repository.*;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoDisciplinaJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.util.ControllersUtil;
+import br.edu.utfpr.pb.projetojsp.web.util.RequerimentoControllerUtil;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,7 +68,7 @@ public class RequerimentoController {
         return "requerimento/requerimentoForm";
     }
 
-    @Secured("ROLE_ALUNO")
+    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO"})
     @GetMapping("/edit/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
@@ -75,6 +76,9 @@ public class RequerimentoController {
             //Só pode alterar requerimento do usuário que criou, essa validação é válida pois algum usuário pode
             //editar a URL e informar um id aleatório
             if (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser())) {
+                if (ControllersUtil.hasLoggedUserAnyRole("ROLE_DERAC", "ROLE_COORDENACAO")) {
+                    model.addAttribute("statuses", RequerimentoControllerUtil.getStatuses());
+                }
                 model.addAttribute("cursos", cursoRepository.findAll());
                 model.addAttribute("motivos", MotivoRequerimentoConsts.getMotivosList());
                 model.addAttribute("requerimento", requerimento);
@@ -142,7 +146,7 @@ public class RequerimentoController {
     @ResponseBody
     public String salvar(@RequestPart("requerimento") Requerimento requerimento,
                          @RequestPart("file") MultipartFile[] anexos) {
-        Usuario usuario = (Usuario) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Usuario usuario = ControllersUtil.getLoggedUser();
 
         requerimento.setStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC);
         requerimento.setUsuario(usuario);

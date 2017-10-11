@@ -20,41 +20,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
+      <file leaf-file-name="requerimentoForm.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+            <state relative-caret-position="252">
+              <caret line="57" column="28" lean-forward="false" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/IndexController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requerimentoList.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoList.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="66" column="79" lean-forward="false" selection-start-line="66" selection-start-column="79" selection-end-line="66" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequerimentoController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RequerimentoController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="50" column="35" lean-forward="false" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+            <state relative-caret-position="29">
+              <caret line="70" column="59" lean-forward="false" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RequerimentoControllerUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/RequerimentoControllerUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,8 +57,8 @@
       <file leaf-file-name="StatusRequerimentoEnum.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="29" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="189">
+              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -87,7 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dz-preview</find>
       <find>ajax</find>
       <find>showLoaderOnConfirm</find>
       <find>exclui</find>
@@ -117,6 +108,7 @@
       <find>single</find>
       <find>form-control</find>
       <find>label</find>
+      <find>select2</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -127,8 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/repository/UsuarioRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/controller/UsuarioController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/RequerimentoDisciplina.java" />
         <option value="$PROJECT_DIR$/web/resources/js/dropzone/dropzone_NEW.js" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/Anexo.java" />
@@ -150,34 +140,36 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/RequerimentoAnexo.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/repository/RequerimentoAnexoRepository.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/MotivoRequerimentoConsts.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/repository/RequerimentoDisciplinaRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/specification/RequerimentoDisciplinaSpecification.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/exclusionStrategyGson/RequerimentoDisciplinaExclusionStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/handler/RequerimentoDisciplinaJQGridHandler.java" />
         <option value="$PROJECT_DIR$/web/resources/js/dropzone/dropzone.js" />
-        <option value="$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js" />
         <option value="$PROJECT_DIR$/web/resources/css/dropzone/dropzone.css" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/Requerimento.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/templates/nav.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/Usuario.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/Permissao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/framework/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/ControllersUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/UsuarioController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/tags/layout/template.tag" />
         <option value="$PROJECT_DIR$/web/resources/css/pace/pace-theme.css" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java" />
         <option value="$PROJECT_DIR$/web/resources/css/loginStyle.css" />
         <option value="$PROJECT_DIR$/web/resources/css/styles.css" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/specification/RequerimentoSpecification.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/handler/RequerimentoJQGridHandler.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoList.jsp" />
+        <option value="$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/RequerimentoStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/ControllersUtil.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/RequerimentoControllerUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/framework/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java" />
       </list>
     </option>
   </component>
@@ -389,76 +381,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetojsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetojsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetojsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetojsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetojsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetojsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pace" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1200,12 +1122,12 @@
       <workItem from="1504384061194" duration="34683000" />
       <workItem from="1504910804829" duration="47593000" />
       <workItem from="1505424672059" duration="94011000" />
-      <workItem from="1506724866629" duration="77317000" />
+      <workItem from="1506724866629" duration="80579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="330625000" />
+    <option name="totallyTimeSpent" value="333887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1223,7 +1145,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4960894" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46815643" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1263,8 +1185,14 @@
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java</url>
+          <line>148</line>
+          <properties />
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="180" />
+      <option name="time" value="181" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1273,22 +1201,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.0.BUILD-SNAPSHOT/spring-data-commons-2.0.0.BUILD-20170928.220449-197.jar!/org/springframework/data/repository/CrudRepository.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/repository/RequerimentoAnexoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1423,14 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="398" column="87" lean-forward="false" selection-start-line="398" selection-start-column="87" selection-end-line="398" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/js/dropzone/dropzone.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -1507,24 +1411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/framework/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="35" column="46" lean-forward="false" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/Requerimento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/RequerimentoDisciplina.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1546,16 +1432,6 @@
         <state relative-caret-position="287">
           <caret line="55" column="32" lean-forward="false" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/ControllersUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1603,14 +1479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="517">
           <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1663,14 +1531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="29" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/specification/RequerimentoSpecification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -1689,10 +1549,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/Requerimento.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="50" column="35" lean-forward="false" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+        <state relative-caret-position="606">
+          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="262" column="14" lean-forward="false" selection-start-line="262" selection-start-column="14" selection-end-line="262" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/ControllersUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1701,9 +1579,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="66" column="79" lean-forward="false" selection-start-line="66" selection-start-column="79" selection-end-line="66" selection-end-column="79" />
+        <state relative-caret-position="441">
+          <caret line="72" column="90" lean-forward="true" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="90" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/RequerimentoStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="57" column="28" lean-forward="false" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/framework/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="34" column="89" lean-forward="false" selection-start-line="34" selection-start-column="89" selection-end-line="34" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/RequerimentoControllerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="70" column="59" lean-forward="false" selection-start-line="70" selection-start-column="59" selection-end-line="70" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

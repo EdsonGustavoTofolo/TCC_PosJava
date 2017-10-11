@@ -4,6 +4,9 @@ import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by Edson on 08/10/2017.
  */
@@ -20,5 +23,11 @@ public class ControllersUtil {
             }
         }
         return Boolean.FALSE;
+    }
+
+    public static Boolean hasLoggedUserAnyRole(String...roles) {
+        List<String> roleList = Arrays.asList(roles);
+        Usuario usuario = getLoggedUser();
+        return roleList.containsAll(usuario.getPermissoes());
     }
 }

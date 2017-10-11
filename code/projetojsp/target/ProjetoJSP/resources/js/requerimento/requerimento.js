@@ -259,6 +259,9 @@ $(document).ready(function () {
     //------[ SELECAO DE PROFESSOR ]-----
     $("#professor").select2();
 
+    //------[ SELECAO DO STATUS ] -----
+    $("#status").select2();
+
     //------[ SELECAO DE CURSOS ] --------
     $("#curso").select2();
     $("#curso").on("select2:select", function (e) {
