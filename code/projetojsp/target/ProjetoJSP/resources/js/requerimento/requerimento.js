@@ -261,6 +261,38 @@ $(document).ready(function () {
 
     //------[ SELECAO DO STATUS ] -----
     $("#status").select2();
+    $("#status").on("select2:select", function (e) {
+        var statusId = e.params['data'].id;
+        var requerimentoId = $("#id").val();
+        swal({
+            title: 'Confirma a alteração do Status?!',
+            text: "Esta ação não poderá ser desfeita!",
+            type: 'question', //warning
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, alterar!!',
+            cancelButtonText: 'Não',
+            allowOutsideClick: false
+        }).then(function () {
+            var url = '/ProjetoJSP/requerimento/edit/' + requerimentoId + '/changeStatus/' + statusId;
+            $.ajax({
+                type : 'PUT',
+                url : url,
+                success : function(data) {
+                    data = JSON.parse(data);
+                    if (data.state == "OK") {
+                        window.location = '/ProjetoJSP/requerimento/list';
+                    } else {
+                        swal("Falhou!", data.message, "error").catch(swal.noop);
+                    }
+                },//Fim success
+                error : function() {
+                    swal("Erro!", "Falha ao alterar status.", "error").catch(swal.noop);
+                }
+            }); //Fim ajax
+        }).catch(swal.noop); // esse catch evita erro no console do browser
+    });
 
     //------[ SELECAO DE CURSOS ] --------
     $("#curso").select2();

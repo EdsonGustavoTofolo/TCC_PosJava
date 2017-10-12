@@ -135,6 +135,9 @@
                     rowNum : 10,
                     height: 'auto',
                     with: 'auto',
+//                    autoWidth: true,
+                    shrinkToFit: true,
+//                    forceFit: true,
                     rowList : [ 10, 20, 30 ],
                     viewrecords : true,
                     caption : 'Requerimentos',
@@ -230,14 +233,14 @@
                                 success : function(data) {
                                     data = JSON.parse(data);
                                     if (data.state == "OK"){
-                                        swal("Removido!", data.message, "success");
+                                        swal("Removido!", data.message, "success").catch(swal.noop);
                                         $('#jqGrid').trigger( 'reloadGrid' );
                                     } else {
-                                        swal("Falhou!", data.message, "error");
+                                        swal("Falhou!", data.message, "error").catch(swal.noop);
                                     }
                                 },//Fim success
                                 error : function() {
-                                    swal("Erro!", "Falha ao remover registro.", "error");
+                                    swal("Erro!", "Falha ao remover registro.", "error").catch(swal.noop);
                                 }
                             }); //Fim ajax
                         }).catch(swal.noop); // esse catch evita erro no console do browser
@@ -299,8 +302,9 @@
                         page: 1,
                         rownum: 15,
                         colModel: colModelReq,
-                        height: '100%',
-                        with: '100%',
+                        height: 'auto',
+//                        with: '100%',
+                        autoWidth: true,
                         pager: "#" + childGridPagerID
                     });
 
@@ -310,6 +314,8 @@
                     var rowKey = $("#jqGrid").jqGrid('getGridParam',"selrow");
                     return rowKey;
                 }
+
+                $(window).trigger('resize'); // para redimesionar
             });
 
         </script>
@@ -318,7 +324,7 @@
         <div class="container-fluid">
             <h3>Lista de Requerimentos</h3>
             <hr>
-            <div class="row pt-3 container">
+            <div>
                 <table id="jqGrid"></table>
                 <div id="jqGridPager"></div>
             </div>

@@ -28,6 +28,11 @@ public class ControllersUtil {
     public static Boolean hasLoggedUserAnyRole(String...roles) {
         List<String> roleList = Arrays.asList(roles);
         Usuario usuario = getLoggedUser();
-        return roleList.containsAll(usuario.getPermissoes());
+        for (Permissao p : usuario.getPermissoes()) {
+            if (roleList.contains(p.getPermissao())) {
+                return Boolean.TRUE;
+            }
+        }
+        return Boolean.FALSE;
     }
 }

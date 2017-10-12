@@ -36,6 +36,9 @@
         <script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
     </jsp:attribute>
     <jsp:body>
+        <sec:authorize access="hasAnyRole('COORDENACAO', 'DERAC')">
+            <c:set value="disabled" var="disabledFields" scope="page" />
+        </sec:authorize>
         <div class="container-fluid">
             <h3>Requerimento <small>${id}</small></h3>
             <hr>
@@ -47,6 +50,10 @@
                     <input id="id" name="id" type="text" value="${id}" hidden/>
                     <c:if test="${id > 0}">
                         <sec:authorize access="hasAnyRole('COORDENACAO', 'DERAC')">
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                <label for="alunoNome">Aluno:</label>
+                                <input id="alunoNome" type="text" value="${alunoNome}" class="form-control" disabled/>
+                            </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                 <label for="status">Status:</label>
                                 <select name="status" id="status" class="form-control">
@@ -61,7 +68,7 @@
                     </c:if>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="motivo">Motivo do Requerimento:</label>
-                        <select name="motivo" id="motivo" class="form-control">
+                        <select name="motivo" id="motivo" class="form-control" ${disabledFields}>
                             <c:forEach items="${motivos}" var="motivo">
                                 <option value="${motivo.id}" ${motivo.id == requerimento.motivo ? 'selected="selected"' : ''}>
                                     ${motivo.descricao}
@@ -71,7 +78,7 @@
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="curso">Curso:</label>
-                        <select id="curso" name="curso" class="form-control">
+                        <select id="curso" name="curso" class="form-control" ${disabledFields}>
                             <c:forEach items="${cursos}" var="curso">
                                 <option value="${curso.id}" ${curso.id == cursoId ? 'selected="selected"' : ''}>
                                         ${curso.usuario.nome}
@@ -82,7 +89,7 @@
                     <div id="motivoDisciplinas" class="form-group col-lg-12 col-md-12 col-sm-12
                             ${requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17 ? '' : 'hidden'}">
                         <hr>
-                        <select id="disciplinas" class="form-control dual_select" multiple>
+                        <select id="disciplinas" class="form-control dual_select" ${disabledFields} multiple>
                             <c:forEach items="${disciplinas}" var="disciplina">
                                 <option value="${disciplina.id}">
                                         ${disciplina.codigo} - ${disciplina.nome}
@@ -94,7 +101,7 @@
                         <hr>
                         <div class="form-group">
                             <label for="disciplina">Disciplina:</label>
-                            <select id="disciplina" name="disciplina" class="form-control">
+                            <select id="disciplina" name="disciplina" class="form-control" ${disabledFields}>
                                 <c:forEach items="${disciplinas}" var="disciplina">
                                     <option value="${disciplina.id}"
                                                 ${requerimento.motivo == 9 && disciplina.id == requerimento.disciplinas.get(0).disciplina.id ? 'selected="selected"' : ''}>
@@ -105,7 +112,7 @@
                         </div>
                         <div class="form-group">
                             <label for="professor">Professor:</label>
-                            <select id="professor" name="professor" class="form-control">
+                            <select id="professor" name="professor" class="form-control" ${disabledFields}>
                                 <c:forEach items="${professores}" var="professor">
                                     <option value="${professor.id}"
                                         ${requerimento.motivo == 9 && professor.id == requerimento.disciplinas.get(0).professor.id ? 'selected="selected"' : ''}>
@@ -118,7 +125,7 @@
                             <label for="data">Data:</label>
                             <div class="input-group date">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input id="data" name="data" type="text" class="form-control"
+                                <input id="data" name="data" type="text" class="form-control" ${disabledFields}
                                        value='<fmt:formatDate value="${requerimento.motivo == 9 ? requerimento.disciplinas.get(0).dataProva : ''}"
                                        pattern="dd/MM/yyyy" />'/>
                             </div>
@@ -126,7 +133,7 @@
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="observacao">Observações:</label>
-                        <textarea id="observacao" name="observacao" class="form-control" rows="5">${requerimento.observacao}</textarea>
+                        <textarea id="observacao" name="observacao" class="form-control" rows="5" ${disabledFields}>${requerimento.observacao}</textarea>
                     </div>
                     <c:if test="${requerimento.anexos.size() > 0}">
                         <div id="requerimentoAnexos" class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -143,25 +150,31 @@
                                                 <span>${anexo.nome}</span>
                                             </div>
                                         </div>
-                                        <div class="dz-download">
+                                        <div class="dz-download" style="${disabledFields == 'disabled' ? 'top: 80%;' : ''}">
                                             <a href="<c:url value="/requerimento/anexos/download/${anexo.id}"/>">Download</a>
                                         </div>
-                                        <a href="#" onclick="deleteAnexo(${anexo.id})" class="dz-remove">Excluir</a>
+                                        <sec:authorize access="hasRole('ALUNO')">
+                                            <a href="#" onclick="deleteAnexo(${anexo.id})" class="dz-remove">Excluir</a>
+                                        </sec:authorize>
                                     </div>
                                 </c:forEach>
                             </div>
                         </div>
                     </c:if>
-                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                        <label for="file">Anexar Documentos:</label>
-                        <div action="#" class="dropzone" id="dropzoneForm">
-                            <div class="fallback">
-                                <input id="file" name="file" type="file" multiple />
+                    <sec:authorize access="hasRole('ALUNO')">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                            <label for="file">Anexar Documentos:</label>
+                            <div action="#" class="dropzone" id="dropzoneForm">
+                                <div class="fallback">
+                                    <input id="file" name="file" type="file" multiple />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button type="reset" class="btn btn-default">Limpar</button>
-                    <button id="salvar" type="submit" class="btn btn-primary">Salvar</button>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ALUNO')">
+                        <button type="reset" class="btn btn-default">Limpar</button>
+                        <button id="salvar" type="submit" class="btn btn-primary">Salvar</button>
+                    </sec:authorize>
                 </frm:form>
             </div>
         </div>
