@@ -15,6 +15,7 @@ public class RequerimentoControllerUtil {
             list.add(new RequerimentoStatus(2, "Falta de Documentos"));
             list.add(new RequerimentoStatus(3, "Recusado"));
             list.add(new RequerimentoStatus(4, "Enviar Coordenação"));
+            list.add(new RequerimentoStatus(6, "Finalizar"));
         } else {
             list.add(new RequerimentoStatus(4, "Aguardando Coordenação"));
             list.add(new RequerimentoStatus(5, "Aprovado"));

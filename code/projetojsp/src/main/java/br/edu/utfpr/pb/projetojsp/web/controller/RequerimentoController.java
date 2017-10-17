@@ -74,7 +74,7 @@ public class RequerimentoController {
                                @PathVariable(name = "statusId") Integer statusId) {
         JSONObject retorno = new JSONObject();
         try{
-            Requerimento requerimento = requerimentoRepository.findById(requerimentoId).get();
+            Requerimento requerimento = requerimentoRepository.findById(requerimentoId).orElse(null);
             if (Objects.nonNull(requerimento)) {
                 requerimento.setStatus(StatusRequerimentoEnum.values()[statusId]);
                 requerimentoRepository.save(requerimento);
