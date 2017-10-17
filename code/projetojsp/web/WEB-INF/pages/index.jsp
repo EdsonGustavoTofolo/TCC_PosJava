@@ -129,7 +129,9 @@
                 //resources: resourcesAdapterFunc(),
                 source: dataAdapter,
                 itemRenderer: function(element, item, resource) {
+                    var url = "/ProjetoJSP/requerimento/edit/" + item.id;
                     $(element).find(".jqx-kanban-item-avatar img").attr('title', item.content);
+                    $(element).find(".jqx-kanban-item-text").html('<a href=' + url + '>' + item.text + '</a>')
                 },
                 columns: [
                     { text: "Com DERAC", dataField: "AGUARDANDO_DERAC" },
