@@ -18,14 +18,12 @@ public class RequerimentoControllerUtil {
             list.add(new RequerimentoStatus(6, "Finalizar"));
         } else if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
             list.add(new RequerimentoStatus(4, "Aguardando Coordenação"));
+            list.add(new RequerimentoStatus(7, "Enviar Professor"));
             list.add(new RequerimentoStatus(5, "Aprovado"));
             list.add(new RequerimentoStatus(3, "Recusado"));
         } else if (ControllersUtil.hasLoggedUserRole("ROLE_PROFESSOR")) {
             list.add(new RequerimentoStatus(7, "Aguardando Professor"));
             list.add(new RequerimentoStatus(6, "Finalizar"));
-        } else {
-            list.add(new RequerimentoStatus(0, "Aguardando DERAC"));
-            list.add(new RequerimentoStatus(2, "Falta de Documentos"));
         }
         return list;
     }

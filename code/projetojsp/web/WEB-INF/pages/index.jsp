@@ -40,13 +40,12 @@
 
             var urlRequerimentos = '';
             var boardColumns = [];
-            var requerimentoList = [];
 
             <sec:authorize access="hasRole('ALUNO')">
               urlRequerimentos = '/ProjetoJSP/requerimento/findToAluno';
               boardColumns =  [
                   { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
-                  { text: "Enviar Coordenação", dataField: "AGUARDANDO_COORDENACAO" }
+                  { text: "Enviar DERAC", dataField: "AGUARDANDO_DERAC" }
               ];
             </sec:authorize>
             <sec:authorize access="hasRole('COORDENACAO')">
@@ -78,93 +77,51 @@
             </sec:authorize>
 
             $.getJSON(urlRequerimentos, {}, function (data) {
-                requerimentoList = data;
-            });
+                var localData = [];
+                data.forEach(function(requerimento, index) {
+                    localData.push(
+                        {
+                          id: requerimento.id,
+                          status: requerimento.status,
+                          text: motivoList[requerimento.motivo - 1].descricao,
+                          tags: requerimento.usuario.curso.usuario.nome,
+                          content: requerimento.usuario.nome,
+                          color: getColor(requerimento.status),
+                          resourceId: null
+                        }
+                    );
+                });
 
-            var localData = [];
-            requerimentoList.forEach(function(requerimento, index) {
-                localData.push(
+                var source =
                     {
-                      id: requerimento.id,
-                      status: requerimento.status,
-                      text: motivoList[requerimento.motivo - 1].descricao,
-                      tags: requerimento.usuario.curso.usuario.nome,
-                      content: requerimento.usuario.nome,
-                      color: getColor(requerimento.status),
-                      resourceId: null
-                    }
-                );
-            });
-
-            var source =
-                {
-                    localData: localData,
-                    dataType: "array",
-                    dataFields:
-                        [
-                            { name: "id", type: "number" },
-                            { name: "status", type: "string" },
-                            { name: "text", type: "string" },
-                            { name: "tags", type: "string" },
-                            { name: "content", type: "string" },
-                            { name: "color", type: "string" },
-                            { name: "resourceId", type: "number" }
-                        ]
-                };
-
-            var dataAdapter = new $.jqx.dataAdapter(source);
-
-            /*var resourcesAdapterFunc = function () {
-                var resourcesSource =
-                    {
-                        localData: [
-                            { id: 0, name: "No name", image: "../../jqwidgets/styles/images/common.png", common: true },
-                            { id: 1, name: "Andrew Fuller", image: "../../images/andrew.png" },
-                            { id: 2, name: "Janet Leverling", image: "../../images/janet.png" },
-                            { id: 3, name: "Steven Buchanan", image: "../../images/steven.png" },
-                            { id: 4, name: "Nancy Davolio", image: "../../images/nancy.png" },
-                            { id: 5, name: "Michael Buchanan", image: "../../images/Michael.png" },
-                            { id: 6, name: "Margaret Buchanan", image: "../../images/margaret.png" },
-                            { id: 7, name: "Robert Buchanan", image: "../../images/robert.png" },
-                            { id: 8, name: "Laura Buchanan", image: "../../images/Laura.png" },
-                            { id: 9, name: "Laura Buchanan", image: "../../images/Anne.png" }
-
-                        ],
+                        localData: localData,
                         dataType: "array",
-                        dataFields: [
-                            { name: "id", type: "number" },
-                            { name: "name", type: "string" },
-                            { name: "image", type: "string" },
-                            { name: "common", type: "boolean" }
-                        ]
+                        dataFields:
+                            [
+                                { name: "id", type: "number" },
+                                { name: "status", type: "string" },
+                                { name: "text", type: "string" },
+                                { name: "tags", type: "string" },
+                                { name: "content", type: "string" },
+                                { name: "color", type: "string" },
+                                { name: "resourceId", type: "number" }
+                            ]
                     };
 
-                var resourcesDataAdapter = new $.jqx.dataAdapter(resourcesSource);
-                return resourcesDataAdapter;
-            }*/
+                var dataAdapter = new $.jqx.dataAdapter(source);
 
-//            var templateContent = { status: "new", text: "New text", content: "New content", curso: "", tags: "", color: "green", resourceId: 0, className: ""};
-            $('#kanban').jqxKanban({
-                width: '100%',
-                height: '100%',
-                //templateContent: templateContent,
-                /*template:
-                "<div class='jqx-kanban-item' id=''>"
-                  + "<div class='jqx-kanban-item-color-status'></div>"
-                  + "<div style='display: none;' class='jqx-kanban-item-avatar'></div>"
-                  + "<div class='jqx-icon jqx-kanban-item-template-content jqx-kanban-template-icon'></div>"
-                  + "<div class='jqx-kanban-item-text'></div>"
-                  + "<div class='jqx-kanban-item-footer'></div>"
-                + "</div>",*/
-                //resources: resourcesAdapterFunc(),
-                source: dataAdapter,
-                itemRenderer: function(element, item, resource) {
-                    var url = "/ProjetoJSP/requerimento/edit/" + item.id;
-                    $(element).find(".jqx-kanban-item-avatar img").attr('title', item.content);
-                    $(element).find(".jqx-kanban-item-text").html('<a href=' + url + '>' + item.text + '</a>')
-                },
-                columns: boardColumns
-            });
+                $('#kanban').jqxKanban({
+                    width: '100%',
+                    height: '100%',
+                    source: dataAdapter,
+                    itemRenderer: function(element, item, resource) {
+                        var url = "/ProjetoJSP/requerimento/edit/" + item.id;
+                        $(element).find(".jqx-kanban-item-avatar img").attr('title', item.content);
+                        $(element).find(".jqx-kanban-item-text").html('<a href=' + url + '>' + item.text + '</a>')
+                    },
+                    columns: boardColumns
+                });
+            });//FIM GETJSON
 
             var log = new Array();
             var updateLog = function () {

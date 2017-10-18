@@ -103,7 +103,8 @@ public class RequerimentoController {
             if ((requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) &&
                     (requerimento.getStatus().equals(StatusRequerimentoEnum.FALTA_DOCUMENTOS) || requerimento.getStatus().equals(StatusRequerimentoEnum.AGUARDANDO_DERAC)))
                     || hasRolesSuper) {
-                if (hasRolesSuper || requerimento.getStatus().equals(StatusRequerimentoEnum.FALTA_DOCUMENTOS)) {
+
+                if (hasRolesSuper) {
                     model.addAttribute("statuses", RequerimentoControllerUtil.getStatuses());
                 }
 
@@ -295,10 +296,7 @@ public class RequerimentoController {
     @GetMapping(value = "/findToDerac")
     @ResponseBody
     public List<Requerimento> findByDerac() {
-        List<Requerimento> requerimentos = null;
-
-        requerimentoRepository.findAll();
-
+        List<Requerimento> requerimentos = requerimentoRepository.findByStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC);
         return requerimentos;
     }
 
@@ -306,10 +304,10 @@ public class RequerimentoController {
     @GetMapping(value = "/findToAluno")
     @ResponseBody
     public List<Requerimento> findToAluno() {
-        List<Requerimento> requerimentos = null;
-
-        requerimentoRepository.findAll();
-
+        List<Requerimento> requerimentos = requerimentoRepository.findByUsuarioIdAndStatusOrStatus(
+                ControllersUtil.getLoggedUser().getId(),
+                StatusRequerimentoEnum.AGUARDANDO_DERAC,
+                StatusRequerimentoEnum.AGUARDANDO_COORDENACAO.FALTA_DOCUMENTOS);
         return requerimentos;
     }
 
@@ -317,10 +315,7 @@ public class RequerimentoController {
     @GetMapping(value = "/findToCoordenacao")
     @ResponseBody
     public List<Requerimento> findToCoordenacao() {
-        List<Requerimento> requerimentos = null;
-
-        requerimentoRepository.findAll();
-
+        List<Requerimento> requerimentos = requerimentoRepository.findByStatus(StatusRequerimentoEnum.AGUARDANDO_COORDENACAO);
         return requerimentos;
     }
 
@@ -328,10 +323,7 @@ public class RequerimentoController {
     @GetMapping(value = "/findToProfessor")
     @ResponseBody
     public List<Requerimento> findToProfessor() {
-        List<Requerimento> requerimentos = null;
-
-        requerimentoRepository.findAll();
-
+        List<Requerimento> requerimentos = requerimentoRepository.findByStatus(StatusRequerimentoEnum.AGUARDANDO_PROFESSOR);
         return requerimentos;
     }
 }
