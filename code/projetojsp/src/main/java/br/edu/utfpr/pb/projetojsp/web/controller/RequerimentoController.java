@@ -67,7 +67,7 @@ public class RequerimentoController {
         return "requerimento/requerimentoForm";
     }
 
-    @Secured({"ROLE_DERAC", "ROLE_COORDENACAO"})
+    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
     @PutMapping("/edit/{requerimentoId}/changeStatus/{statusId}")
     @ResponseBody
     public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
@@ -90,17 +90,20 @@ public class RequerimentoController {
         return retorno.toString();
     }
 
-    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO"})
+    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
     @GetMapping("/edit/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
         if (Objects.nonNull(requerimento)) {
-            Boolean hasRolesSuper = ControllersUtil.hasLoggedUserAnyRole("ROLE_DERAC", "ROLE_COORDENACAO");
+            Boolean hasRolesSuper = ControllersUtil.hasLoggedUserAnyRole("ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR");
 
-            //Só pode alterar requerimento do usuário que criou, essa validação é válida pois algum usuário pode
+            //Só pode alterar requerimento do usuário que criou e que o status esteja em falta de documentos ou aguardando derac OU o não é ALUNO
+            // essa validação é válida pois algum usuário pode
             //editar a URL e informar um id aleatório
-            if (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) || hasRolesSuper) {
-                if (hasRolesSuper) {
+            if ((requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) &&
+                    (requerimento.getStatus().equals(StatusRequerimentoEnum.FALTA_DOCUMENTOS) || requerimento.getStatus().equals(StatusRequerimentoEnum.AGUARDANDO_DERAC)))
+                    || hasRolesSuper) {
+                if (hasRolesSuper || requerimento.getStatus().equals(StatusRequerimentoEnum.FALTA_DOCUMENTOS)) {
                     model.addAttribute("statuses", RequerimentoControllerUtil.getStatuses());
                 }
 
@@ -288,4 +291,47 @@ public class RequerimentoController {
         return MotivoRequerimentoConsts.getMotivosList();
     }
 
+    @Secured("ROLE_DERAC")
+    @GetMapping(value = "/findToDerac")
+    @ResponseBody
+    public List<Requerimento> findByDerac() {
+        List<Requerimento> requerimentos = null;
+
+        requerimentoRepository.findAll();
+
+        return requerimentos;
+    }
+
+    @Secured("ROLE_ALUNO")
+    @GetMapping(value = "/findToAluno")
+    @ResponseBody
+    public List<Requerimento> findToAluno() {
+        List<Requerimento> requerimentos = null;
+
+        requerimentoRepository.findAll();
+
+        return requerimentos;
+    }
+
+    @Secured("ROLE_COORDENACAO")
+    @GetMapping(value = "/findToCoordenacao")
+    @ResponseBody
+    public List<Requerimento> findToCoordenacao() {
+        List<Requerimento> requerimentos = null;
+
+        requerimentoRepository.findAll();
+
+        return requerimentos;
+    }
+
+    @Secured("ROLE_PROFESSOR")
+    @GetMapping(value = "/findToProfessor")
+    @ResponseBody
+    public List<Requerimento> findToProfessor() {
+        List<Requerimento> requerimentos = null;
+
+        requerimentoRepository.findAll();
+
+        return requerimentos;
+    }
 }

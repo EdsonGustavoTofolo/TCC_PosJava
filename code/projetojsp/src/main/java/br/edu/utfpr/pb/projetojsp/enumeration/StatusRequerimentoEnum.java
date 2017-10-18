@@ -10,7 +10,8 @@ public enum StatusRequerimentoEnum implements EnumLabel {
     RECUSADO("Recusado"),
     AGUARDANDO_COORDENACAO("Enviar Coordenação"),
     APROVADO_COORDENACAO("Aprovado Coordenação"),
-    FINALIZADO("Finalizado");
+    FINALIZADO("Finalizado"),
+    AGUARDANDO_PROFESSOR("Aguardando Professor");
 
     private String label;
 

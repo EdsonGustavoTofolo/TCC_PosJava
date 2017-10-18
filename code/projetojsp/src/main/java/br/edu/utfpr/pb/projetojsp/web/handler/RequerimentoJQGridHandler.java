@@ -35,20 +35,6 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
     @Override
     public List<Requerimento> findData(HttpServletRequest request, boolean isSearching, PageRequest pageRequest) {
-        Long alunoId = null;
-        Long professorId = null;
-
-        Usuario usuario = ControllersUtil.getLoggedUser();
-        for (Permissao permissao : usuario.getPermissoes()) {
-            if (permissao.getPermissao().equals(Permissao.ROLE_ALUNO)) {//se for do tipo aluno, retorna somente os requerimentos dele
-                alunoId = usuario.getId();
-                break;
-            } else if (permissao.getPermissao().equals(Permissao.ROLE_PROFESSOR)) {
-                professorId = usuario.getId();
-                break;
-            }
-        }
-
         Page<Requerimento> page = null;
         if (isSearching) {
             Long id = null;
@@ -86,8 +72,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             if (Objects.nonNull(request.getParameter("observacao")) && !"".equals(request.getParameter("observacao"))) {
                 observacao = request.getParameter("observacao");
             }
-            page = repository.findAll(Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
-                            .and(RequerimentoSpecification.withProfessorId(professorId))
+            page = repository.findAll(getCommonSpecification()
                             .and(RequerimentoSpecification.withAlunoNome(aluno))
                             .and(RequerimentoSpecification.withId(id))
                             .and(RequerimentoSpecification.withData(data))
@@ -95,8 +80,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
                             .and(RequerimentoSpecification.withMotivo(motivo))
                             .and(RequerimentoSpecification.withStatus(status)), pageRequest);
         } else {
-            page = repository.findAll(Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
-                            .and(RequerimentoSpecification.withProfessorId(professorId)), pageRequest);
+            page = repository.findAll(getCommonSpecification(), pageRequest);
         }
 		List<Requerimento> list = page.getContent();
         return list;
@@ -114,6 +98,23 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
     @Override
     public long getTotalRecords() {
-        return repository.count();
+        return repository.count(getCommonSpecification());
+    }
+
+    private Specification<Requerimento> getCommonSpecification() {
+        Long alunoId = null;
+        Long professorId = null;
+
+        Usuario usuario = ControllersUtil.getLoggedUser();
+        for (Permissao permissao : usuario.getPermissoes()) {
+            if (permissao.getPermissao().equals(Permissao.ROLE_ALUNO)) {//se for do tipo aluno, retorna somente os requerimentos dele
+                alunoId = usuario.getId();
+                break;
+            } else if (permissao.getPermissao().equals(Permissao.ROLE_PROFESSOR)) {
+                professorId = usuario.getId();
+                break;
+            }
+        }
+        return Specification.where(RequerimentoSpecification.withUsuarioId(alunoId)).and(RequerimentoSpecification.withProfessorId(professorId));
     }
 }

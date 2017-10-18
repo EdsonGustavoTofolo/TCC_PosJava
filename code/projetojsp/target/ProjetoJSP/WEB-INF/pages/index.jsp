@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <spring:url value="/usuario/conta/" var="urlContaUsuario" />
 
@@ -37,19 +38,48 @@
                 }
             }
 
-            /* Fazer a requisição AJAX e buscar os requerimentos */
-            var requerimentoList = [
-                {"id":59,"status":"RECUSADO","motivo":1,"observacao":"dois anexos","data":"2017-10-07T17:39:54-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":58,"status":"FALTA_DOCUMENTOS","motivo":1,"observacao":"dois arquivos","data":"2017-10-05T19:01:57-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":57,"status":"FALTA_DOCUMENTOS","motivo":1,"observacao":"assets 1mega","data":"2017-10-04T19:29:45-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":56,"status":"FALTA_DOCUMENTOS","motivo":1,"observacao":"","data":"2017-10-04T19:18:23-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":55,"status":"FALTA_DOCUMENTOS","motivo":1,"observacao":"","data":"2017-10-04T18:56:38-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":54,"status":"AGUARDANDO_COORDENACAO","motivo":1,"observacao":"com anexo","data":"2017-10-04T18:51:30-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":53,"status":"FALTA_DOCUMENTOS","motivo":5,"observacao":"curso de adm, somente sociologia","data":"2017-10-03T20:53:03-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":51,"status":"FALTA_DOCUMENTOS","motivo":5,"observacao":"todas menos informatica e sociedade                        ","data":"2017-10-03T20:27:53-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-                {"id":50,"status":"APROVADO_DERAC","motivo":9,"observacao":"se fizer cerrto da certo","data":"2017-10-02T20:23:47-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}},
-	            {"id":49,"status":"APROVADO_DERAC","motivo":9,"observacao":"","data":"2017-10-02T20:08:09-03","usuario":{"id":39,"username":"1437119","email":"edson@gmail.com","senha":"$2a$10$nPbrwe3SEeK/T1jfqECeCu1ihq5Za7bBzC4uiOwFeio13yPq/W/6e","nome":"Edson Gustavo Tofolo","telefone":"46991034819","curso":{"id":1,"usuario":{"id":1,"username":"coads","email":"coads@utfpr.pb.com.br","senha":"$2a$10$u2jUbHutip0QcKrDgDJZXe6Kp9UBR3ThBSJjkSLK6mUjLm/EaaZnO","nome":"Análise e Desenvolvimento de Sistemas","telefone":null,"curso":null,"tipo":"COORDENACAO","dataCadastro":"2017-09-18T20:37:33-03","permissoes":[{"id":2,"permissao":"ROLE_DERAC"}]}},"tipo":"ALUNO","dataCadastro":"2017-09-18T20:38:03-03","permissoes":[{"id":1,"permissao":"ROLE_ALUNO"}]}}
-            ];
+            var urlRequerimentos = '';
+            var boardColumns = [];
+            var requerimentoList = [];
+
+            <sec:authorize access="hasRole('ALUNO')">
+              urlRequerimentos = '/ProjetoJSP/requerimento/findToAluno';
+              boardColumns =  [
+                  { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
+                  { text: "Enviar Coordenação", dataField: "AGUARDANDO_COORDENACAO" }
+              ];
+            </sec:authorize>
+            <sec:authorize access="hasRole('COORDENACAO')">
+              urlRequerimentos = '/ProjetoJSP/requerimento/findToCoordenacao';
+              boardColumns =  [
+                { text: "Aguardando Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
+                { text: "Aprovar", dataField: "AGUARDANDO_COORDENACAO" },
+                { text: "Recusado", dataField: "RECUSADO" },
+                { text: "Finalizado", dataField: "FINALIZADO" }
+              ];
+            </sec:authorize>
+            <sec:authorize access="hasRole('DERAC')">
+              urlRequerimentos = '/ProjetoJSP/requerimento/findToDerac';
+              boardColumns =  [
+                  { text: "Aguardando DERAC", dataField: "AGUARDANDO_DERAC" },
+                  { text: "Aprovar", dataField: "APROVADO_DERAC" },
+                  { text: "Enviar Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
+                  { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
+                  { text: "Recusado", dataField: "RECUSADO" },
+                  { text: "Finalizado", dataField: "FINALIZADO" }
+              ];
+            </sec:authorize>
+            <sec:authorize access="hasRole('PROFESSOR')">
+              urlRequerimentos = '/ProjetoJSP/requerimento/findToProfessor';
+              boardColumns =  [
+                { text: "Aguardando Professor", dataField: "AGUARDANDO_PROFESSOR" },
+                { text: "Finalizado", dataField: "FINALIZADO" }
+              ];
+            </sec:authorize>
+
+            $.getJSON(urlRequerimentos, {}, function (data) {
+                requerimentoList = data;
+            });
 
             var localData = [];
             requerimentoList.forEach(function(requerimento, index) {
@@ -133,14 +163,7 @@
                     $(element).find(".jqx-kanban-item-avatar img").attr('title', item.content);
                     $(element).find(".jqx-kanban-item-text").html('<a href=' + url + '>' + item.text + '</a>')
                 },
-                columns: [
-                    { text: "Com DERAC", dataField: "AGUARDANDO_DERAC" },
-                    { text: "Aprovado", dataField: "APROVADO_DERAC" },
-                    { text: "Enviar Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
-                    { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
-                    { text: "Recusado", dataField: "RECUSADO" },
-                    { text: "Finalizado", dataField: "FINALIZADO" }
-                ]
+                columns: boardColumns
             });
 
             var log = new Array();
