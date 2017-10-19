@@ -17,6 +17,7 @@
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxkanban.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxdata.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/demos.js"/> "></script>
+    <script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
     <script  type="text/javascript">
         $(document).ready(function () {
 
@@ -117,24 +118,14 @@
                     itemRenderer: function(element, item, resource) {
                         var url = "/ProjetoJSP/requerimento/edit/" + item.id;
                         $(element).find(".jqx-kanban-item-avatar img").attr('title', item.content);
-                        $(element).find(".jqx-kanban-item-text").html('<a href=' + url + '>' + item.text + '</a>')
+                        $(element).find(".jqx-kanban-item-text").html('<a href=' + url + '>' + item.text + '</a>');
+                        $("<div class='jqx-icon jqx-kanban-item-template-content jqx-kanban-template-icon'>" +
+                            "<i class='fa fa-info-circle'></i></div>")
+                            .insertAfter($(element).find(".jqx-kanban-item-avatar"));
                     },
                     columns: boardColumns
                 });
             });//FIM GETJSON
-
-            var log = new Array();
-            var updateLog = function () {
-                var count = 0;
-                var str = "";
-                for (var i = log.length - 1; i >= 0; i--) {
-                    str += log[i] + "<br/>";
-                    count++;
-                    if (count > 10)
-                        break;
-                }
-                $("#log").html(str);
-            }
 
             $('#kanban').on('itemMoved', function (event) {
                 var args = event.args;
@@ -144,70 +135,31 @@
                 var itemData = args.itemData;
                 var oldColumn = args.oldColumn;
                 var newColumn = args.newColumn;
-                log.push("itemMoved is raised");
-                updateLog();
-            });
-            $('#kanban').on('columnCollapsed', function (event) {
-                var args = event.args;
-                var column = args.column;
-                log.push("columnCollapsed is raised");
-                updateLog();
-            });
-            $('#kanban').on('columnExpanded', function (event) {
-                var args = event.args;
-                var column = args.column;
-                log.push("columnExpanded is raised");
-                updateLog();
             });
             $('#kanban').on('itemAttrClicked', function (event) {
                 var args = event.args;
                 var itemId = args.itemId;
                 var attribute = args.attribute; // template, colorStatus, content, keyword, text, avatar
-                log.push("itemAttrClicked is raised");
-                updateLog();
+//                console.log(args);
+//                console.dir(args);
+
+                if (attribute == "template") {
+                    $.blockUI({message: $('#loadingModal')});
+                    $.getJSON('/ProjetoJSP/requerimento/findById', {"id": itemId}, function (data) {
+                        console.dir(data);
+                        $.unblockUI();
+                        $("#alunoNome").val(data.usuario.nome);
+                        $("#motivo").val(motivoList[data.motivo - 1].descricao);
+                        $("#linkOpenModalReq").click();
+                    });
+                }
             });
             $('#kanban').on('columnAttrClicked', function (event) {
                 var args = event.args;
                 var column = args.column;
                 var cancelToggle = args.cancelToggle; // false by default. Set to true to cancel toggling dynamically.
                 var attribute = args.attribute; // title, button
-                log.push("columnAttrClicked is raised");
-                updateLog();
             });
-
-//            $('#kanban1').on("itemAttrClicked", function (event) {
-//                var args = event.args;
-//                if (args.attribute == "template") {
-//                    $('#kanban1').jqxKanban('removeItem', args.item.id);
-//                }
-//            });
-//            var itemIndex = 0;
-//            $('#kanban1').on('columnAttrClicked', function (event) {
-//                var args = event.args;
-//                if (args.attribute == "button") {
-//                    args.cancelToggle = true;
-//                    if (!args.column.collapsed) {
-//                        var colors = ['#f19b60', '#5dc3f0', '#6bbd49', '#732794'];
-//                        $('#kanban1').jqxKanban('addItem', { status: args.column.dataField, text: "<input placeholder='(No Title)' style='width: 96%; margin-top:2px; border-radius: 3px; border-color: #ddd; line-height:20px; height: 20px;' class='jqx-input' id='newItem" + itemIndex + "' value=''/>", tags: "new task", color: colors[Math.floor(Math.random() * 4)], resourceId: Math.floor(Math.random() * 4) });
-//                        var input =  $("#newItem" + itemIndex);
-//                        input.mousedown(function (event) {
-//                            event.stopPropagation();
-//                        });
-//                        input.mouseup(function (event) {
-//                            event.stopPropagation();
-//                        });
-//
-//                        input.keydown(function (event) {
-//                            if (event.keyCode == 13) {
-//                                $("<span>" + $(event.target).val() + "</span>").insertBefore($(event.target));
-//                                $(event.target).remove();
-//                            }
-//                        });
-//                        input.focus();
-//                        itemIndex++;
-//                    }
-//                }
-//            });
         });
     </script>
   </jsp:attribute>
@@ -221,8 +173,27 @@
       </div>
     </c:if>
     <div id="kanban"></div>
-    <div id="log"></div>
-    <hr>
-    <div id="kanban1"></div>
+
+    <a id="linkOpenModalReq" class="hidden" data-toggle='modal' href='index.jsp#requerimentoViewer'></a>
+
+    <div aria-hidden="true" aria-labelledby="requerimentoDialog" role="dialog" tabindex="-1" id="requerimentoViewer" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Requerimento</h4>
+          </div>
+          <div class="modal-body">
+            <label for="alunoNome">Aluno:</label>
+            <input id="alunoNome" type="text" value="" class="form-control" disabled/>
+            <label for="motivo">Motivo do Requerimento:</label>
+            <input id="motivo" type="text" value="" class="form-control" disabled/>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="button">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </jsp:body>
 </layout:template>

@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/pace/pace-theme.css"/> " />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/sweetalert2/sweetalert2.min.css"/> " />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/styles.css"/> " />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/animate.css"/> " />
     <jsp:invoke fragment="cssEspecificos"></jsp:invoke>
 </head>
 <body>

@@ -326,4 +326,11 @@ public class RequerimentoController {
         List<Requerimento> requerimentos = requerimentoRepository.findByStatus(StatusRequerimentoEnum.AGUARDANDO_PROFESSOR);
         return requerimentos;
     }
+
+    @GetMapping(value = "/findById")
+    @ResponseBody
+    public Requerimento findById(HttpServletRequest request) {
+        Long id = Long.valueOf(request.getParameter("id"));
+        return requerimentoRepository.findById(id).get();
+    }
 }
