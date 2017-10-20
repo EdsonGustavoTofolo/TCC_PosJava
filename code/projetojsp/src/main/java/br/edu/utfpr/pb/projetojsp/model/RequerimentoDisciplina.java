@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 /**
  * Created by Edson on 04/07/2017.
  */
+@JsonIgnoreProperties(value = { "requerimento" })
 @Entity
 @Table(name = "requerimentos_disciplinas")
 public class RequerimentoDisciplina implements Serializable {

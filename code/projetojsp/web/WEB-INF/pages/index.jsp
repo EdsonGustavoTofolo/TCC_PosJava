@@ -85,7 +85,7 @@
                           id: requerimento.id,
                           status: requerimento.status,
                           text: motivoList[requerimento.motivo - 1].descricao,
-                          tags: requerimento.usuario.curso.usuario.nome,
+                          tags: requerimento.motivo == 9 || requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17 ? requerimento.disciplinas[0].disciplina.curso.usuario.nome : requerimento.usuario.curso.usuario.nome,
                           content: requerimento.usuario.nome,
                           color: getColor(requerimento.status),
                           resourceId: null
@@ -148,8 +148,61 @@
                     $.getJSON('/ProjetoJSP/requerimento/findById', {"id": itemId}, function (data) {
                         console.dir(data);
                         $.unblockUI();
+
+                        if (!$('#motivo9').hasClass('hidden')) {
+                            $("#motivo9").addClass('hidden');
+                        }
+                        if ($("#disciplinas").hasClass('hidden')) {
+                            $("#disciplinas").addClass('hidden');
+                        }
+                        if ($("#anexos").hasClass('hidden')) {
+                            $("#anexos").addClass('hidden');
+                        }
+
                         $("#alunoNome").val(data.usuario.nome);
                         $("#motivo").val(motivoList[data.motivo - 1].descricao);
+                        $("#curso").val(data.usuario.curso.usuario.nome);
+                        $("#observacao").val(data.observacao);
+
+                        if (data.motivo == 9) { //2 chamada de prova
+                          $("#motivo9").removeClass('hidden');
+                          $("#curso").val(data.disciplinas[0].disciplina.curso.usuario.nome);
+                          $("#disciplina").val(data.disciplinas[0].disciplina.codigo + " - " + data.disciplinas[0].disciplina.nome);
+                          $("#professor").val(data.disciplinas[0].professor.nome);
+                          $("#data").val(data.disciplinas[0].dataProva);
+
+                        } else if (data.motivo == 5 || data.motivo == 15 || data.motivo == 17) { //exibir tabela com disciplinas
+                          $("#disciplinas").removeClass('hidden');
+                          $("#curso").val(data.disciplinas[0].disciplina.curso.usuario.nome);
+
+                          data.disciplinas.forEach(function (requerimentoDisciplina) {
+                              $("<br/><input id='disciplina" + requerimentoDisciplina.id + "' value='" +
+                                  requerimentoDisciplina.disciplina.codigo + " - " + requerimentoDisciplina.disciplina.nome +"' type='text' class='form-control' disabled />")
+                                  .insertAfter($("#disciplinas").find($("label")));
+                          });
+                        }
+
+                        if (data.anexos.length > 0) { //exibir anexos para efetuar downloads
+                          $("#anexos").removeClass('hidden');
+                          data.anexos.forEach(function (anexo) {
+                              $(".attached").append(
+                                  $('<div id="anexo' + anexo.id + '" class="dz-preview dz-file-preview">' +
+                                      '<div class="dz-image"><img data-dz-thumbnail=""></div>' +
+                                      '<div class="dz-details">'+
+                                        '<div class="dz-size">'+
+                                          '<span><strong>' + anexo.size + '</strong> ' + anexo.unitSize + '</span>'+
+                                        '</div>'+
+                                        '<div class="dz-filename">'+
+                                          '<span>' + anexo.nome + '</span>'+
+                                        '</div>'+
+                                      '</div>'+
+                                      '<div class="dz-download" style="top: 80%;">'+
+                                        '<a type="'+anexo.contentType+'" href="data:' + anexo.contentType + ';charset=utf-8;base64,' + anexo.arquivo + '" download="' + anexo.nome + '" target="_blank">Download</a>'+
+                                      '</div>'+
+                                  '</div>'));
+                          });
+                        }
+
                         $("#linkOpenModalReq").click();
                     });
                 }
@@ -186,8 +239,36 @@
           <div class="modal-body">
             <label for="alunoNome">Aluno:</label>
             <input id="alunoNome" type="text" value="" class="form-control" disabled/>
+            <br>
             <label for="motivo">Motivo do Requerimento:</label>
             <input id="motivo" type="text" value="" class="form-control" disabled/>
+            <br>
+            <label for="curso">Curso:</label>
+            <input id="curso" type="text" value="" class="form-control" disabled/>
+            <div id="motivo9" class="hidden">
+              <br>
+              <label for="disciplina">Disciplina:</label>
+              <input id="disciplina" type="text" value="" class="form-control" disabled/>
+              <br>
+              <label for="professor">Professor:</label>
+              <input id="professor" type="text" value="" class="form-control" disabled/>
+              <br>
+              <label for="data">Data:</label>
+              <input id="data" type="date" pattern="dd/MM/yyyy" value="" class="form-control" disabled/>
+            </div>
+            <div id="disciplinas" class="hidden">
+              <br>
+              <label>Disciplinas:</label>
+            </div>
+            <div id="anexos" class="hidden">
+              <br>
+              <label>Anexos:</label>
+              <div class="attached">
+              </div>
+            </div>
+            <br>
+            <label for="observacao">Observações:</label>
+            <textarea id="observacao" name="observacao" class="form-control" rows="5" disabled></textarea>
           </div>
           <div class="modal-footer">
             <button class="btn btn-primary" type="button">Ok</button>

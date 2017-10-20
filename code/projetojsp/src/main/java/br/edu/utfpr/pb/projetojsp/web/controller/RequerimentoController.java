@@ -331,6 +331,7 @@ public class RequerimentoController {
     @ResponseBody
     public Requerimento findById(HttpServletRequest request) {
         Long id = Long.valueOf(request.getParameter("id"));
-        return requerimentoRepository.findById(id).get();
+        Requerimento requerimento = requerimentoRepository.findById(id).get();
+        return requerimento;
     }
 }

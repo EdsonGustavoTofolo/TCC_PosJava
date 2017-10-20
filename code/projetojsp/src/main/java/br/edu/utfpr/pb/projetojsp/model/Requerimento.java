@@ -1,7 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.model;
 
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.annotations.Fetch;
@@ -15,7 +14,6 @@ import java.util.List;
 /**
  * Created by Edson on 04/07/2017.
  */
-@JsonIgnoreProperties(value = { "anexos", "disciplinas" })
 @Entity
 @Table(name = "requerimentos")
 public class Requerimento implements Serializable {
