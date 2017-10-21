@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * Created by Edson on 20/09/2017.
  */
-@JsonIgnoreProperties(value = { "requerimento" })
+@JsonIgnoreProperties(value = { "requerimento", "arquivo" })
 @Entity
 @Table(name = "requerimentos_anexos")
 public class RequerimentoAnexo implements Serializable {

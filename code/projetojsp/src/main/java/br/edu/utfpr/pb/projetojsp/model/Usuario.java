@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.projetojsp.model;
 
 import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,7 +15,7 @@ import java.util.*;
 /**
  * Created by Edson on 04/07/2017.
  */
-
+@JsonIgnoreProperties(value = { "senha", "telefone", "email", "permissoes" })
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable, UserDetails {

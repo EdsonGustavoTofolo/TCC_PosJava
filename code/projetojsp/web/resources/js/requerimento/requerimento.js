@@ -297,14 +297,14 @@ $(document).ready(function () {
     //------[ SELECAO DE CURSOS ] --------
     $("#curso").select2();
     $("#curso").on("select2:select", function (e) {
-        $('#loadingModal').modal('show');
+        $.blockUI({message: $('#loadingModal')});
         var cursoId = e.params['data'].id;
         if (!$('#motivo9').hasClass('hidden')) {
             buscarDisciplinas();
         } else if (!$('#motivoDisciplinas').hasClass('hidden')) {
             buscarMultiselecaoDisciplinas();
         }
-        $('#loadingModal').modal('hide');
+        $.unblockUI();
     });
 
     //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------

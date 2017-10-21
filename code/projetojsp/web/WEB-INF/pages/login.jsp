@@ -47,7 +47,7 @@
         <form class="m-t" role="form" action="login" method="POST" autocomplete="off">
 
             <div class="form-group">
-                <input name="username" type="text" class="form-control" placeholder="Informe seu login" required>
+                <input id="username" name="username" type="text" class="form-control" placeholder="Informe seu login" required>
             </div>
             <div class="form-group">
                 <input name="password" type="password" class="form-control" placeholder="Informe a sua senha" required>
@@ -87,6 +87,11 @@
 <!-- js placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="<c:url value="/webjars/jquery/1.11.1/jquery.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"/> "></script>
+<script>
+    $(document).ready(function () {
+        $("#username").focus();
+    });
+</script>
 
 </body>
 </html>

@@ -258,7 +258,6 @@ public class RequerimentoController {
         response.setContentType(anexo.getContentType());
         response.setContentLength(anexo.getArquivo().length);
         response.setHeader("Content-Disposition", "attachment; filename=\"" + anexo.getNome() + "\"");
-
         try {
             FileCopyUtils.copy(anexo.getArquivo(), response.getOutputStream());
         } catch (IOException e) {

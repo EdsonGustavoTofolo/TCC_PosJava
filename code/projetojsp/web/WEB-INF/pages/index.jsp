@@ -9,6 +9,7 @@
 <layout:template>
   <jsp:attribute name="cssEspecificos">
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jqxKanban/jqx.base.css"/> " />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jqgrid/ui.jqgrid-bootstrap.css"/> " />
   </jsp:attribute>
   <jsp:attribute name="scriptsEspecificos">
     <script type="text/javascript" src="<c:url value="/resources/js/requerimento/motivoList.js"/> "></script>
@@ -17,9 +18,15 @@
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxkanban.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxdata.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/demos.js"/> "></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/moment/moment-with-locales.min.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/grid.locale-pt-br.js"/> "></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/jquery.jqGrid.min.js"/> "></script>
     <script  type="text/javascript">
         $(document).ready(function () {
+            $.jgrid.defaults.styleUI = 'Bootstrap';
+            $.jgrid.defaults.responsive = true;
+            $.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
 
             function getColor(status) {
                 if (status == "AGUARDANDO_DERAC") {
@@ -140,51 +147,78 @@
                 var args = event.args;
                 var itemId = args.itemId;
                 var attribute = args.attribute; // template, colorStatus, content, keyword, text, avatar
-//                console.log(args);
-//                console.dir(args);
 
                 if (attribute == "template") {
-                    $.blockUI({message: $('#loadingModal')});
-                    $.getJSON('/ProjetoJSP/requerimento/findById', {"id": itemId}, function (data) {
-                        console.dir(data);
-                        $.unblockUI();
+                    $.blockUI({message: 'Aguarde...'});
+                    $.getJSON('/ProjetoJSP/requerimento/findById', {"id": itemId}, function (requerimento) {
+                        $.unblockUI(function () {
+                            $('#loadingModal').addClass('hidden')
+                        });
 
                         if (!$('#motivo9').hasClass('hidden')) {
                             $("#motivo9").addClass('hidden');
                         }
-                        if ($("#disciplinas").hasClass('hidden')) {
+                        if (!$("#disciplinas").hasClass('hidden')) {
                             $("#disciplinas").addClass('hidden');
                         }
-                        if ($("#anexos").hasClass('hidden')) {
+                        if (!$("#anexos").hasClass('hidden')) {
                             $("#anexos").addClass('hidden');
                         }
 
-                        $("#alunoNome").val(data.usuario.nome);
-                        $("#motivo").val(motivoList[data.motivo - 1].descricao);
-                        $("#curso").val(data.usuario.curso.usuario.nome);
-                        $("#observacao").val(data.observacao);
+                        $("#requerimentoId").html('');
+                        $("#requerimentoData").html('');
+                        $("#anexos").find(".dz-preview").remove();
 
-                        if (data.motivo == 9) { //2 chamada de prova
+                        var dataRequerimento = new Date(requerimento.data);
+                        var momentData = moment(dataRequerimento).locale('pt-br');
+
+                        var dataRequerimentoAgo = momentData.fromNow(); //quanto tempo atrás
+                        dataRequerimento = momentData.format('llll');
+
+                        $("#requerimentoId").append(requerimento.id);
+                        $("#requerimentoData").append(dataRequerimento);
+                        $("#requerimentoData").attr("data-original-title", dataRequerimentoAgo);
+
+                        $("#alunoNome").val(requerimento.usuario.nome);
+                        $("#motivo").val(motivoList[requerimento.motivo - 1].descricao);
+                        $("#curso").val(requerimento.usuario.curso.usuario.nome);
+                        $("#observacao").val(requerimento.observacao);
+
+                        if (requerimento.motivo == 9) { //2 chamada de prova
                           $("#motivo9").removeClass('hidden');
-                          $("#curso").val(data.disciplinas[0].disciplina.curso.usuario.nome);
-                          $("#disciplina").val(data.disciplinas[0].disciplina.codigo + " - " + data.disciplinas[0].disciplina.nome);
-                          $("#professor").val(data.disciplinas[0].professor.nome);
-                          $("#data").val(data.disciplinas[0].dataProva);
+                          $("#curso").val(requerimento.disciplinas[0].disciplina.curso.usuario.nome);
+                          $("#disciplina").val(requerimento.disciplinas[0].disciplina.codigo + " - " + requerimento.disciplinas[0].disciplina.nome);
+                          $("#professor").val(requerimento.disciplinas[0].professor.nome);
+                          $("#data").val(requerimento.disciplinas[0].dataProva);
 
-                        } else if (data.motivo == 5 || data.motivo == 15 || data.motivo == 17) { //exibir tabela com disciplinas
+                        } else if (requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17) { //exibir tabela com disciplinas
                           $("#disciplinas").removeClass('hidden');
-                          $("#curso").val(data.disciplinas[0].disciplina.curso.usuario.nome);
+                          $("#curso").val(requerimento.disciplinas[0].disciplina.curso.usuario.nome);
 
-                          data.disciplinas.forEach(function (requerimentoDisciplina) {
-                              $("<br/><input id='disciplina" + requerimentoDisciplina.id + "' value='" +
-                                  requerimentoDisciplina.disciplina.codigo + " - " + requerimentoDisciplina.disciplina.nome +"' type='text' class='form-control' disabled />")
-                                  .insertAfter($("#disciplinas").find($("label")));
+                          $("#disciplinaList").html('');
+                          $("#disciplinaList").append('<table id="jqGrid"></table><div id="jqGridPager"></div>');
+                          
+                          $("#jqGrid").jqGrid({
+                              datatype : "jsonstring",
+                              datastr: JSON.stringify(requerimento.disciplinas),
+                              jsonReader: { repeatitems: false },
+                              colModel: [
+                                  { label: "Código", name: "codigo", jsonmap: 'disciplina.codigo', width: 100 },
+                                  { label: "Nome", name: "nome", jsonmap: 'disciplina.nome', width: 400 }
+                              ],
+                              pager: '#jqGridPager',
+                              rowNum: 5,
+                              width: 'auto',
+                              heigth: '200',
+                              scroll: 1,
+                              viewrecords: true
                           });
+                          $('#jqGrid').trigger( 'reloadGrid' );
                         }
 
-                        if (data.anexos.length > 0) { //exibir anexos para efetuar downloads
+                        if (requerimento.anexos.length > 0) { //exibir anexos para efetuar downloads
                           $("#anexos").removeClass('hidden');
-                          data.anexos.forEach(function (anexo) {
+                          requerimento.anexos.forEach(function (anexo) {
                               $(".attached").append(
                                   $('<div id="anexo' + anexo.id + '" class="dz-preview dz-file-preview">' +
                                       '<div class="dz-image"><img data-dz-thumbnail=""></div>' +
@@ -197,13 +231,18 @@
                                         '</div>'+
                                       '</div>'+
                                       '<div class="dz-download" style="top: 80%;">'+
-                                        '<a type="'+anexo.contentType+'" href="data:' + anexo.contentType + ';charset=utf-8;base64,' + anexo.arquivo + '" download="' + anexo.nome + '" target="_blank">Download</a>'+
+                                        '<a href="/ProjetoJSP/requerimento/anexos/download/' + anexo.id + '">Download</a>'+
                                       '</div>'+
                                   '</div>'));
                           });
                         }
 
                         $("#linkOpenModalReq").click();
+
+                        $('#requerimentoViewer').tooltip({
+                            selector: "[data-toggle=tooltip]",
+                            container: "body"
+                        });
                     });
                 }
             });
@@ -234,7 +273,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Requerimento</h4>
+            <h4 class="modal-title">Requerimento <small id="requerimentoId"></small> <small>/</small> <small id="requerimentoData" data-toggle="tooltip" data-placement="right"></small></h4>
           </div>
           <div class="modal-body">
             <label for="alunoNome">Aluno:</label>
@@ -259,6 +298,8 @@
             <div id="disciplinas" class="hidden">
               <br>
               <label>Disciplinas:</label>
+              <div id="disciplinaList">
+              </div>
             </div>
             <div id="anexos" class="hidden">
               <br>
@@ -270,9 +311,9 @@
             <label for="observacao">Observações:</label>
             <textarea id="observacao" name="observacao" class="form-control" rows="5" disabled></textarea>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-primary" type="button">Ok</button>
-          </div>
+          <%--<div class="modal-footer">--%>
+            <%--<button class="btn btn-primary" type="button">Ok</button>--%>
+          <%--</div>--%>
         </div>
       </div>
     </div>
