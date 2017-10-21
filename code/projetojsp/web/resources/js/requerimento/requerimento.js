@@ -27,90 +27,7 @@ $(document).ready(function () {
             selDisciplinas2: {
                 disciplinasSelecionadas: true
             }
-        }/*,
-         submitHandler: function (form) {
-         var formData = new FormData();
-
-         var dataJSON = {};
-         var disciplinas = [];
-         var disciplina = {};
-         var requerimentoDisciplina = {};
-         var professor = {};
-
-         dataJSON["motivo"] = $('#motivo').val();
-         dataJSON["observacao"] = $('#observacao').val();
-
-         if (!$('#motivoDisciplinas').hasClass('hidden')) {
-         var options = $('select[name=selDisciplinas2] option');
-         var values = $.map(options,function(option) {
-         return option.value;
-         });
-         values.forEach(function (value) {
-         disciplina = {"id": parseInt(value), "codigo": '', "nome": ''};
-         requerimentoDisciplina = {"id": "", "professor": null, "dataProva": null, "disciplina": disciplina};
-         disciplinas.push(requerimentoDisciplina);
-         });
-
-         if (disciplinas.length > 0) {
-         dataJSON["disciplinas"] = disciplinas;
-         }
-         } else if (!$('#motivo9').hasClass('hidden')) {
-         var professorId = $("#professor").val();
-         var data = $("#data").val();
-         var disciplinaId = $("#disciplina").val();
-         var date = data.split("/");
-         date = new Date(date[2], date[1] - 1, date[0]);
-
-         professor = {"id": professorId};
-
-         disciplina = {"id": parseInt(disciplinaId), "codigo": '', "nome": ''};
-         requerimentoDisciplina = {"id": "", "professor": professor, "dataProva": date, "disciplina": disciplina};
-         disciplinas.push(requerimentoDisciplina);
-
-         dataJSON["disciplinas"] = disciplinas;
-         }
-
-         formData.append('requerimento', new Blob([JSON.stringify(dataJSON)], {type: "application/json"}));
-
-         $.ajax({
-         type : $(form).attr('method'),
-         url  : $(form).attr('action'),
-         //contentType : 'application/json; charset=utf-8',
-         // dataType: 'json',
-         // data : JSON.stringify(dataJSON),
-         contentType: false,
-         processData: false,
-         cache: false,
-         data: formData,
-         beforeSend: function () {
-         $.blockUI({message: 'CARREGANDO...'});
-         },
-         complete: function () {
-         $.unblockUI();
-         },
-         success : function(data) {
-         data = JSON.parse(data);
-         if (data.state == "OK") {
-         swal({
-         title : "Salvo!",
-         text : data.message,
-         type : "success",
-         showCancelButton : false,
-         confirmButtonText : "Ok",
-         }, function() {
-         window.location = '/ProjetoJSP/';
-         });
-         } else {
-         swal("Falhou!", data.message, "error");
-         }
-
-         },//Fim success
-         error : function() {
-         swal("Oops...!", "Falha", "error");
-         }
-         });//Fim ajax
-         return false;
-         }*/
+        }
     });
 
     //--[ FAZ O SUBMIT COM O ENVIO DOS ARQUIVOS ]----
@@ -297,20 +214,17 @@ $(document).ready(function () {
     //------[ SELECAO DE CURSOS ] --------
     $("#curso").select2();
     $("#curso").on("select2:select", function (e) {
-        $.blockUI({message: $('#loadingModal')});
         var cursoId = e.params['data'].id;
         if (!$('#motivo9').hasClass('hidden')) {
             buscarDisciplinas();
         } else if (!$('#motivoDisciplinas').hasClass('hidden')) {
             buscarMultiselecaoDisciplinas();
         }
-        $.unblockUI();
     });
 
     //------[ SELECAO DE MOTIVOS PARA REQUERIMENTO ] ----------
     $('#motivo').select2();
     $("#motivo").on("select2:select", function (e) {
-        $.blockUI({message: $('#loadingModal')});
         var motivoId = e.params['data'].id;
 
         if (motivoId > 0) {
@@ -333,7 +247,6 @@ $(document).ready(function () {
             } else if (motivoId == 21) { //Convalidação
                 //TODO ver para habilitar os campos aqui ou abrir outra página
             }
-            $.unblockUI();
             validador.resetForm();
         }
     });

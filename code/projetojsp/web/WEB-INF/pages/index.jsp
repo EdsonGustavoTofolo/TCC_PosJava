@@ -19,7 +19,6 @@
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxdata.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/demos.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/moment/moment-with-locales.min.js"/> "></script>
-    <script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/grid.locale-pt-br.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/jquery.jqGrid.min.js"/> "></script>
     <script  type="text/javascript">
@@ -149,12 +148,7 @@
                 var attribute = args.attribute; // template, colorStatus, content, keyword, text, avatar
 
                 if (attribute == "template") {
-                    $.blockUI({message: 'Aguarde...'});
                     $.getJSON('/ProjetoJSP/requerimento/findById', {"id": itemId}, function (requerimento) {
-                        $.unblockUI(function () {
-                            $('#loadingModal').addClass('hidden')
-                        });
-
                         if (!$('#motivo9').hasClass('hidden')) {
                             $("#motivo9").addClass('hidden');
                         }
@@ -197,7 +191,7 @@
 
                           $("#disciplinaList").html('');
                           $("#disciplinaList").append('<table id="jqGrid"></table><div id="jqGridPager"></div>');
-                          
+
                           $("#jqGrid").jqGrid({
                               datatype : "jsonstring",
                               datastr: JSON.stringify(requerimento.disciplinas),
@@ -213,7 +207,6 @@
                               scroll: 1,
                               viewrecords: true
                           });
-                          $('#jqGrid').trigger( 'reloadGrid' );
                         }
 
                         if (requerimento.anexos.length > 0) { //exibir anexos para efetuar downloads

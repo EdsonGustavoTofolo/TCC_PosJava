@@ -57,6 +57,16 @@
 <script type="text/javascript" src="<c:url value="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/resources/js/pace/pace.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/resources/js/sweetalert2/sweetalert2.min.js"/> "></script>
+<script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
+<script>
+    $(document)
+        .ajaxStart(function () {
+            $.blockUI({message: "Aguarde..."});
+        })
+        .ajaxStop(function () {
+            $.unblockUI();
+        });
+</script>
 <jsp:invoke fragment="scriptsEspecificos"></jsp:invoke>
 
 </body>

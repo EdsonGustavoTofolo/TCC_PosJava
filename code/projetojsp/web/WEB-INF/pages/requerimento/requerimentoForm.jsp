@@ -33,7 +33,6 @@
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimento.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/dualListbox/jquery.bootstrap-duallistbox.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/dropzone/dropzone.js"/> "></script>
-        <script type="text/javascript" src="<c:url value="/webjars/jquery-blockui/2.70/jquery.blockUI.js"/> "></script>
     </jsp:attribute>
     <jsp:body>
         <sec:authorize access="hasAnyRole('COORDENACAO', 'DERAC')">
