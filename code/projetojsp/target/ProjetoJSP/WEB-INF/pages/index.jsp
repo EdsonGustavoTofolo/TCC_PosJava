@@ -23,6 +23,11 @@
     <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/jquery.jqGrid.min.js"/> "></script>
     <script  type="text/javascript">
         $(document).ready(function () {
+            $('#requerimentoViewer').tooltip({
+                selector: "[data-toggle=tooltip]",
+                container: "body"
+            });
+
             $.jgrid.defaults.styleUI = 'Bootstrap';
             $.jgrid.defaults.responsive = true;
             $.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
@@ -123,13 +128,21 @@
                     source: dataAdapter,
                     itemRenderer: function(element, item, resource) {
                         var url = "/ProjetoJSP/requerimento/edit/" + item.id;
+                        $(element).find(".jqx-kanban-item-avatar img").attr('data-original-title', item.content);
                         $(element).find(".jqx-kanban-item-avatar img").attr('title', item.content);
+                        $(element).find(".jqx-kanban-item-avatar img").attr('data-toggle', 'tooltip');
+                        $(element).find(".jqx-kanban-item-avatar img").attr('data-placement', 'bottom');
                         $(element).find(".jqx-kanban-item-text").html('<a href=' + url + '>' + item.text + '</a>');
-                        $("<div class='jqx-icon jqx-kanban-item-template-content jqx-kanban-template-icon'>" +
+                        $("<div class='jqx-icon jqx-kanban-item-template-content jqx-kanban-template-icon' data-original-title='Ver requerimento' title='Ver requerimento' data-toggle='tooltip' data-placement='top'>" +
                             "<i class='fa fa-info-circle'></i></div>")
                             .insertAfter($(element).find(".jqx-kanban-item-avatar"));
                     },
                     columns: boardColumns
+                });
+
+                $('.jqx-kanban-item').tooltip({
+                    selector: "[data-toggle=tooltip]",
+                    container: "body"
                 });
             });//FIM GETJSON
 
@@ -231,11 +244,6 @@
                         }
 
                         $("#linkOpenModalReq").click();
-
-                        $('#requerimentoViewer').tooltip({
-                            selector: "[data-toggle=tooltip]",
-                            container: "body"
-                        });
                     });
                 }
             });
@@ -245,6 +253,7 @@
                 var cancelToggle = args.cancelToggle; // false by default. Set to true to cancel toggling dynamically.
                 var attribute = args.attribute; // title, button
             });
+
         });
     </script>
   </jsp:attribute>
