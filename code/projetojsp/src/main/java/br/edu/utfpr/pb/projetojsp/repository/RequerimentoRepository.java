@@ -12,5 +12,4 @@ import java.util.List;
  */
 public interface RequerimentoRepository extends JpaRepository<Requerimento, Long>, JpaSpecificationExecutor<Requerimento> {
     List<Requerimento> findByStatus(StatusRequerimentoEnum status);
-    List<Requerimento> findByUsuarioIdAndStatusOrStatus(Long alunoId, StatusRequerimentoEnum status1, StatusRequerimentoEnum status2);
 }

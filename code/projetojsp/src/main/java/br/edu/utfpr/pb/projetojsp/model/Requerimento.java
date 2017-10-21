@@ -32,6 +32,9 @@ public class Requerimento implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_req", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private Date data;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_ultimo_status_req", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
+    private Date dataUltimoStatus;
     @ManyToOne()
     @JoinColumn(name = "usuario_id_req", referencedColumnName = "id_usu")
     private Usuario usuario;
@@ -44,12 +47,13 @@ public class Requerimento implements Serializable {
     public Requerimento() {
     }
 
-    public Requerimento(StatusRequerimentoEnum status, Integer motivo, String observacao, Date data, Usuario usuario,
+    public Requerimento(StatusRequerimentoEnum status, Integer motivo, String observacao, Date data, Date dataUltimoStatus, Usuario usuario,
                         List<RequerimentoDisciplina> requerimentoDisciplinaList, List<RequerimentoAnexo> anexoList) {
         this.status = status;
         this.motivo = motivo;
         this.observacao = observacao;
         this.data = data;
+        this.dataUltimoStatus = dataUltimoStatus;
         this.usuario = usuario;
         this.disciplinas = requerimentoDisciplinaList;
         this.anexos = anexoList;
@@ -93,6 +97,14 @@ public class Requerimento implements Serializable {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public Date getDataUltimoStatus() {
+        return dataUltimoStatus;
+    }
+
+    public void setDataUltimoStatus(Date dataUltimoStatus) {
+        this.dataUltimoStatus = dataUltimoStatus;
     }
 
     public Usuario getUsuario() {

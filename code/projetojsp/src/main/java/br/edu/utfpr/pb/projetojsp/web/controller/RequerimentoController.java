@@ -8,12 +8,14 @@ import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.*;
+import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoDisciplinaJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.util.ControllersUtil;
 import br.edu.utfpr.pb.projetojsp.web.util.RequerimentoControllerUtil;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -25,10 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Created by Edson on 29/05/2017.
@@ -67,18 +66,20 @@ public class RequerimentoController {
         return "requerimento/requerimentoForm";
     }
 
-    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
-    @PutMapping("/edit/{requerimentoId}/changeStatus/{statusId}")
-    @ResponseBody
-    public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
-                               @PathVariable(name = "statusId") Integer statusId) {
+    private String changeStatus(Long requerimentoId, StatusRequerimentoEnum status) {
         JSONObject retorno = new JSONObject();
         try{
             Requerimento requerimento = requerimentoRepository.findById(requerimentoId).orElse(null);
             if (Objects.nonNull(requerimento)) {
-                requerimento.setStatus(StatusRequerimentoEnum.values()[statusId]);
-                requerimentoRepository.save(requerimento);
-                retorno.put("state", "OK");
+                if (ControllersUtil.hasLoggedUserRole("ROLE_ALUNO") && requerimento.getStatus().equals(StatusRequerimentoEnum.RECUSADO)) {
+                    retorno.put("state", "FAIL");
+                    retorno.put("message", "Requerimento já foi Recusado e não pode ser alterado!");
+                } else {
+                    requerimento.setStatus(status);
+                    requerimento.setDataUltimoStatus(new Date());
+                    requerimentoRepository.save(requerimento);
+                    retorno.put("state", "OK");
+                }
             } else {
                 retorno.put("state", "ERROR");
                 retorno.put("message", "Requerimento Inexistente!");
@@ -88,6 +89,22 @@ public class RequerimentoController {
             retorno.put("message", "Falha ao gravar requerimento!\n" + ex.getCause().getCause().getMessage());
         }
         return retorno.toString();
+    }
+
+    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
+    @PutMapping("/edit/{requerimentoId}/changeStatus/{statusId}")
+    @ResponseBody
+    public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
+                               @PathVariable(name = "statusId") Integer statusId) {
+        return changeStatus(requerimentoId, StatusRequerimentoEnum.values()[statusId]);
+    }
+
+    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
+    @PutMapping("/edit/{requerimentoId}/changeStatusKanban/{status}")
+    @ResponseBody
+    public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
+                               @PathVariable(name = "status") String status) {
+        return changeStatus(requerimentoId, StatusRequerimentoEnum.valueOf(status));
     }
 
     @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
@@ -139,7 +156,7 @@ public class RequerimentoController {
                 }
             } else {
                 model.addAttribute("error", "Você não possui permissão para editar o Requerimento solicitado!");
-                return "forward:/";
+                return "forward:/requerimento/list";
             }
         } else {
             model.addAttribute("error", "Requerimento inexistente!");
@@ -303,11 +320,11 @@ public class RequerimentoController {
     @GetMapping(value = "/findToAluno")
     @ResponseBody
     public List<Requerimento> findToAluno() {
-        List<Requerimento> requerimentos = requerimentoRepository.findByUsuarioIdAndStatusOrStatus(
-                ControllersUtil.getLoggedUser().getId(),
-                StatusRequerimentoEnum.AGUARDANDO_DERAC,
-                StatusRequerimentoEnum.AGUARDANDO_COORDENACAO.FALTA_DOCUMENTOS);
-        return requerimentos;
+        return requerimentoRepository.findAll(
+                Specification.where(RequerimentoSpecification.withUsuarioId(ControllersUtil.getLoggedUser().getId()))
+                    .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC))
+                    .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.FALTA_DOCUMENTOS))
+                    .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.RECUSADO)));
     }
 
     @Secured("ROLE_COORDENACAO")

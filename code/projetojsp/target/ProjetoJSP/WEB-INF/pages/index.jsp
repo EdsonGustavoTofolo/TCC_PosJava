@@ -57,6 +57,7 @@
               urlRequerimentos = '/ProjetoJSP/requerimento/findToAluno';
               boardColumns =  [
                   { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
+                  { text: "Recusados", dataField: "RECUSADO" },
                   { text: "Enviar DERAC", dataField: "AGUARDANDO_DERAC" }
               ];
             </sec:authorize>
@@ -122,10 +123,29 @@
 
                 var dataAdapter = new $.jqx.dataAdapter(source);
 
+                var resourcesAdapterFunc = function () {
+                    var resourcesSource =
+                        {
+                            localData: [
+                                { id: 0, name: "No name", image: "<c:url value="/resources/images/user.jpg"/> ", common: true }
+                            ],
+                            dataType: "array",
+                            dataFields: [
+                                { name: "id", type: "number" },
+                                { name: "name", type: "string" },
+                                { name: "image", type: "string" },
+                                { name: "common", type: "boolean" }
+                            ]
+                        };
+                    var resourcesDataAdapter = new $.jqx.dataAdapter(resourcesSource);
+                    return resourcesDataAdapter;
+                }
+
                 $('#kanban').jqxKanban({
                     width: '100%',
                     height: '100%',
                     source: dataAdapter,
+                    resources: resourcesAdapterFunc(), //tem só pra não dar erro ao utilizar a função addItem
                     itemRenderer: function(element, item, resource) {
                         var url = "/ProjetoJSP/requerimento/edit/" + item.id;
                         $(element).find(".jqx-kanban-item-avatar img").attr('data-original-title', item.content);
@@ -154,7 +174,39 @@
                 var itemData = args.itemData;
                 var oldColumn = args.oldColumn;
                 var newColumn = args.newColumn;
+
+                var itemDataBeforeMove = JSON.parse(JSON.stringify(itemData)); //clonar o obj
+
+                var url = '/ProjetoJSP/requerimento/edit/' + itemId + '/changeStatusKanban/' + newColumn.dataField;
+                $.ajax({
+                    type : 'PUT',
+                    url : url,
+                    success : function(data) {
+                        data = JSON.parse(data);
+                        if (data.state == "FAIL") {
+                            swal({
+                                title : "Falhou!",
+                                text : data.message,
+                                type : "error",
+                                confirmButtonText : "Ok",
+                                showCancelButton : false,
+                                allowEscapeKey: false,
+                                allowOutsideClick: false,
+                            }).then(function() {
+                                  $('#kanban').jqxKanban('removeItem', itemId);
+                                  $('#kanban').jqxKanban('addItem', itemDataBeforeMove); //volta para posição original
+                            }).catch(swal.noop);
+
+                        } else if (data.state == "ERROR") {
+                            swal("Falhou!", data.message, "error").catch(swal.noop);
+                        }
+                    },//Fim success
+                    error : function() {
+                        swal("Erro!", "Falha ao alterar status.", "error").catch(swal.noop);
+                    }
+                }); //Fim ajax
             });
+
             $('#kanban').on('itemAttrClicked', function (event) {
                 var args = event.args;
                 var itemId = args.itemId;
