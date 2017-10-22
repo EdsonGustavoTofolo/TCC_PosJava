@@ -264,7 +264,8 @@
                                     formatter: 'date',
                                     formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y" }
                                 },
-                                { label: 'Disciplina', name: 'disciplina', index: 'disciplina', jsonmap: 'disciplina.nome', width: 300 }
+                                { label: 'Disciplina', name: 'disciplina', index: 'disciplina', jsonmap: 'disciplina.nome', width: 300 },
+                                { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplina.curso.usuario.nome', width: 300 }
                             ];
                         } else {
                             colModelReq = [

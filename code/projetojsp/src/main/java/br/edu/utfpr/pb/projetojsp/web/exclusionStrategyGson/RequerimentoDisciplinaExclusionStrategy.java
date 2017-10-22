@@ -1,7 +1,7 @@
 package br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson;
 
-import br.edu.utfpr.pb.projetojsp.model.Curso;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
+import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 
@@ -11,7 +11,7 @@ import com.google.gson.FieldAttributes;
 public class RequerimentoDisciplinaExclusionStrategy implements ExclusionStrategy {
     @Override
     public boolean shouldSkipField(FieldAttributes fieldAttributes) {
-        return Curso.class.equals(fieldAttributes.getDeclaredClass());
+        return Usuario.class.equals(fieldAttributes.getDeclaringClass()) && fieldAttributes.getName().equals("curso");
     }
 
     @Override

@@ -113,6 +113,8 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             } else if (permissao.getPermissao().equals(Permissao.ROLE_PROFESSOR)) {
                 professorId = usuario.getId();
                 break;
+            } else if (permissao.getPermissao().equals(Permissao.ROLE_COORDENACAO)) {
+
             }
         }
         return Specification.where(RequerimentoSpecification.withUsuarioId(alunoId)).and(RequerimentoSpecification.withProfessorId(professorId));
