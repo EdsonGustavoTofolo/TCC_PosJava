@@ -4,7 +4,9 @@ import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 /**
@@ -12,4 +14,8 @@ import java.util.List;
  */
 public interface RequerimentoRepository extends JpaRepository<Requerimento, Long>, JpaSpecificationExecutor<Requerimento> {
     List<Requerimento> findByStatus(StatusRequerimentoEnum status);
+
+    @Query(value = "select distinct r from Requerimento r join RequerimentoDisciplina rd on rd.requerimento.id=r.id join Disciplina d on" +
+            " d.id=rd.disciplina.id join Curso c on c.id=d.curso.id join Usuario u on u.id=c.usuario.id where u.id=?1 and r.status=?2")
+    List<Requerimento> findAllToCoordenacao(Long coordenacaoId, StatusRequerimentoEnum status);
 }

@@ -5,6 +5,7 @@ import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.RequerimentoRepository;
+import br.edu.utfpr.pb.projetojsp.repository.repositoryImpl.RequerimentoRepositoryImpl;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
 import br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson.RequerimentoExclusionStrategy;
 import br.edu.utfpr.pb.projetojsp.web.util.ControllersUtil;
@@ -32,6 +33,8 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
     @Autowired
     private RequerimentoRepository repository;
+    @Autowired
+    private RequerimentoRepositoryImpl repositoryImpl;
 
     @Override
     public List<Requerimento> findData(HttpServletRequest request, boolean isSearching, PageRequest pageRequest) {
@@ -72,15 +75,30 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             if (Objects.nonNull(request.getParameter("observacao")) && !"".equals(request.getParameter("observacao"))) {
                 observacao = request.getParameter("observacao");
             }
-            page = repository.findAll(getCommonSpecification()
-                            .and(RequerimentoSpecification.withAlunoNome(aluno))
-                            .and(RequerimentoSpecification.withId(id))
-                            .and(RequerimentoSpecification.withData(data))
-                            .and(RequerimentoSpecification.withObservacao(observacao))
-                            .and(RequerimentoSpecification.withMotivo(motivo))
-                            .and(RequerimentoSpecification.withStatus(status)), pageRequest);
+
+            if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
+                page = repositoryImpl.findAllToCoordenacao(getCommonSpecification()
+                        .and(RequerimentoSpecification.withAlunoNome(aluno))
+                        .and(RequerimentoSpecification.withId(id))
+                        .and(RequerimentoSpecification.withData(data))
+                        .and(RequerimentoSpecification.withObservacao(observacao))
+                        .and(RequerimentoSpecification.withMotivo(motivo))
+                        .and(RequerimentoSpecification.withStatus(status)), pageRequest);
+            } else {
+                page = repository.findAll(getCommonSpecification()
+                        .and(RequerimentoSpecification.withAlunoNome(aluno))
+                        .and(RequerimentoSpecification.withId(id))
+                        .and(RequerimentoSpecification.withData(data))
+                        .and(RequerimentoSpecification.withObservacao(observacao))
+                        .and(RequerimentoSpecification.withMotivo(motivo))
+                        .and(RequerimentoSpecification.withStatus(status)), pageRequest);
+            }
         } else {
-            page = repository.findAll(getCommonSpecification(), pageRequest);
+            if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
+                page = repositoryImpl.findAllToCoordenacao(getCommonSpecification(), pageRequest);
+            } else {
+                page = repository.findAll(getCommonSpecification(), pageRequest);
+            }
         }
 		List<Requerimento> list = page.getContent();
         return list;
@@ -104,6 +122,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
     private Specification<Requerimento> getCommonSpecification() {
         Long alunoId = null;
         Long professorId = null;
+        Long coordenadorId = null;
 
         Usuario usuario = ControllersUtil.getLoggedUser();
         for (Permissao permissao : usuario.getPermissoes()) {
@@ -114,9 +133,12 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
                 professorId = usuario.getId();
                 break;
             } else if (permissao.getPermissao().equals(Permissao.ROLE_COORDENACAO)) {
-
+                coordenadorId = usuario.getId();
+                break;
             }
         }
-        return Specification.where(RequerimentoSpecification.withUsuarioId(alunoId)).and(RequerimentoSpecification.withProfessorId(professorId));
+        return Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
+                .and(RequerimentoSpecification.withProfessorId(professorId))
+                .and(RequerimentoSpecification.withCoordenacaoId(coordenadorId));
     }
 }

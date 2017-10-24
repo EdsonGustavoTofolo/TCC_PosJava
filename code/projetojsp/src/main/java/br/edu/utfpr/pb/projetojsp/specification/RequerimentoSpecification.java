@@ -74,4 +74,13 @@ public class RequerimentoSpecification {
                                                     .join("professor").get("id"), professorId);
         }
     }
+
+    public static Specification<Requerimento> withCoordenacaoId(Long coordenacaoId) {
+        if (coordenacaoId == null) {
+            return null;
+        } else {
+            return (root, query, cb) -> cb.equal(root.join("disciplinas")
+                    .join("disciplina").join("curso").join("usuario").get("id"), coordenacaoId);
+        }
+    }
 }

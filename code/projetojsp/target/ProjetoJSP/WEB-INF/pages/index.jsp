@@ -65,7 +65,7 @@
               urlRequerimentos = '/ProjetoJSP/requerimento/findToCoordenacao';
               boardColumns =  [
                 { text: "Aguardando Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
-                { text: "Aprovar", dataField: "AGUARDANDO_COORDENACAO" },
+                { text: "Aprovar", dataField: "APROVADO_COORDENACAO" },
                 { text: "Recusado", dataField: "RECUSADO" },
                 { text: "Finalizado", dataField: "FINALIZADO" }
               ];

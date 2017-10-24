@@ -22,7 +22,7 @@ public class Permissao implements Serializable, GrantedAuthority {
     public static final String ROLE_ALUNO = "ROLE_ALUNO";
     public static final String ROLE_PROFESSOR = "ROLE_PROFESSOR";
     public static final String ROLE_DERAC = "ROLE_DERAC";
-    public static final String ROLE_COORDENACAO = "ROLE_COORDENACAo";
+    public static final String ROLE_COORDENACAO = "ROLE_COORDENACAO";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

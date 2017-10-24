@@ -190,7 +190,6 @@ public class RequerimentoController {
         return forward;
     }
 
-
     /**
      *
      * @param requerimento
@@ -248,15 +247,22 @@ public class RequerimentoController {
         return retorno.toString();
     }
 
+    @Secured("ROLE_ALUNO")
     @DeleteMapping("/delete/{id}")
     @ResponseBody
     public String excluir(@PathVariable Long id) {
         JSONObject retorno = new JSONObject();
         try{
-            if (Objects.nonNull(requerimentoRepository.findById(id).orElse(null))) {
-                requerimentoRepository.deleteById(id);
-                retorno.put("state", "OK");
-                retorno.put("message", "Registro removido com sucesso!");
+            Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
+            if (Objects.nonNull(requerimento)) {
+                if (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) && requerimento.getStatus().equals(StatusRequerimentoEnum.AGUARDANDO_DERAC)) {
+                    requerimentoRepository.deleteById(id);
+                    retorno.put("state", "OK");
+                    retorno.put("message", "Registro removido com sucesso!");
+                } else {
+                    retorno.put("state", "ERROR");
+                    retorno.put("message", "Você não possui permissão para excluir o Requerimento!");
+                }
             } else {
                 retorno.put("state", "ERROR");
                 retorno.put("message", "Falha ao remover registro!\nRequerimento inexistente!");
@@ -331,7 +337,7 @@ public class RequerimentoController {
     @GetMapping(value = "/findToCoordenacao")
     @ResponseBody
     public List<Requerimento> findToCoordenacao() {
-        List<Requerimento> requerimentos = requerimentoRepository.findByStatus(StatusRequerimentoEnum.AGUARDANDO_COORDENACAO);
+        List<Requerimento> requerimentos = requerimentoRepository.findAllToCoordenacao(ControllersUtil.getLoggedUser().getId(), StatusRequerimentoEnum.AGUARDANDO_COORDENACAO);
         return requerimentos;
     }
 
@@ -339,7 +345,8 @@ public class RequerimentoController {
     @GetMapping(value = "/findToProfessor")
     @ResponseBody
     public List<Requerimento> findToProfessor() {
-        List<Requerimento> requerimentos = requerimentoRepository.findByStatus(StatusRequerimentoEnum.AGUARDANDO_PROFESSOR);
+        List<Requerimento> requerimentos = requerimentoRepository.findAll(Specification.where(RequerimentoSpecification.withProfessorId(ControllersUtil.getLoggedUser().getId()))
+                .and(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.AGUARDANDO_PROFESSOR)));
         return requerimentos;
     }
 
