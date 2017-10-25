@@ -337,7 +337,8 @@ public class RequerimentoController {
     @GetMapping(value = "/findToCoordenacao")
     @ResponseBody
     public List<Requerimento> findToCoordenacao() {
-        List<Requerimento> requerimentos = requerimentoRepository.findAllToCoordenacao(ControllersUtil.getLoggedUser().getId(), StatusRequerimentoEnum.AGUARDANDO_COORDENACAO);
+        List<Requerimento> requerimentos = requerimentoRepository.findAllToCoordenacao(ControllersUtil.getLoggedUser().getId(),
+                StatusRequerimentoEnum.AGUARDANDO_COORDENACAO);
         return requerimentos;
     }
 

@@ -116,7 +116,11 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
     @Override
     public long getTotalRecords() {
-        return repository.count(getCommonSpecification());
+        if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
+            return repositoryImpl.count(getCommonSpecification());
+        } else {
+            return repository.count(getCommonSpecification());
+        }
     }
 
     private Specification<Requerimento> getCommonSpecification() {
