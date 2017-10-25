@@ -47,8 +47,6 @@ public class RequerimentoRepositoryImpl {
 
     @Transactional
     public Long count(Specification<Requerimento> specs) {
-        Long count = 0L;
-
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
 
         CriteriaQuery<Long> queryCount = criteriaBuilder.createQuery(Long.class);
@@ -63,7 +61,7 @@ public class RequerimentoRepositoryImpl {
 
         queryCount.select(criteriaBuilder.count(requerimentoRoot)).where(criteriaBuilder.in(requerimentoRoot).value(subquery));
 
-        count = em.createQuery(queryCount).getSingleResult();
+        Long count = em.createQuery(queryCount).getSingleResult();
 
         return count;
     }

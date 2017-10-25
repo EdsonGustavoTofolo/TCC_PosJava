@@ -328,9 +328,9 @@ public class RequerimentoController {
     public List<Requerimento> findToAluno() {
         return requerimentoRepository.findAll(
                 Specification.where(RequerimentoSpecification.withUsuarioId(ControllersUtil.getLoggedUser().getId()))
-                    .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC))
-                    .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.FALTA_DOCUMENTOS))
-                    .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.RECUSADO)));
+                    .and(Specification.where(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC))
+                            .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.FALTA_DOCUMENTOS))
+                            .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.RECUSADO))));
     }
 
     @Secured("ROLE_COORDENACAO")
