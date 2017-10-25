@@ -66,6 +66,7 @@
               boardColumns =  [
                 { text: "Aguardando Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
                 { text: "Aprovar", dataField: "APROVADO_COORDENACAO" },
+                { text: "Enviar Professor", dataField: "AGUARDANDO_PROFESSOR" },
                 { text: "Recusado", dataField: "RECUSADO" },
                 { text: "Finalizado", dataField: "FINALIZADO" }
               ];
@@ -77,15 +78,15 @@
                   { text: "Aprovar", dataField: "APROVADO_DERAC" },
                   { text: "Enviar Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
                   { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
-                  { text: "Recusado", dataField: "RECUSADO" },
-                  { text: "Finalizado", dataField: "FINALIZADO" }
+                  { text: "Recusar", dataField: "RECUSADO" },
+                  { text: "Finalizar", dataField: "FINALIZADO" }
               ];
             </sec:authorize>
             <sec:authorize access="hasRole('PROFESSOR')">
               urlRequerimentos = '/ProjetoJSP/requerimento/findToProfessor';
               boardColumns =  [
                 { text: "Aguardando Professor", dataField: "AGUARDANDO_PROFESSOR" },
-                { text: "Finalizado", dataField: "FINALIZADO" }
+                { text: "Finalizar", dataField: "FINALIZADO" }
               ];
             </sec:authorize>
 

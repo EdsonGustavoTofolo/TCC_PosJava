@@ -66,6 +66,7 @@
               boardColumns =  [
                 { text: "Aguardando Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
                 { text: "Aprovar", dataField: "APROVADO_COORDENACAO" },
+                { text: "Enviar Professor", dataField: "AGUARDANDO_PROFESSOR" },
                 { text: "Recusado", dataField: "RECUSADO" },
                 { text: "Finalizado", dataField: "FINALIZADO" }
               ];
