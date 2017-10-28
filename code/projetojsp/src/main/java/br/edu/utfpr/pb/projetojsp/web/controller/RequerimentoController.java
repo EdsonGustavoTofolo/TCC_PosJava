@@ -6,6 +6,7 @@ import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
+import br.edu.utfpr.pb.projetojsp.model.RequerimentoObservacao;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import br.edu.utfpr.pb.projetojsp.repository.*;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
@@ -66,20 +67,18 @@ public class RequerimentoController {
         return "requerimento/requerimentoForm";
     }
 
-    private String changeStatus(Long requerimentoId, StatusRequerimentoEnum status) {
+    private String changeStatus(Long requerimentoId, StatusRequerimentoEnum status, RequerimentoObservacao requerimentoObservacao) {
         JSONObject retorno = new JSONObject();
         try{
             Requerimento requerimento = requerimentoRepository.findById(requerimentoId).orElse(null);
             if (Objects.nonNull(requerimento)) {
-                if (ControllersUtil.hasLoggedUserRole("ROLE_ALUNO") && requerimento.getStatus().equals(StatusRequerimentoEnum.RECUSADO)) {
-                    retorno.put("state", "FAIL");
-                    retorno.put("message", "Requerimento já foi Recusado e não pode ser alterado!");
-                } else {
-                    requerimento.setStatus(status);
-                    requerimento.setDataUltimoStatus(new Date());
-                    requerimentoRepository.save(requerimento);
-                    retorno.put("state", "OK");
-                }
+                requerimentoObservacao.setUsuario(ControllersUtil.getLoggedUser());
+                requerimentoObservacao.setRequerimento(requerimento);
+                requerimento.getObservacoes().add(requerimentoObservacao);
+                requerimento.setStatus(status);
+                requerimento.setDataUltimoStatus(new Date());
+                requerimentoRepository.save(requerimento);
+                retorno.put("state", "OK");
             } else {
                 retorno.put("state", "ERROR");
                 retorno.put("message", "Requerimento Inexistente!");
@@ -91,23 +90,26 @@ public class RequerimentoController {
         return retorno.toString();
     }
 
-    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
-    @PutMapping("/edit/{requerimentoId}/changeStatus/{statusId}")
+    @Secured({"ROLE_DERAC", "ROLE_COORDENACAO"})
+    @PutMapping(value = "/edit/{requerimentoId}/changeStatus/{status}", consumes = {"application/json"})
     @ResponseBody
     public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
-                               @PathVariable(name = "statusId") Integer statusId) {
-        return changeStatus(requerimentoId, StatusRequerimentoEnum.values()[statusId]);
+                               @PathVariable(name = "status") Integer statusId,
+                               @RequestBody RequerimentoObservacao requerimentoObservacao) {
+        return changeStatus(requerimentoId,
+                StatusRequerimentoEnum.values()[statusId],
+                requerimentoObservacao);
     }
 
-    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
+    @Secured({"ROLE_DERAC", "ROLE_COORDENACAO"})
     @PutMapping("/edit/{requerimentoId}/changeStatusKanban/{status}")
     @ResponseBody
     public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
                                @PathVariable(name = "status") String status) {
-        return changeStatus(requerimentoId, StatusRequerimentoEnum.valueOf(status));
+        return changeStatus(requerimentoId, StatusRequerimentoEnum.valueOf(status), null);
     }
 
-    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
+    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO"})
     @GetMapping("/edit/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
@@ -117,9 +119,8 @@ public class RequerimentoController {
             //Só pode alterar requerimento do usuário que criou e que o status esteja em falta de documentos ou aguardando derac OU o não é ALUNO
             // essa validação é válida pois algum usuário pode
             //editar a URL e informar um id aleatório
-            if ((requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) &&
-                    (requerimento.getStatus().equals(StatusRequerimentoEnum.FALTA_DOCUMENTOS) || requerimento.getStatus().equals(StatusRequerimentoEnum.AGUARDANDO_DERAC)))
-                    || hasRolesSuper) {
+            if (hasRolesSuper ||
+                    (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) && requerimento.getStatus().equals(StatusRequerimentoEnum.EM_ABERTO))) {
 
                 if (hasRolesSuper) {
                     model.addAttribute("statuses", RequerimentoControllerUtil.getStatuses());
@@ -202,7 +203,7 @@ public class RequerimentoController {
                          @RequestPart("file") MultipartFile[] anexos) {
         Usuario usuario = ControllersUtil.getLoggedUser();
 
-        requerimento.setStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC);
+        requerimento.setStatus(StatusRequerimentoEnum.EM_ABERTO);
         requerimento.setUsuario(usuario);
 
         if (!Objects.isNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
@@ -255,7 +256,7 @@ public class RequerimentoController {
         try{
             Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
             if (Objects.nonNull(requerimento)) {
-                if (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) && requerimento.getStatus().equals(StatusRequerimentoEnum.AGUARDANDO_DERAC)) {
+                if (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) && requerimento.getStatus().equals(StatusRequerimentoEnum.EM_ABERTO)) {
                     requerimentoRepository.deleteById(id);
                     retorno.put("state", "OK");
                     retorno.put("message", "Registro removido com sucesso!");
@@ -318,7 +319,10 @@ public class RequerimentoController {
     @GetMapping(value = "/findToDerac")
     @ResponseBody
     public List<Requerimento> findByDerac() {
-        List<Requerimento> requerimentos = requerimentoRepository.findByStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC);
+        List<Requerimento> requerimentos = requerimentoRepository.findAll(
+                Specification.where(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.EM_ABERTO))
+                .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.DEVOLVIDO_DERAC))
+        );
         return requerimentos;
     }
 
@@ -328,9 +332,11 @@ public class RequerimentoController {
     public List<Requerimento> findToAluno() {
         return requerimentoRepository.findAll(
                 Specification.where(RequerimentoSpecification.withUsuarioId(ControllersUtil.getLoggedUser().getId()))
-                    .and(Specification.where(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.AGUARDANDO_DERAC))
-                            .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.FALTA_DOCUMENTOS))
-                            .or(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.RECUSADO))));
+                    .and(
+                            Specification.where(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.EM_ABERTO))
+//                            .or(RequerimentoSpecification.withDeferido(Boolean.FALSE)) TODO implementar
+                            )
+        );
     }
 
     @Secured("ROLE_COORDENACAO")
@@ -346,8 +352,7 @@ public class RequerimentoController {
     @GetMapping(value = "/findToProfessor")
     @ResponseBody
     public List<Requerimento> findToProfessor() {
-        List<Requerimento> requerimentos = requerimentoRepository.findAll(Specification.where(RequerimentoSpecification.withProfessorId(ControllersUtil.getLoggedUser().getId()))
-                .and(RequerimentoSpecification.withStatus(StatusRequerimentoEnum.AGUARDANDO_PROFESSOR)));
+        List<Requerimento> requerimentos = null;
         return requerimentos;
     }
 

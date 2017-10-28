@@ -17,7 +17,6 @@ import java.util.List;
 @Entity
 @Table(name = "requerimentos")
 public class Requerimento implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_req")
@@ -43,12 +42,16 @@ public class Requerimento implements Serializable {
     @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoAnexo.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(FetchMode.SUBSELECT) //SE NAO DA ERRO, POIS NAO PODE TER DOIS ONETOMANY COM O FETCHTYPE EAGER
     private List<RequerimentoAnexo> anexos;
+    @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoObservacao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT) //SE NAO DA ERRO, POIS NAO PODE TER DOIS ONETOMANY COM O FETCHTYPE EAGER
+    private List<RequerimentoObservacao> observacoes;
 
     public Requerimento() {
     }
 
     public Requerimento(StatusRequerimentoEnum status, Integer motivo, String observacao, Date data, Date dataUltimoStatus, Usuario usuario,
-                        List<RequerimentoDisciplina> requerimentoDisciplinaList, List<RequerimentoAnexo> anexoList) {
+                        List<RequerimentoDisciplina> requerimentoDisciplinaList, List<RequerimentoAnexo> anexoList,
+                        List<RequerimentoObservacao> observacaoList) {
         this.status = status;
         this.motivo = motivo;
         this.observacao = observacao;
@@ -57,6 +60,7 @@ public class Requerimento implements Serializable {
         this.usuario = usuario;
         this.disciplinas = requerimentoDisciplinaList;
         this.anexos = anexoList;
+        this.observacoes = observacaoList;
     }
 
     public Long getId() {
@@ -129,6 +133,14 @@ public class Requerimento implements Serializable {
 
     public void setAnexos(List<RequerimentoAnexo> anexos) {
         this.anexos = anexos;
+    }
+
+    public List<RequerimentoObservacao> getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(List<RequerimentoObservacao> observacoes) {
+        this.observacoes = observacoes;
     }
 
     @Override

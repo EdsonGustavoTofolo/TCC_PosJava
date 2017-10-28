@@ -66,6 +66,10 @@
 <script type="text/javascript" src="<c:url value="/webjars/jquery-validation/1.13.0/jquery.validate.min.js"/> "></script>
 <script type="text/javascript" src="<c:url value="/resources/js/pt_br_messages_jquery.js"/> "></script>
 <script>
+    $(document).ready(function () {
+        $("#username").focus();
+    });
+
     $("#frm").validate({
         rules: {
             username: {

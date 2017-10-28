@@ -118,6 +118,8 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
     public long getTotalRecords() {
         if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
             return repositoryImpl.count(getCommonSpecification());
+        } else if (ControllersUtil.hasLoggedUserRole("ROLE_DERAC")) {
+            return repository.count();
         } else {
             return repository.count(getCommonSpecification());
         }

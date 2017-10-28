@@ -13,6 +13,7 @@
   </jsp:attribute>
   <jsp:attribute name="scriptsEspecificos">
     <script type="text/javascript" src="<c:url value="/resources/js/requerimento/motivoList.js"/> "></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxcore.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxsortable.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxkanban.js"/> "></script>
@@ -23,11 +24,6 @@
     <script type="text/javascript" src="<c:url value="/resources/js/jqgrid/jquery.jqGrid.min.js"/> "></script>
     <script  type="text/javascript">
         $(document).ready(function () {
-            $('#requerimentoViewer').tooltip({
-                selector: "[data-toggle=tooltip]",
-                container: "body"
-            });
-
             $.jgrid.defaults.styleUI = 'Bootstrap';
             $.jgrid.defaults.responsive = true;
             $.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
@@ -214,90 +210,7 @@
                 var attribute = args.attribute; // template, colorStatus, content, keyword, text, avatar
 
                 if (attribute == "template") {
-                    $.getJSON('/ProjetoJSP/requerimento/findById', {"id": itemId}, function (requerimento) {
-                        if (!$('#motivo9').hasClass('hidden')) {
-                            $("#motivo9").addClass('hidden');
-                        }
-                        if (!$("#disciplinas").hasClass('hidden')) {
-                            $("#disciplinas").addClass('hidden');
-                        }
-                        if (!$("#anexos").hasClass('hidden')) {
-                            $("#anexos").addClass('hidden');
-                        }
-
-                        $("#requerimentoId").html('');
-                        $("#requerimentoData").html('');
-                        $("#anexos").find(".dz-preview").remove();
-
-                        var dataRequerimento = new Date(requerimento.data);
-                        var momentData = moment(dataRequerimento).locale('pt-br');
-
-                        var dataRequerimentoAgo = momentData.fromNow(); //quanto tempo atrás
-                        dataRequerimento = momentData.format('llll');
-
-                        $("#requerimentoId").append(requerimento.id);
-                        $("#requerimentoData").append(dataRequerimento);
-                        $("#requerimentoData").attr("data-original-title", dataRequerimentoAgo);
-
-                        $("#alunoNome").val(requerimento.usuario.nome);
-                        $("#motivo").val(motivoList[requerimento.motivo - 1].descricao);
-                        $("#curso").val(requerimento.usuario.curso.usuario.nome);
-                        $("#observacao").val(requerimento.observacao);
-
-                        if (requerimento.motivo == 9) { //2 chamada de prova
-                          $("#motivo9").removeClass('hidden');
-                          $("#curso").val(requerimento.disciplinas[0].disciplina.curso.usuario.nome);
-                          $("#disciplina").val(requerimento.disciplinas[0].disciplina.codigo + " - " + requerimento.disciplinas[0].disciplina.nome);
-                          $("#professor").val(requerimento.disciplinas[0].professor.nome);
-                          $("#data").val(requerimento.disciplinas[0].dataProva);
-
-                        } else if (requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17) { //exibir tabela com disciplinas
-                          $("#disciplinas").removeClass('hidden');
-                          $("#curso").val(requerimento.disciplinas[0].disciplina.curso.usuario.nome);
-
-                          $("#disciplinaList").html('');
-                          $("#disciplinaList").append('<table id="jqGrid"></table><div id="jqGridPager"></div>');
-
-                          $("#jqGrid").jqGrid({
-                              datatype : "jsonstring",
-                              datastr: JSON.stringify(requerimento.disciplinas),
-                              jsonReader: { repeatitems: false },
-                              colModel: [
-                                  { label: "Código", name: "codigo", jsonmap: 'disciplina.codigo', width: 100 },
-                                  { label: "Nome", name: "nome", jsonmap: 'disciplina.nome', width: 400 }
-                              ],
-                              pager: '#jqGridPager',
-                              rowNum: 5,
-                              width: 'auto',
-                              heigth: '200',
-                              scroll: 1,
-                              viewrecords: true
-                          });
-                        }
-
-                        if (requerimento.anexos.length > 0) { //exibir anexos para efetuar downloads
-                          $("#anexos").removeClass('hidden');
-                          requerimento.anexos.forEach(function (anexo) {
-                              $(".attached").append(
-                                  $('<div id="anexo' + anexo.id + '" class="dz-preview dz-file-preview">' +
-                                      '<div class="dz-image"><img data-dz-thumbnail=""></div>' +
-                                      '<div class="dz-details">'+
-                                        '<div class="dz-size">'+
-                                          '<span><strong>' + anexo.size + '</strong> ' + anexo.unitSize + '</span>'+
-                                        '</div>'+
-                                        '<div class="dz-filename">'+
-                                          '<span>' + anexo.nome + '</span>'+
-                                        '</div>'+
-                                      '</div>'+
-                                      '<div class="dz-download" style="top: 80%;">'+
-                                        '<a href="/ProjetoJSP/requerimento/anexos/download/' + anexo.id + '">Download</a>'+
-                                      '</div>'+
-                                  '</div>'));
-                          });
-                        }
-
-                        $("#linkOpenModalReq").click();
-                    });
+                    visualizarRequerimento(itemId, $('#visualizarRequerimento'));
                 }
             });
             $('#kanban').on('columnAttrClicked', function (event) {
@@ -321,56 +234,6 @@
     </c:if>
     <div id="kanban"></div>
 
-    <a id="linkOpenModalReq" class="hidden" data-toggle='modal' href='index.jsp#requerimentoViewer'></a>
-
-    <div aria-hidden="true" aria-labelledby="requerimentoDialog" role="dialog" tabindex="-1" id="requerimentoViewer" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Requerimento <small id="requerimentoId"></small> <small>/</small> <small id="requerimentoData" data-toggle="tooltip" data-placement="right"></small></h4>
-          </div>
-          <div class="modal-body">
-            <label for="alunoNome">Aluno:</label>
-            <input id="alunoNome" type="text" value="" class="form-control" disabled/>
-            <br>
-            <label for="motivo">Motivo do Requerimento:</label>
-            <input id="motivo" type="text" value="" class="form-control" disabled/>
-            <br>
-            <label for="curso">Curso:</label>
-            <input id="curso" type="text" value="" class="form-control" disabled/>
-            <div id="motivo9" class="hidden">
-              <br>
-              <label for="disciplina">Disciplina:</label>
-              <input id="disciplina" type="text" value="" class="form-control" disabled/>
-              <br>
-              <label for="professor">Professor:</label>
-              <input id="professor" type="text" value="" class="form-control" disabled/>
-              <br>
-              <label for="data">Data:</label>
-              <input id="data" type="date" pattern="dd/MM/yyyy" value="" class="form-control" disabled/>
-            </div>
-            <div id="disciplinas" class="hidden">
-              <br>
-              <label>Disciplinas:</label>
-              <div id="disciplinaList">
-              </div>
-            </div>
-            <div id="anexos" class="hidden">
-              <br>
-              <label>Anexos:</label>
-              <div class="attached">
-              </div>
-            </div>
-            <br>
-            <label for="observacao">Observações:</label>
-            <textarea id="observacao" name="observacao" class="form-control" rows="5" disabled></textarea>
-          </div>
-          <%--<div class="modal-footer">--%>
-            <%--<button class="btn btn-primary" type="button">Ok</button>--%>
-          <%--</div>--%>
-        </div>
-      </div>
-    </div>
+    <div id="visualizarRequerimento"></div>
   </jsp:body>
 </layout:template>

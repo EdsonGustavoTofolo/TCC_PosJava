@@ -69,7 +69,7 @@
     $(document).ready(function () {
         $("#username").focus();
     });
-    
+
     $("#frm").validate({
         rules: {
             username: {

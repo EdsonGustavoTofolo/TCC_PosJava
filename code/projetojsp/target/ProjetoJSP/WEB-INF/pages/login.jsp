@@ -44,7 +44,7 @@
                 ${error}
             </div>
         </c:if>
-        <form class="m-t" role="form" action="login" method="POST" autocomplete="off">
+        <form id="formLogin" class="m-t" role="form" action="login" method="POST" autocomplete="off">
 
             <div class="form-group">
                 <input id="username" name="username" type="text" class="form-control" placeholder="Informe seu login" required>
@@ -53,7 +53,7 @@
                 <input name="password" type="password" class="form-control" placeholder="Informe a sua senha" required>
             </div>
 
-            <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+            <button id="login" class="btn btn-primary block full-width m-b">Login</button>
 
             <a data-toggle="modal" href="login.html#forgotPass"><small>Esqueceu a senha?</small></a>
             <p class="text-muted text-center"><small>Não possui conta ainda?</small></p>

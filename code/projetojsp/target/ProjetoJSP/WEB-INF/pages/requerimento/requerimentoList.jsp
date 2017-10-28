@@ -17,6 +17,8 @@
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.pt-BR.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/motivoList.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/moment/moment-with-locales.min.js"/> "></script>
         <script type="text/javascript">
             $(document).ready(function () {
 //                $.jgrid.defaults.width = 1000;
@@ -45,7 +47,7 @@
                             dataInit: function (e) {
                               $(e).addClass('form-control').removeAttr('size');
                             },
-                            value: ":[Todos];1:Enviado DERAC;2:Aprovado DERAC;3:Falta Documentos;4:Recusado;5:Enviado Coordenação;6:Aprovado Coordenação;7:Finalizado"
+                            value: ":[Todos];1:Em Aberto;2:Aprovado;3:Com DERAC;4:Cancelado;5:Encaminhado Coordenação;6:Encaminhado DIRGRAD;7:Encaminhado NUAPE;8:Encaminhado DIRGE;9:Finalizado"
                         },
                         formatter: statusFormatter
                     }
@@ -130,18 +132,22 @@
                 });
                 
                 function statusFormatter(cellvalue, options, rowobject) {
-                    if (cellvalue == "AGUARDANDO_DERAC") {
-                        return '<span class="label label-warning">Enviado DERAC</span>'
-                    } else if (cellvalue == "APROVADO_DERAC") {
-                        return '<span class="label label-success">Aprovado DERAC</span>'
-                    } else if (cellvalue == "FALTA_DOCUMENTOS") {
-                        return '<span class="label label-danger">Falta de Documentos</span>'
-                    } else if (cellvalue == "RECUSADO") {
-                        return '<span class="label label-danger">Recusado</span>'
+                    if (cellvalue == "EM_ABERTO") {
+                        return '<span class="label label-success">Encaminhado DERAC</span>'
+                    } else if (cellvalue == "APROVADO") {
+                        return '<span class="label label-primary">Aprovado</span>'
+                    } else if (cellvalue == "DEVOLVIDO_DERAC") {
+                        return '<span class="label label-warning">Com DERAC</span>'
+                    } else if (cellvalue == "CANCELADO") {
+                        return '<span class="label label-danger">Cancelado</span>'
                     } else if (cellvalue == "AGUARDANDO_COORDENACAO") {
-                        return '<span class="label label-warning">Enviado Coordenação</span>'
-                    } else if (cellvalue == "APROVADO_COORDENACAO") {
-                        return '<span class="label label-success">Aprovado Coordenação</span>'
+                        return '<span class="label label-warning">Encaminhado Coordenação</span>'
+                    } else if (cellvalue == "AGUARDANDO_DIRGRAD") {
+                        return '<span class="label label-warning">Encaminhado DIRGRAD</span>'
+                    } else if (cellvalue == "AGUARDANDO_NUAPNE") {
+                        return '<span class="label label-warning">Encaminhado NUAPE</span>'
+                    } else if (cellvalue == "AGUARDANDO_DIRGE") {
+                        return '<span class="label label-warning">Encaminhado DIRGE</span>'
                     } else {
                         return '<span class="label label-primary">Finalizado</span>'
                     }
@@ -227,6 +233,20 @@
                     position: "last",
                     title:"Excluir requerimento",
                     cursor: "pointer"
+                }).navButtonAdd("#jqGridPager", { //VISUALIZAR REQUERIMENTO
+                    caption:"",
+                    buttonicon:"fa fa-info-circle",
+                    onClickButton: function () {
+                        var rowKey = getSelectedRow();
+                        if (rowKey) {
+                            visualizarRequerimento(rowKey, $('#visualizarRequerimento'));
+                        } else {
+                            swal("Selecione um requerimento!", "Nenhum requerimento selecionado!", "warning").catch(swal.noop); // esse catch evita erro no console do browser
+                        }
+                    },
+                    position: "last",
+                    title:"Visualizar requerimento",
+                    cursor: "pointer"
                 }); //---** FIM DO JQGRID REQUERIMENTO **---
 
                 // the event handler on expanding parent row receives two parameters
@@ -279,12 +299,13 @@
                         url : "/ProjetoJSP/requerimento/findDisciplinas?requerimentoId=" + parentRowKey,
                         datatype : "json",
                         mtype : 'GET',
-                        page: 1,
-                        rownum: 15,
+                        rowList : [ 5, 10, 20 ],
+                        viewrecords : true,
+                        rowNum: 5,
+                        jsonReader : {repeatitems : false},
                         colModel: colModelReq,
                         height: 'auto',
-//                        with: '100%',
-                        autoWidth: true,
+                        with: 'auto',
                         pager: "#" + childGridPagerID
                     });
 
@@ -309,5 +330,7 @@
                 <div id="jqGridPager"></div>
             </div>
         </div>
+
+        <div id="visualizarRequerimento"></div>
     </jsp:body>
 </layout:template>

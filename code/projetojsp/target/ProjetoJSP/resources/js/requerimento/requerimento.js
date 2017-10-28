@@ -181,34 +181,50 @@ $(document).ready(function () {
     $("#status").on("select2:select", function (e) {
         var statusId = e.params['data'].id;
         var requerimentoId = $("#id").val();
-        swal({
-            title: 'Confirma a alteração do Status?!',
-            text: "Esta ação não poderá ser desfeita!",
-            type: 'question', //warning
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, alterar!!',
-            cancelButtonText: 'Não',
-            allowOutsideClick: false
-        }).then(function () {
-            var url = '/ProjetoJSP/requerimento/edit/' + requerimentoId + '/changeStatus/' + statusId;
-            $.ajax({
-                type : 'PUT',
-                url : url,
-                success : function(data) {
-                    data = JSON.parse(data);
-                    if (data.state == "OK") {
-                        window.location = '/ProjetoJSP/requerimento/list';
-                    } else {
-                        swal("Falhou!", data.message, "error").catch(swal.noop);
+
+        $("#textoObs").val("");
+
+        $("#linkOpenModalObs").click(); // Abre o modal com o campo de Deferido e a Observação
+
+        $("#deferido").select2();
+
+        $("#confirmarObs").click(function () {
+            swal({
+                title: 'Confirma a alteração do Status?',
+                text: "Esta ação não poderá ser desfeita!",
+                type: 'question', //warning
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, alterar!!',
+                cancelButtonText: 'Não',
+                allowOutsideClick: false
+            }).then(function () {
+                var texto = $("#textoObs").val();
+                var deferido = $("#deferido").select2("val");
+                var requerimentoObservacao = {"texto": texto, "deferido": deferido};
+
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type : 'PUT',
+                    url : '/ProjetoJSP/requerimento/edit/' + requerimentoId + '/changeStatus/' + statusId,
+                    data: JSON.stringify(requerimentoObservacao),
+                    success : function(data) {
+                        if (data.state == "OK") {
+                            window.location = '/ProjetoJSP/requerimento/list';
+                        } else {
+                            swal("Falhou!", data.message, "error").catch(swal.noop);
+                        }
+                    },//Fim success
+                    error : function() {
+                        swal("Erro!", "Falha ao alterar status.", "error").catch(swal.noop);
                     }
-                },//Fim success
-                error : function() {
-                    swal("Erro!", "Falha ao alterar status.", "error").catch(swal.noop);
-                }
-            }); //Fim ajax
-        }).catch(swal.noop); // esse catch evita erro no console do browser
+                }); //Fim ajax
+            }).catch(swal.noop); // esse catch evita erro no console do browser
+        });
     });
 
     //------[ SELECAO DE CURSOS ] --------
@@ -354,5 +370,4 @@ function deleteAnexo(id) {
             }
         }); //Fim ajax
     }).catch(swal.noop); // esse catch evita erro no console do browser;
-
 }
