@@ -13,7 +13,8 @@
   </jsp:attribute>
   <jsp:attribute name="scriptsEspecificos">
     <script type="text/javascript" src="<c:url value="/resources/js/requerimento/motivoList.js"/> "></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer.js"/> "></script>
+    <%--<script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer.js"/> "></script>--%>
+    <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer2.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxcore.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxsortable.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxkanban.js"/> "></script>
@@ -29,7 +30,7 @@
             $.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
 
             function getColor(status) {
-                if (status == "AGUARDANDO_DERAC") {
+                if (status == "EM_ABERTO") {
                     return '#f8ac59';
                 } else if (status == "APROVADO_DERAC") {
                     return '#1c84c6'
@@ -54,7 +55,7 @@
               boardColumns =  [
                   { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
                   { text: "Recusados", dataField: "RECUSADO" },
-                  { text: "Enviar DERAC", dataField: "AGUARDANDO_DERAC" }
+                  { text: "Enviar DERAC", dataField: "EM_ABERTO" }
               ];
             </sec:authorize>
             <sec:authorize access="hasRole('COORDENACAO')">
@@ -70,7 +71,7 @@
             <sec:authorize access="hasRole('DERAC')">
               urlRequerimentos = '/ProjetoJSP/requerimento/findToDerac';
               boardColumns =  [
-                  { text: "Aguardando DERAC", dataField: "AGUARDANDO_DERAC" },
+                  { text: "Aguardando DERAC", dataField: "EM_ABERTO" },
                   { text: "Aprovar", dataField: "APROVADO_DERAC" },
                   { text: "Enviar Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
                   { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },

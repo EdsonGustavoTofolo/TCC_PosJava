@@ -102,10 +102,11 @@ public class RequerimentoController {
     }
 
     @Secured({"ROLE_DERAC", "ROLE_COORDENACAO"})
-    @PutMapping("/edit/{requerimentoId}/changeStatusKanban/{status}")
+    @PutMapping(value = "/edit/{requerimentoId}/changeStatusKanban/{status}", consumes = {"application/json"})
     @ResponseBody
     public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
-                               @PathVariable(name = "status") String status) {
+                               @PathVariable(name = "status") String status,
+                               @RequestBody RequerimentoObservacao requerimentoObservacao) {
         return changeStatus(requerimentoId, StatusRequerimentoEnum.valueOf(status), null);
     }
 
@@ -248,7 +249,7 @@ public class RequerimentoController {
         return retorno.toString();
     }
 
-    @Secured("ROLE_ALUNO")
+    /*@Secured("ROLE_ALUNO")
     @DeleteMapping("/delete/{id}")
     @ResponseBody
     public String excluir(@PathVariable Long id) {
@@ -271,6 +272,33 @@ public class RequerimentoController {
         }catch (Exception ex){
             retorno.put("state", "ERROR");
             retorno.put("message", "Falha ao remover registro!\n" + ex.getCause().getCause().getMessage());
+        }
+        return retorno.toString();
+    }*/
+
+    @Secured("ROLE_ALUNO")
+    @PutMapping("/cancel/{id}")
+    public String cancelar(@PathVariable Long id) {
+        JSONObject retorno = new JSONObject();
+        try{
+            Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
+            if (Objects.nonNull(requerimento)) {
+                if (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) && requerimento.getStatus().equals(StatusRequerimentoEnum.EM_ABERTO)) {
+                    requerimento.setStatus(StatusRequerimentoEnum.CANCELADO);
+                    requerimentoRepository.save(requerimento);
+                    retorno.put("state", "OK");
+                    retorno.put("message", "Requerimento cancelado com sucesso!");
+                } else {
+                    retorno.put("state", "ERROR");
+                    retorno.put("message", "Você não possui permissão para cancelar o Requerimento!");
+                }
+            } else {
+                retorno.put("state", "ERROR");
+                retorno.put("message", "Falha ao cancelar registro!\nRequerimento inexistente!");
+            }
+        }catch (Exception ex){
+            retorno.put("state", "ERROR");
+            retorno.put("message", "Falha ao cancelar registro!\n" + ex.getCause().getCause().getMessage());
         }
         return retorno.toString();
     }

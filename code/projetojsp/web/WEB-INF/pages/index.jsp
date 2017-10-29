@@ -13,7 +13,8 @@
   </jsp:attribute>
   <jsp:attribute name="scriptsEspecificos">
     <script type="text/javascript" src="<c:url value="/resources/js/requerimento/motivoList.js"/> "></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer.js"/> "></script>
+    <%--<script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer.js"/> "></script>--%>
+    <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer2.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxcore.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxsortable.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/resources/js/jqxKanban/jqxkanban.js"/> "></script>
@@ -29,19 +30,23 @@
             $.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
 
             function getColor(status) {
-                if (status == "AGUARDANDO_DERAC") {
-                    return '#f8ac59';
-                } else if (status == "APROVADO_DERAC") {
-                    return '#1c84c6'
-                } else if (status == "FALTA_DOCUMENTOS") {
-                    return '#ed5565'
-                } else if (status == "RECUSADO") {
+                if (status == "EM_ABERTO") {
+                    return '#1c84c6';
+                } else if (status == "APROVADO") {
+                    return '#1ab394'
+                } else if (status == "DEVOLVIDO_DERAC") {
+                    return '#f8ac59'
+                } else if (status == "CANCELADO") {
                     return '#ed5565'
                 } else if (status == "AGUARDANDO_COORDENACAO") {
                     return '#f8ac59'
-                } else if (status == "APROVADO_COORDENACAO") {
-                    return '#1c84c6'
-                } else {
+                } else if (status == "AGUARDANDO_DIRGRAD") {
+                    return '#f8ac59'
+                } else if (status == "AGUARDANDO_NUAPNE") {
+                    return '#f8ac59'
+                } else if (status == "AGUARDANDO_DIRGE") {
+                    return '#f8ac59'
+                } else { //finalizado
                     return '#1ab394'
                 }
             }
@@ -52,29 +57,28 @@
             <sec:authorize access="hasRole('ALUNO')">
               urlRequerimentos = '/ProjetoJSP/requerimento/findToAluno';
               boardColumns =  [
-                  { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
-                  { text: "Recusados", dataField: "RECUSADO" },
-                  { text: "Enviar DERAC", dataField: "AGUARDANDO_DERAC" }
+                  { text: "Cancelado", dataField: "CANCELADO" },
+                  { text: "Enviar DERAC", dataField: "EM_ABERTO" }
               ];
             </sec:authorize>
             <sec:authorize access="hasRole('COORDENACAO')">
               urlRequerimentos = '/ProjetoJSP/requerimento/findToCoordenacao';
               boardColumns =  [
                 { text: "Aguardando Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
-                { text: "Aprovar", dataField: "APROVADO_COORDENACAO" },
-                { text: "Enviar Professor", dataField: "AGUARDANDO_PROFESSOR" },
-                { text: "Recusado", dataField: "RECUSADO" },
-                { text: "Finalizado", dataField: "FINALIZADO" }
+                { text: "Devolver DERAC", dataField: "DEVOLVIDO_DERAC" }
               ];
             </sec:authorize>
             <sec:authorize access="hasRole('DERAC')">
               urlRequerimentos = '/ProjetoJSP/requerimento/findToDerac';
               boardColumns =  [
-                  { text: "Aguardando DERAC", dataField: "AGUARDANDO_DERAC" },
-                  { text: "Aprovar", dataField: "APROVADO_DERAC" },
-                  { text: "Enviar Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
-                  { text: "Falta de Documentos", dataField: "FALTA_DOCUMENTOS" },
-                  { text: "Recusar", dataField: "RECUSADO" },
+                  { text: "Aguardando DERAC", dataField: "EM_ABERTO" },
+                  { text: "Devolvido", dataField: "DEVOLVIDO_DERAC" },
+                  { text: "Aprovar", dataField: "APROVADO" },
+                  { text: "Encaminhar Coordenação", dataField: "AGUARDANDO_COORDENACAO" },
+                  { text: "Encaminhar DIRGRAD", dataField: "AGUARDANDO_DIRGRAD" },
+                  { text: "Encaminhar DIRGE", dataField: "AGUARDANDO_DIRGE" },
+                  { text: "Encaminhar NUAPNE", dataField: "AGUARDANDO_NUAPNE" },
+                  { text: "Cancelar", dataField: "CANCELADO" },
                   { text: "Finalizar", dataField: "FINALIZADO" }
               ];
             </sec:authorize>
