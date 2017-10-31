@@ -107,7 +107,7 @@ public class RequerimentoController {
     public String changeStatus(@PathVariable(name = "requerimentoId") Long requerimentoId,
                                @PathVariable(name = "status") String status,
                                @RequestBody RequerimentoObservacao requerimentoObservacao) {
-        return changeStatus(requerimentoId, StatusRequerimentoEnum.valueOf(status), null);
+        return changeStatus(requerimentoId, StatusRequerimentoEnum.valueOf(status), requerimentoObservacao);
     }
 
     @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO"})
@@ -278,6 +278,7 @@ public class RequerimentoController {
 
     @Secured("ROLE_ALUNO")
     @PutMapping("/cancel/{id}")
+    @ResponseBody
     public String cancelar(@PathVariable Long id) {
         JSONObject retorno = new JSONObject();
         try{
@@ -290,7 +291,11 @@ public class RequerimentoController {
                     retorno.put("message", "Requerimento cancelado com sucesso!");
                 } else {
                     retorno.put("state", "ERROR");
-                    retorno.put("message", "Você não possui permissão para cancelar o Requerimento!");
+                    if (requerimento.getStatus().equals(StatusRequerimentoEnum.CANCELADO)) {
+                        retorno.put("message", "O Requerimento já está Cancelado!");
+                    } else {
+                        retorno.put("message", "Você não possui permissão para cancelar o Requerimento!");
+                    }
                 }
             } else {
                 retorno.put("state", "ERROR");

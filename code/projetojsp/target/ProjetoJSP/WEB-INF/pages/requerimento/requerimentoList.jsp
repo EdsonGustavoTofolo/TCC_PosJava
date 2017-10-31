@@ -181,19 +181,19 @@
                     position: "last",
                     title:"Editar requerimento",
                     cursor: "pointer"
-                }).navButtonAdd("#jqGridPager", { //EXCLUIR REQUERIMENTO
+                }).navButtonAdd("#jqGridPager", { //CANCELAR REQUERIMENTO
                     caption:"",
                     buttonicon:"fa fa-trash",
                     onClickButton: function () {
                         swal({
-                            title: 'Confirma a exclusão do registro?!',
+                            title: 'Confirma o cancelamento do requerimento?!',
                             text: "Esta ação não poderá ser desfeita!",
                             type: 'question', //warning
                             showLoaderOnConfirm: true,
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Sim, excluir!!',
+                            confirmButtonText: 'Sim, cancelar!!',
                             cancelButtonText: 'Não',
                             allowOutsideClick: false,
                             preConfirm: function() {
@@ -204,34 +204,30 @@
                                     } else {
                                         reject("Nenhum requerimento selecionado!");
                                     }
-                                    /*setTimeout(function () {
-                                        rowKey = getSelectedRow();
-                                        if (rowKey) { resolve(); } else { reject("Nenhum requerimento selecionado!"); }
-                                    }, 2000)*/
                                 })
                             }
                         }).then(function () {
-                            var url = '/ProjetoJSP/requerimento/delete/' + getSelectedRow();
+                            var url = '/ProjetoJSP/requerimento/cancel/' + getSelectedRow();
                             $.ajax({
-                                type : 'DELETE',
+                                type : 'PUT', //DELETE
                                 url : url,
                                 success : function(data) {
                                     data = JSON.parse(data);
                                     if (data.state == "OK"){
-                                        swal("Removido!", data.message, "success").catch(swal.noop);
+                                        swal("Cancelado!", data.message, "success").catch(swal.noop);
                                         $('#jqGrid').trigger( 'reloadGrid' );
                                     } else {
                                         swal("Falhou!", data.message, "error").catch(swal.noop);
                                     }
                                 },//Fim success
                                 error : function() {
-                                    swal("Erro!", "Falha ao remover registro.", "error").catch(swal.noop);
+                                    swal("Erro!", "Falha ao cancelar registro.", "error").catch(swal.noop);
                                 }
                             }); //Fim ajax
                         }).catch(swal.noop); // esse catch evita erro no console do browser
                     },
                     position: "last",
-                    title:"Excluir requerimento",
+                    title:"Cancelar requerimento",
                     cursor: "pointer"
                 }).navButtonAdd("#jqGridPager", { //VISUALIZAR REQUERIMENTO
                     caption:"",

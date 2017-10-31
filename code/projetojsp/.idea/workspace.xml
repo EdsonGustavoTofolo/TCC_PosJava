@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java" line="104" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" line="184" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59e213a6-b65b-4693-9dea-1e0a2c12dca0" name="Default" comment="" />
@@ -20,11 +20,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="requerimentoForm.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="123" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requerimentoChangeStatus.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimentoChangeStatus.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1428">
+              <caret line="70" column="16" lean-forward="false" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
+              <folding>
+                <element signature="n#!!doc;n#changeStatus#0" expanded="false" />
+                <marker date="1509483881736" expanded="true" signature="692:699" ph="×" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2016">
-              <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+            <state relative-caret-position="466">
+              <caret line="205" column="45" lean-forward="false" selection-start-line="205" selection-start-column="45" selection-end-line="205" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -33,18 +56,8 @@
       <file leaf-file-name="requerimento.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4201">
-              <caret line="372" column="1" lean-forward="false" selection-start-line="372" selection-start-column="1" selection-end-line="372" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatusRequerimentoEnum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+            <state relative-caret-position="-294">
+              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -53,18 +66,8 @@
       <file leaf-file-name="RequerimentoController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3918">
-              <caret line="300" column="53" lean-forward="false" selection-start-line="300" selection-start-column="53" selection-end-line="300" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requerimentoList.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoList.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1113">
-              <caret line="230" column="37" lean-forward="true" selection-start-line="230" selection-start-column="37" selection-end-line="230" selection-end-column="37" />
+            <state relative-caret-position="374">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,7 +93,6 @@
       <find>form-control, single</find>
       <find>single</find>
       <find>form-control</find>
-      <find>select2</find>
       <find>dz-donwlo</find>
       <find>JSON</find>
       <find>shrinkto</find>
@@ -115,6 +117,7 @@
       <find>withstatus</find>
       <find>change</find>
       <find>AGUARDANDO_DERAC</find>
+      <find>select2</find>
     </findStrings>
     <replaceStrings>
       <replace>EM_ABERTO</replace>
@@ -128,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/model/JQGridRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/model/JQGrid.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/handler/JQGridHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/MainSpringApplication.java" />
@@ -168,17 +170,18 @@
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/model/RequerimentoObservacao.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/util/RequerimentoControllerUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/exclusionStrategyGson/RequerimentoExclusionStrategy.java" />
-        <option value="$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js" />
         <option value="$PROJECT_DIR$/web/resources/js/requerimento/requerimentoViewer.js" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/handler/RequerimentoJQGridHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/repository/repositoryImpl/RequerimentoRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/web/resources/js/requerimento/requerimentoViewer2.js" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoList.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp" />
+        <option value="$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java" />
+        <option value="$PROJECT_DIR$/web/resources/js/requerimento/requerimentoChangeStatus.js" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" />
       </list>
     </option>
   </component>
@@ -660,7 +663,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="SearchEverywhereHistoryKey" value="excluir&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#excluir&#10;changestatus&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#changeStatus&#10;salvar&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#salvar&#10;loaddata&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#loadData&#10;loadData&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#loadData" />
+    <property name="SearchEverywhereHistoryKey" value="cancelar&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#cancelar&#10;excluir&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#excluir&#10;changestatus&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#changeStatus&#10;salvar&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#salvar&#10;loaddata&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#loadData&#10;loadData&#9;PSI&#9;JAVA://br.edu.utfpr.pb.projetojsp.web.controller.RequerimentoController#loadData" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1233,12 +1236,12 @@
       <workItem from="1505424672059" duration="94011000" />
       <workItem from="1506724866629" duration="80746000" />
       <workItem from="1507758514830" duration="20421000" />
-      <workItem from="1508195301422" duration="97930000" />
+      <workItem from="1508195301422" duration="104399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="452405000" />
+    <option name="totallyTimeSpent" value="458874000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1256,7 +1259,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3083799" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22346368" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1297,7 +1300,7 @@
           <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="236" />
+      <option name="time" value="239" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1306,26 +1309,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.11.Final/hibernate-core-5.2.11.Final-sources.jar!/org/hibernate/query/criteria/internal/QueryStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding>
-            <element signature="e#5944#5945#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.11.Final/hibernate-core-5.2.11.Final.jar!/org/hibernate/query/criteria/internal/QueryStructure.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-          <folding>
-            <element signature="e#5963#5964#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.11.Final/hibernate-core-5.2.11.Final.jar!/org/hibernate/query/criteria/internal/CriteriaQueryImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1616,14 +1599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/repository/repositoryImpl/RequerimentoRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -1707,14 +1682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/enumeration/StatusRequerimentoEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1723,26 +1690,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4201">
-          <caret line="372" column="1" lean-forward="false" selection-start-line="372" selection-start-column="1" selection-end-line="372" selection-end-column="1" />
+        <state relative-caret-position="252">
+          <caret line="214" column="60" lean-forward="true" selection-start-line="214" selection-start-column="60" selection-end-line="214" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/js/sweetalert2/sweetalert2.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="0" column="24426" lean-forward="false" selection-start-line="0" selection-start-column="24426" selection-end-line="0" selection-end-column="24426" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/pb/projetojsp/web/controller/RequerimentoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3918">
-          <caret line="300" column="53" lean-forward="false" selection-start-line="300" selection-start-column="53" selection-end-line="300" selection-end-column="53" />
+        <state relative-caret-position="374">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoList.jsp">
+    <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="230" column="37" lean-forward="true" selection-start-line="230" selection-start-column="37" selection-end-line="230" selection-end-column="37" />
+        <state relative-caret-position="-294">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimentoChangeStatus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="70" column="16" lean-forward="false" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc;n#changeStatus#0" expanded="false" />
+            <marker date="1509483881736" expanded="true" signature="692:699" ph="×" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="205" column="45" lean-forward="false" selection-start-line="205" selection-start-column="45" selection-end-line="205" selection-end-column="45" />
           <folding />
         </state>
       </provider>
