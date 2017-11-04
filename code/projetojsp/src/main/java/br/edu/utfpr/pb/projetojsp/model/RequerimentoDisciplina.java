@@ -15,7 +15,6 @@ import java.util.Date;
 @Entity
 @Table(name = "requerimentos_disciplinas")
 public class RequerimentoDisciplina implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rdis")

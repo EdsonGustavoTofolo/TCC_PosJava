@@ -31,7 +31,8 @@ $(document).ready(function () {
                 disciplinasSelecionadas: true
             },
             disciplinaConvalidacao: {
-                required: true
+                required: true,
+                maxlength: 100
             },
             cargaHoraria: {
                 required: true,
@@ -136,6 +137,42 @@ $(document).ready(function () {
                 disciplinas.push(requerimentoDisciplina);
 
                 dataJSON["disciplinas"] = disciplinas;
+            } else if (!$('#motivo21').hasClass('hidden')) {
+                var itemsConvalidacao = [];
+
+                $(".itemConvalidacao").each(function (index, element) {
+                    var disciplinaUtfprSelect = $(element).find(".disciplinaUtfpr").find("select");
+                    var disciplinaConvalidacaoInput = $(element).find(".disciplinaConvalidacao").find("input");
+                    var cargaHorariaInput = $(element).find(".cargaHoraria").find("input");
+                    var notaInput = $(element).find(".nota").find("input");
+                    var frequenciaInput = $(element).find(".frequencia").find("input");
+                    var notaFinalInput = $(element).find(".notaFinal").find("input");
+                    var freqFinalInput = $(element).find(".freqFinal").find("input");
+                    var dispensadoSelect = $(element).find(".dispensado").find("select");
+
+                    var disciplinaUtfpr = disciplinaUtfprSelect.select2("val");
+                    var disciplinaConvalidacao = disciplinaConvalidacaoInput.val();
+                    var cargaHoraria = cargaHorariaInput.val();
+                    var nota = notaInput.val();
+                    var frequencia = frequenciaInput.val();
+                    var notaFinal = notaFinalInput.val();
+                    var freqFinal = freqFinalInput.val();
+                    var dispensado = dispensadoSelect.select2("val");
+
+                    var itemConvalidacao = {
+                        "disciplinaUtfpr": disciplinaUtfpr,
+                        "disciplinaConvalidacao": disciplinaConvalidacao,
+                        "cargaHoraria": cargaHoraria,
+                        "nota": nota,
+                        "frequencia": frequencia,
+                        "notaFinal": notaFinal,
+                        "freqFinal": freqFinal,
+                        "dispensado": dispensado
+                    };
+
+                    itemsConvalidacao.push(itemConvalidacao);
+                });
+                dataJSON["convalidacao"] = itemsConvalidacao;
             }
             formData.append('requerimento', new Blob([JSON.stringify(dataJSON)], {type: "application/json"}));
         },
@@ -393,7 +430,7 @@ function buscarDisciplinasItemConvalidacao() {
 
 function buscarDisciplinasItemsConvalidacao() {
     $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
-        $("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").each(function (index, element) {
+        $(".itemConvalidacao").each(function (index, element) {
             selector = $(element).find(".disciplinaUtfpr").find("select");
             selector.empty();
             $.each(data, function (index) {
@@ -465,7 +502,8 @@ function adicionarItemConvalidacao() {
 function addRulesOnLastItemConvalidacao() {
     $itemConvalidacao = $("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").last();
     $itemConvalidacao.find('.disciplinaConvalidacao').find('input').rules("add", {
-        required: true
+        required: true,
+        maxlength: 100
     });
     $itemConvalidacao.find('.cargaHoraria').find('input').rules("add", {
         required: true,

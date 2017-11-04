@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson;
 
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
+import br.edu.utfpr.pb.projetojsp.model.RequerimentoConvalidacao;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoDisciplina;
 import br.edu.utfpr.pb.projetojsp.model.RequerimentoObservacao;
 import com.google.gson.ExclusionStrategy;
@@ -18,7 +19,8 @@ public class RequerimentoExclusionStrategy implements ExclusionStrategy {
         return List.class.equals(fieldAttributes.getDeclaredClass()) && (
                 RequerimentoDisciplina.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0]) ||
                 RequerimentoAnexo.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0]) ||
-                RequerimentoObservacao.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0])
+                RequerimentoObservacao.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0]) ||
+                RequerimentoConvalidacao.class.equals(((ParameterizedType)fieldAttributes.getDeclaredType()).getActualTypeArguments()[0])
         );
     }
 

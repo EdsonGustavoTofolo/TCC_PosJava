@@ -45,13 +45,17 @@ public class Requerimento implements Serializable {
     @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoObservacao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(FetchMode.SUBSELECT) //SE NAO DA ERRO, POIS NAO PODE TER DOIS ONETOMANY COM O FETCHTYPE EAGER
     private List<RequerimentoObservacao> observacoes;
+    @OneToMany(mappedBy = "requerimento", targetEntity = RequerimentoConvalidacao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT) //SE NAO DA ERRO, POIS NAO PODE TER DOIS ONETOMANY COM O FETCHTYPE EAGER
+    private List<RequerimentoConvalidacao> convalidacoes;
 
     public Requerimento() {
     }
 
     public Requerimento(StatusRequerimentoEnum status, Integer motivo, String observacao, Date data, Date dataUltimoStatus, Usuario usuario,
                         List<RequerimentoDisciplina> requerimentoDisciplinaList, List<RequerimentoAnexo> anexoList,
-                        List<RequerimentoObservacao> observacaoList) {
+                        List<RequerimentoObservacao> observacaoList,
+                        List<RequerimentoConvalidacao> convalidacaoList) {
         this.status = status;
         this.motivo = motivo;
         this.observacao = observacao;
@@ -61,6 +65,7 @@ public class Requerimento implements Serializable {
         this.disciplinas = requerimentoDisciplinaList;
         this.anexos = anexoList;
         this.observacoes = observacaoList;
+        this.convalidacoes = convalidacaoList;
     }
 
     public Long getId() {
@@ -141,6 +146,14 @@ public class Requerimento implements Serializable {
 
     public void setObservacoes(List<RequerimentoObservacao> observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public List<RequerimentoConvalidacao> getConvalidacoes() {
+        return convalidacoes;
+    }
+
+    public void setConvalidacoes(List<RequerimentoConvalidacao> convalidacoes) {
+        this.convalidacoes = convalidacoes;
     }
 
     @Override

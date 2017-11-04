@@ -30,7 +30,7 @@ public class RequerimentoObservacao implements Serializable {
     @Column(name = "deferido_obs")
     private Boolean deferido;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "data_OBS", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
+    @Column(name = "data_obs", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private Date data;
 
     public RequerimentoObservacao() {
