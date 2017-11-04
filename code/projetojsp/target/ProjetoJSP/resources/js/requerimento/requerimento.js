@@ -6,8 +6,11 @@ $(document).ready(function () {
 
     $.validator.addMethod("disciplinasSelecionadas",function (value,element){
         return !$('#motivoDisciplinas').hasClass('hidden') && $('select[name=selDisciplinas2] option').length > 0;
-
     }, 'Selecione uma ou mais disciplinas!');
+
+    $.validator.addMethod("intNumber",function (value,element){
+        return ($.isNumeric(value)) && (Math.floor(+value) == +value);//(value).match(/^\d+$/)
+    }, 'Por favor, informe somente número inteiro!');
 
     //-----[ VALIDA O FORM ANTES DO SUBMIT ]----
     var validador = $('#frm').validate({
@@ -26,6 +29,35 @@ $(document).ready(function () {
             },
             selDisciplinas2: {
                 disciplinasSelecionadas: true
+            },
+            disciplinaConvalidacao: {
+                required: true
+            },
+            cargaHoraria: {
+                required: true,
+                maxlength: 3,//sempre será número inteiro positivo
+                number: true,
+                intNumber: true
+            },
+            nota: {
+                required: true,
+                number: true,
+                max: 10.00
+            },
+            frequencia: {
+                required: true,
+                number: true,
+                max: 100.00
+            },
+            notaFinal: {
+                required: true,
+                number: true,
+                max: 10.00
+            },
+            freqFinal: {
+                required: true,
+                number: true,
+                max: 100.00
             }
         }
     });
@@ -200,6 +232,8 @@ $(document).ready(function () {
             buscarDisciplinas();
         } else if (!$('#motivoDisciplinas').hasClass('hidden')) {
             buscarMultiselecaoDisciplinas();
+        } else if (!$('#motivo21').hasClass('hidden')) {
+            buscarDisciplinasItemsConvalidacao();
         }
     });
 
@@ -218,6 +252,10 @@ $(document).ready(function () {
                 $('#motivoDisciplinas').addClass('hidden');
             }
 
+            if (motivoId != 21 && !$('#motivo21').hasClass('hidden')) {
+                $('#motivo21').addClass('hidden');
+            }
+
             if (exibirMultiselecaoDeDisciplinas(motivoId)) {//cancelamento das disciplinas ou matrícula nas disciplinas
                 $('#motivoDisciplinas').removeClass('hidden');
                 buscarMultiselecaoDisciplinas();
@@ -226,7 +264,10 @@ $(document).ready(function () {
                 buscarDisciplinas();
                 buscarProfessores();
             } else if (motivoId == 21) { //Convalidação
-                //TODO ver para habilitar os campos aqui ou abrir outra página
+                $('#motivo21').removeClass('hidden');
+                buscarDisciplinasItemConvalidacao();
+                itemConvalidacaoDispensadoSelect2();
+                formatInputsConvalidacao();
             }
             validador.resetForm();
         }
@@ -335,4 +376,91 @@ function deleteAnexo(id) {
             }
         }); //Fim ajax
     }).catch(swal.noop); // esse catch evita erro no console do browser;
+}
+
+function buscarDisciplinasItemConvalidacao() {
+    $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
+        var length = $("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").length-1;
+        selector = $($("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao")[length]).find(".disciplinaUtfpr").find("select");
+        selector.empty();
+        $.each(data, function (index) {
+            var disciplina = data[index];
+            selector.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
+        });
+        selector.select2();
+    });
+}
+
+function buscarDisciplinasItemsConvalidacao() {
+    $.getJSON('/ProjetoJSP/disciplina/findByCurso', getCursoId(), function (data) {
+        $("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").each(function (index, element) {
+            selector = $(element).find(".disciplinaUtfpr").find("select");
+            selector.empty();
+            $.each(data, function (index) {
+                var disciplina = data[index];
+                selector.append($('<option>').text(disciplina.codigo + ' - ' + disciplina.nome).val(disciplina.id));
+            });
+            selector.select2();
+        });
+    });
+}
+
+function itemConvalidacaoDispensadoSelect2() {
+    var length = $("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").length-1;
+    select = $($("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao")[length]).find(".dispensado").find("select");
+    select.select2();
+}
+
+function adicionarItemConvalidacao() {
+    $("#disciplinasConvalidacao").find("tbody")
+        .append('<tr class="itemConvalidacao">' +
+            '<td class="disciplinaUtfpr"><select name="disciplinaUtfpr" class="form-control"></select></td>' +
+            '<td class="disciplinaConvalidacao"><input name="disciplinaConvalidacao" type="text" class="form-control" /></td>' +
+            '<td class="cargaHoraria"><input name="cargaHoraria" type="text" class="form-control" /></td>' +
+            '<td class="nota"><input name="nota" type="text" class="form-control" /></td>' +
+            '<td class="frequencia"><input name="frequencia" type="text" class="form-control" /></td>' +
+            '<td class="notaFinal"><input name="notaFinal" type="text" class="form-control" /></td>' +
+            '<td class="freqFinal"><input name="freqFinal" type="text" class="form-control" /></td>' +
+            '<td class="dispensado">' +
+            '<select class="form-control">' +
+            '<option value="true">Sim</option><option value="false">Não</option>' +
+            '</select>' +
+            '</td>' +
+            '<td>' +
+            '<div>' +
+            '<div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">' +
+            '<span class="fa fa-plus"></span>' +
+            '</div>' +
+            '<div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">' +
+            '<span class="fa fa-trash"></span>' +
+            '</div>' +
+            '</div>' +
+            '</td>');
+    buscarDisciplinasItemConvalidacao();
+    itemConvalidacaoDispensadoSelect2();
+    formatInputsConvalidacao();
+}
+
+function formatInputsConvalidacao() {
+    formatCargaHoraria();
+    formatNota();
+    formatFrequencia();
+}
+
+function formatCargaHoraria() {
+    $($('[name="cargaHoraria"]').last()).limitRegex(/^[0-9]{0,3}$/);
+}
+
+function formatNota() {
+    $($('[name="nota"]').last()).limitRegex(/^[0-9]{0,2}\.?[0-9]{0,2}$/);
+    $($('[name="notaFinal"]').last()).limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+}
+
+function formatFrequencia() {
+    $($('[name="frequencia"]').last()).limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+    $($('[name="freqFinal"]').last()).limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+}
+
+function excluirItemConvalidacao(element) {
+    $(element).closest(".itemConvalidacao").remove();
 }

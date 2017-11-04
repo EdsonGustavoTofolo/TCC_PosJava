@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dualListbox/bootstrap-duallistbox.min.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dropzone/basic.css"/> " />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dropzone/dropzone.css"/> " />
+        <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jqgrid/ui.jqgrid-bootstrap.css"/> " />
         <style type="text/css">
             .dropzone {
                 min-height: 140px;
@@ -24,6 +25,7 @@
         </style>
     </jsp:attribute>
     <jsp:attribute name="scriptsEspecificos">
+        <script type="text/javascript" src="<c:url value="/resources/js/jquery.regex-limit.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/select2/4.0.3/dist/js/select2.full.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/jquery-validation/1.13.0/jquery.validate.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/pt_br_messages_jquery.js"/> "></script>
@@ -67,21 +69,21 @@
                         </sec:authorize>
                     </c:if>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                        <label for="motivo">Motivo do Requerimento:</label>
-                        <select name="motivo" id="motivo" class="form-control" ${disabledFields}>
-                            <c:forEach items="${motivos}" var="motivo">
-                                <option value="${motivo.id}" ${motivo.id == requerimento.motivo ? 'selected="selected"' : ''}>
-                                    ${motivo.descricao}
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="curso">Curso:</label>
                         <select id="curso" name="curso" class="form-control" ${disabledFields}>
                             <c:forEach items="${cursos}" var="curso">
                                 <option value="${curso.id}" ${curso.id == cursoId ? 'selected="selected"' : ''}>
                                         ${curso.usuario.nome}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <label for="motivo">Motivo do Requerimento:</label>
+                        <select name="motivo" id="motivo" class="form-control" ${disabledFields}>
+                            <c:forEach items="${motivos}" var="motivo">
+                                <option value="${motivo.id}" ${motivo.id == requerimento.motivo ? 'selected="selected"' : ''}>
+                                    ${motivo.descricao}
                                 </option>
                             </c:forEach>
                         </select>
@@ -128,6 +130,60 @@
                                 <input id="data" name="data" type="text" class="form-control" ${disabledFields}
                                        value='<fmt:formatDate value="${requerimento.motivo == 9 ? requerimento.disciplinas.get(0).dataProva : ''}"
                                        pattern="dd/MM/yyyy" />'/>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="motivo21" class="form-group col-lg-12 col-md-12 col-sm-12  ${requerimento.motivo == 21 ? '' : 'hidden'}">
+                        <hr>
+                        <div class="form-group">
+                            <div class="ui-jqgrid-view table-responsive">
+                                <table id="disciplinasConvalidacao" class="ui-jqgrid-btable ui-common-table table table-bordered">
+                                    <thead align="center">
+                                        <tr class="ui-jqgrid-labels">
+                                            <th class="ui-th-column ui-th-ltr" colspan="1">UTFPR</th>
+                                            <th class="ui-th-column ui-th-ltr" colspan="4">CURSADA EM OUTRO CURSO/INSTITUIÇÃO</th>
+                                            <th class="ui-th-column ui-th-ltr" colspan="2">MÉDIA PONDERADA</th>
+                                            <th class="ui-th-column ui-th-ltr" colspan="1">DISPENSADO</th>
+                                            <th class="ui-th-column ui-th-ltr" colspan="1" rowspan="2" width="65px">AÇÕES</th>
+                                        </tr>
+                                        <tr class="ui-jqgrid-labels">
+                                            <th class="ui-th-column ui-th-ltr" width="300px">Disciplina</th>
+                                            <th class="ui-th-column ui-th-ltr" width="250px">Disciplina</th>
+                                            <th class="ui-th-column ui-th-ltr" title="Carga Horária">CH</th>
+                                            <th class="ui-th-column ui-th-ltr">Nota</th>
+                                            <th class="ui-th-column ui-th-ltr" title="% Frequência">Freq</th>
+                                            <th class="ui-th-column ui-th-ltr" width="65px">Nota Final</th>
+                                            <th class="ui-th-column ui-th-ltr" width="65px" title="Frequência Final">Freq Final</th>
+                                            <th class="ui-th-column ui-th-ltr">Sim/Não</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="itemConvalidacao">
+                                        <td class="disciplinaUtfpr"><select name="disciplinaUtfpr" class="form-control"></select></td>
+                                        <td class="disciplinaConvalidacao"><input name="disciplinaConvalidacao" type="text" class="form-control" /></td>
+                                        <td class="cargaHoraria"><input name="cargaHoraria" type="text" class="form-control" /></td>
+                                        <td class="nota"><input name="nota" type="text" class="form-control" /></td>
+                                        <td class="frequencia"><input name="frequencia" type="text" class="form-control" /></td>
+                                        <td class="notaFinal"><input name="notaFinal" type="text" class="form-control" /></td>
+                                        <td class="freqFinal"><input name="freqFinal" type="text" class="form-control" /></td>
+                                        <td class="dispensado">
+                                            <select class="form-control">
+                                                <option value="true">Sim</option><option value="false">Não</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">
+                                                    <span class="fa fa-plus"></span>
+                                                </div>
+                                                <div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
+                                                    <span class="fa fa-trash"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

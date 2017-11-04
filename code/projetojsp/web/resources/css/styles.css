@@ -546,3 +546,6 @@ nav .img-circle {
   min-height: 22px;
   border-radius: 3px;
 }
+#disciplinasConvalidacao thead th {
+  text-align: center;
+}
