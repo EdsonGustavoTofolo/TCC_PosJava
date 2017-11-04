@@ -4,10 +4,7 @@ import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimento;
 import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
-import br.edu.utfpr.pb.projetojsp.model.Requerimento;
-import br.edu.utfpr.pb.projetojsp.model.RequerimentoAnexo;
-import br.edu.utfpr.pb.projetojsp.model.RequerimentoObservacao;
-import br.edu.utfpr.pb.projetojsp.model.Usuario;
+import br.edu.utfpr.pb.projetojsp.model.*;
 import br.edu.utfpr.pb.projetojsp.repository.*;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoDisciplinaJQGridHandler;
@@ -136,17 +133,28 @@ public class RequerimentoController {
                 model.addAttribute("requerimento", requerimento);
                 model.addAttribute("classActiveRequerimento", "active");
                 if (Objects.nonNull(requerimento.getDisciplinas()) && !requerimento.getDisciplinas().isEmpty()) {
-                    //Pega as disciplinas do requerimento e as ignora no select, pois no requerimento.js é feita uma nova consulta
-                    //para pegar as mesmas, caso contrário ficará duplicado os registros no duallistbox
-                    List<Long> disciplinas = new ArrayList<>();
-                    requerimento.getDisciplinas().forEach(d -> disciplinas.add(d.getDisciplina().getId()));
+                    List<Disciplina> disciplinaList;
 
                     //posiciona no primeiro, pq se entrar nesse if, ao menos uma disciplina existirá, e se houver mais de uma, todas pertencerão ao mesmo curso
                     Long cursoId = requerimento.getDisciplinas().get(0).getDisciplina().getCurso().getId();
 
+                    if (requerimento.getMotivo() == MotivoRequerimentoConsts.SEGUNDA_CHAMADA_PROVA) {
+                        disciplinaList = disciplinaRepository.findByCursoId(cursoId);
+                    } else {
+                        //Pega as disciplinas do requerimento e as ignora no select, pois no requerimento.js é feita uma nova consulta
+                        //para pegar as mesmas, caso contrário ficará duplicado os registros no duallistbox
+                        List<Long> disciplinas = new ArrayList<>();
+                        requerimento.getDisciplinas().forEach(d -> disciplinas.add(d.getDisciplina().getId()));
+                        disciplinaList = disciplinaRepository.findByCursoIdAndIdNotIn(cursoId, disciplinas);
+                    }
+
                     model.addAttribute("cursoId", cursoId);
-                    model.addAttribute("disciplinas", disciplinaRepository.findByCursoIdAndIdNotIn(cursoId, disciplinas));
+                    model.addAttribute("disciplinas", disciplinaList);
                     model.addAttribute("professores", usuarioRepository.findByTipo(TipoUsuarioEnum.PROFESSOR));
+                } else if (requerimento.getMotivo() == MotivoRequerimentoConsts.CONVALIDACAO){
+                    Long cursoId = requerimento.getConvalidacoes().get(0).getDisciplinaUtfpr().getCurso().getId();
+                    model.addAttribute("cursoId", cursoId);
+                    model.addAttribute("disciplinas", disciplinaRepository.findByCursoId(cursoId));
                 } else {
                     if (hasRolesSuper) { //se nào for o aluno o usuário logado, pega o id do curso do usuário que originou o requerimento
                         model.addAttribute("cursoId", cursoRepository.findById(requerimento.getUsuario().getCurso().getId()).get().getId());

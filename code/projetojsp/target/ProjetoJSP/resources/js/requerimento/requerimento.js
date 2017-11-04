@@ -43,8 +43,8 @@ $(document).ready(function () {
                 required: true,
                 maxlength: 3,//sempre será número inteiro positivo
                 number: true,
-                intNumber: true,
-                numbergt0: true
+                numbergt0: true,
+                intNumber: true
             },
             nota: {
                 required: true,
@@ -325,6 +325,8 @@ $(document).ready(function () {
         $('#disciplina').select2();
     } else if (exibirMultiselecaoDeDisciplinas($("#motivo").val())) {
         buscarDisciplinasDoRequerimento();
+    } else if ($("#motivo").val() == 21) {
+        formatarSelectorsConvalidacao();
     }
 
     function buscarDisciplinasDoRequerimento() {
@@ -501,7 +503,7 @@ function adicionarItemConvalidacao() {
         formatInputsConvalidacao();
         addRulesOnLastItemConvalidacao();
 
-        if ($(".itemConvalidacao").length == 2) {
+        if ($(".itemConvalidacao").length == 2 && $('.acoes').first().find('.ui-inline-del').length == 0) {
             $(".acoes").first()
                 .append('<div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">' +
                 '<span class="fa fa-trash"></span></div>');
@@ -509,8 +511,20 @@ function adicionarItemConvalidacao() {
     }
 }
 
-function addRulesOnLastItemConvalidacao() {
-    $itemConvalidacao = $("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").last();
+function formatarSelectorsConvalidacao() {
+    $(".itemConvalidacao.edited").each(function (index, element) {
+        $(element).find(".disciplinaUtfpr").find("select").select2();
+        $(element).find(".dispensado").find("select").select2();
+
+        addRulesOnItemConvalidacao(element);
+        formatCargaHoraria($(element).find(".cargaHoraria"));
+        formatNota($(element).find(".nota"), $(element).find(".notaFinal"));
+        formatFrequencia($(element).find(".frequencia"), $(element).find(".freqFinal"));
+    });
+}
+
+function addRulesOnItemConvalidacao(element) {
+    $itemConvalidacao = $(element);
     $itemConvalidacao.find('.disciplinaConvalidacao').find('input').rules("add", {
         required: true,
         maxlength: 100
@@ -543,24 +557,28 @@ function addRulesOnLastItemConvalidacao() {
     });
 }
 
+function addRulesOnLastItemConvalidacao() {
+    addRulesOnItemConvalidacao($("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").last());
+}
+
 function formatInputsConvalidacao() {
-    formatCargaHoraria();
-    formatNota();
-    formatFrequencia();
+    formatCargaHoraria($(".cargaHoraria").last());
+    formatNota($(".nota").last(), $(".notaFinal").last());
+    formatFrequencia($(".frequencia").last(), $(".freqFinal").last());
 }
 
-function formatCargaHoraria() {
-    $(".cargaHoraria").last().find('input').limitRegex(/^[0-9]{0,3}$/);
+function formatCargaHoraria(element) {
+    $(element).find('input').limitRegex(/^[0-9]{0,3}$/);
 }
 
-function formatNota() {
-    $(".nota").last().find('input').limitRegex(/^[0-9]{0,2}\.?[0-9]{0,2}$/);
-    $(".notaFinal").last().find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+function formatNota(elementNota, elementNotaFinal) {
+    $(elementNota).find('input').limitRegex(/^[0-9]{0,2}\.?[0-9]{0,2}$/);
+    $(elementNotaFinal).find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
 }
 
-function formatFrequencia() {
-    $(".frequencia").last().find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
-    $(".freqFinal").last().find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+function formatFrequencia(elementFreq, elementFreqFinal) {
+    $(elementFreq).find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+    $(elementFreqFinal).find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
 }
 
 function excluirItemConvalidacao(element) {

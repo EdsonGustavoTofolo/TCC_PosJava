@@ -107,7 +107,7 @@
                                 <c:forEach items="${disciplinas}" var="disciplina">
                                     <option value="${disciplina.id}"
                                                 ${requerimento.motivo == 9 && disciplina.id == requerimento.disciplinas.get(0).disciplina.id ? 'selected="selected"' : ''}>
-                                            ${disciplina.nome}
+                                            ${disciplina.codigo} - ${disciplina.nome}
                                     </option>
                                 </c:forEach>
                             </select>
@@ -158,27 +158,81 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="itemConvalidacao">
-                                        <td class="disciplinaUtfpr"><select name="disciplinaUtfpr" class="form-control"></select></td>
-                                        <td class="disciplinaConvalidacao"><input name="disciplinaConvalidacao" type="text" class="form-control" /></td>
-                                        <td class="cargaHoraria"><input name="cargaHoraria" type="text" class="form-control" /></td>
-                                        <td class="nota"><input name="nota" type="text" class="form-control" /></td>
-                                        <td class="frequencia"><input name="frequencia" type="text" class="form-control" /></td>
-                                        <td class="notaFinal"><input name="notaFinal" type="text" class="form-control" /></td>
-                                        <td class="freqFinal"><input name="freqFinal" type="text" class="form-control" /></td>
-                                        <td class="dispensado">
-                                            <select class="form-control">
-                                                <option value="true">Sim</option><option value="false">Não</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <div class="acoes">
-                                                <div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">
-                                                    <span class="fa fa-plus"></span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <c:choose>
+                                        <c:when test="${requerimento.convalidacoes.size() > 0}">
+                                            <c:forEach items="${requerimento.convalidacoes}" var="convalidacao">
+                                                <tr class="itemConvalidacao edited">
+                                                    <td class="disciplinaUtfpr">
+                                                        <select name="disciplinaUtfpr${convalidacao.id}" class="form-control">
+                                                            <c:forEach items="${disciplinas}" var="disciplina">
+                                                                <option value="${disciplina.id}"
+                                                                    ${requerimento.motivo == 21 && disciplina.id == convalidacao.disciplinaUtfpr.id ? 'selected="selected"' : ''}>
+                                                                        ${disciplina.codigo} - ${disciplina.nome}
+                                                                </option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </td>
+                                                    <td class="disciplinaConvalidacao">
+                                                        <input name="disciplinaConvalidacao${convalidacao.id}" value="${convalidacao.disciplinaConvalidacao}" type="text" class="form-control" />
+                                                    </td>
+                                                    <td class="cargaHoraria">
+                                                        <input name="cargaHoraria${convalidacao.id}" value="${convalidacao.cargaHoraria}" type="text" class="form-control" />
+                                                    </td>
+                                                    <td class="nota">
+                                                        <input name="nota${convalidacao.id}" value="${convalidacao.nota}" type="text" class="form-control" />
+                                                    </td>
+                                                    <td class="frequencia">
+                                                        <input name="frequencia${convalidacao.id}" value="${convalidacao.frequencia}" type="text" class="form-control" />
+                                                    </td>
+                                                    <td class="notaFinal">
+                                                        <input name="notaFinal${convalidacao.id}" value="${convalidacao.notaFinal}" type="text" class="form-control" />
+                                                    </td>
+                                                    <td class="freqFinal">
+                                                        <input name="freqFinal${convalidacao.id}" value="${convalidacao.freqFinal}" type="text" class="form-control" />
+                                                    </td>
+                                                    <td class="dispensado">
+                                                        <select class="form-control">
+                                                            <option value="true" ${convalidacao.dispensado ? 'selected="selected"' : ''}>Sim</option>
+                                                            <option value="false" ${not convalidacao.dispensado ? 'selected="selected"' : ''}>Não</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="acoes">
+                                                            <div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">
+                                                                <span class="fa fa-plus"></span>
+                                                            </div>
+                                                            <div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
+                                                                <span class="fa fa-trash"></span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tr class="itemConvalidacao">
+                                                <td class="disciplinaUtfpr"><select name="disciplinaUtfpr" class="form-control"></select></td>
+                                                <td class="disciplinaConvalidacao"><input name="disciplinaConvalidacao" type="text" class="form-control" /></td>
+                                                <td class="cargaHoraria"><input name="cargaHoraria" type="text" class="form-control" /></td>
+                                                <td class="nota"><input name="nota" type="text" class="form-control" /></td>
+                                                <td class="frequencia"><input name="frequencia" type="text" class="form-control" /></td>
+                                                <td class="notaFinal"><input name="notaFinal" type="text" class="form-control" /></td>
+                                                <td class="freqFinal"><input name="freqFinal" type="text" class="form-control" /></td>
+                                                <td class="dispensado">
+                                                    <select class="form-control">
+                                                        <option value="true">Sim</option><option value="false">Não</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <div class="acoes">
+                                                        <div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">
+                                                            <span class="fa fa-plus"></span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </c:otherwise>
+                                    </c:choose>
                                     </tbody>
                                 </table>
                             </div>
