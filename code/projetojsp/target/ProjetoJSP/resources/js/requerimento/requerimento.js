@@ -227,7 +227,7 @@ $(document).ready(function () {
     //------[ SELECAO DE CURSOS ] --------
     $("#curso").select2();
     $("#curso").on("select2:select", function (e) {
-        var cursoId = e.params['data'].id;
+        // var cursoId = e.params['data'].id;
         if (!$('#motivo9').hasClass('hidden')) {
             buscarDisciplinas();
         } else if (!$('#motivoDisciplinas').hasClass('hidden')) {
@@ -411,34 +411,82 @@ function itemConvalidacaoDispensadoSelect2() {
     select.select2();
 }
 
+function getUniqueId() {
+    return new Date().getTime();
+}
+
 function adicionarItemConvalidacao() {
-    $("#disciplinasConvalidacao").find("tbody")
-        .append('<tr class="itemConvalidacao">' +
-            '<td class="disciplinaUtfpr"><select name="disciplinaUtfpr" class="form-control"></select></td>' +
-            '<td class="disciplinaConvalidacao"><input name="disciplinaConvalidacao" type="text" class="form-control" /></td>' +
-            '<td class="cargaHoraria"><input name="cargaHoraria" type="text" class="form-control" /></td>' +
-            '<td class="nota"><input name="nota" type="text" class="form-control" /></td>' +
-            '<td class="frequencia"><input name="frequencia" type="text" class="form-control" /></td>' +
-            '<td class="notaFinal"><input name="notaFinal" type="text" class="form-control" /></td>' +
-            '<td class="freqFinal"><input name="freqFinal" type="text" class="form-control" /></td>' +
-            '<td class="dispensado">' +
-            '<select class="form-control">' +
-            '<option value="true">Sim</option><option value="false">Não</option>' +
-            '</select>' +
-            '</td>' +
-            '<td>' +
-            '<div>' +
-            '<div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">' +
-            '<span class="fa fa-plus"></span>' +
-            '</div>' +
-            '<div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">' +
-            '<span class="fa fa-trash"></span>' +
-            '</div>' +
-            '</div>' +
-            '</td>');
-    buscarDisciplinasItemConvalidacao();
-    itemConvalidacaoDispensadoSelect2();
-    formatInputsConvalidacao();
+    if ($('#frm').valid()) {
+        var id = getUniqueId();
+        var disciplinaConvalidacao = "disciplinaConvalidacao" + id;
+        var cargaHoraria = "cargaHoraria" + id;
+        var nota = "nota" + id;
+        var frequencia = "frequencia" + id;
+        var notaFinal = "notaFinal" + id;
+        var freqFinal = "freqFinal" + id;
+
+        $("#disciplinasConvalidacao").find("tbody")
+            .append('<tr class="itemConvalidacao">' +
+                '<td class="disciplinaUtfpr"><select name="disciplinaUtfpr" class="form-control"></select></td>' +
+                '<td class="disciplinaConvalidacao"><input name="'+disciplinaConvalidacao+'" type="text" class="form-control" /></td>' +
+                '<td class="cargaHoraria"><input name="'+cargaHoraria+'" type="text" class="form-control" /></td>' +
+                '<td class="nota"><input name="'+nota+'" type="text" class="form-control" /></td>' +
+                '<td class="frequencia"><input name="'+frequencia+'" type="text" class="form-control" /></td>' +
+                '<td class="notaFinal"><input name="'+notaFinal+'" type="text" class="form-control" /></td>' +
+                '<td class="freqFinal"><input name="'+freqFinal+'" type="text" class="form-control" /></td>' +
+                '<td class="dispensado">' +
+                '<select class="form-control">' +
+                '<option value="true">Sim</option><option value="false">Não</option>' +
+                '</select>' +
+                '</td>' +
+                '<td>' +
+                '<div>' +
+                '<div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">' +
+                '<span class="fa fa-plus"></span>' +
+                '</div>' +
+                '<div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">' +
+                '<span class="fa fa-trash"></span>' +
+                '</div>' +
+                '</div>' +
+                '</td>');
+        buscarDisciplinasItemConvalidacao();
+        itemConvalidacaoDispensadoSelect2();
+        formatInputsConvalidacao();
+        addRulesOnLastItemConvalidacao();
+    }
+}
+
+function addRulesOnLastItemConvalidacao() {
+    $itemConvalidacao = $("#disciplinasConvalidacao").find("tbody").find(".itemConvalidacao").last();
+    $itemConvalidacao.find('.disciplinaConvalidacao').find('input').rules("add", {
+        required: true
+    });
+    $itemConvalidacao.find('.cargaHoraria').find('input').rules("add", {
+        required: true,
+        maxlength: 3,//sempre será número inteiro positivo
+        number: true,
+        intNumber: true
+    });
+    $itemConvalidacao.find('.nota').find('input').rules("add", {
+        required: true,
+        number: true,
+        max: 10.00
+    });
+    $itemConvalidacao.find('.frequencia').find('input').rules("add", {
+        required: true,
+        number: true,
+        max: 100.00
+    });
+    $itemConvalidacao.find('.notaFinal').find('input').rules("add", {
+        required: true,
+        number: true,
+        max: 10.00
+    });
+    $itemConvalidacao.find('.freqFinal').find('input').rules("add", {
+        required: true,
+        number: true,
+        max: 100.00
+    });
 }
 
 function formatInputsConvalidacao() {
@@ -448,17 +496,17 @@ function formatInputsConvalidacao() {
 }
 
 function formatCargaHoraria() {
-    $($('[name="cargaHoraria"]').last()).limitRegex(/^[0-9]{0,3}$/);
+    $(".cargaHoraria").last().find('input').limitRegex(/^[0-9]{0,3}$/)
 }
 
 function formatNota() {
-    $($('[name="nota"]').last()).limitRegex(/^[0-9]{0,2}\.?[0-9]{0,2}$/);
-    $($('[name="notaFinal"]').last()).limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+    $(".nota").last().find('input').limitRegex(/^[0-9]{0,2}\.?[0-9]{0,2}$/);
+    $(".notaFinal").last().find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
 }
 
 function formatFrequencia() {
-    $($('[name="frequencia"]').last()).limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
-    $($('[name="freqFinal"]').last()).limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+    $(".frequencia").last().find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
+    $(".freqFinal").last().find('input').limitRegex(/^[0-9]{0,3}\.?[0-9]{0,2}$/);
 }
 
 function excluirItemConvalidacao(element) {
