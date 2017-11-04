@@ -8,7 +8,7 @@ import com.google.gson.FieldAttributes;
 /**
  * Created by Edson on 05/10/2017.
  */
-public class RequerimentoDisciplinaExclusionStrategy implements ExclusionStrategy {
+public class RequerimentoCommonExclusionStrategy implements ExclusionStrategy {
     @Override
     public boolean shouldSkipField(FieldAttributes fieldAttributes) {
         return Usuario.class.equals(fieldAttributes.getDeclaringClass()) && fieldAttributes.getName().equals("curso");

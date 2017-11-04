@@ -269,7 +269,7 @@
                     }
 
                     var colModelReq = [];
-
+                    var url = "/ProjetoJSP/requerimento/findDisciplinas?requerimentoId=" + parentRowKey;
                     if (motivoId > 0) {
                         if (motivoId == 9) { // segunda chamada
                             colModelReq = [
@@ -283,6 +283,20 @@
                                 { label: 'Disciplina', name: 'disciplina', index: 'disciplina', jsonmap: 'disciplina.nome', width: 300 },
                                 { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplina.curso.usuario.nome', width: 300 }
                             ];
+                        } else if (motivoId == 21) { //convalidacao
+                            url = "/ProjetoJSP/requerimento/findConvalidacao?requerimentoId=" + parentRowKey;
+                            colModelReq = [
+                                { label: 'Id', name: 'id', index: 'id', key: true, width: 75 },
+                                { label: 'Disciplina', name: 'disciplinaUtfpr', index: 'disciplinaUtfpr', jsonmap: 'disciplinaUtfpr.nome', width: 300 },
+                                { label: 'Disciplina', name: 'disciplinaConvalidacao', index: 'disciplinaConvalidacao', width: 250},
+                                { label: 'CH', name: 'cargaHoraria', index: 'cargaHoraria', width: 100 },
+                                { label: 'Nota', name: 'nota', index: 'nota', width: 100 },
+                                { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 100 },
+                                { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 100 },
+                                { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 100 },
+                                { label: 'Dispensado', name: 'dispensado', index: 'dispensado', width: 100 },
+                                { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplinaUtfpr.curso.usuario.nome', width: 300 }
+                            ];
                         } else {
                             colModelReq = [
                                 { label: 'Id', name: 'id', index: 'id', key: true, width: 75 },
@@ -292,7 +306,7 @@
                     }
 
                     $("#" + childGridID).jqGrid({
-                        url : "/ProjetoJSP/requerimento/findDisciplinas?requerimentoId=" + parentRowKey,
+                        url : url,
                         datatype : "json",
                         mtype : 'GET',
                         rowList : [ 5, 10, 20 ],

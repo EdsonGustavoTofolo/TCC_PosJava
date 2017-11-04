@@ -7,6 +7,7 @@ import br.edu.utfpr.pb.projetojsp.enumeration.TipoUsuarioEnum;
 import br.edu.utfpr.pb.projetojsp.model.*;
 import br.edu.utfpr.pb.projetojsp.repository.*;
 import br.edu.utfpr.pb.projetojsp.specification.RequerimentoSpecification;
+import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoConvalidacaoJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoDisciplinaJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.handler.RequerimentoJQGridHandler;
 import br.edu.utfpr.pb.projetojsp.web.util.ControllersUtil;
@@ -50,6 +51,8 @@ public class RequerimentoController {
     private RequerimentoJQGridHandler requerimentoJQGridHandler;
     @Autowired
     private RequerimentoDisciplinaJQGridHandler requerimentoDisciplinaJQGridHandler;
+    @Autowired
+    private RequerimentoConvalidacaoJQGridHandler requerimentoConvalidacaoJQGridHandler;
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -197,6 +200,16 @@ public class RequerimentoController {
         String forward = "common/formData";
 
         String json = requerimentoDisciplinaJQGridHandler.loadData(request).getJson();
+        request.setAttribute("formData", json);
+
+        return forward;
+    }
+
+    @RequestMapping(method = { RequestMethod.POST, RequestMethod.GET }, path = "/findConvalidacao")
+    public String findConvalidacao(HttpServletRequest request) {
+        String forward = "common/formData";
+
+        String json = requerimentoConvalidacaoJQGridHandler.loadData(request).getJson();
         request.setAttribute("formData", json);
 
         return forward;

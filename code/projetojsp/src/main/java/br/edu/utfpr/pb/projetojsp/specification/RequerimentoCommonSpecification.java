@@ -1,13 +1,12 @@
 package br.edu.utfpr.pb.projetojsp.specification;
 
-import br.edu.utfpr.pb.projetojsp.model.RequerimentoDisciplina;
 import org.springframework.data.jpa.domain.Specification;
 
 /**
  * Created by Edson on 05/10/2017.
  */
-public class RequerimentoDisciplinaSpecification {
-    public static Specification<RequerimentoDisciplina> withRequerimentoId(Long requerimentoId) {
+public class RequerimentoCommonSpecification {
+    public static Specification withRequerimentoId(Long requerimentoId) {
         if (requerimentoId == null) {
             return null;
         } else {
