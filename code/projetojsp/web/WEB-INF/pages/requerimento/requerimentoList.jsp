@@ -319,6 +319,18 @@
                         pager: "#" + childGridPagerID
                     });
 
+                    if (motivoId == 21) {
+                        $("#" + childGridID).setGroupHeaders({
+                                useColSpanStyle: true,
+                                groupHeaders: [
+                                    { "numberOfColumns": 1, "titleText": "UTFPR", "startColumnName": "disciplinaUtfpr" },
+                                    { "numberOfColumns": 4, "titleText": "CURSADA EM OUTRO CURSO/INSTITUIÇÃO", "startColumnName": "disciplinaConvalidacao" },
+                                    { "numberOfColumns": 2, "titleText": "MÉDIA PONDERADA", "startColumnName": "notaFinal" },
+                                    { "numberOfColumns": 1, "titleText": "DISPENSADO", "startColumnName": "dispensado" }
+                                ]
+                            });
+                    }
+
                 }
 
                 function getSelectedRow() {
