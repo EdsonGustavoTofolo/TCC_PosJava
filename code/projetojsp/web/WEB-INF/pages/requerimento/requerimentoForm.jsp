@@ -147,7 +147,7 @@
                                             <th class="ui-th-column ui-th-ltr" colspan="1" rowspan="2" width="65px">AÇÕES</th>
                                         </tr>
                                         <tr class="ui-jqgrid-labels">
-                                            <th class="ui-th-column ui-th-ltr" width="300px">Disciplina</th>
+                                            <th class="ui-th-column ui-th-ltr" width="250px">Disciplina</th>
                                             <th class="ui-th-column ui-th-ltr" width="250px">Disciplina</th>
                                             <th class="ui-th-column ui-th-ltr" title="Carga Horária">CH</th>
                                             <th class="ui-th-column ui-th-ltr">Nota</th>

@@ -13,6 +13,10 @@ $(document).ready(function () {
         return ($.isNumeric(value)) && (Math.floor(+value) == +value);//(value).match(/^\d+$/)
     }, 'Por favor, informe somente número inteiro!');
 
+    $.validator.addMethod("numbergt0",function (value,element){
+        return ($.isNumeric(value)) && (parseFloat(value) > 0);
+    }, 'Informe valor maior que zero(0)!');
+
     //-----[ VALIDA O FORM ANTES DO SUBMIT ]----
     var validador = $('#frm').validate({
         rules: {
@@ -39,27 +43,32 @@ $(document).ready(function () {
                 required: true,
                 maxlength: 3,//sempre será número inteiro positivo
                 number: true,
+                numbergt0: true,
                 intNumber: true
             },
             nota: {
                 required: true,
                 number: true,
-                max: 10.00
+                max: 10.00,
+                numbergt0: true
             },
             frequencia: {
                 required: true,
                 number: true,
-                max: 100.00
+                max: 100.00,
+                numbergt0: true
             },
             notaFinal: {
                 required: true,
                 number: true,
-                max: 10.00
+                max: 10.00,
+                numbergt0: true
             },
             freqFinal: {
                 required: true,
                 number: true,
-                max: 100.00
+                max: 100.00,
+                numbergt0: true
             }
         }
     });
