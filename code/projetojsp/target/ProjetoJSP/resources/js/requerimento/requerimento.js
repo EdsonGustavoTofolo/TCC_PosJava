@@ -440,7 +440,7 @@ function adicionarItemConvalidacao() {
                 '</select>' +
                 '</td>' +
                 '<td>' +
-                '<div>' +
+                '<div class="acoes">' +
                 '<div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">' +
                 '<span class="fa fa-plus"></span>' +
                 '</div>' +
@@ -453,6 +453,12 @@ function adicionarItemConvalidacao() {
         itemConvalidacaoDispensadoSelect2();
         formatInputsConvalidacao();
         addRulesOnLastItemConvalidacao();
+
+        if ($(".itemConvalidacao").length == 2) {
+            $(".acoes").first()
+                .append('<div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">' +
+                '<span class="fa fa-trash"></span></div>');
+        }
     }
 }
 
@@ -496,7 +502,7 @@ function formatInputsConvalidacao() {
 }
 
 function formatCargaHoraria() {
-    $(".cargaHoraria").last().find('input').limitRegex(/^[0-9]{0,3}$/)
+    $(".cargaHoraria").last().find('input').limitRegex(/^[0-9]{0,3}$/);
 }
 
 function formatNota() {
@@ -510,5 +516,12 @@ function formatFrequencia() {
 }
 
 function excluirItemConvalidacao(element) {
+    //se estou excluindo um item, e ainda existem dois, a opcao de exclusao do último que sobrar é removida
+    var removeDel = ($(".itemConvalidacao").length == 2);
+
     $(element).closest(".itemConvalidacao").remove();
+
+    if (removeDel) {
+        $(".acoes").first().find(".ui-inline-del").remove();
+    }
 }

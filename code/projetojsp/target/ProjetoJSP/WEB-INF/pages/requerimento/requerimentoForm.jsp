@@ -172,12 +172,9 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <div>
+                                            <div class="acoes">
                                                 <div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">
                                                     <span class="fa fa-plus"></span>
-                                                </div>
-                                                <div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
-                                                    <span class="fa fa-trash"></span>
                                                 </div>
                                             </div>
                                         </td>

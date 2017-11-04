@@ -2,6 +2,7 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js" line="57" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js" line="460" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59e213a6-b65b-4693-9dea-1e0a2c12dca0" name="Default" comment="" />
@@ -23,11 +24,10 @@
       <file leaf-file-name="requerimentoForm.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2447">
-              <caret line="27" column="108" lean-forward="false" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
+            <state relative-caret-position="262">
+              <caret line="177" column="54" lean-forward="false" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
               <folding>
-                <element signature="e#13270#13306#0#HTML" expanded="true" />
-                <element signature="e#13590#13626#0#HTML" expanded="true" />
+                <element signature="e#13284#13320#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -36,11 +36,12 @@
       <file leaf-file-name="requerimento.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="498" column="71" lean-forward="false" selection-start-line="498" selection-start-column="71" selection-end-line="498" selection-end-column="71" />
+            <state relative-caret-position="410">
+              <caret line="442" column="34" lean-forward="false" selection-start-line="442" selection-start-column="34" selection-end-line="442" selection-end-column="34" />
               <folding>
-                <marker date="1509820313327" expanded="true" signature="18048:18076" ph="..." />
-                <marker date="1509820313327" expanded="true" signature="18280:18308" ph="..." />
+                <marker date="1509822272473" expanded="true" signature="18062:18090" ph="..." />
+                <marker date="1509822272473" expanded="true" signature="18294:18322" ph="..." />
+                <marker date="1509822272473" expanded="true" signature="18839:18867" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1184,12 +1185,12 @@
       <workItem from="1506724866629" duration="80746000" />
       <workItem from="1507758514830" duration="20421000" />
       <workItem from="1508195301422" duration="115561000" />
-      <workItem from="1509795440793" duration="13997000" />
+      <workItem from="1509795440793" duration="15916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="484033000" />
+    <option name="totallyTimeSpent" value="485952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1626,22 +1627,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/requerimento/requerimentoForm.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2447">
-          <caret line="27" column="108" lean-forward="false" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
+        <state relative-caret-position="262">
+          <caret line="177" column="54" lean-forward="false" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
           <folding>
-            <element signature="e#13270#13306#0#HTML" expanded="true" />
-            <element signature="e#13590#13626#0#HTML" expanded="true" />
+            <element signature="e#13284#13320#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimento.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="498" column="71" lean-forward="false" selection-start-line="498" selection-start-column="71" selection-end-line="498" selection-end-column="71" />
+        <state relative-caret-position="410">
+          <caret line="442" column="34" lean-forward="false" selection-start-line="442" selection-start-column="34" selection-end-line="442" selection-end-column="34" />
           <folding>
-            <marker date="1509820313327" expanded="true" signature="18048:18076" ph="..." />
-            <marker date="1509820313327" expanded="true" signature="18280:18308" ph="..." />
+            <marker date="1509822272473" expanded="true" signature="18062:18090" ph="..." />
+            <marker date="1509822272473" expanded="true" signature="18294:18322" ph="..." />
+            <marker date="1509822272473" expanded="true" signature="18839:18867" ph="..." />
           </folding>
         </state>
       </provider>
