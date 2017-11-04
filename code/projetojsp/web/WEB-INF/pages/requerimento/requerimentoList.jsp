@@ -294,7 +294,7 @@
                                 { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 100 },
                                 { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 100 },
                                 { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 100 },
-                                { label: 'Dispensado', name: 'dispensado', index: 'dispensado', width: 100 },
+                                { label: 'Dispensado', name: 'dispensado', index: 'dispensado', width: 100, formatter: dispensadoFormatter },
                                 { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplinaUtfpr.curso.usuario.nome', width: 300 }
                             ];
                         } else {
@@ -318,6 +318,14 @@
                         with: 'auto',
                         pager: "#" + childGridPagerID
                     });
+
+                    function dispensadoFormatter(cellvalue, options, rowobject) {
+                        if (cellvalue) {
+                            return "Sim";
+                        } else {
+                            return "Não";
+                        }
+                    }
 
                     if (motivoId == 21) {
                         $("#" + childGridID).setGroupHeaders({
