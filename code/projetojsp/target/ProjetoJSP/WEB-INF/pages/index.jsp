@@ -32,6 +32,8 @@
             $.jgrid.defaults.styleUI = 'Bootstrap';
             $.jgrid.defaults.responsive = true;
             $.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
+            $.fn.select2.defaults.set( "theme", "bootstrap" );
+            $.fn.select2.defaults.set( "width", "100%" );
 
             function getColor(status) {
                 if (status == "EM_ABERTO") {

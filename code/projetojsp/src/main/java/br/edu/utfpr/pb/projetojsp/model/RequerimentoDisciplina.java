@@ -26,10 +26,10 @@ public class RequerimentoDisciplina implements Serializable {
     @Column(name = "data_prova_rdis")
     private Date dataProva;
     @ManyToOne()
-    @JoinColumn(name = "disciplina_id_rdis", referencedColumnName = "id_dis")
+    @JoinColumn(name = "disciplina_id_rdis", referencedColumnName = "id_dis", nullable = false)
     private Disciplina disciplina;
     @ManyToOne()
-    @JoinColumn(name = "requerimento_id_rdis", referencedColumnName = "id_req")
+    @JoinColumn(name = "requerimento_id_rdis", referencedColumnName = "id_req", nullable = false)
     private Requerimento requerimento;
 
     public RequerimentoDisciplina() {

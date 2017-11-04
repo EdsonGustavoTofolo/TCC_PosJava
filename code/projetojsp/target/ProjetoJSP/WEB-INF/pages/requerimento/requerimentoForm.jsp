@@ -153,7 +153,7 @@
                                             <th class="ui-th-column ui-th-ltr">Nota</th>
                                             <th class="ui-th-column ui-th-ltr" title="% Frequência">Freq</th>
                                             <th class="ui-th-column ui-th-ltr" width="65px">Nota Final</th>
-                                            <th class="ui-th-column ui-th-ltr" width="65px" title="Frequência Final">Freq Final</th>
+                                            <th class="ui-th-column ui-th-ltr" width="65px" title="% Frequência Final">Freq Final</th>
                                             <th class="ui-th-column ui-th-ltr">Sim/Não</th>
                                         </tr>
                                     </thead>

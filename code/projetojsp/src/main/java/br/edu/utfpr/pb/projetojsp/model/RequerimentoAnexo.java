@@ -27,9 +27,10 @@ public class RequerimentoAnexo implements Serializable {
     private Long tamanho;
     @Lob
     @Basic(fetch = FetchType.LAZY)
+    @Column(name = "arquivo_anx", nullable = false)
     private byte[] arquivo;
     @ManyToOne()
-    @JoinColumn(name = "requerimento_id_anx", referencedColumnName = "id_req")
+    @JoinColumn(name = "requerimento_id_anx", referencedColumnName = "id_req", nullable = false)
     private Requerimento requerimento;
 
     private transient double size;

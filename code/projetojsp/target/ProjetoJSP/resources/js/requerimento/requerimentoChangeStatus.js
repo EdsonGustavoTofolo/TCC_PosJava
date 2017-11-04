@@ -2,7 +2,6 @@
  * Created by Edson on 29/10/2017.
  */
 function changeStatus(element, status, requerimentoId, successAjaxCallback, hideModalCallback) {
-    $.fn.select2.defaults.set( "theme", "bootstrap" );
     $(element).html("")
         .append('<a id="linkOpenModalObs" class="hidden" data-toggle="modal" href="requerimentoForm.jsp#obsViewer"></a>' +
             '<div aria-hidden="true" aria-labelledby="obsDialog" role="dialog" tabindex="-1" id="obsViewer" class="modal fade">' +

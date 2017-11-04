@@ -20,7 +20,7 @@ public class RequerimentoObservacao implements Serializable {
     @Column(name = "id_obs")
     private Long id;
     @ManyToOne()
-    @JoinColumn(name = "requerimento_id_obs", referencedColumnName = "id_req")
+    @JoinColumn(name = "requerimento_id_obs", referencedColumnName = "id_req", nullable = false)
     private Requerimento requerimento;
     @ManyToOne()
     @JoinColumn(name = "usuario_id_obs", referencedColumnName = "id_usu")

@@ -46,6 +46,8 @@ public class RequerimentoController {
     @Autowired
     private RequerimentoDisciplinaRepository requerimentoDisciplinaRepository;
     @Autowired
+    private RequerimentoConvalidacaoRepository requerimentoConvalidacaoRepository;
+    @Autowired
     private DisciplinaRepository disciplinaRepository;
     @Autowired
     private RequerimentoJQGridHandler requerimentoJQGridHandler;
@@ -212,6 +214,11 @@ public class RequerimentoController {
                 requerimentoDisciplinaRepository.deleteByRequerimentoId(requerimento.getId());
             }
             requerimento.getDisciplinas().forEach(d -> d.setRequerimento(requerimento));
+        } else if (!Objects.isNull(requerimento.getConvalidacoes()) && !requerimento.getConvalidacoes().isEmpty()) {
+            if (Objects.nonNull(requerimento.getId()) && requerimento.getId() > 0) {
+                requerimentoConvalidacaoRepository.deleteByRequerimentoId(requerimento.getId());
+            }
+            requerimento.getConvalidacoes().forEach(c -> c.setRequerimento(requerimento));
         }
 
         if (anexos.length > 0) {

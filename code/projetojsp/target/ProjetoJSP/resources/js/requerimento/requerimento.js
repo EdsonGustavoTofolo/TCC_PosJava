@@ -3,6 +3,7 @@
  */
 $(document).ready(function () {
     $.fn.select2.defaults.set( "theme", "bootstrap" );
+    $.fn.select2.defaults.set( "width", "100%" );
 
     $.validator.addMethod("disciplinasSelecionadas",function (value,element){
         return !$('#motivoDisciplinas').hasClass('hidden') && $('select[name=selDisciplinas2] option').length > 0;
@@ -160,19 +161,19 @@ $(document).ready(function () {
                     var dispensado = dispensadoSelect.select2("val");
 
                     var itemConvalidacao = {
-                        "disciplinaUtfpr": disciplinaUtfpr,
+                        "disciplinaUtfpr": {"id": parseInt(disciplinaUtfpr)},
                         "disciplinaConvalidacao": disciplinaConvalidacao,
-                        "cargaHoraria": cargaHoraria,
-                        "nota": nota,
-                        "frequencia": frequencia,
-                        "notaFinal": notaFinal,
-                        "freqFinal": freqFinal,
+                        "cargaHoraria": parseInt(cargaHoraria),
+                        "nota": parseFloat(nota),
+                        "frequencia": parseFloat(frequencia),
+                        "notaFinal": parseFloat(notaFinal),
+                        "freqFinal": parseFloat(freqFinal),
                         "dispensado": dispensado
                     };
 
                     itemsConvalidacao.push(itemConvalidacao);
                 });
-                dataJSON["convalidacao"] = itemsConvalidacao;
+                dataJSON["convalidacoes"] = itemsConvalidacao;
             }
             formData.append('requerimento', new Blob([JSON.stringify(dataJSON)], {type: "application/json"}));
         },

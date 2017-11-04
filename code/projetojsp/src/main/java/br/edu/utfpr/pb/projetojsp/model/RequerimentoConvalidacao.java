@@ -43,7 +43,7 @@ public class RequerimentoConvalidacao implements Serializable {
     @JoinColumn(name = "professor_id_con", referencedColumnName = "id_usu")
     private Usuario professor;
     @ManyToOne()
-    @JoinColumn(name = "requerimento_id_con", referencedColumnName = "id_req")
+    @JoinColumn(name = "requerimento_id_con", referencedColumnName = "id_req", nullable = false)
     private Requerimento requerimento;
 
     public RequerimentoConvalidacao() {
