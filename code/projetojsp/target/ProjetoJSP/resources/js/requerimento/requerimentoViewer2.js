@@ -38,18 +38,23 @@ function visualizarRequerimento(requerimentoId, element) {
                             '<input id="data" type="date" pattern="dd/MM/yyyy" value="'+requerimento.disciplinas[0].dataProva+'" class="form-control" disabled/>' +
                         '</div><br/>';
         } else if (requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17) { //exibir tabela com disciplinas
-                requerimentoHtml += '<input id="curso" type="text" value="'+requerimento.disciplinas[0].disciplina.curso.usuario.nome+'" class="form-control" disabled/>';
-                requerimentoHtml +=
-                '<div id="disciplinas"><br/>' +
-                    '<label>Disciplinas:</label><div id="disciplinaList"><table id="jqGridDisciplinas"></table><div id="jqGridDisciplinasPager"></div></div>' +
+            requerimentoHtml += '<input id="curso" type="text" value="'+requerimento.disciplinas[0].disciplina.curso.usuario.nome+'" class="form-control" disabled/>';
+            requerimentoHtml +=
+            '<div id="disciplinas"><br/>' +
+                '<label>Disciplinas:</label><div id="disciplinaList"><table id="jqGridDisciplinas"></table><div id="jqGridDisciplinasPager"></div></div>' +
+            '</div>';
+        } else if (requerimento.motivo == 21) { //convalidacao
+            requerimentoHtml += '<input id="curso" type="text" value="'+requerimento.convalidacoes[0].disciplinaUtfpr.curso.usuario.nome+'" class="form-control" disabled/>';
+            requerimentoHtml +=
+                '<div id="convalidacao"><br/>' +
+                '<label>Convalidação:</label><div id="convalidacaoList"><table id="jqGridConvalidacao"></table><div id="jqGridConvalidacaoPager"></div></div>' +
                 '</div>';
         } else {
             requerimentoHtml += '<input id="curso" type="text" value="'+requerimento.usuario.curso.usuario.nome+'" class="form-control" disabled/><br/>';
         }
 
         if (requerimento.anexos.length > 0) { //exibir anexos para efetuar downloads
-            requerimentoHtml +=
-                '<div id="anexos"><br/><label>Anexos:</label><div class="attached">';
+            requerimentoHtml += '<div id="anexos"><br/><label>Anexos:</label><div class="attached">';
 
             requerimento.anexos.forEach(function (anexo) {
                 requerimentoHtml +=
@@ -98,6 +103,46 @@ function visualizarRequerimento(requerimentoId, element) {
                 heigth: '200',
                 scroll: 1,
                 viewrecords: true
+            });
+        } else if (requerimento.motivo == 21) {
+            $("#jqGridConvalidacao").jqGrid({
+                datatype: "jsonstring",
+                datastr: JSON.stringify(requerimento.convalidacoes),
+                jsonReader: {repeatitems: false},
+                colModel: [
+                    { label: 'Id', name: 'id', index: 'id', key: true, width: 75 },
+                    { label: 'Disciplina', name: 'disciplinaUtfpr', index: 'disciplinaUtfpr', jsonmap: 'disciplinaUtfpr.nome', width: 300 },
+                    { label: 'Disciplina', name: 'disciplinaConvalidacao', index: 'disciplinaConvalidacao', width: 250},
+                    { label: 'CH', name: 'cargaHoraria', index: 'cargaHoraria', width: 100 },
+                    { label: 'Nota', name: 'nota', index: 'nota', width: 100 },
+                    { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 100 },
+                    { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 100 },
+                    { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 100 },
+                    { label: 'Dispensado', name: 'dispensado', index: 'dispensado', width: 100,
+                        formatter: function (cellvalue, options, rowobject) {
+                            if (cellvalue) {
+                                return "Sim";
+                            } else {
+                                return "Não";
+                            }
+                    } },
+                    { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplinaUtfpr.curso.usuario.nome', width: 300 }
+                ],
+                pager: '#jqGridConvalidacaoPager',
+                rowNum: 5,
+                width: $("#requerimentoViewer").width(),//'auto',
+                heigth: '200',
+                scroll: 1,
+                viewrecords: true
+            });
+            $("#jqGridConvalidacao").setGroupHeaders({
+                useColSpanStyle: true,
+                groupHeaders: [
+                    { "numberOfColumns": 1, "titleText": "UTFPR", "startColumnName": "disciplinaUtfpr" },
+                    { "numberOfColumns": 4, "titleText": "CURSADA EM OUTRO CURSO/INSTITUIÇÃO", "startColumnName": "disciplinaConvalidacao" },
+                    { "numberOfColumns": 2, "titleText": "MÉDIA PONDERADA", "startColumnName": "notaFinal" },
+                    { "numberOfColumns": 1, "titleText": "DISPENSADO", "startColumnName": "dispensado" }
+                ]
             });
         }
 

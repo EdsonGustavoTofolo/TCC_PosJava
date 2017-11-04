@@ -17,7 +17,7 @@
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/webjars/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.pt-BR.min.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/requerimento/motivoList.js"/> "></script>
-        <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer.js"/> "></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/requerimento/requerimentoViewer2.js"/> "></script>
         <script type="text/javascript" src="<c:url value="/resources/js/moment/moment-with-locales.min.js"/> "></script>
         <script type="text/javascript">
             $(document).ready(function () {
