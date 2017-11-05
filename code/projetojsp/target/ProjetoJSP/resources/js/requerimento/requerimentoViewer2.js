@@ -110,14 +110,13 @@ function visualizarRequerimento(requerimentoId, element) {
                 datastr: JSON.stringify(requerimento.convalidacoes),
                 jsonReader: {repeatitems: false},
                 colModel: [
-                    { label: 'Id', name: 'id', index: 'id', key: true, width: 75 },
-                    { label: 'Disciplina', name: 'disciplinaUtfpr', index: 'disciplinaUtfpr', jsonmap: 'disciplinaUtfpr.nome', width: 300 },
-                    { label: 'Disciplina', name: 'disciplinaConvalidacao', index: 'disciplinaConvalidacao', width: 250},
-                    { label: 'CH', name: 'cargaHoraria', index: 'cargaHoraria', width: 100 },
-                    { label: 'Nota', name: 'nota', index: 'nota', width: 100 },
-                    { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 100 },
-                    { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 100 },
-                    { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 100 },
+                    { label: 'Disciplina', name: 'disciplinaUtfpr', index: 'disciplinaUtfpr', jsonmap: 'disciplinaUtfpr.nome', width: 180 },
+                    { label: 'Disciplina', name: 'disciplinaConvalidacao', index: 'disciplinaConvalidacao', width: 180 },
+                    { label: 'CH', name: 'cargaHoraria', index: 'cargaHoraria', width: 75 },
+                    { label: 'Nota', name: 'nota', index: 'nota', width: 75 },
+                    { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 75 },
+                    { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 75 },
+                    { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 75 },
                     { label: 'Dispensado', name: 'dispensado', index: 'dispensado', width: 100,
                         formatter: function (cellvalue, options, rowobject) {
                             if (cellvalue) {
@@ -125,12 +124,11 @@ function visualizarRequerimento(requerimentoId, element) {
                             } else {
                                 return "Não";
                             }
-                    } },
-                    { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplinaUtfpr.curso.usuario.nome', width: 300 }
+                    } }
                 ],
                 pager: '#jqGridConvalidacaoPager',
                 rowNum: 5,
-                width: $("#requerimentoViewer").width(),//'auto',
+                width: '1200',
                 heigth: '200',
                 scroll: 1,
                 viewrecords: true
@@ -152,5 +150,10 @@ function visualizarRequerimento(requerimentoId, element) {
         });
 
         $("#linkOpenModalReq").click();
+
+        if (requerimento.motivo == 21) {
+            $('.modal-dialog').width(1300);
+            // $(window).trigger('resize');
+        }
     });
 }

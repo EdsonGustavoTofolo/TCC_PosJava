@@ -286,7 +286,7 @@
                         } else if (motivoId == 21) { //convalidacao
                             url = "/ProjetoJSP/requerimento/findConvalidacao?requerimentoId=" + parentRowKey;
                             colModelReq = [
-                                { label: 'Id', name: 'id', index: 'id', key: true, width: 75 },
+                                //{ label: 'Id', name: 'id', index: 'id', key: true, width: 75 },
                                 { label: 'Disciplina', name: 'disciplinaUtfpr', index: 'disciplinaUtfpr', jsonmap: 'disciplinaUtfpr.nome', width: 300 },
                                 { label: 'Disciplina', name: 'disciplinaConvalidacao', index: 'disciplinaConvalidacao', width: 250},
                                 { label: 'CH', name: 'cargaHoraria', index: 'cargaHoraria', width: 100 },
@@ -294,8 +294,8 @@
                                 { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 100 },
                                 { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 100 },
                                 { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 100 },
-                                { label: 'Dispensado', name: 'dispensado', index: 'dispensado', width: 100, formatter: dispensadoFormatter },
-                                { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplinaUtfpr.curso.usuario.nome', width: 300 }
+                                { label: 'Sim/Não', name: 'dispensado', index: 'dispensado', width: 120, formatter: dispensadoFormatter }
+//                                { label: 'Curso', name: 'curso', index: 'curso', jsonmap: 'disciplinaUtfpr.curso.usuario.nome', width: 300 }
                             ];
                         } else {
                             colModelReq = [

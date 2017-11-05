@@ -533,27 +533,32 @@ function addRulesOnItemConvalidacao(element) {
         required: true,
         maxlength: 3,//sempre será número inteiro positivo
         number: true,
-        intNumber: true
+        intNumber: true,
+        numbergt0: true
     });
     $itemConvalidacao.find('.nota').find('input').rules("add", {
         required: true,
         number: true,
-        max: 10.00
+        max: 10.00,
+        numbergt0: true
     });
     $itemConvalidacao.find('.frequencia').find('input').rules("add", {
         required: true,
         number: true,
-        max: 100.00
+        max: 100.00,
+        numbergt0: true
     });
     $itemConvalidacao.find('.notaFinal').find('input').rules("add", {
         required: true,
         number: true,
-        max: 10.00
+        max: 10.00,
+        numbergt0: true
     });
     $itemConvalidacao.find('.freqFinal').find('input').rules("add", {
         required: true,
         number: true,
-        max: 100.00
+        max: 100.00,
+        numbergt0: true
     });
 }
 
