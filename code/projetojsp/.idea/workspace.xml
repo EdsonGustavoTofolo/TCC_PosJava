@@ -40,7 +40,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5649">
               <caret line="296" column="49" lean-forward="false" selection-start-line="296" selection-start-column="49" selection-end-line="296" selection-end-column="49" />
-              <folding />
+              <folding>
+                <marker date="1509842436779" expanded="true" signature="497:20272" ph="..." />
+                <marker date="1509842436779" expanded="true" signature="872:19933" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,11 +51,11 @@
       <file leaf-file-name="requerimentoViewer2.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimentoViewer2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="154" column="41" lean-forward="false" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
+            <state relative-caret-position="1088">
+              <caret line="160" column="1" lean-forward="false" selection-start-line="160" selection-start-column="1" selection-end-line="160" selection-end-column="1" />
               <folding>
-                <marker date="1509845865780" expanded="true" signature="882:889" ph="×" />
-                <marker date="1509845865780" expanded="true" signature="5076:5085" ph="..." />
+                <marker date="1509902029936" expanded="true" signature="882:889" ph="×" />
+                <marker date="1509902029936" expanded="true" signature="5076:5085" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1130,12 +1133,12 @@
       <workItem from="1506724866629" duration="80746000" />
       <workItem from="1507758514830" duration="20421000" />
       <workItem from="1508195301422" duration="115561000" />
-      <workItem from="1509795440793" duration="34968000" />
+      <workItem from="1509795440793" duration="38252000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="505004000" />
+    <option name="totallyTimeSpent" value="508288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1153,7 +1156,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17094973" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2905028" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1591,7 +1594,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5649">
           <caret line="296" column="49" lean-forward="false" selection-start-line="296" selection-start-column="49" selection-end-line="296" selection-end-column="49" />
-          <folding />
+          <folding>
+            <marker date="1509842436779" expanded="true" signature="497:20272" ph="..." />
+            <marker date="1509842436779" expanded="true" signature="872:19933" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1621,11 +1627,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/js/requerimento/requerimentoViewer2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="154" column="41" lean-forward="false" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
+        <state relative-caret-position="1088">
+          <caret line="160" column="1" lean-forward="false" selection-start-line="160" selection-start-column="1" selection-end-line="160" selection-end-column="1" />
           <folding>
-            <marker date="1509845865780" expanded="true" signature="882:889" ph="×" />
-            <marker date="1509845865780" expanded="true" signature="5076:5085" ph="..." />
+            <marker date="1509902029936" expanded="true" signature="882:889" ph="×" />
+            <marker date="1509902029936" expanded="true" signature="5076:5085" ph="..." />
           </folding>
         </state>
       </provider>

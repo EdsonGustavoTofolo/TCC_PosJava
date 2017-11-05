@@ -110,14 +110,14 @@ function visualizarRequerimento(requerimentoId, element) {
                 datastr: JSON.stringify(requerimento.convalidacoes),
                 jsonReader: {repeatitems: false},
                 colModel: [
-                    { label: 'Disciplina', name: 'disciplinaUtfpr', index: 'disciplinaUtfpr', jsonmap: 'disciplinaUtfpr.nome', width: 180 },
-                    { label: 'Disciplina', name: 'disciplinaConvalidacao', index: 'disciplinaConvalidacao', width: 180 },
-                    { label: 'CH', name: 'cargaHoraria', index: 'cargaHoraria', width: 75 },
-                    { label: 'Nota', name: 'nota', index: 'nota', width: 75 },
-                    { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 75 },
-                    { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 75 },
-                    { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 75 },
-                    { label: 'Dispensado', name: 'dispensado', index: 'dispensado', width: 100,
+                    { label: 'Disciplina', name: 'disciplinaUtfpr', index: 'disciplinaUtfpr', jsonmap: 'disciplinaUtfpr.nome', width: 220 },
+                    { label: 'Disciplina', name: 'disciplinaConvalidacao', index: 'disciplinaConvalidacao', width: 220 },
+                    { label: 'CH', name: 'cargaHoraria', index: 'cargaHoraria', width: 60 },
+                    { label: 'Nota', name: 'nota', index: 'nota', width: 60 },
+                    { label: 'Freq', name: 'frequencia', index: 'frequencia', width: 60 },
+                    { label: 'Nota Final', name: 'notaFinal', index: 'notaFinal', width: 70 },
+                    { label: 'Freq Final', name: 'freqFinal', index: 'freqFinal', width: 70 },
+                    { label: 'Sim/Não', name: 'dispensado', index: 'dispensado', width: 100,
                         formatter: function (cellvalue, options, rowobject) {
                             if (cellvalue) {
                                 return "Sim";
@@ -128,19 +128,10 @@ function visualizarRequerimento(requerimentoId, element) {
                 ],
                 pager: '#jqGridConvalidacaoPager',
                 rowNum: 5,
-                width: '1200',
+                width: '1180',
                 heigth: '200',
                 scroll: 1,
                 viewrecords: true
-            });
-            $("#jqGridConvalidacao").setGroupHeaders({
-                useColSpanStyle: true,
-                groupHeaders: [
-                    { "numberOfColumns": 1, "titleText": "UTFPR", "startColumnName": "disciplinaUtfpr" },
-                    { "numberOfColumns": 4, "titleText": "CURSADA EM OUTRO CURSO/INSTITUIÇÃO", "startColumnName": "disciplinaConvalidacao" },
-                    { "numberOfColumns": 2, "titleText": "MÉDIA PONDERADA", "startColumnName": "notaFinal" },
-                    { "numberOfColumns": 1, "titleText": "DISPENSADO", "startColumnName": "dispensado" }
-                ]
             });
         }
 
@@ -152,8 +143,19 @@ function visualizarRequerimento(requerimentoId, element) {
         $("#linkOpenModalReq").click();
 
         if (requerimento.motivo == 21) {
-            $('.modal-dialog').width(1250);
-            // $(window).trigger('resize');
+            $('.modal-dialog').width(1200);
+
+            $("#jqGridConvalidacao").setGroupHeaders({
+                useColSpanStyle: false,
+                groupHeaders: [
+                    { "numberOfColumns": 1, "titleText": "UTFPR", "startColumnName": "disciplinaUtfpr" },
+                    { "numberOfColumns": 4, "titleText": "CURSADA EM OUTRO CURSO/INSTITUIÇÃO", "startColumnName": "disciplinaConvalidacao" },
+                    { "numberOfColumns": 2, "titleText": "MÉDIA PONDERADA", "startColumnName": "notaFinal" },
+                    { "numberOfColumns": 1, "titleText": "DISPENSADO", "startColumnName": "dispensado" }
+                ]
+            });
+
+            $(window).trigger('resize');
         }
     });
 }
