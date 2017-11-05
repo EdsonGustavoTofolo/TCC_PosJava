@@ -144,7 +144,9 @@
                                             <th class="ui-th-column ui-th-ltr" colspan="4">CURSADA EM OUTRO CURSO/INSTITUIÇÃO</th>
                                             <th class="ui-th-column ui-th-ltr" colspan="2">MÉDIA PONDERADA</th>
                                             <th class="ui-th-column ui-th-ltr" colspan="1">DISPENSADO</th>
-                                            <th class="ui-th-column ui-th-ltr" colspan="1" rowspan="2" width="65px">AÇÕES</th>
+                                            <sec:authorize access="hasAnyRole('ALUNO', 'PROFESSOR')">
+                                                <th class="ui-th-column ui-th-ltr" colspan="1" rowspan="2" width="65px">AÇÕES</th>
+                                            </sec:authorize>
                                         </tr>
                                         <tr class="ui-jqgrid-labels">
                                             <th class="ui-th-column ui-th-ltr" width="250px">Disciplina</th>
@@ -196,16 +198,27 @@
                                                             <option value="false" ${not convalidacao.dispensado ? 'selected="selected"' : ''}>Não</option>
                                                         </select>
                                                     </td>
-                                                    <td>
-                                                        <div class="acoes">
-                                                            <div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">
-                                                                <span class="fa fa-plus"></span>
+                                                    <sec:authorize access="hasAnyRole('ALUNO', 'PROFESSOR')">
+                                                        <td>
+                                                            <div class="acoes">
+                                                                <sec:authorize access="hasRole('ALUNO')">
+                                                                    <div title="Adicionar" onclick="adicionarItemConvalidacao();" class="ui-pg-div ui-inline-edit" style="float: left;cursor: pointer;">
+                                                                        <span class="fa fa-plus"></span>
+                                                                    </div>
+                                                                    <c:if test="${requerimento.convalidacoes.size() > 1}">
+                                                                        <div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
+                                                                            <span class="fa fa-trash"></span>
+                                                                        </div>
+                                                                    </c:if>
+                                                                </sec:authorize>
+                                                                <sec:authorize access="hasRole('PROFESSOR')">
+                                                                    <div title="Parecer" onclick="parecerItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
+                                                                        <span class="fa fa-edit"></span>
+                                                                    </div>
+                                                                </sec:authorize>
                                                             </div>
-                                                            <div title="Excluir" onclick="excluirItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
-                                                                <span class="fa fa-trash"></span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                        </td>
+                                                    </sec:authorize>
                                                 </tr>
                                             </c:forEach>
                                         </c:when>
