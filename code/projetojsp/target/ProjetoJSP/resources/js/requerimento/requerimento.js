@@ -327,6 +327,10 @@ $(document).ready(function () {
         buscarDisciplinasDoRequerimento();
     } else if ($("#motivo").val() == 21) {
         formatarSelectorsConvalidacao();
+        $('#disciplinasConvalidacao').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
     }
 
     function buscarDisciplinasDoRequerimento() {
@@ -595,4 +599,49 @@ function excluirItemConvalidacao(element) {
     if (removeDel) {
         $(".acoes").first().find(".ui-inline-del").remove();
     }
+}
+
+function parecerItemConvalidacao(itemConvalidacaoId) {
+
+}
+
+function definirProfessorItemConvalidacao(itemConvalidacaoId, professorId) {
+    professorId = professorId || 0;
+
+    $("#escolherProfessorModal").modal('show');
+    $("#professorItemConvalidacao").select2({dropdownParent: $("#escolherProfessorModal")});
+    $("#btnSalvarProfessorItemConvalidacao").click(function () {
+        var professorIdSelected = $("#professorItemConvalidacao").select2("val");
+        $.ajax({
+            type : 'PUT',
+            url : '/ProjetoJSP/requerimento/convalidacao/' + itemConvalidacaoId + '/definirProfessor/' + professorIdSelected,
+            success : function(data) {
+                data = JSON.parse(data);
+                if (data.state == "OK"){
+                    swal({
+                        title : "Salvo!",
+                        text : data.message,
+                        type : "success",
+                        confirmButtonText : "Ok",
+                        showCancelButton : false,
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                    }).then(function () {
+                        if (professorId == 0) {
+                            $("#iconItemConvalidacao" + itemConvalidacaoId).html('').append('<span class="fa-stack fa-lg"><i class="fa fa-user"></i><i class="fa fa-pencil-square-o fa-stack-1x"></i></span>');
+                            $("#iconItemConvalidacao" + itemConvalidacaoId).attr("data-toggle", "tooltip");
+                            $("#iconItemConvalidacao" + itemConvalidacaoId).attr("data-placement", "left");
+                        }
+                        $("#iconItemConvalidacao" + itemConvalidacaoId).attr("data-original-title", data.professor);
+                        $("#escolherProfessorModal").modal('hide');
+                    }).catch(swal.noop); // esse catch evita erro no console do browser;
+                } else {
+                    swal("Falhou!", data.message, "error").catch(swal.noop); // esse catch evita erro no console do browser;
+                }
+            },//Fim success
+            error : function() {
+                swal("Erro!", "Falha ao definir professor.", "error").catch(swal.noop); // esse catch evita erro no console do browser;
+            }
+        }); //Fim ajax
+    });
 }

@@ -103,6 +103,32 @@ public class RequerimentoController {
                 requerimentoObservacao);
     }
 
+    @Secured("ROLE_COORDENACAO")
+    @PutMapping(value = "/convalidacao/{convalidacaoId}/definirProfessor/{professorId}")
+    @ResponseBody
+    public String definirProfessor(@PathVariable(name = "convalidacaoId") Long convalidacaoId,
+                                   @PathVariable(name = "professorId") Long professorId) {
+        JSONObject retorno = new JSONObject();
+        try{
+            RequerimentoConvalidacao requerimentoConvalidacao = requerimentoConvalidacaoRepository.findById(convalidacaoId).orElse(null);
+            if (Objects.nonNull(requerimentoConvalidacao)) {
+                Usuario professor = usuarioRepository.findById(professorId).get();
+                requerimentoConvalidacao.setProfessor(professor);
+                requerimentoConvalidacaoRepository.save(requerimentoConvalidacao);
+                retorno.put("state", "OK");
+                retorno.put("message", "Professor definido com sucesso!");
+                retorno.put("professor", professor.getNome());
+            } else {
+                retorno.put("state", "ERROR");
+                retorno.put("message", "Item da convalidação inexistente!");
+            }
+        }catch (Exception ex){
+            retorno.put("state", "ERROR");
+            retorno.put("message", "Falha ao gravar professor no item da convalidação!\n" + ex.getCause().getCause().getMessage());
+        }
+        return retorno.toString();
+    }
+
     @Secured({"ROLE_DERAC", "ROLE_COORDENACAO"})
     @PutMapping(value = "/edit/{requerimentoId}/changeStatusKanban/{status}", consumes = {"application/json"})
     @ResponseBody
@@ -112,7 +138,7 @@ public class RequerimentoController {
         return changeStatus(requerimentoId, StatusRequerimentoEnum.valueOf(status), requerimentoObservacao);
     }
 
-    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO"})
+    @Secured({"ROLE_ALUNO", "ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR"})
     @GetMapping("/edit/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Requerimento requerimento = requerimentoRepository.findById(id).orElse(null);
@@ -158,6 +184,9 @@ public class RequerimentoController {
                     Long cursoId = requerimento.getConvalidacoes().get(0).getDisciplinaUtfpr().getCurso().getId();
                     model.addAttribute("cursoId", cursoId);
                     model.addAttribute("disciplinas", disciplinaRepository.findByCursoId(cursoId));
+                    if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
+                        model.addAttribute("professores", usuarioRepository.findByTipo(TipoUsuarioEnum.PROFESSOR));
+                    }
                 } else {
                     if (hasRolesSuper) { //se nào for o aluno o usuário logado, pega o id do curso do usuário que originou o requerimento
                         model.addAttribute("cursoId", cursoRepository.findById(requerimento.getUsuario().getCurso().getId()).get().getId());

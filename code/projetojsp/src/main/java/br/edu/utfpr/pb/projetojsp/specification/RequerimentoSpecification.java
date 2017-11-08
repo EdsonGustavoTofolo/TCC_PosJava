@@ -4,6 +4,7 @@ import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import org.springframework.data.jpa.domain.Specification;
 
+import javax.persistence.criteria.JoinType;
 import java.util.Date;
 
 /**
@@ -70,8 +71,8 @@ public class RequerimentoSpecification {
         if (professorId == null) {
             return null;
         } else {
-            return (root, query, cb) -> cb.equal(root.join("disciplinas")
-                                                    .join("professor").get("id"), professorId);
+            return (root, query, cb) -> cb.equal(root.join("disciplinas", JoinType.LEFT)
+                                                    .join("professor", JoinType.LEFT).get("id"), professorId);
         }
     }
 
@@ -79,8 +80,12 @@ public class RequerimentoSpecification {
         if (coordenacaoId == null) {
             return null;
         } else {
-            return (root, query, cb) -> cb.equal(root.join("disciplinas")
-                    .join("disciplina").join("curso").join("usuario").get("id"), coordenacaoId);
+            return (root, query, cb) -> cb.or(
+                    cb.equal(root.join("disciplinas", JoinType.LEFT).join("disciplina", JoinType.LEFT)
+                            .join("curso", JoinType.LEFT).join("usuario", JoinType.LEFT).get("id"), coordenacaoId),
+                    cb.equal(root.join("convalidacoes", JoinType.LEFT).join("disciplinaUtfpr", JoinType.LEFT)
+                            .join("curso", JoinType.LEFT).join("usuario", JoinType.LEFT).get("id"), coordenacaoId)
+            );
         }
     }
 }

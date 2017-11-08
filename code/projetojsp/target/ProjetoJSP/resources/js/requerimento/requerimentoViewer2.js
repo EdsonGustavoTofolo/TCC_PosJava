@@ -85,7 +85,7 @@ function visualizarRequerimento(requerimentoId, element) {
         '</div>';
 
         $(element).html('')
-            .append('<a id="linkOpenModalReq" class="hidden" data-toggle="modal" href="index.jsp#requerimentoViewer"></a>')
+            //.append('<a id="linkOpenModalReq" class="hidden" data-toggle="modal" href="index.jsp#requerimentoViewer"></a>')
             .append(requerimentoHtml);
 
         if (requerimento.motivo == 5 || requerimento.motivo == 15 || requerimento.motivo == 17) {
@@ -140,7 +140,9 @@ function visualizarRequerimento(requerimentoId, element) {
             container: "body"
         });
 
-        $("#linkOpenModalReq").click();
+        // $("#linkOpenModalReq").click();
+
+        $("#requerimentoViewer").modal('show');
 
         if (requerimento.motivo == 21) {
             $('.modal-dialog').width(1200);

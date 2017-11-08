@@ -32,6 +32,8 @@ function changeStatus(element, status, requerimentoId, successAjaxCallback, hide
 
     $("#linkOpenModalObs").click(); // Abre o modal com o campo de Deferido e a Observação
 
+    // $("#obsViewer").modal('show');
+
     $("#deferido").select2();
 
     var ok = false;

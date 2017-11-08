@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.web.handler;
 
+import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
@@ -130,6 +131,8 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
         Long professorId = null;
         Long coordenadorId = null;
 
+        Specification<Requerimento> requerimentoSpecification = null;
+
         Usuario usuario = ControllersUtil.getLoggedUser();
         for (Permissao permissao : usuario.getPermissoes()) {
             if (permissao.getPermissao().equals(Permissao.ROLE_ALUNO)) {//se for do tipo aluno, retorna somente os requerimentos dele
@@ -137,6 +140,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
                 break;
             } else if (permissao.getPermissao().equals(Permissao.ROLE_PROFESSOR)) {
                 professorId = usuario.getId();
+                requerimentoSpecification = Specification.where(RequerimentoSpecification.withProfessorId(professorId)).or(RequerimentoSpecification.withMotivo(MotivoRequerimentoConsts.CONVALIDACAO));
                 break;
             } else if (permissao.getPermissao().equals(Permissao.ROLE_COORDENACAO)) {
                 coordenadorId = usuario.getId();
@@ -144,7 +148,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             }
         }
         return Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
-                .and(RequerimentoSpecification.withProfessorId(professorId))
+                .and(requerimentoSpecification)
                 .and(RequerimentoSpecification.withCoordenacaoId(coordenadorId));
     }
 }

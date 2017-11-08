@@ -38,7 +38,7 @@
         <script type="text/javascript" src="<c:url value="/resources/js/dropzone/dropzone.js"/> "></script>
     </jsp:attribute>
     <jsp:body>
-        <sec:authorize access="hasAnyRole('COORDENACAO', 'DERAC')">
+        <sec:authorize access="hasAnyRole('COORDENACAO', 'DERAC', 'PROFESSOR')">
             <c:set value="disabled" var="disabledFields" scope="page" />
         </sec:authorize>
         <div class="container-fluid">
@@ -144,7 +144,7 @@
                                             <th class="ui-th-column ui-th-ltr" colspan="4">CURSADA EM OUTRO CURSO/INSTITUIÇÃO</th>
                                             <th class="ui-th-column ui-th-ltr" colspan="2">MÉDIA PONDERADA</th>
                                             <th class="ui-th-column ui-th-ltr" colspan="1">DISPENSADO</th>
-                                            <sec:authorize access="hasAnyRole('ALUNO', 'PROFESSOR')">
+                                            <sec:authorize access="hasAnyRole('ALUNO', 'PROFESSOR', 'COORDENACAO')">
                                                 <th class="ui-th-column ui-th-ltr" colspan="1" rowspan="2" width="65px">AÇÕES</th>
                                             </sec:authorize>
                                         </tr>
@@ -163,9 +163,9 @@
                                     <c:choose>
                                         <c:when test="${requerimento.convalidacoes.size() > 0}">
                                             <c:forEach items="${requerimento.convalidacoes}" var="convalidacao">
-                                                <tr class="itemConvalidacao edited">
+                                                <tr class="itemConvalidacao edited" id="itemConvalidacao${convalidacao.id}">
                                                     <td class="disciplinaUtfpr">
-                                                        <select name="disciplinaUtfpr${convalidacao.id}" class="form-control">
+                                                        <select name="disciplinaUtfpr${convalidacao.id}" class="form-control" ${disabledFields}>
                                                             <c:forEach items="${disciplinas}" var="disciplina">
                                                                 <option value="${disciplina.id}"
                                                                     ${requerimento.motivo == 21 && disciplina.id == convalidacao.disciplinaUtfpr.id ? 'selected="selected"' : ''}>
@@ -175,30 +175,30 @@
                                                         </select>
                                                     </td>
                                                     <td class="disciplinaConvalidacao">
-                                                        <input name="disciplinaConvalidacao${convalidacao.id}" value="${convalidacao.disciplinaConvalidacao}" type="text" class="form-control" />
+                                                        <input name="disciplinaConvalidacao${convalidacao.id}" value="${convalidacao.disciplinaConvalidacao}" ${disabledFields} type="text" class="form-control" />
                                                     </td>
                                                     <td class="cargaHoraria">
-                                                        <input name="cargaHoraria${convalidacao.id}" value="${convalidacao.cargaHoraria}" type="text" class="form-control" />
+                                                        <input name="cargaHoraria${convalidacao.id}" value="${convalidacao.cargaHoraria}" ${disabledFields} type="text" class="form-control" />
                                                     </td>
                                                     <td class="nota">
-                                                        <input name="nota${convalidacao.id}" value="${convalidacao.nota}" type="text" class="form-control" />
+                                                        <input name="nota${convalidacao.id}" value="${convalidacao.nota}" ${disabledFields} type="text" class="form-control" />
                                                     </td>
                                                     <td class="frequencia">
-                                                        <input name="frequencia${convalidacao.id}" value="${convalidacao.frequencia}" type="text" class="form-control" />
+                                                        <input name="frequencia${convalidacao.id}" value="${convalidacao.frequencia}" ${disabledFields} type="text" class="form-control" />
                                                     </td>
                                                     <td class="notaFinal">
-                                                        <input name="notaFinal${convalidacao.id}" value="${convalidacao.notaFinal}" type="text" class="form-control" />
+                                                        <input name="notaFinal${convalidacao.id}" value="${convalidacao.notaFinal}" ${disabledFields} type="text" class="form-control" />
                                                     </td>
                                                     <td class="freqFinal">
-                                                        <input name="freqFinal${convalidacao.id}" value="${convalidacao.freqFinal}" type="text" class="form-control" />
+                                                        <input name="freqFinal${convalidacao.id}" value="${convalidacao.freqFinal}" ${disabledFields} type="text" class="form-control" />
                                                     </td>
                                                     <td class="dispensado">
-                                                        <select class="form-control">
+                                                        <select class="form-control" ${disabledFields}>
                                                             <option value="true" ${convalidacao.dispensado ? 'selected="selected"' : ''}>Sim</option>
                                                             <option value="false" ${not convalidacao.dispensado ? 'selected="selected"' : ''}>Não</option>
                                                         </select>
                                                     </td>
-                                                    <sec:authorize access="hasAnyRole('ALUNO', 'PROFESSOR')">
+                                                    <sec:authorize access="hasAnyRole('ALUNO', 'PROFESSOR', 'COORDENACAO')">
                                                         <td>
                                                             <div class="acoes">
                                                                 <sec:authorize access="hasRole('ALUNO')">
@@ -212,8 +212,30 @@
                                                                     </c:if>
                                                                 </sec:authorize>
                                                                 <sec:authorize access="hasRole('PROFESSOR')">
-                                                                    <div title="Parecer" onclick="parecerItemConvalidacao(this);" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
+                                                                    <div title="Parecer" onclick="parecerItemConvalidacao(${convalidacao.id});" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
                                                                         <span class="fa fa-edit"></span>
+                                                                    </div>
+                                                                </sec:authorize>
+                                                                <sec:authorize access="hasRole('COORDENACAO')">
+                                                                    <div title="${convalidacao.professor == null ? 'Definir professor' : ''}"
+                                                                         data-toggle="tooltip"
+                                                                         data-placement="left"
+                                                                         data-original-title="${convalidacao.professor != null ? convalidacao.professor.nome : ''}"
+                                                                         id="iconItemConvalidacao${convalidacao.id}"
+                                                                         onclick="definirProfessorItemConvalidacao(${convalidacao.id}, ${convalidacao.professor.id});"
+                                                                         class="ui-pg-div ui-inline-del"
+                                                                         style="float: left;cursor: pointer;">
+                                                                        <c:choose>
+                                                                            <c:when test="${convalidacao.professor != null}">
+                                                                                <span class="fa-stack fa-lg">
+                                                                                  <i class="fa fa-user"></i>
+                                                                                  <i class="fa fa-pencil-square-o fa-stack-1x"></i>
+                                                                                </span>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <span class="fa fa-user-plus"></span>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
                                                                     </div>
                                                                 </sec:authorize>
                                                             </div>
@@ -248,6 +270,30 @@
                                     </c:choose>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                        <div aria-hidden="true" aria-labelledby="escolherProfessorModalLbl" role="dialog" tabindex="-1" id="escolherProfessorModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Escolher professor</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Escolha o professor para atribuí-lo ao item da convalidação:</p>
+                                        <select id="professorItemConvalidacao" name="professorItemConvalidacao" class="form-control">
+                                            <c:forEach items="${professores}" var="professor">
+                                                <option value="${professor.id}">
+                                                        ${professor.nome}
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                                        <button id="btnSalvarProfessorItemConvalidacao" class="btn btn-primary" type="button">Salvar</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -298,9 +344,6 @@
                 </frm:form>
             </div>
         </div>
-
-        <sec:authorize access="not hasRole('ALUNO')">
-            <div id="requerimentoObs"></div>
-        </sec:authorize>
+        <div id="requerimentoObs"></div>
     </jsp:body>
 </layout:template>
