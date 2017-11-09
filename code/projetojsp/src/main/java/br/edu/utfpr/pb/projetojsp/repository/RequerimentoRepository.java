@@ -18,4 +18,7 @@ public interface RequerimentoRepository extends JpaRepository<Requerimento, Long
     @Query(value = "select distinct r from Requerimento r join RequerimentoDisciplina rd on rd.requerimento.id=r.id join Disciplina d on" +
             " d.id=rd.disciplina.id join Curso c on c.id=d.curso.id join Usuario u on u.id=c.usuario.id where u.id=?1 and r.status=?2")
     List<Requerimento> findAllToCoordenacao(Long coordenacaoId, StatusRequerimentoEnum status);
+
+    @Query(value = "select distinct r from Requerimento r join RequerimentoConvalidacao c on c.requerimento.id=r.id join Usuario u on u.id=c.professor.id where u.id=?1")
+    List<Requerimento> findAllToProfessor(Long professorId);
 }

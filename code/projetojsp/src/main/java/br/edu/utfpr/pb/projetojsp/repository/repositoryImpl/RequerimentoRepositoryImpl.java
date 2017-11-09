@@ -23,7 +23,7 @@ public class RequerimentoRepositoryImpl {
     @PersistenceContext
     private EntityManager em;
 
-    public Page<Requerimento> findAllToCoordenacao(Specification<Requerimento> specs, PageRequest pageable) {
+    public Page<Requerimento> findAllWithDistinct(Specification<Requerimento> specs, PageRequest pageable) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<Requerimento> requerimentoCriteriaQuery = criteriaBuilder.createQuery(Requerimento.class);
         Root<Requerimento> requerimentoRoot = requerimentoCriteriaQuery.distinct(true).from(Requerimento.class);

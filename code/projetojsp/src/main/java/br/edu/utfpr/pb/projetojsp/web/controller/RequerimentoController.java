@@ -145,11 +145,14 @@ public class RequerimentoController {
         if (Objects.nonNull(requerimento)) {
             Boolean hasRolesSuper = ControllersUtil.hasLoggedUserAnyRole("ROLE_DERAC", "ROLE_COORDENACAO", "ROLE_PROFESSOR");
 
+            Usuario loggedUser = ControllersUtil.getLoggedUser();
+
             //Só pode alterar requerimento do usuário que criou e que o status esteja em falta de documentos ou aguardando derac OU o não é ALUNO
             // essa validação é válida pois algum usuário pode
             //editar a URL e informar um id aleatório
+
             if (hasRolesSuper ||
-                    (requerimento.getUsuario().equals(ControllersUtil.getLoggedUser()) && requerimento.getStatus().equals(StatusRequerimentoEnum.EM_ABERTO))) {
+                    (requerimento.getUsuario().equals(loggedUser) && requerimento.getStatus().equals(StatusRequerimentoEnum.EM_ABERTO))) {
 
                 if (hasRolesSuper) {
                     model.addAttribute("statuses", RequerimentoControllerUtil.getStatuses());
@@ -186,13 +189,15 @@ public class RequerimentoController {
                     model.addAttribute("disciplinas", disciplinaRepository.findByCursoId(cursoId));
                     if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
                         model.addAttribute("professores", usuarioRepository.findByTipo(TipoUsuarioEnum.PROFESSOR));
+                    } else if (ControllersUtil.hasLoggedUserRole("ROLE_PROFESSOR")) {
+                        //exibe somente as disciplinas as quais o professor está vinculado para dar o parecer
+                        requerimento.getConvalidacoes().removeIf(i -> Objects.isNull(i.getProfessor()) || i.getProfessor().getId() != loggedUser.getId());
                     }
                 } else {
                     if (hasRolesSuper) { //se nào for o aluno o usuário logado, pega o id do curso do usuário que originou o requerimento
                         model.addAttribute("cursoId", cursoRepository.findById(requerimento.getUsuario().getCurso().getId()).get().getId());
                     } else {
-                        Usuario usuario = ControllersUtil.getLoggedUser();
-                        model.addAttribute("cursoId", usuario.getCurso().getId());
+                        model.addAttribute("cursoId", loggedUser.getCurso().getId());
                     }
                 }
                 if (hasRolesSuper) {
@@ -442,7 +447,7 @@ public class RequerimentoController {
     @GetMapping(value = "/findToProfessor")
     @ResponseBody
     public List<Requerimento> findToProfessor() {
-        List<Requerimento> requerimentos = null;
+        List<Requerimento> requerimentos = requerimentoRepository.findAllToProfessor(ControllersUtil.getLoggedUser().getId());
         return requerimentos;
     }
 

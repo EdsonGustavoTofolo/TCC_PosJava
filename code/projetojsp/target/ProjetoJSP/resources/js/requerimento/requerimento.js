@@ -609,6 +609,7 @@ function definirProfessorItemConvalidacao(itemConvalidacaoId, professorId) {
     professorId = professorId || 0;
 
     $("#escolherProfessorModal").modal('show');
+    //setado o dropdownParent conforme issue: <https://github.com/select2/select2/issues/3007> e verificado a solucao em: <https://select2.org/dropdown>
     $("#professorItemConvalidacao").select2({dropdownParent: $("#escolherProfessorModal")});
     $("#btnSalvarProfessorItemConvalidacao").click(function () {
         var professorIdSelected = $("#professorItemConvalidacao").select2("val");

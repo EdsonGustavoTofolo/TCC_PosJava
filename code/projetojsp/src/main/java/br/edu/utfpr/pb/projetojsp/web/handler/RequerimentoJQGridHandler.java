@@ -1,6 +1,5 @@
 package br.edu.utfpr.pb.projetojsp.web.handler;
 
-import br.edu.utfpr.pb.projetojsp.enumeration.MotivoRequerimentoConsts;
 import br.edu.utfpr.pb.projetojsp.enumeration.StatusRequerimentoEnum;
 import br.edu.utfpr.pb.projetojsp.model.Permissao;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
@@ -78,7 +77,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             }
 
             if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
-                page = repositoryImpl.findAllToCoordenacao(getCommonSpecification()
+                page = repositoryImpl.findAllWithDistinct(getCommonSpecification()
                         .and(RequerimentoSpecification.withAlunoNome(aluno))
                         .and(RequerimentoSpecification.withId(id))
                         .and(RequerimentoSpecification.withData(data))
@@ -95,8 +94,8 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
                         .and(RequerimentoSpecification.withStatus(status)), pageRequest);
             }
         } else {
-            if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
-                page = repositoryImpl.findAllToCoordenacao(getCommonSpecification(), pageRequest);
+            if (ControllersUtil.hasLoggedUserAnyRole("ROLE_COORDENACAO", "ROLE_PROFESSOR")) {
+                page = repositoryImpl.findAllWithDistinct(getCommonSpecification(), pageRequest);
             } else {
                 page = repository.findAll(getCommonSpecification(), pageRequest);
             }
@@ -117,7 +116,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
 
     @Override
     public long getTotalRecords() {
-        if (ControllersUtil.hasLoggedUserRole("ROLE_COORDENACAO")) {
+        if (ControllersUtil.hasLoggedUserAnyRole("ROLE_COORDENACAO", "ROLE_PROFESSOR")) {
             return repositoryImpl.count(getCommonSpecification());
         } else if (ControllersUtil.hasLoggedUserRole("ROLE_DERAC")) {
             return repository.count();
@@ -131,8 +130,6 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
         Long professorId = null;
         Long coordenadorId = null;
 
-        Specification<Requerimento> requerimentoSpecification = null;
-
         Usuario usuario = ControllersUtil.getLoggedUser();
         for (Permissao permissao : usuario.getPermissoes()) {
             if (permissao.getPermissao().equals(Permissao.ROLE_ALUNO)) {//se for do tipo aluno, retorna somente os requerimentos dele
@@ -140,7 +137,6 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
                 break;
             } else if (permissao.getPermissao().equals(Permissao.ROLE_PROFESSOR)) {
                 professorId = usuario.getId();
-                requerimentoSpecification = Specification.where(RequerimentoSpecification.withProfessorId(professorId)).or(RequerimentoSpecification.withMotivo(MotivoRequerimentoConsts.CONVALIDACAO));
                 break;
             } else if (permissao.getPermissao().equals(Permissao.ROLE_COORDENACAO)) {
                 coordenadorId = usuario.getId();
@@ -148,7 +144,7 @@ public class RequerimentoJQGridHandler extends JQGridHandler<Requerimento> {
             }
         }
         return Specification.where(RequerimentoSpecification.withUsuarioId(alunoId))
-                .and(requerimentoSpecification)
+                .and(RequerimentoSpecification.withProfessorId(professorId))
                 .and(RequerimentoSpecification.withCoordenacaoId(coordenadorId));
     }
 }

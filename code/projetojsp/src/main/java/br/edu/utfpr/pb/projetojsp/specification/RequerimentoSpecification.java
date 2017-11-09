@@ -71,8 +71,10 @@ public class RequerimentoSpecification {
         if (professorId == null) {
             return null;
         } else {
-            return (root, query, cb) -> cb.equal(root.join("disciplinas", JoinType.LEFT)
-                                                    .join("professor", JoinType.LEFT).get("id"), professorId);
+            return (root, query, cb) -> cb.or(
+                    cb.equal(root.join("disciplinas", JoinType.LEFT).join("professor", JoinType.LEFT).get("id"), professorId),
+                    cb.equal(root.join("convalidacoes", JoinType.LEFT).join("professor", JoinType.LEFT).get("id"), professorId)
+                    );
         }
     }
 

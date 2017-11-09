@@ -213,7 +213,7 @@
                                                                 </sec:authorize>
                                                                 <sec:authorize access="hasRole('PROFESSOR')">
                                                                     <div title="Parecer" onclick="parecerItemConvalidacao(${convalidacao.id});" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
-                                                                        <span class="fa fa-edit"></span>
+                                                                        <span class="fa fa-pencil-square-o"></span>
                                                                     </div>
                                                                 </sec:authorize>
                                                                 <sec:authorize access="hasRole('COORDENACAO')">
@@ -272,30 +272,32 @@
                                 </table>
                             </div>
                         </div>
-                        <div aria-hidden="true" aria-labelledby="escolherProfessorModalLbl" role="dialog" tabindex="-1" id="escolherProfessorModal" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title">Escolher professor</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Escolha o professor para atribuí-lo ao item da convalidação:</p>
-                                        <select id="professorItemConvalidacao" name="professorItemConvalidacao" class="form-control">
-                                            <c:forEach items="${professores}" var="professor">
-                                                <option value="${professor.id}">
-                                                        ${professor.nome}
-                                                </option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
-                                        <button id="btnSalvarProfessorItemConvalidacao" class="btn btn-primary" type="button">Salvar</button>
+                        <sec:authorize access="hasRole('COORDENACAO')">
+                            <div aria-hidden="true" aria-labelledby="escolherProfessorModalLbl" role="dialog" tabindex="-1" id="escolherProfessorModal" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">Escolher professor</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Escolha o professor para atribuí-lo ao item da convalidação:</p>
+                                            <select id="professorItemConvalidacao" name="professorItemConvalidacao" class="form-control">
+                                                <c:forEach items="${professores}" var="professor">
+                                                    <option value="${professor.id}">
+                                                            ${professor.nome}
+                                                    </option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                                            <button id="btnSalvarProfessorItemConvalidacao" class="btn btn-primary" type="button">Salvar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </sec:authorize>
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <label for="observacao">Observações:</label>
@@ -344,6 +346,8 @@
                 </frm:form>
             </div>
         </div>
-        <div id="requerimentoObs"></div>
+        <sec:authorize access="not hasRole('ALUNO')">
+            <div id="requerimentoObs"></div>
+        </sec:authorize>
     </jsp:body>
 </layout:template>

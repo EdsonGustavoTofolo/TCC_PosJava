@@ -91,7 +91,7 @@
             <sec:authorize access="hasRole('PROFESSOR')">
               urlRequerimentos = '/ProjetoJSP/requerimento/findToProfessor';
               boardColumns =  [
-                { text: "Aguardando Professor", dataField: "AGUARDANDO_PROFESSOR" },
+                { text: "Aguardando Professor", dataField: "AGUARDANDO_COORDENACAO" },
                 { text: "Finalizar", dataField: "FINALIZADO" }
               ];
             </sec:authorize>
