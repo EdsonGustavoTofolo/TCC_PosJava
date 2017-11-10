@@ -1,15 +1,15 @@
 /**
  * Created by Edson on 29/10/2017.
  */
-function changeStatus(element, status, requerimentoId, successAjaxCallback, hideModalCallback) {
+function createModalParecer(element, modalId, textareaId, title, labelObs) {
     $(element).html("")
-        .append('<a id="linkOpenModalObs" class="hidden" data-toggle="modal" href="requerimentoForm.jsp#obsViewer"></a>' +
-            '<div aria-hidden="true" aria-labelledby="obsDialog" role="dialog" tabindex="-1" id="obsViewer" class="modal fade">' +
+        .append(//'<a id="linkOpenModalObs" class="hidden" data-toggle="modal" href="requerimentoForm.jsp#obsViewer"></a>' +
+            '<div aria-hidden="true" aria-labelledby="obsDialog" role="dialog" tabindex="-1" id="'+modalId+'" class="modal fade">' +
             '<div class="modal-dialog">' +
             '<div class="modal-content">' +
             '<div class="modal-header">' +
             '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
-            '<h4 class="modal-title">Alteração do Status</h4>' +
+            '<h4 class="modal-title">' + title + '</h4>' +
             '</div>' +
             '<div class="modal-body">' +
             '<p>' +
@@ -18,21 +18,26 @@ function changeStatus(element, status, requerimentoId, successAjaxCallback, hide
             '<option value="true">Sim</option><option value="false">Não</option>' +
             '</select>' +
             '</p><p>' +
-            '<label for="textoObs">Observação:</label>' +
-            '<textarea id="textoObs" name="textoObs" class="form-control" rows="5"></textarea>' +
+            '<label for="'+textareaId+'">' + labelObs + '</label>' +
+            '<textarea id="'+textareaId+'" name="'+textareaId+'" class="form-control" rows="5"></textarea>' +
             '</p>' +
             '</div>' +
             '<div class="modal-footer">' +
             '<button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>' +
-            '<button id="confirmarObs" class="btn btn-primary" type="button">Confirmar</button>' +
+            '<button id="confirmar'+modalId+'" class="btn btn-primary" type="button">Confirmar</button>' +
             '</div>' +
             '</div>' +
             '</div>' +
             '</div>');
+}
 
-    $("#linkOpenModalObs").click(); // Abre o modal com o campo de Deferido e a Observação
+function changeStatus(element, status, requerimentoId, successAjaxCallback, hideModalCallback) {
 
-    // $("#obsViewer").modal('show');
+    createModalParecer(element, "obsViewer", "textoObs", "Alteração do Status", "Observação:");
+
+    //$("#linkOpenModalObs").click(); // Abre o modal com o campo de Deferido e a Observação
+
+    $("#obsViewer").modal('show');
 
     $("#deferido").select2();
 
@@ -40,7 +45,7 @@ function changeStatus(element, status, requerimentoId, successAjaxCallback, hide
 
     if (typeof(status) == "number") {
         var path = '/ProjetoJSP/requerimento/edit/' + requerimentoId + '/changeStatus/' + status;
-        $("#confirmarObs").click(function () {
+        $("#confirmarobsViewer").click(function () {
             swal({
                 title: 'Confirma a alteração do Status?',
                 text: "Esta ação não poderá ser desfeita!",

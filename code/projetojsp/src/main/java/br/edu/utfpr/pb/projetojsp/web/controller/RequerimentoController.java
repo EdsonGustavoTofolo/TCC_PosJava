@@ -103,6 +103,30 @@ public class RequerimentoController {
                 requerimentoObservacao);
     }
 
+    @Secured("ROLE_PROFESSOR")
+    @PutMapping(value = "/convalidacao/gravarParecer/", consumes = {"application/json"})
+    @ResponseBody
+    public String gravarParecer(@RequestBody RequerimentoConvalidacao itemConvalidacao) {
+        JSONObject retorno = new JSONObject();
+        try{
+            RequerimentoConvalidacao requerimentoConvalidacao = requerimentoConvalidacaoRepository.findById(itemConvalidacao.getId()).orElse(null);
+            if (Objects.nonNull(requerimentoConvalidacao)) {
+                requerimentoConvalidacao.setDeferido(itemConvalidacao.getDeferido());
+                requerimentoConvalidacao.setJustificativa(itemConvalidacao.getJustificativa());
+                requerimentoConvalidacaoRepository.save(requerimentoConvalidacao);
+                retorno.put("state", "OK");
+                retorno.put("message", "Parecer gravado com sucesso!");
+            } else {
+                retorno.put("state", "ERROR");
+                retorno.put("message", "Item da convalidação inexistente!");
+            }
+        }catch (Exception ex){
+            retorno.put("state", "ERROR");
+            retorno.put("message", "Falha ao gravar parecer!\n" + ex.getCause().getCause().getMessage());
+        }
+        return retorno.toString();
+    }
+
     @Secured("ROLE_COORDENACAO")
     @PutMapping(value = "/convalidacao/{convalidacaoId}/definirProfessor/{professorId}")
     @ResponseBody

@@ -346,8 +346,11 @@
                 </frm:form>
             </div>
         </div>
-        <sec:authorize access="not hasRole('ALUNO')">
+        <sec:authorize access="not hasAnyRole('ALUNO', 'PROFESSOR')">
             <div id="requerimentoObs"></div>
+        </sec:authorize>
+        <sec:authorize access="hasRole('PROFESSOR')">
+            <div id="parecer"></div>
         </sec:authorize>
     </jsp:body>
 </layout:template>

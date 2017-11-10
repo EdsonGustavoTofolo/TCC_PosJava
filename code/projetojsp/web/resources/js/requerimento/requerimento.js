@@ -602,7 +602,43 @@ function excluirItemConvalidacao(element) {
 }
 
 function parecerItemConvalidacao(itemConvalidacaoId) {
-
+    createModalParecer($("#parecer"), "paracerViewer", "justificativa", "Parecer", "Justificativa:");
+    $("#paracerViewer").modal('show');
+    $("#deferido").select2();
+    $("#confirmarparacerViewer").click(function () {
+        var justificativa = $("#justificativa").val();
+        var deferido = $("#deferido").select2("val");
+        var itemConvalidacao = {"id": itemConvalidacaoId, "justificativa": justificativa, "deferido": deferido};
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type : 'PUT',
+            url : '/ProjetoJSP/requerimento/convalidacao/gravarParecer/',
+            data: JSON.stringify(itemConvalidacao),
+            success : function(data) {
+                if (data.state == "OK"){
+                    swal({
+                        title : "Salvo!",
+                        text : data.message,
+                        type : "success",
+                        confirmButtonText : "Ok",
+                        showCancelButton : false,
+                        allowEscapeKey: false,
+                        allowOutsideClick: false,
+                    }).then(function () {
+                        $("#paracerViewer").modal('hide');
+                    }).catch(swal.noop); // esse catch evita erro no console do browser;
+                } else {
+                    swal("Falhou!", data.message, "error").catch(swal.noop); // esse catch evita erro no console do browser;
+                }
+            },//Fim success
+            error : function() {
+                swal("Erro!", "Falha ao gravar parecer.", "error").catch(swal.noop); // esse catch evita erro no console do browser;
+            }
+        }); //Fim ajax
+    });
 }
 
 function definirProfessorItemConvalidacao(itemConvalidacaoId, professorId) {
