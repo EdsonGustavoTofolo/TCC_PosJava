@@ -600,9 +600,7 @@ function excluirItemConvalidacao(element) {
         $(".acoes").first().find(".ui-inline-del").remove();
     }
 }
-
-function parecerItemConvalidacao(itemConvalidacaoId) {
-    createModalParecer($("#parecer"), "paracerViewer", "justificativa", "Parecer", "Justificativa:");
+function exibirParecerViewer(itemConvalidacaoId) {
     $("#paracerViewer").modal('show');
     $("#deferido").select2();
     $("#confirmarparacerViewer").click(function () {
@@ -629,6 +627,13 @@ function parecerItemConvalidacao(itemConvalidacaoId) {
                         allowEscapeKey: false,
                         allowOutsideClick: false,
                     }).then(function () {
+                        $acoes = $("#itemConvalidacao" + itemConvalidacaoId).find(".acoes");
+                        if ($acoes.find("#editParecer" + itemConvalidacaoId).hasClass("ui-inline-del")) {
+                            $acoes.find("#editParecer" + itemConvalidacaoId).removeClass("ui-inline-del").addClass("ui-inline-edit");
+                        }
+                        if ($acoes.find("#parecerConfirmado"+itemConvalidacaoId).length == 0) {
+                            $acoes.append("<div id='parecerConfirmado"+itemConvalidacaoId+"' class='ui-pg-div ui-inline-del' style='float:left;'><span class='fa fa-check text-success'></span></div>");
+                        }
                         $("#paracerViewer").modal('hide');
                     }).catch(swal.noop); // esse catch evita erro no console do browser;
                 } else {
@@ -640,6 +645,17 @@ function parecerItemConvalidacao(itemConvalidacaoId) {
             }
         }); //Fim ajax
     });
+}
+function parecerItemConvalidacao(itemConvalidacaoId) {
+    if ($("#itemConvalidacao" + itemConvalidacaoId).find(".acoes").find("#parecerConfirmado"+itemConvalidacaoId).length > 0) {
+        $.getJSON('/ProjetoJSP/requerimento/convalidacao/getParecer/', {"id": itemConvalidacaoId}, function (data) {
+            createModalParecer($("#parecer"), "paracerViewer", "justificativa", "Parecer", "Justificativa:", data);
+            exibirParecerViewer(itemConvalidacaoId);
+        });
+    } else {
+        createModalParecer($("#parecer"), "paracerViewer", "justificativa", "Parecer", "Justificativa:");
+        exibirParecerViewer(itemConvalidacaoId);
+    }
 }
 
 function definirProfessorItemConvalidacao(itemConvalidacaoId, professorId) {

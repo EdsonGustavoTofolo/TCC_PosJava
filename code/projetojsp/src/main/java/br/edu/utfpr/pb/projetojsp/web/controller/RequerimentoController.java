@@ -48,6 +48,8 @@ public class RequerimentoController {
     @Autowired
     private DisciplinaRepository disciplinaRepository;
     @Autowired
+    private ParecerConvalidacaoRepository parecerConvalidacaoRepository;
+    @Autowired
     private RequerimentoJQGridHandler requerimentoJQGridHandler;
     @Autowired
     private RequerimentoDisciplinaJQGridHandler requerimentoDisciplinaJQGridHandler;
@@ -111,8 +113,13 @@ public class RequerimentoController {
         try{
             RequerimentoConvalidacao requerimentoConvalidacao = requerimentoConvalidacaoRepository.findById(itemConvalidacao.getId()).orElse(null);
             if (Objects.nonNull(requerimentoConvalidacao)) {
-                itemConvalidacao.getParecer().setConvalidacao(requerimentoConvalidacao);
-                requerimentoConvalidacao.setParecer(itemConvalidacao.getParecer());
+                if (Objects.isNull(requerimentoConvalidacao.getParecer())) {
+                    itemConvalidacao.getParecer().setConvalidacao(requerimentoConvalidacao);
+                    requerimentoConvalidacao.setParecer(itemConvalidacao.getParecer());
+                } else {
+                    requerimentoConvalidacao.getParecer().setDeferido(itemConvalidacao.getParecer().getDeferido());
+                    requerimentoConvalidacao.getParecer().setJustificativa(itemConvalidacao.getParecer().getJustificativa());
+                }
                 requerimentoConvalidacaoRepository.save(requerimentoConvalidacao);
                 retorno.put("state", "OK");
                 retorno.put("message", "Parecer gravado com sucesso!");
@@ -481,5 +488,13 @@ public class RequerimentoController {
         Long id = Long.valueOf(request.getParameter("id"));
         Requerimento requerimento = requerimentoRepository.findById(id).get();
         return requerimento;
+    }
+
+    @GetMapping(value = "/convalidacao/getParecer/")
+    @ResponseBody
+    public ParecerConvalidacao getParecer(HttpServletRequest request) {
+        Long id = Long.valueOf(request.getParameter("id"));
+        ParecerConvalidacao parecer = parecerConvalidacaoRepository.findByConvalidacaoId(id);
+        return parecer;
     }
 }

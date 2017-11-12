@@ -1,7 +1,13 @@
 /**
  * Created by Edson on 29/10/2017.
  */
-function createModalParecer(element, modalId, textareaId, title, labelObs) {
+function createModalParecer(element, modalId, textareaId, title, labelObs, parecer) {
+    var justificativa = "";
+    var deferido = false;
+    if (parecer != undefined) {
+        justificativa = parecer.justificativa;
+        deferido = parecer.deferido;
+    }
     $(element).html("")
         .append(//'<a id="linkOpenModalObs" class="hidden" data-toggle="modal" href="requerimentoForm.jsp#obsViewer"></a>' +
             '<div aria-hidden="true" aria-labelledby="obsDialog" role="dialog" tabindex="-1" id="'+modalId+'" class="modal fade">' +
@@ -15,11 +21,12 @@ function createModalParecer(element, modalId, textareaId, title, labelObs) {
             '<p>' +
             '<label for="deferido">Deferido:</label>' +
             '<select id="deferido" name="deferido" class="form-control">' +
-            '<option value="true">Sim</option><option value="false">Não</option>' +
+            '<option value="true" ' + (deferido ? 'selected="selected"' : '') + '>Sim</option>' +
+            '<option value="false" ' + (!deferido ? 'selected="selected"' : '') + '>Não</option>' +
             '</select>' +
             '</p><p>' +
             '<label for="'+textareaId+'">' + labelObs + '</label>' +
-            '<textarea id="'+textareaId+'" name="'+textareaId+'" class="form-control" rows="5"></textarea>' +
+            '<textarea id="'+textareaId+'" name="'+textareaId+'" class="form-control" rows="5">'+justificativa+'</textarea>' +
             '</p>' +
             '</div>' +
             '<div class="modal-footer">' +

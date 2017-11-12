@@ -27,7 +27,7 @@ public class ParecerConvalidacao implements Serializable {
     @Column(name = "data_par", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private Date data;
     @OneToOne
-    @JoinColumn(name = "convalidacao_id_par", referencedColumnName = "id_con", nullable = false)
+    @JoinColumn(name = "convalidacao_id_par", referencedColumnName = "id_con", nullable = false, unique = true)
     private RequerimentoConvalidacao convalidacao;
 
     public ParecerConvalidacao() {

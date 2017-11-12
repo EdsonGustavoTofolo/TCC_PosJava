@@ -212,9 +212,16 @@
                                                                     </c:if>
                                                                 </sec:authorize>
                                                                 <sec:authorize access="hasRole('PROFESSOR')">
-                                                                    <div title="Parecer" onclick="parecerItemConvalidacao(${convalidacao.id});" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
+                                                                    <div id="editParecer${convalidacao.id}" title="Parecer" onclick="parecerItemConvalidacao(${convalidacao.id});"
+                                                                         class="ui-pg-div ${convalidacao.parecer == null ? 'ui-inline-del' : 'ui-inline-edit'}"
+                                                                         style="float: left;cursor: pointer;">
                                                                         <span class="fa fa-pencil-square-o"></span>
                                                                     </div>
+                                                                    <c:if test="${convalidacao.parecer != null}">
+                                                                        <div id="parecerConfirmado${convalidacao.id}" class="ui-pg-div ui-inline-del" style="float: left;cursor: pointer;">
+                                                                            <span class='fa fa-check text-success'></span>
+                                                                        </div>
+                                                                    </c:if>
                                                                 </sec:authorize>
                                                                 <sec:authorize access="hasRole('COORDENACAO')">
                                                                     <div title="${convalidacao.professor == null ? 'Definir professor' : ''}"
