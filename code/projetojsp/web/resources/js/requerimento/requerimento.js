@@ -608,7 +608,8 @@ function parecerItemConvalidacao(itemConvalidacaoId) {
     $("#confirmarparacerViewer").click(function () {
         var justificativa = $("#justificativa").val();
         var deferido = $("#deferido").select2("val");
-        var itemConvalidacao = {"id": itemConvalidacaoId, "justificativa": justificativa, "deferido": deferido};
+        var parecer = {"justificativa": justificativa, "deferido": deferido};
+        var itemConvalidacao = {"id": itemConvalidacaoId, "parecer": parecer};
         $.ajax({
             headers: {
                 'Accept': 'application/json',

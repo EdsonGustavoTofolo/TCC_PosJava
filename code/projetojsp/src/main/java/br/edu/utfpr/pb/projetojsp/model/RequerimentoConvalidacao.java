@@ -32,10 +32,6 @@ public class RequerimentoConvalidacao implements Serializable {
     private Double freqFinal;
     @Column(name = "dispensado_con", nullable = false)
     private Boolean dispensado;
-    @Column(name = "deferido_con")
-    private Boolean deferido;
-    @Column(name = "justificativa_con")
-    private String justificativa;
     @ManyToOne()
     @JoinColumn(name = "disciplina_utfpr_id_con", referencedColumnName = "id_dis", nullable = false)
     private Disciplina disciplinaUtfpr;
@@ -45,8 +41,26 @@ public class RequerimentoConvalidacao implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "requerimento_id_con", referencedColumnName = "id_req", nullable = false)
     private Requerimento requerimento;
+    @OneToOne(mappedBy = "convalidacao", targetEntity = ParecerConvalidacao.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private ParecerConvalidacao parecer;
 
     public RequerimentoConvalidacao() {
+    }
+
+    public RequerimentoConvalidacao(String disciplinaConvalidacao, Integer cargaHoraria, Double nota, Double frequencia,
+                                    Double notaFinal, Double freqFinal, Boolean dispensado, Disciplina disciplinaUtfpr,
+                                    Usuario professor, Requerimento requerimento, ParecerConvalidacao parecer) {
+        this.disciplinaConvalidacao = disciplinaConvalidacao;
+        this.cargaHoraria = cargaHoraria;
+        this.nota = nota;
+        this.frequencia = frequencia;
+        this.notaFinal = notaFinal;
+        this.freqFinal = freqFinal;
+        this.dispensado = dispensado;
+        this.disciplinaUtfpr = disciplinaUtfpr;
+        this.professor = professor;
+        this.requerimento = requerimento;
+        this.parecer = parecer;
     }
 
     public Long getId() {
@@ -113,22 +127,6 @@ public class RequerimentoConvalidacao implements Serializable {
         this.dispensado = dispensado;
     }
 
-    public Boolean getDeferido() {
-        return deferido;
-    }
-
-    public void setDeferido(Boolean deferido) {
-        this.deferido = deferido;
-    }
-
-    public String getJustificativa() {
-        return justificativa;
-    }
-
-    public void setJustificativa(String justificativa) {
-        this.justificativa = justificativa;
-    }
-
     public Disciplina getDisciplinaUtfpr() {
         return disciplinaUtfpr;
     }
@@ -151,6 +149,14 @@ public class RequerimentoConvalidacao implements Serializable {
 
     public void setRequerimento(Requerimento requerimento) {
         this.requerimento = requerimento;
+    }
+
+    public ParecerConvalidacao getParecer() {
+        return parecer;
+    }
+
+    public void setParecer(ParecerConvalidacao parecer) {
+        this.parecer = parecer;
     }
 
     @Override

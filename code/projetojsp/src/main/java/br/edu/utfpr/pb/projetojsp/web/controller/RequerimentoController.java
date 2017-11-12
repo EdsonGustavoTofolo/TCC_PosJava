@@ -111,8 +111,8 @@ public class RequerimentoController {
         try{
             RequerimentoConvalidacao requerimentoConvalidacao = requerimentoConvalidacaoRepository.findById(itemConvalidacao.getId()).orElse(null);
             if (Objects.nonNull(requerimentoConvalidacao)) {
-                requerimentoConvalidacao.setDeferido(itemConvalidacao.getDeferido());
-                requerimentoConvalidacao.setJustificativa(itemConvalidacao.getJustificativa());
+                itemConvalidacao.getParecer().setConvalidacao(requerimentoConvalidacao);
+                requerimentoConvalidacao.setParecer(itemConvalidacao.getParecer());
                 requerimentoConvalidacaoRepository.save(requerimentoConvalidacao);
                 retorno.put("state", "OK");
                 retorno.put("message", "Parecer gravado com sucesso!");
