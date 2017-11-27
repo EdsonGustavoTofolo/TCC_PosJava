@@ -64,7 +64,7 @@
               urlRequerimentos = '/ProjetoJSP/requerimento/findToAluno';
               boardColumns =  [
                   { text: "Cancelado", dataField: "CANCELADO" },
-                  { text: "Enviar DERAC", dataField: "EM_ABERTO" }
+                  { text: "Em aberto", dataField: "EM_ABERTO" }
               ];
             </sec:authorize>
             <sec:authorize access="hasRole('COORDENACAO')">

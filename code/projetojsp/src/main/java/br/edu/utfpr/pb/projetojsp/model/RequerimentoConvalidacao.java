@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * Created by Edson on 04/11/2017.
  */
-@JsonIgnoreProperties(value = { "requerimento" })
+@JsonIgnoreProperties(value = { "requerimento", "parecer" })//TODO verificar o pq que o parecer da problema
 @Entity
 @Table(name = "requerimentos_convalidacoes")
 public class RequerimentoConvalidacao implements Serializable {

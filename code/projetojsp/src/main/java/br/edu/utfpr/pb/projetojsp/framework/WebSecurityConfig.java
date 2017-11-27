@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Created by Edson on 28/05/2017.
+ *
  */
 
 @EnableWebSecurity
