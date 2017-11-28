@@ -70,7 +70,7 @@ function changeStatus(element, status, requerimentoId, successAjaxCallback, hide
             }).catch(swal.noop); // esse catch evita erro no console do browser
         });
     } else {
-        $("#confirmarObs").click(function () {
+        $("#confirmarobsViewer").click(function () {
             ok = true;
             var path = '/ProjetoJSP/requerimento/edit/' + requerimentoId + '/changeStatusKanban/' + status;
             reqAJAX(path, successAjaxCallback);
