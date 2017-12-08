@@ -664,7 +664,7 @@ function definirProfessorItemConvalidacao(itemConvalidacaoId, professorId) {
     $("#escolherProfessorModal").modal('show');
     //setado o dropdownParent conforme issue: <https://github.com/select2/select2/issues/3007> e verificado a solucao em: <https://select2.org/dropdown>
     $("#professorItemConvalidacao").select2({dropdownParent: $("#escolherProfessorModal")});
-    $("#btnSalvarProfessorItemConvalidacao").click(function () {
+    $("#btnSalvarProfessorItemConvalidacao").unbind().click(function () {
         var professorIdSelected = $("#professorItemConvalidacao").select2("val");
         $.ajax({
             type : 'PUT',
@@ -690,10 +690,12 @@ function definirProfessorItemConvalidacao(itemConvalidacaoId, professorId) {
                         $("#escolherProfessorModal").modal('hide');
                     }).catch(swal.noop); // esse catch evita erro no console do browser;
                 } else {
+                    $("#btnSalvarProfessorItemConvalidacao").unbind("click");
                     swal("Falhou!", data.message, "error").catch(swal.noop); // esse catch evita erro no console do browser;
                 }
             },//Fim success
             error : function() {
+                $("#btnSalvarProfessorItemConvalidacao").unbind("click");
                 swal("Erro!", "Falha ao definir professor.", "error").catch(swal.noop); // esse catch evita erro no console do browser;
             }
         }); //Fim ajax

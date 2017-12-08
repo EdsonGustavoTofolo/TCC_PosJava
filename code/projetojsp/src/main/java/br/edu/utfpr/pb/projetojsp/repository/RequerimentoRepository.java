@@ -15,8 +15,6 @@ import java.util.List;
 public interface RequerimentoRepository extends JpaRepository<Requerimento, Long>, JpaSpecificationExecutor<Requerimento> {
     List<Requerimento> findByStatus(StatusRequerimentoEnum status);
 
-//    @Query(value = "select distinct r from Requerimento r join RequerimentoDisciplina rd on rd.requerimento.id=r.id join Disciplina d on" +
-//            " d.id=rd.disciplina.id join Curso c on c.id=d.curso.id join Usuario u on u.id=c.usuario.id where u.id=?1 and r.status=?2")
     @Query(value = "select distinct r from Requerimento r " +
             "left join RequerimentoDisciplina rd on rd.requerimento.id=r.id " +
             "left join RequerimentoConvalidacao rc on rc.requerimento.id=r.id " +
