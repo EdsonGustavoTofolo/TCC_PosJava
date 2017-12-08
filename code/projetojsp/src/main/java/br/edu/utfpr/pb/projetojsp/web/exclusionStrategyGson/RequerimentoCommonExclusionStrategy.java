@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.projetojsp.web.exclusionStrategyGson;
 
+import br.edu.utfpr.pb.projetojsp.model.ParecerConvalidacao;
 import br.edu.utfpr.pb.projetojsp.model.Requerimento;
 import br.edu.utfpr.pb.projetojsp.model.Usuario;
 import com.google.gson.ExclusionStrategy;
@@ -11,7 +12,8 @@ import com.google.gson.FieldAttributes;
 public class RequerimentoCommonExclusionStrategy implements ExclusionStrategy {
     @Override
     public boolean shouldSkipField(FieldAttributes fieldAttributes) {
-        return Usuario.class.equals(fieldAttributes.getDeclaringClass()) && fieldAttributes.getName().equals("curso");
+        return Usuario.class.equals(fieldAttributes.getDeclaringClass()) && fieldAttributes.getName().equals("curso") ||
+                ParecerConvalidacao.class.equals(fieldAttributes.getDeclaringClass());
     }
 
     @Override
